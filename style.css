@@ -812,3 +812,11 @@ body{overflow-x:clip}
 /* KDS uses the same origin-then-scenario composition as the Kiosk case. */
 .kds-case .story-section#overview .kds-case-scenario{margin:55px 0 52px;}
 .kds-case .story-section#overview .kds-case-scenario img{border-radius:0 85px 0 0;}
+
+/* Make the selected case-study chapter unmistakably filled, even while hovered. */
+body .case-layout .side-index a[aria-current="location"],
+body .case-layout .side-index a.is-active,
+body .case-layout .side-index a[aria-current="location"]:is(:hover,:focus-visible,:active),
+body .case-layout .side-index a.is-active:is(:hover,:focus-visible,:active){background-color:#171717;color:#fff;border-color:#171717;box-shadow:inset 0 0 0 1.5px #171717;}
+body .case-layout .side-index a[aria-current="location"] b,
+body .case-layout .side-index a.is-active b{color:#fff;}
