@@ -224,13 +224,13 @@ function updateScrollSignature(){
   const start=hold?hold.getBoundingClientRect().top+window.scrollY:0;
   const travel=hold&&stage?Math.max(1,hold.offsetHeight-stage.offsetHeight):1;
   const progress=reduced?1:Math.min(1,Math.max(0,(window.scrollY-start)/travel));
-  if(stage)stage.style.setProperty('--about-drift',`${(-progress*32).toFixed(1)}px`);
+  if(stage)stage.style.setProperty('--about-drift',`${(-progress*12).toFixed(1)}px`);
   const portraitFrame=stage?.querySelector('.intro-photo-frame');
   const eased=progress*progress*(3-2*progress);
   // The orange lettering stays anchored. Desktop image begins lower and
   // settles slightly above center; mobile image remains stationary.
   if(portraitFrame){
-    portraitFrame.style.setProperty('--portrait-rise',`${(52-eased*130).toFixed(1)}px`);
+    portraitFrame.style.setProperty('--portrait-rise',`${(82-eased*107).toFixed(1)}px`);
   }
   const drawn=progress*Number(signature.dataset.totalLength||0);
   for(const path of paths){const length=Number(path.dataset.length);const start=Number(path.dataset.start);path.style.strokeDashoffset=Math.max(0,Math.min(length,length-(drawn-start)));}
