@@ -42,8 +42,8 @@ body{overflow-x:clip}
    element silently scrolls past instead of holding at the top. */
 .home-mode .work-hold #work{position:sticky;top:82px;height:calc(100svh - 82px);min-height:0;padding-top:clamp(14px,2.5svh,26px);padding-bottom:clamp(12px,2svh,20px);display:flex;flex-direction:column;justify-content:center}
 .home-mode .work-hold .selected-head{position:relative;padding:0;margin-bottom:clamp(14px,2.5svh,28px)}
-.home-mode .work-hold .identity-works .work-visual{height:clamp(180px,34svh,300px)}
-@media(max-width:900px){.home-mode .work-hold{padding-bottom:24px}.home-mode .work-hold #work{position:relative;top:auto;height:auto;padding:60px 0 28px;display:block}.home-mode .work-hold .selected-head{padding:12px 0 16px;margin-bottom:20px}.home-mode .work-hold .identity-works .work-visual{height:300px}}
+.home-mode .work-hold .identity-works .work-visual,.home-mode .work-hold .identity-works .work-card:first-child .work-visual{height:clamp(180px,34svh,300px)}
+@media(max-width:900px){.home-mode .work-hold{padding-bottom:24px}.home-mode .work-hold #work{position:relative;top:auto;height:auto;padding:60px 0 28px;display:block}.home-mode .work-hold .selected-head{padding:12px 0 16px;margin-bottom:20px}.home-mode .work-hold .identity-works .work-visual,.home-mode .work-hold .identity-works .work-card:first-child .work-visual{height:300px}}
 .home-mode .identity-works .work-card{transform:translate3d(0,var(--work-enter-y,0px),0);opacity:var(--work-enter-opacity,1);will-change:transform,opacity}
 @media(prefers-reduced-motion:reduce){.home-mode .identity-works .work-card{transform:none!important;opacity:1!important}}
 .home-mode .identity-photo .flip-face,.home-mode .intro-photo-frame,.home-mode .intro-photo-frame img,.photo-journey-face{border-radius:8px}
