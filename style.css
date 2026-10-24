@@ -785,3 +785,8 @@ body{overflow-x:clip}
 .work-card:is(:active,.tap-feedback){scale:.988;}
 .work-card:is(:active,.tap-feedback) .arrow-circle{background:var(--accent,#ef7548);color:#fff;border-color:var(--accent,#ef7548);}
 @media(prefers-reduced-motion:reduce){:where(a[href],button,[role="button"]){transition:none!important;}:where(a[href],button,[role="button"]):is(:active,.tap-feedback){scale:1;filter:none;opacity:.75;}}
+
+/* Keep the orange homepage header links legible on hover/tap. */
+.home-mode .nav-links a:not(.nav-contact){display:inline-flex;align-items:center;justify-content:center;padding:11px 13px;border:1px solid transparent;color:#171717;transition:border-color .2s ease,color .2s ease,background-color .2s ease,scale .18s ease,filter .18s ease;}
+.home-mode .nav-links a:not(.nav-contact):is(:hover,:focus-visible,:active,.tap-feedback){color:#171717;border-color:#171717;background:rgba(255,255,255,.07);}
+@media(max-width:650px){.home-mode .nav-links a:not(.nav-contact){display:none;}}
