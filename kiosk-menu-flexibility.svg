@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 540" role="img" aria-labelledby="title desc">
+  <title id="title">不同業態的菜單選擇流程</title>
+  <desc id="desc">牛排店重視必選項預設與快速加點；早餐店重視先選主餐，再決定套餐與飲料客製化。兩種流程並列比較。</desc>
+  <defs>
+    <style>
+      .heading{font:700 25px 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;fill:#282622}
+      .label{font:700 21px 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;fill:#292723}
+      .sub{font:400 16px 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;fill:#68635e}
+      .foot{font:700 16px 'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;fill:#a65b39}
+      .panel{fill:#fff;stroke:#ddd8d0;stroke-width:2}
+      .step{fill:#f7f5f0;stroke:#bcb7af;stroke-width:2}
+      .accent{fill:#fff2e9;stroke:#df7448;stroke-width:2.5}
+      .line{fill:none;stroke:#d66a3f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#d66a3f" stroke-width="1.6"/></marker>
+  </defs>
+  <rect x="0" y="0" width="900" height="540" rx="24" fill="#faf8f3"/>
+  <text x="450" y="47" text-anchor="middle" class="heading">同一套 KIOSK，需要適應不同菜單邏輯</text>
+  <rect x="30" y="79" width="405" height="411" rx="18" class="panel"/>
+  <rect x="465" y="79" width="405" height="411" rx="18" class="panel"/>
+  <text x="232" y="122" text-anchor="middle" class="heading">牛排店</text>
+  <text x="667" y="122" text-anchor="middle" class="heading">早餐店</text>
+  <rect x="86" y="150" width="293" height="67" rx="12" class="step"/>
+  <text x="232" y="178" text-anchor="middle" class="label">選擇套餐主餐</text>
+  <text x="232" y="201" text-anchor="middle" class="sub">套餐為主要購買方式</text>
+  <path d="M232 220V245" class="line" marker-end="url(#arrow)"/>
+  <rect x="86" y="257" width="293" height="67" rx="12" class="accent"/>
+  <text x="232" y="285" text-anchor="middle" class="label">自動帶入必選項</text>
+  <text x="232" y="308" text-anchor="middle" class="sub">降低重複勾選負擔</text>
+  <path d="M232 327V352" class="line" marker-end="url(#arrow)"/>
+  <rect x="86" y="364" width="293" height="67" rx="12" class="step"/>
+  <text x="232" y="392" text-anchor="middle" class="label">調整加點與調味</text>
+  <text x="232" y="415" text-anchor="middle" class="sub">只處理需要變更的項目</text>
+  <text x="232" y="469" text-anchor="middle" class="foot">重點：預設選取，減少步驟</text>
+  <rect x="521" y="150" width="293" height="67" rx="12" class="step"/>
+  <text x="667" y="178" text-anchor="middle" class="label">先選擇主餐</text>
+  <text x="667" y="201" text-anchor="middle" class="sub">主餐種類多，先確認想吃什麼</text>
+  <path d="M667 220V245" class="line" marker-end="url(#arrow)"/>
+  <rect x="521" y="257" width="293" height="67" rx="12" class="accent"/>
+  <text x="667" y="285" text-anchor="middle" class="label">再決定是否搭套餐</text>
+  <text x="667" y="308" text-anchor="middle" class="sub">單點與套餐可彈性切換</text>
+  <path d="M667 327V352" class="line" marker-end="url(#arrow)"/>
+  <rect x="521" y="364" width="293" height="67" rx="12" class="step"/>
+  <text x="667" y="392" text-anchor="middle" class="label">選飲料及客製化</text>
+  <text x="667" y="415" text-anchor="middle" class="sub">糖度、溫度等選項</text>
+  <text x="667" y="469" text-anchor="middle" class="foot">重點：先主餐，後套餐與細節</text>
+  <text x="450" y="526" text-anchor="middle" class="sub">依餐廳需求整理的流程概念圖，非已驗證的最終介面</text>
+</svg>
