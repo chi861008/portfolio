@@ -535,8 +535,8 @@ body{overflow-x:clip}
 }
 
 /* Smaller circular wordmark without changing its visual anchor. */
-.intro-visual .orbit-word{width:106px;height:106px;left:-40px;right:auto;top:-40px}
-@media(max-width:650px){.intro-visual .orbit-word{width:82px;height:82px;left:-26px;right:auto;top:-28px}}
+.intro-visual .orbit-word{width:106px;height:106px;left:-40px;right:auto;top:0}
+@media(max-width:650px){.intro-visual .orbit-word{width:82px;height:82px;left:-26px;right:auto;top:-5px}}
 
 /* Homepage motion: scroll-linked depth and an intentionally bold card hover. */
 .home-mode .identity-photo img{transform:rotate(8deg) scale(var(--hero-photo-scale,1));transition:transform .15s linear;will-change:transform}
