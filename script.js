@@ -264,7 +264,10 @@ function updateWorkHold(){
   const workTop=work.getBoundingClientRect().top;
   const stickyTop=82;
   const entranceStart=viewport*.72;
-  const sharedProgress=Math.min(1,Math.max(0,(entranceStart-workTop)/Math.max(1,entranceStart-stickyTop)));
+  // Align all three cards *before* the scene pins, leaving a clean and
+  // complete composition during the brief sticky hold.
+  const entranceEnd=Math.max(stickyTop+36,viewport*.42);
+  const sharedProgress=Math.min(1,Math.max(0,(entranceStart-workTop)/Math.max(1,entranceStart-entranceEnd)));
   cards.forEach((card,i)=>{
     // Track each actual card rather than the earlier-arriving section heading.
     // The stagger remains visible while the image is on screen and rewinds on scroll-up.
