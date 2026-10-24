@@ -865,3 +865,42 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 
 /* Accessible document title on the visual-led landing page. */
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+
+/* KIOSK: one evidence card for the sample metrics and industry chart. */
+.kiosk-case .market-evidence-group{
+  background:#fbfaf8;
+  border:1px solid #e5e0d8;
+  box-shadow:0 18px 35px rgba(41,35,28,.055);
+  padding:clamp(24px,3.6vw,44px);
+  margin:32px 0 47px;
+}
+.kiosk-case .market-evidence-group .market-evidence-heading{
+  border-top:0;
+  padding:0;
+}
+.kiosk-case .market-evidence-group .market-compare{
+  margin:28px 0 0;
+  padding:0 0 28px;
+  border:0;
+  border-bottom:1px solid #e1dcd4;
+  gap:clamp(14px,3vw,34px);
+}
+.kiosk-case .market-evidence-group .market-compare > div{
+  padding:0;
+  background:transparent;
+  border:0;
+}
+.kiosk-case .market-evidence-group .market-chart{
+  margin:0;
+  padding:29px 0 0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+.kiosk-case .market-evidence-group .market-chart-head{padding:0;}
+@media(max-width:650px){
+ .kiosk-case .market-evidence-group{padding:24px 19px;margin:27px 0 37px;}
+ .kiosk-case .market-evidence-group .market-compare{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding-bottom:21px;margin-top:25px;}
+ .kiosk-case .market-evidence-group .market-compare > div{min-width:0;}
+ .kiosk-case .market-evidence-group .market-chart{padding-top:23px;}
+}
