@@ -865,3 +865,9 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 
 /* Accessible document title on the visual-led landing page. */
 .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+
+/* KIOSK cover: keep project identity/date as one quiet metadata row above the summary. */
+.kiosk-cover .case-top h1,.kiosk-cover > h1{margin-top:76px;}
+.kiosk-cover .case-project-meta{margin-top:58px;align-items:baseline;font-weight:600;letter-spacing:.015em;font-size:12px;}
+.kiosk-cover .case-project-meta time{font-variant-numeric:tabular-nums;color:#ccc;white-space:nowrap;}
+@media(max-width:650px){.kiosk-cover > h1{margin-top:54px;}.kiosk-cover .case-project-meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:6px 20px;}}
