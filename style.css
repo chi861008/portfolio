@@ -565,7 +565,7 @@ body{overflow-x:clip}
   .scroll-signature path:last-child{stroke-width:2.7}
 }
 .identity-works .visual-schedule{display:block;padding:0;background:#1966d3}
-.identity-works .visual-schedule::before{content:"";position:absolute;inset:0;background:url('./assets/scheduling-cover.png') center center/cover no-repeat;transition:transform .5s cubic-bezier(.2,.75,.2,1)}
+.identity-works .visual-schedule::before{content:"";position:absolute;inset:0;background:url('./scheduling-cover.png') center center/cover no-repeat;transition:transform .5s cubic-bezier(.2,.75,.2,1)}
 .identity-works .visual-schedule .schedule-mock{display:none}
 .identity-works .visual-schedule .arrow-circle{background:rgba(255,255,255,.92);color:#171717;border-color:#171717}
 .identity-works .work-card{position:relative}
