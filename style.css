@@ -871,3 +871,11 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-cover .case-project-meta{margin-top:58px;align-items:baseline;font-weight:600;letter-spacing:.015em;font-size:12px;}
 .kiosk-cover .case-project-meta time{font-variant-numeric:tabular-nums;color:#ccc;white-space:nowrap;}
 @media(max-width:650px){.kiosk-cover > h1{margin-top:54px;}.kiosk-cover .case-project-meta{margin-top:40px;display:flex;flex-wrap:wrap;gap:6px 20px;}}
+
+/* Unified case-cover information hierarchy: title, summary, quiet date, essential facts. */
+.case-top > h1{margin-top:76px;}
+.case-top .case-project-meta{margin-top:58px;display:flex;justify-content:space-between;align-items:baseline;gap:8px 20px;font-size:12px;font-weight:600;letter-spacing:.015em;}
+.case-top .case-project-meta time{font-variant-numeric:tabular-nums;white-space:nowrap;}
+.kds-cover .case-project-meta time{color:#ccc;}
+.case-top .case-role-summary{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0;border-top:0;}
+@media(max-width:650px){.case-top > h1{margin-top:54px;}.case-top .case-project-meta{margin-top:40px;flex-wrap:wrap;}.case-top .case-role-summary{grid-template-columns:1fr;}}
