@@ -404,3 +404,26 @@ function updateThinkingParallax(){
 function renderPage(){document.querySelector('.photo-journey')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});scheduleTocUpdate();}
 window.addEventListener('hashchange',renderPage);renderPage();
 requestAnimationFrame(()=>requestAnimationFrame(playHomeOpening));
+
+// Keep a short visible press response after touch release (especially on phones).
+(function setupTapFeedback(){
+  const selector='a[href],button,[role="button"]';
+  const timers=new WeakMap();
+  const scheduleRelease=(element,delay=190)=>{
+    if(!element)return;
+    clearTimeout(timers.get(element));
+    timers.set(element,setTimeout(()=>element.classList.remove('tap-feedback'),delay));
+  };
+  document.addEventListener('pointerdown',event=>{
+    if(event.button!==0)return;
+    const element=event.target.closest?.(selector);
+    if(!element)return;
+    clearTimeout(timers.get(element));
+    element.classList.add('tap-feedback');
+  },{passive:true});
+  document.addEventListener('pointerup',event=>scheduleRelease(event.target.closest?.(selector)),{passive:true});
+  document.addEventListener('pointercancel',event=>scheduleRelease(event.target.closest?.(selector),0),{passive:true});
+  document.addEventListener('click',event=>{
+    if(event.detail===0){const element=event.target.closest?.(selector);if(element){element.classList.add('tap-feedback');scheduleRelease(element);}}
+  });
+})();
