@@ -50,7 +50,7 @@ sec('solutions','04 / PRODUCT RECOMMENDATIONS','以使用者需求為主軸，�
  paragraph('對於超過半數競品具備的功能，我將其視為市場基準的線索；但也會考量是否影響核心點餐流程。例如熱門選項並非核心流程，會員串接則可能需要較高整合成本，因此在討論報告中建議較後續再考慮。這些是研究與討論時的相對判斷，並非正式分級或已敲定的開發順序。')+
  '<div class="fact-grid">'+fact('01 / USER NEEDS','使用者需求優先','從合作店家轉述與既有研究資料辨識操作問題，作為提出改善建議的主軸。')+fact('02 / MARKET SIGNAL','競品普及程度加強證據','當常見競品功能與使用者需求吻合時，提高該方向的評估權重；不因競品普及就照單全收。')+fact('03 / FEASIBILITY CHECK','可行性作為實務檢核','評估整合成本與開發難度；若難度合理，仍以改善使用者體驗為優先，再交由 PM 決定採納與試作。')+'</div>'+
  '<h3>從研究證據到設計決策｜完整對照表</h3>'+
- '<p>整合本次店家訪談、過往使用者訪談、競品分析與營運機會，呈現設計建議及其採納狀態。只有能從保留的原始建議表確認的四項標為「已採納」；其他建議不代表被否決，也不代表已開發。</p>'+
+ '<p>整合本次店家訪談、過往使用者訪談、競品分析與營運機會，呈現設計建議、證據支持程度及採納狀態。只有能從保留的原始建議表確認的四項標為「已採納」；其餘依證據標示為未確認採納、待評估或待研究，不代表已被否決或已開發。</p>'+
  '<div class="decision-comparison" role="region" aria-label="KIOSK 研究證據與設計決策對照表" tabindex="0"><table><thead><tr><th scope="col">研究來源與問題</th><th scope="col">設計建議與預期價值</th><th scope="col">決策狀態</th></tr></thead><tbody>'+
  '<tr><td><strong>競品分析＋店家營運機會</strong><p>研究競品的促購設計，評估額外加點的商業機會；不是直接訪談證實的消費者痛點。</p></td><td><strong>加購功能</strong><p>增加附加商品選擇入口；預期提升客單價，尚無實測數據。</p></td><td><span class="decision-status decision-status--adopted">已採納 01</span></td></tr>'+
  '<tr><td><strong>店家轉述需求＋競品分析</strong><p>餐點分類不易找到，點餐時容易卡在類別切換。</p></td><td><strong>側邊欄類別選項</strong><p>提供更明顯的菜單分類入口；預期減少操作錯誤。</p></td><td><span class="decision-status decision-status--adopted">已採納 02</span></td></tr>'+
@@ -59,10 +59,13 @@ sec('solutions','04 / PRODUCT RECOMMENDATIONS','以使用者需求為主軸，�
  '<tr><td><strong>店家轉述需求＋競品分析</strong><p>使用者找不到統編與載具設定，可能在結帳時錯過。</p></td><td><strong>發票／載具獨立頁面</strong><p>讓發票資訊設定更容易找到。</p></td><td><span class="decision-status">未確認採納</span></td></tr>'+
  '<tr><td><strong>店家轉述需求＋競品分析</strong><p>選擇付款方式後仍想返回修改訂單。</p></td><td><strong>付款前返回點餐</strong><p>保留返回修改餐點的操作路徑。</p></td><td><span class="decision-status">未確認採納</span></td></tr>'+
  '<tr><td><strong>店家轉述需求＋競品分析</strong><p>不熟悉中文介面的顧客希望能理解操作流程。</p></td><td><strong>多國語言切換</strong><p>至少提供英文等語言選項。</p></td><td><span class="decision-status">未確認採納</span></td></tr>'+
- '</tbody></table></div>'+
- '<p class="decision-comparison-note">註：上述「已採納」指建議方向可由原始彙整表確認；不等於功能已上線或成效已驗證。「未確認採納」表示現有資料不足以確定最終決策。</p>'+
- '<div class="evidence-partial"><span>PARTIAL MATCH / 只能部分支持</span><strong>按鈕回饋、初次使用引導 ↔ 主要按鈕微動畫</strong><p>動畫可以提示互動狀態或吸引注意，但不能直接等同於完整教學；仍需釐清新手真正需要的提示。</p></div>'+
- '<div class="evidence-two-col"><div><span>COMPETITIVE OPPORTUNITIES</span><strong>有市場案例，但不能只憑競品推定需求</strong><p>加購、會員、推薦標籤與熱門排名偏向營收或促購機會，必須再評估是否符合店家目標與使用情境。</p></div><div><span>UNMATCHED NEEDS</span><strong>既有競品清單未直接回答的問題</strong><p>例如信用卡付款少一次確認、單一付款方式跳過選擇、載具掃描困難、付款後領取提醒、取餐號碼找回與店員端逾時提醒，應另外研究或設計驗證。</p></div></div>'+
+  '<tr><td><strong>店家轉述需求＋競品觀察（部分支持）</strong><p>按鈕回饋與初次使用引導涉及不同問題；微動畫只能提示狀態或吸引注意，不能視為完整的新手教學。</p></td><td><strong>主要按鈕微動畫／新手提示</strong><p>先釐清操作卡點與需要的提示，再決定是否採用動畫或教學。</p></td><td><span class="decision-status">待釐清需求</span></td></tr>'+ 
+ '<tr><td><strong>競品分析（市場機會）</strong><p>會員、推薦標籤與熱門排名在市場上有案例，但不能據此推定本產品使用者需要。</p></td><td><strong>會員與商品推薦機制</strong><p>先評估店家營運目標、使用情境與整合成本；加購功能已列於上方採納項目，不重複計算。</p></td><td><span class="decision-status">待評估</span></td></tr>'+ 
+ '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>信用卡付款希望減少一次確認；若只有一種付款方式，希望跳過選擇。</p></td><td><strong>簡化付款流程</strong><p>確認不同付款情境下是否能減少步驟，以及錯誤操作風險。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
+ '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>載具掃描困難、付款後缺乏領取提醒。</p></td><td><strong>掃描回饋與付款後提示</strong><p>釐清失敗原因及顧客真正需要的完成確認。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
+ '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>取餐號碼不易找回、店員端需要逾時提醒。</p></td><td><strong>取餐資訊找回與逾時提醒</strong><p>分別驗證顧客與店員的實際使用情境。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
+'</tbody></table></div>'+
+ '<p class="decision-comparison-note">註：上述「已採納」指建議方向可由原始彙整表確認；不等於功能已上線或成效已驗證。「未確認採納」表示現有資料不足以確定最終決策；「待釐清需求」「待評估」「待研究／驗證」表示仍屬研究判斷，尚不能推定已進入產品決策。</p>'+
  '<div class="state-note">來源界線：前 13 條 User Stories 為研究者依 7 位合作店家管理者轉述的消費者行為及店家需求整理，非直接訪談消費者；另 4 條是競品分析衍生的待驗證需求假設。競品功能覆蓋率取自本專案當時的分析樣本，不等於市場市佔率。</div>'+
  '<p>以上是原始「跟上功能」建議彙整表能確認的採納方向；商業價值和指標是預期目的，並非已驗證的實際成效。</p>'+
  '<div class="callout"><strong>決策與權責界線</strong><p>我負責研究、彙整功能差距與使用者問題，並提出改善建議；未獨立決定 Roadmap。目前能依原始建議表逐項確認的是以上 4 個採納方向。原 Product Backlog 清單已無法取得，因此不將先前提及的 11 項視為可核實的逐項成果。是否完成開發、何時上線及實際成效均未經確認。</p></div>')+
