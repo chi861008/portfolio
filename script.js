@@ -103,56 +103,12 @@ sec('validation','05 / VALIDATION','從可操作原型走向真實使用驗證',
 sec('reflection','06 / NEXT STEPS','讓產品從可以運作，走向值得持續使用',
  paragraph('下一步聚焦於實際老師的持續使用、排課成功率與例外情境，並確認產品對老師是否產生足夠價值，再判斷商業化的方向。'));}
 function kdsBody(){
- const shot=(src,caption,cls='')=>'<figure class="kds-shot '+cls+'"><img loading="lazy" src="./'+src+'" alt="'+caption+'"><figcaption>'+caption+'</figcaption></figure>';
- const insight=(number,label,title,observation,meaning,design,figure)=>'<article class="kds-insight"><div class="kds-insight-heading"><span>INSIGHT '+number+' / '+label+'</span><h3>'+title+'</h3></div><div class="kds-insight-reason"><div><b>現場觀察</b><p>'+observation+'</p></div><div><b>洞察與產品意義</b><p>'+meaning+'</p></div></div><div class="kds-design-reply"><span>DESIGN RESPONSE / 設計回應</span><p>'+design+'</p></div>'+figure+'</article>';
- return sec('overview','01 / PROJECT OVERVIEW','讓 KDS 不只顯示訂單，也能回應廚房的工作節奏',
-  '<h3>專案起源｜從訂單 Demo 到 KDS MVP</h3>'+
-  paragraph('公司原本已有工程師製作的 KDS Demo，但僅有以訂單為單位的查看方式，尚未發展成正式產品。為了建立更具市場競爭力的 KDS，團隊重新研究競品與現場工作流程，確認第一版 MVP 應支援哪些廚房任務。')+
-  '<figure class="scenario-figure kds-case-scenario"><img src="./kds-case-hero.png" alt="廚師在料理檯前使用 KDS 觸控顯示器的情境示意圖"><figcaption>使用情境示意｜呈現 KDS 在廚房中的操作位置；非本次訪談的現場紀錄照片。</figcaption></figure>'+
-  '<p class="kds-lead-question">如果廚房不是單純依照訂單進入順序製作，KDS 應該如何支援真實的工作流程？</p>'+
-  '<div class="kds-contribution"><div><span>COMPANY PROJECT</span><h3>研究推動 MVP 方向</h3><p>競品比較、歷史廚房單整理、內外場訪談與現場調查。我提出類別視角、完成撤回與訂單找回，並納入 MVP 規劃。</p></div><div><span>PERSONAL EXPLORATION</span><h3>延伸設計與介面重構</h3><p>因公司版本的視覺資訊較雜亂，我私下幾乎從零重新設計 UI，加入商品模式及時間分批概念；非公司最終上線畫面。</p></div></div>'+ 
-  ''
- )+
- sec('research','02 / RESEARCH','先理解市場功能，再走進製餐現場',
-  paragraph('我先用既有廚房單與競品功能盤點建立初步理解，再透過 LA PASTA 內、外場共 2 位訪談對象，以及 1 次現場脈絡調查，理解訂單資訊如何在實際製作情境中流動。此研究以特定場域深入理解工作流程，並非代表所有餐飲業態的量化結論。')+
-  '<div class="kds-research-metrics"><div><strong>02</strong><span>位內外場訪談對象</span></div><div><strong>01</strong><span>次現場脈絡調查</span></div><div><strong>03</strong><span>類研究證據：歷史單據、競品、現場</span></div></div>'+
-  '<div class="kds-research-stages"><div><span>01 / DESK REVIEW</span><h3>歷史廚房單</h3><p>以既有單據及需求釐清工作任務、資訊欄位與尚待驗證的假設。</p></div><div><span>02 / COMPETITOR STUDY</span><h3>功能與資訊架構</h3><p>比較 Eats365、微碧等產品在分類、排序、通知與訂單找回上的設計。</p></div><div><span>03 / CONTEXTUAL STUDY</span><h3>訪談與現場觀察</h3><p>理解 LA PASTA 的批次料理、內外場控菜，以及完成狀態的實際意義。</p></div></div>'+
-  shot('kds-competitor.png','KDS 競品功能整理：從功能存在與否，進一步追問現場為什麼需要這種操作。','kds-competitor-shot')+
-  '<p class="kds-research-turn">研究最重要的轉折：<strong>「相同品項集中處理」看似只是介面分類，背後卻同時牽涉產能、時間與出餐順序。</strong></p>'
- )+
- sec('opportunity','03 / INSIGHTS → DESIGN','從現場觀察，直接銜接設計判斷',
-  paragraph('研究不只驗證介面方向，也實際影響公司的 MVP 功能範圍。以下依照「現場觀察 → 研究洞察 → 公司決策／個人設計」呈現，並清楚區分已納入 MVP 與個人延伸的構想。')+
-  '<div class="kds-product-evolution"><div><span>ENGINEERING DEMO</span><strong>訂單視角</strong><small>原有工程展示版本</small></div><div><span>COMPANY MVP</span><strong>訂單＋類別</strong><small>類別視角與容錯需求進入規劃</small></div><div><span>PERSONAL CONCEPT</span><strong>訂單＋類別＋商品</strong><small>另探索時間分批、產能分組與視覺層級</small></div></div>'+
-  insight('01','INFORMATION VIEWS','同一張訂單，內場與控菜角色看的重點不同',
-   '相同製程的餐點可以一起處理，例如松露薯條與蜂蜜薯條都能先一起油炸；而需要掌握整桌進度的人仍必須檢視完整訂單。',
-   '不同角色與製程，需要不同的資訊組織單位。只以訂單排序，廚師就要自行跨單整理相同製程的工作量。',
-   '我提出「類別視角」並進入公司 MVP，使原本只有訂單視角的 Demo 擴展為雙視角。個人延伸設計再增加「商品模式」：例如白酒蛤蜊麵與紅醬麵需分開料理，但相同商品可集中計數。',
-   '<div class="kds-dual-shots">'+shot('kds-category.png','個人概念設計｜品項／分類視角。')+shot('kds-order.png','個人概念設計｜訂單視角。')+'</div>')+
-  insight('02','BATCH & TIME','批次處理提高效率，卻不能犧牲合理的出餐順序',
-   'LA PASTA 會把相近時間進入的相同品項集中處理，但受到設備容量、餐點品質與出餐時機限制，不會讓後續訂單無限制地加入既有批次。',
-   '批次不只是加總數量，也同時受到訂單時間差與單次製作容量限制。LA PASTA 提及約 5–10 分鐘的時間分組，以及單鍋最多處理約 3 份麵的情境。',
-   '這項機制未納入公司 MVP。我個人提出可設定時間窗口與單批容量：從首張訂單起算，時間或容量任一條件達到限制就另建批次；仍由廚師決定實際鍋具與下鍋時機。此邏輯尚未實地驗證。',
-   '<div class="kds-batch-example"><div class="kds-batch-line"><span>第一批</span><strong>12:00 起算</strong><em>10 分鐘時間窗口</em></div><div class="kds-batch-gap">同商品 10 份、單批容量 3 份</div><div class="kds-batch-line"><span>自動分組</span><strong>3 ＋ 3 ＋ 3 ＋ 1</strong><em>四個製作批次</em></div></div><p class="kds-schematic-note">時間與數量為概念示意；每家店適用的參數、系統行為與效益仍待驗證。</p>')+
-  insight('03','ERROR RECOVERY','高壓環境中，操作後還需要能快速回頭修正',
-   '製餐過程可能出現誤觸、誤判完成或訂單異動；若一旦標記完成便無法找回，就會增加重新確認訂單的成本。',
-   '容錯不是補充功能，而是高頻、快速操作場域的一部分。完成狀態需要清楚，修正路徑也必須容易找到。',
-   '我提出「完成撤回」與「訂單找回」，並納入公司 MVP 的功能方向。個人 UI 進一步設計兩種回復路徑：剛誤觸時使用 Toast 立即復原；較晚發現問題時，從歷史訂單找回。',
-   shot('kds-recovery.png','個人概念設計｜完成與復原狀態的對照畫面。','kds-recovery-shot'))+
-  '<aside class="kds-future-insight"><span>RESEARCH OPPORTUNITY / 後續產品機會</span><h3>內外場控菜：何時開始製作，也需要協作</h3><p>現場觀察顯示，部分餐廳由外場依顧客用餐進度通知內場開始製作，以控制上餐時機。這意味著 KDS 可能不只是內場清單，而是跨角色協調工具。</p><p>目前個人 UI 尚未設計完整的外場發起、內場接收與狀態回報機制，因此我將它保留為下一階段研究機會，而非已完成的解決方案。</p></aside>'
- )+
- sec('solutions','04 / INDEPENDENT UI CONCEPT','從研究方向，延伸為一套獨立設計的操作介面',
-  '<div class="kds-section-note"><span>PERSONAL WORK / 非公司交付 UI</span><p>公司的 KDS 介面使用較多強烈色彩；但廚房是在高壓環境中快速判讀資訊的場域。我因此私下重新設計介面，讓紅、黃、灰分別對應不同緊急程度，把視覺強調留給真正需要注意的資訊。這是設計原則，尚未證明能降低認知負擔。</p></div>'+
-  '<div class="kds-color-scale"><div><span>URGENT</span><strong>紅色</strong><small>緊急、優先關注</small></div><div><span>ATTENTION</span><strong>黃色</strong><small>需要注意</small></div><div><span>NEUTRAL</span><strong>灰色</strong><small>一般狀態</small></div></div>'+
-  '<div class="kds-ui-showcase"><div class="kds-ui-entry"><span>01 / INFORMATION ORGANIZATION</span><h3>依實際製程切換訂單、類別與商品</h3><p>訂單模式保留完整進度；類別模式集中共同製程的餐點；商品模式則讓同一道料理跨訂單計數。畫面由左至右延續較早到較晚的順序。</p>'+shot('kds-category.png','個人概念｜類別視角，以製作類別整理餐點。')+'</div><div class="kds-ui-entry"><span>02 / PRIORITY & STATUS</span><h3>色彩用在優先級，而非每個資訊區塊</h3><p>以紅、黃、灰建立狀態層級，讓訂單時間與需要關注的資訊有明確的視覺區別，降低畫面上無差別的色彩競爭。</p>'+shot('kds-order.png','個人概念｜訂單視角與不同緊急程度的顏色。')+'</div><div class="kds-ui-entry"><span>03 / ERROR RECOVERY</span><h3>即時復原與稍後找回，支援兩種失誤情境</h3><p>剛完成操作即發現誤觸時，可利用 Toast 立即撤回；事後才發現遺漏時，則由歷史訂單找回，避免中斷原本製餐流程。</p>'+shot('kds-recovery.png','個人概念｜完成與復原介面，另規劃即時 Toast 撤回。')+'</div></div>'
- )+
- sec('validation','05 / SCOPE & LIMITATIONS','區分研究證據、設計提案與尚待驗證的成效',
-  '<div class="kds-evidence-columns"><div><span>公司 MVP 採納方向</span><h3>類別視角＋操作容錯</h3><p>從原有訂單視角擴展類別視角；完成撤回與歷史訂單找回也納入 MVP 規劃。這是功能方向的採納，不等同於已上線或已證明成效。</p></div><div><span>個人探索・尚未驗證</span><h3>商品模式＋時間／產能分批</h3><p>獨立 UI 及可設定分批構想尚未經門店實測，也沒有出餐時間、錯誤率或認知負擔的前後數據；外場控菜保留為後續研究機會。</p></div></div>'
- )+
- sec('reflection','06 / REFLECTION','真正需要設計的，是資訊背後的工作邏輯',
-  paragraph('這次研究讓我發現：表面上只是「怎麼顯示訂單」，背後其實有多個角色的決策、批次料理的產能限制，以及外場對上餐時間的掌握。單純增加功能，未必能解決現場問題。')+
-  paragraph('研究促成類別視角與容錯需求納入公司 MVP。之後我觀察到當時 UI 的色彩層級仍有改善空間，便獨立延伸商品模式、可設定批次概念與以緊急程度為核心的視覺設計。這個過程讓我練習從研究證據推進到產品取捨，再把抽象的工作邏輯落實成介面。')+
-  '<div class="kds-reflection-bottom"><strong>NEXT QUESTION ↗</strong><p>不同餐飲業態是否需要不同的控菜模式？若要往下推進，我會先比較快餐與分道上菜的情境，再驗證跨角色狀態與通知是否真正能減少協調成本。</p></div>'
- );
+ return sec("overview","01 / PROJECT OVERVIEW","從既有 KDS 的使用問題，重新釐清廚房真正需要的資訊","<p>公司已有第一代 KDS，卻收到餐點名稱截斷、誤銷無法找回、操作不易等真實使用者反饋。這次改版的目標是先補齊基本體驗，建立符合市場需求的下一代 KDS；研究以<strong>歷史資料與競品分析為主要依據</strong>，並以有限的現場訪談補充脈絡。</p>\n<figure class=\"scenario-figure kds-case-scenario\"><img src=\"./kds-case-hero.png\" alt=\"廚房 KDS 使用情境示意\"><figcaption>使用情境示意，非本次現場觀察紀錄。</figcaption></figure>\n<p class=\"kds-lead-question\">關鍵設計問題：KDS 要讓不同職責的人，在繁忙製餐過程中看見正確的工作單位、順序與狀態。</p>\n<div class=\"kds-contribution\"><div><span>TEAM PROJECT / MY ROLE</span><h3>研究、競品盤點與 UI 研究對齊</h3><p>整理第一代使用者反饋、歷史訪談與廚房單；參與競品分析、LA PASTA 現場訪談，並與 UI 設計師討論畫面與 UX 研究發現的落差。正式功能改善建議主要由另一位 UX 設計師提出。</p></div><div><span>INDEPENDENT EXPLORATION</span><h3>商品聚合與批次製作概念</h3><p>我另外發展跨訂單商品聚合、依時間分批與批次完成等介面，作為未驗證、未上線的個人延伸設計；不與公司的正式版本混稱。</p></div></div>")+
+sec("research","02 / RESEARCH","以歷史反饋與競品建立基礎，現場訪談補足情境","<p>本次僅有 LA PASTA 一家餐廳同意現場觀察與訪談，因此我不把單一餐廳的流程推論為業界通則。研究策略是先用<strong>歷史客戶反饋＋既有研究洞察＋競品功能</strong>找到產品基本面，再用現場脈絡理解設計的限制。</p>\n<div class=\"kds-research-stages\"><div><span>01 / HISTORICAL EVIDENCE</span><h3>既有使用者反饋</h3><p>盤點誤銷、長餐名截斷、跑馬燈造成暈眩、油污觸控失靈、退修改單通知等痛點，並整理跨餐廳歷史研究資料。</p></div><div><span>02 / COMPETITOR ANALYSIS</span><h3>市場基本功能</h3><p>比較訂單管理、視圖、完成／找回、通知、資訊密度等功能，協助團隊判斷下一版的基礎體驗。</p></div><div><span>03 / FIELD CONTEXT</span><h3>LA PASTA 觀察與訪談</h3><p>實際觀察內外場透過多台 KDS 協作：外場按「催餐」，內場畫面變色後再開始製作，協調上菜與桌面容量。</p></div></div>\n\n<figure class=\"kds-shot kds-competitor-shot\"><img loading=\"lazy\" src=\"./kds-competitor.png\" alt=\"KDS 競品研究資料\"><figcaption>競品分析：盤點既有 KDS 的功能與資訊結構。</figcaption></figure><p class=\"kds-section-note\"><strong>證據界線：</strong>以下九項洞察主要來自歷史資料與客戶回饋；LA PASTA 的外場控菜、產能限制僅代表該場域的觀察。個人設計規則則屬待驗證假設。</p>\n")+
+sec("opportunity","03 / INSIGHTS & OPPORTUNITIES","九項研究洞察，指向三種產品設計需求","<p>從舊資料的因果脈絡整理需求，而不只羅列功能：製作效率、出餐協調、資訊辨識與容錯。</p>\n<div class=\"kds-research-stages\"><div><span>01 / PRODUCTION</span><h3>依製作流程批量處理</h3><p>同品項、同流程集中備料／烹煮；是否能合併，取決於烹調方式與細項，而不是菜單名稱。產能與訂單進入時間也影響實際分批。</p></div><div><span>02 / COORDINATION</span><h3>出餐節奏是動態決策</h3><p>出餐同時考慮烹調時間、先後公平、預約／甜點時機與內外場控菜；不同角色可能分別以訂單或商品為工作單位。</p></div><div><span>03 / READABILITY & RECOVERY</span><h3>短暫掃視、低觸控與高容錯</h3><p>廚師無法持續盯螢幕；餐點與數量必須易讀，訂單變動需主動通知，誤觸後要能找回資訊。</p></div></div>\n<div class=\"kds-evidence-columns\"><div><h3>歷史研究的九個主題</h3><ol><li>同流程餐點批次處理</li><li>依作業流程而非僅菜名分組</li><li>多目標動態調整製作順序</li><li>依最佳取餐時間掌握節奏</li><li>間歇看螢幕，需要異動提醒</li><li>快速掃視關鍵資訊</li><li>店態與角色改變資訊需求</li><li>高壓誤觸下需要容錯</li><li>外送平台單號需支援內外場溝通</li></ol></div><div><h3>第一代產品可改善之處</h3><ul><li>總單與菜單模式無法同步收單</li><li>欄數增加後餐名遭截斷，跑馬燈又不適合長時間掃視</li><li>完成後誤銷無法從歷史紀錄找回</li><li>油污環境下觸控不穩，操作次數負擔高</li><li>凍單、切換總單的功能結果不明確</li><li>退單、修改與出餐狀態缺少足夠明確的提醒</li></ul></div></div>\n<p class=\"kds-research-turn\">最關鍵的理解：<strong>外場可能以「訂單」管理桌次與出餐；內場卻以「商品／製作流程」安排工作。</strong>同一套 KDS 需要讓兩種視角能各自完成任務。</p>")+
+sec("solutions","04 / DESIGN RESPONSE","正式改版與個人延伸：兩條不同的設計路徑","<div class=\"kds-ui-entry\"><span>COMPANY'S NEXT VERSION / PLANNED</span><h3>產品基本體驗改善</h3><p>團隊將資訊可讀性、錯誤找回、接單／異動聲音提示、不同視角及同步、減少觸控等方向納入下一代開發規劃。正式改善方案由團隊其他 UX 夥伴主提；我負責以研究資料校準 UI 視覺成果。</p></div>\n<div class=\"kds-research-stages\"><div><span>01 / PRIORITY</span><h3>商品名稱與數量先被看見</h3><p>降低非必要欄位的視覺搶眼程度，讓廚房快速掃到製作內容。</p></div><div><span>02 / STATUS</span><h3>強化異動與等待狀態</h3><p>讓追加、取消、等待時間等狀態有可辨識的層級。</p></div><div><span>03 / DENSITY</span><h3>調整字級與欄數的平衡</h3><p>避免為了同時顯示更多訂單而犧牲餐名完整性。</p></div></div>\n<p class=\"kds-section-note\">以上三項討論後皆由 UI 設計師反映在新版畫面；此處描述的是設計迭代，<strong>不是可量化的使用成效</strong>。</p>\n<div class=\"kds-ui-entry\"><span>INDEPENDENT DESIGN / NOT SHIPPED</span><h3>我的商品視角與分批操作概念</h3><p>在同一個 KDS 畫面切換「訂單視圖／商品視圖」。在商品視角中，把<strong>跨訂單且製作條件相同</strong>的商品合併呈現，保留來源訂單與細項，讓廚師看到可以一起準備的工作量。</p></div>\n<div class=\"kds-dual-shots\"></div>\n<div class=\"kds-dual-shots\"><figure class=\"kds-shot\"><img loading=\"lazy\" src=\"./kds-order.png\" alt=\"以訂單為單位呈現的 KDS 視圖\"><figcaption>訂單視角：依單據追蹤顧客與出餐進度。</figcaption></figure><figure class=\"kds-shot\"><img loading=\"lazy\" src=\"./kds-category.png\" alt=\"以商品為單位呈現的 KDS 視圖\"><figcaption>個人延伸：跨訂單聚合同製作商品。</figcaption></figure></div><div class=\"kds-batch-example\"><strong>批次規則提案（設計假設）</strong><div class=\"kds-batch-line\"><span>以最早一筆進單時間起算</span><b>10 分鐘視窗內，聚合可同製作商品</b></div><div class=\"kds-batch-line\"><span>該餐廳的單次製作量</span><b>最多 3 份；8 份拆成 3＋3＋2</b></div><div class=\"kds-batch-line\"><span>下一步待驗證</span><b>依設備或商品分別設定產能上限</b></div></div>\n<figure class=\"kds-shot kds-recovery-shot\"><img loading=\"lazy\" src=\"./kds-recovery.png\" alt=\"KDS 操作與錯誤回復的設計概念\"><figcaption>延伸操作畫面：協助追蹤完成狀態、降低失誤後的找回成本。</figcaption></figure><p class=\"kds-schematic-note\">10 分鐘是為避免不同時間下單的商品過度集中；「3 份」來自單一受訪餐廳，並非所有餐廳的預設值。商品細項若影響製餐，就不能盲目合併。</p>")+
+sec("validation","05 / EVIDENCE & LIMITATIONS","區分已規劃、已觀察、尚待驗證","<div class=\"kds-evidence-columns\"><div><h3>研究有根據的判斷</h3><ul><li>歷史使用者回饋與第一代產品痛點</li><li>競品功能比較與市場基本面</li><li>LA PASTA 內外場協作及控菜方式</li><li>研究討論後 UI 的三項資訊層級修正</li></ul></div><div><h3>不能宣稱的成果</h3><ul><li>LA PASTA 的流程適用於全部餐廳</li><li>10 分鐘及每批 3 份是普遍最佳值</li><li>個人商品聚合設計已上線或已通過測試</li><li>新版 KDS 已提高出餐速度或降低錯誤率</li></ul></div></div>\n<p>正式研究以有限樣本補足情境，現階段較適合支持「基本功能與設計方向」決策；若進入下一輪，應針對不同餐飲業態驗證產能、內外場協作、視圖切換與提示機制。</p>")+
+sec("reflection","06 / REFLECTION","從功能清單往前走一步：理解每個角色為何需要它","<p>這個專案讓我重新理解 KDS：它並非把紙本單據搬到螢幕上，而是讓一個現場中的多種角色協調製餐節奏。原先我將「訂單／商品視角」視為資訊架構問題；訪談後才看見<strong>外場控制何時上菜、內場受一次可製作數量與時間間隔限制</strong>，兩種角色的操作目標並不相同。</p>\n<p>我在正式專案中貢獻的是整理研究證據、補足現場脈絡，以及指出 UI 與研究結果間的落差；在個人延伸裡，則把這些工作邏輯具體化成商品聚合和時間批次的設計提案。兩者的責任與驗證程度不同，但都讓我練習把洞察轉成可討論的產品取捨。</p>\n<div class=\"kds-reflection-bottom\"><strong>NEXT QUESTION ↗</strong><p>如果同一套 KDS 要服務速食、火鍋和分道上菜餐廳，哪些規則應由系統自動化，哪些必須留給內外場人員手動調整？</p></div>");
 }
 const bodyMap={kiosk:kioskBody,scheduling:schedulingBody,kds:kdsBody};
 const toc={kiosk:['Overview','Research Framework','Research Findings','Recommendations','Design & Validation','Outcome'],scheduling:['Overview','Problem','MVP Scope','Building','Validation','Next Steps'],kds:['Overview','Research','Insights to Design','Independent UI','Scope & Evidence','Reflection']};
