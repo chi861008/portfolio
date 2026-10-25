@@ -1075,3 +1075,20 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-batch-line{grid-template-columns:minmax(100px,.34fr) 1fr;gap:20px}
 .kds-case .kds-batch-line b{font-size:16px;line-height:1.65;font-weight:700}
 @media(max-width:680px){.kds-case .kds-feature-matrix img{max-height:620px}.kds-case .kds-batch-line{grid-template-columns:1fr;gap:6px;padding:17px}.kds-case .kds-batch-line b{font-size:14px}}
+
+/* KDS competitor summary and supporting research file */
+.kds-case .kds-competitor-analysis{margin:50px 0 55px}
+.kds-case .kds-competitor-analysis>h3{font-size:clamp(24px,2.8vw,34px);margin-bottom:14px}
+.kds-case .kds-competitor-analysis>p{max-width:900px}
+.kds-case .kds-compare-button{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;margin:18px 0 34px;padding:16px 21px;background:#242424;color:#fff;font-weight:750;font-size:15px;text-decoration:none;border:1px solid #242424;transition:background .2s,color .2s}
+.kds-case .kds-compare-button:hover,.kds-case .kds-compare-button:focus-visible{background:#fff;color:#242424}
+.kds-case .kds-compare-button span{font-size:22px;font-weight:400}
+.kds-competitor-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.kds-competitor-findings article{background:#f0eeea;padding:27px 26px 30px;border-top:2px solid #2b2927}
+.kds-competitor-findings span{display:block;color:#b35a38;font-size:11px;letter-spacing:.12em;font-weight:850}
+.kds-competitor-findings h4{font-size:21px;line-height:1.45;margin:16px 0 13px}
+.kds-case .kds-competitor-findings p{font-size:14px;line-height:1.85;margin:0}
+.kds-case .kds-competitor-analysis .kds-research-turn{margin:30px 0}
+.kds-case .kds-competitor-analysis .kds-future-insight{margin:30px 0 0}
+.kds-case .kds-competitor-analysis .kds-future-insight ul{padding-left:21px;line-height:1.85}
+@media(max-width:680px){.kds-competitor-findings{grid-template-columns:1fr}.kds-competitor-findings article{padding:22px 20px}.kds-case .kds-compare-button{width:100%;box-sizing:border-box}.kds-competitor-findings h4{font-size:19px}}
