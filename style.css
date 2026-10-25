@@ -939,3 +939,6 @@ body .case-layout .side-index a.is-active b{color:#fff;}
   .kiosk-case .interview-brand-logos{gap:16px;margin-top:18px;}
   .kiosk-case .interview-brand-logos img{width:64px;height:60px;}
 }
+
+/* Keep mini's yellow artwork monochrome, matching the other interview logos. */
+.kiosk-case .interview-brand-logos img[src$="kiosk-logo-mini-mono.svg"]{filter:brightness(0);}
