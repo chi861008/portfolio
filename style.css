@@ -1110,3 +1110,14 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-field-site strong{display:block;font-size:23px;margin:8px 0}
 .kds-case .kds-field-site p{margin:0;font-size:13px;line-height:1.7}
 @media(max-width:750px){.kds-case .kds-mvp-callout{padding:25px 20px}.kds-mvp-layers{grid-template-columns:1fr}.kds-field-site{align-items:flex-start;gap:15px}.kds-field-site img{width:75px;height:75px}.kds-field-site strong{font-size:20px}}
+
+
+/* KDS / KIOSK parity: same circular research-method presentation, four methods in 2×2. */
+.kds-case .research-method-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:790px;gap:24px;margin:44px auto 70px;align-items:center;border:0}
+.kds-case .research-method,.kds-case .research-method:nth-child(even){box-sizing:border-box;aspect-ratio:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 22px;border:1px solid #d7cfc7;border-radius:50%;background:#faf8f5;transform:none;grid-column:auto;width:100%}
+.kds-case .research-method:nth-child(2),.kds-case .research-method:nth-child(4){background:#f3eee8}
+.kds-case .research-method span{display:block;color:#ac6b50;font-size:11px;letter-spacing:.1em;line-height:1.5;font-weight:800}
+.kds-case .research-method strong{display:block;font-size:clamp(20px,2vw,23px);line-height:1.38;margin:9px 0 10px}
+.kds-case .story-section .research-method p{font-size:14px;line-height:1.62;color:#716c66;margin:0}
+@media(max-width:760px){.kds-case .research-method-grid{max-width:620px;gap:16px;margin:34px auto 64px}.kds-case .research-method strong{font-size:20px}}
+@media(max-width:500px){.kds-case .research-method-grid{grid-template-columns:1fr;max-width:290px;gap:18px}.kds-case .research-method,.kds-case .research-method:nth-child(even){padding:26px 22px}.kds-case .research-method strong{font-size:21px}.kds-case .story-section .research-method p{font-size:13px}}
