@@ -1044,3 +1044,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .home-mode .intro-photo-frame{background:#f4f4f3}
 .home-mode .intro-visual .intro-photo-frame img{object-fit:contain;object-position:center center}
 .photo-journey-back{object-fit:contain;object-position:center center;background:#f4f4f3}
+
+/* Match the About portrait frame to its actual 3:4 photo aspect ratio. */
+.home-mode .intro-photo-frame{aspect-ratio:3 / 4;background:transparent;border-radius:0}
+.home-mode .intro-visual .intro-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:0}
+.photo-journey-back{object-fit:cover;object-position:center;background:transparent}
