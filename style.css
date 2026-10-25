@@ -912,3 +912,11 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-case .decision-status--adopted{background:#25231f;color:#fff;}
 .kiosk-case .decision-comparison-note{margin:14px 0 44px!important;color:#777069;font-size:13px!important;line-height:1.8!important;}
 @media(max-width:700px){.kiosk-case .decision-comparison table{min-width:650px;}.kiosk-case .decision-comparison td{padding-top:18px;padding-bottom:20px;}.kiosk-case .decision-comparison td strong{font-size:14px;}.kiosk-case .decision-comparison td p{font-size:12px;}}
+
+/* Before/after comparisons use a shared neutral frame; color is not a quality verdict. */
+.kiosk-case .payment-comparison figure,
+.kiosk-case .payment-comparison figure:last-child{background:#f4f2ef;color:#25231f;border:1px solid #e3ddd6;border-radius:12px;padding:26px;}
+.kiosk-case .payment-comparison figure>span,
+.kiosk-case .payment-comparison figure:last-child>span{color:#ac6346;}
+.kiosk-case .payment-comparison figure figcaption,
+.kiosk-case .payment-comparison figure:last-child figcaption{color:#625d56;}
