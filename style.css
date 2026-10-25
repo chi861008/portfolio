@@ -1092,3 +1092,21 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-competitor-analysis .kds-future-insight{margin:30px 0 0}
 .kds-case .kds-competitor-analysis .kds-future-insight ul{padding-left:21px;line-height:1.85}
 @media(max-width:680px){.kds-competitor-findings{grid-template-columns:1fr}.kds-competitor-findings article{padding:22px 20px}.kds-case .kds-compare-button{width:100%;box-sizing:border-box}.kds-competitor-findings h4{font-size:19px}}
+
+/* KDS MVP release scope and field-study identity */
+.kds-case .kds-mvp-callout{background:#f2eee8;border-left:5px solid #f27327;padding:36px 37px;margin:34px 0 48px}
+.kds-mvp-callout>span{display:block;font-size:11px;letter-spacing:.12em;font-weight:900;color:#a8562c}
+.kds-mvp-callout h3{font-size:clamp(24px,2.8vw,34px);margin:15px 0 10px}
+.kds-case .kds-mvp-callout>p{margin:0 0 20px;max-width:770px}
+.kds-mvp-layers{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:11px;margin:23px 0 13px}
+.kds-mvp-layers>div{background:#e3ded6;padding:20px;display:flex;flex-direction:column;gap:10px}
+.kds-mvp-layers .kds-mvp-now{background:#f27327;color:#161616}
+.kds-mvp-layers small{font-size:10px;letter-spacing:.08em;font-weight:800;text-transform:uppercase}
+.kds-mvp-layers strong{font-size:16px;line-height:1.5}
+.kds-case .kds-mvp-callout .kds-mvp-footnote{font-size:12px;color:#716e69;margin:14px 0 0}
+.kds-field-site{display:flex;gap:24px;align-items:center;border-top:1px solid #c8c3bb;border-bottom:1px solid #c8c3bb;margin:29px 0 45px;padding:20px 5px}
+.kds-field-site img{width:100px;height:100px;object-fit:contain;flex:none}
+.kds-field-site span{display:block;color:#a8562c;letter-spacing:.12em;font-weight:800;font-size:10px}
+.kds-field-site strong{display:block;font-size:23px;margin:8px 0}
+.kds-case .kds-field-site p{margin:0;font-size:13px;line-height:1.7}
+@media(max-width:750px){.kds-case .kds-mvp-callout{padding:25px 20px}.kds-mvp-layers{grid-template-columns:1fr}.kds-field-site{align-items:flex-start;gap:15px}.kds-field-site img{width:75px;height:75px}.kds-field-site strong{font-size:20px}}
