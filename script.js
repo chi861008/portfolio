@@ -49,16 +49,18 @@ sec('solutions','04 / PRODUCT RECOMMENDATIONS','以使用者需求為主軸，�
  paragraph('我以合作店家訪談轉述的使用者問題為主要評估依據，再對照競品功能普及程度及實作可行性。當某項功能同時符合已整理的需求、也已被多個競品採用時，它就獲得更強的支持；但競品常見並不代表一定值得照做。開發難度則是實務限制，只要成本與難度沒有高到不合理，我仍傾向讓產品朝使用者需求改善。')+
  paragraph('對於超過半數競品具備的功能，我將其視為市場基準的線索；但也會考量是否影響核心點餐流程。例如熱門選項並非核心流程，會員串接則可能需要較高整合成本，因此在討論報告中建議較後續再考慮。這些是研究與討論時的相對判斷，並非正式分級或已敲定的開發順序。')+
  '<div class="fact-grid">'+fact('01 / USER NEEDS','使用者需求優先','從合作店家轉述與既有研究資料辨識操作問題，作為提出改善建議的主軸。')+fact('02 / MARKET SIGNAL','競品普及程度加強證據','當常見競品功能與使用者需求吻合時，提高該方向的評估權重；不因競品普及就照單全收。')+fact('03 / FEASIBILITY CHECK','可行性作為實務檢核','評估整合成本與開發難度；若難度合理，仍以改善使用者體驗為優先，再交由 PM 決定採納與試作。')+'</div>'+
- '<h3>從交叉比對到設計方向｜讓研究證據直接對應產品決策</h3>'+
- paragraph('我將店家轉述的消費者需求與競品觀察交叉比對，再對照保留的建議表確認採納結果。以下五組有需求與競品的雙重線索，其中兩組可追溯至本次獲採納的設計方向；其餘仍屬待評估建議。')+
- '<div class="evidence-matrix evidence-matrix--decisions"><div class="evidence-matrix-head"><span>使用者問題</span><span>競品線索</span><span>設計方向／決策狀態</span></div>'+
- '<div><strong>找不到餐點類別</strong><p>初次點餐時容易在分類切換卡住</p><span>側邊欄類別選項</span><em><b>已採納 02</b> 側邊欄類別選項</em></div>'+
- '<div><strong>不知道在哪裡付款</strong><p>需要理解實體付款設備的位置與時機</p><span>付款位置呈現</span><em><b>已採納 03</b> 付款設備位置引導</em></div>'+
- '<div><strong>找不到統編與載具</strong><p>不希望在結帳過程錯過設定</p><span>發票、載具獨立頁面</span><em>交叉比對成立，未列入可確認採納的四項</em></div>'+
- '<div><strong>付款前想返回修改</strong><p>希望已選付款方式後仍能調整訂單</p><span>付款後返回點餐</span><em>交叉比對成立，採納狀態未確認</em></div>'+
- '<div><strong>不熟悉中文介面</strong><p>希望至少能切換英文以理解流程</p><span>多國語言</span><em>交叉比對成立，採納狀態未確認</em></div></div>'+
- '<div class="decision-bridge"><span>DECISION SYNTHESIS / 研究到產品的轉譯</span><h4>最終確認採納的四個方向</h4><p>兩項直接對應上方的雙重證據；加購來自競品與營運促購機會，套餐／單點切換則來自更早期的歷史研究。不同來源分別標註，避免把四項都說成這次訪談的直接發現。</p></div>'+
- '<div class="adopted-grid"><article><span>01 / COMPETITIVE ANALYSIS</span><h4>加購功能</h4><p>讓顧客在點餐過程發現相關加購商品。</p><small>預期價值：提升客單價</small></article><article><span>02 / COMPETITIVE ANALYSIS + USER NEED</span><h4>側邊欄類別選項</h4><p>在菜單分類較多時提供更易察覺的切換入口。</p><small>預期指標：降低選單操作錯誤</small></article><article><span>03 / COMPETITIVE ANALYSIS + USER NEED</span><h4>付款位置呈現</h4><p>在畫面上顯示付款設備相對於機台的位置。</p><small>預期指標：提高任務完成率</small></article><article><span>04 / USER INTERVIEW INSIGHT</span><h4>套餐／單點快速切換</h4><p>顧客改變選擇時，不必刪掉商品再重新點選。</p><small>預期指標：縮短任務完成時間</small></article></div>'+
+ '<h3>從研究證據到設計決策｜完整對照表</h3>'+
+ '<p>整合本次店家訪談、過往使用者訪談、競品分析與營運機會，呈現設計建議及其採納狀態。只有能從保留的原始建議表確認的四項標為「已採納」；其他建議不代表被否決，也不代表已開發。</p>'+
+ '<div class="decision-comparison" role="region" aria-label="KIOSK 研究證據與設計決策對照表" tabindex="0"><table><thead><tr><th scope="col">研究來源與問題</th><th scope="col">設計建議與預期價值</th><th scope="col">決策狀態</th></tr></thead><tbody>'+
+ '<tr><td><strong>競品分析＋店家營運機會</strong><p>研究競品的促購設計，評估額外加點的商業機會；不是直接訪談證實的消費者痛點。</p></td><td><strong>加購功能</strong><p>增加附加商品選擇入口；預期提升客單價，尚無實測數據。</p></td><td><span class="decision-status decision-status--adopted">已採納 01</span></td></tr>'+
+ '<tr><td><strong>店家轉述需求＋競品分析</strong><p>餐點分類不易找到，點餐時容易卡在類別切換。</p></td><td><strong>側邊欄類別選項</strong><p>提供更明顯的菜單分類入口；預期減少操作錯誤。</p></td><td><span class="decision-status decision-status--adopted">已採納 02</span></td></tr>'+
+ '<tr><td><strong>店家轉述需求＋競品分析</strong><p>顧客難以辨識螢幕外的實體付款設備位置。</p></td><td><strong>付款設備位置引導</strong><p>對照機台顯示付款模組位置；預期提高任務完成率。</p></td><td><span class="decision-status decision-status--adopted">已採納 03</span></td></tr>'+
+ '<tr><td><strong>過往使用者訪談</strong><p>從單點改為套餐時，必須刪除商品再重新點餐。</p></td><td><strong>套餐／單點快速切換</strong><p>在同一商品直接切換；預期縮短任務完成時間。</p></td><td><span class="decision-status decision-status--adopted">已採納 04</span></td></tr>'+
+ '<tr><td><strong>店家轉述需求＋競品分析</strong><p>使用者找不到統編與載具設定，可能在結帳時錯過。</p></td><td><strong>發票／載具獨立頁面</strong><p>讓發票資訊設定更容易找到。</p></td><td><span class="decision-status">未確認採納</span></td></tr>'+
+ '<tr><td><strong>店家轉述需求＋競品分析</strong><p>選擇付款方式後仍想返回修改訂單。</p></td><td><strong>付款前返回點餐</strong><p>保留返回修改餐點的操作路徑。</p></td><td><span class="decision-status">未確認採納</span></td></tr>'+
+ '<tr><td><strong>店家轉述需求＋競品分析</strong><p>不熟悉中文介面的顧客希望能理解操作流程。</p></td><td><strong>多國語言切換</strong><p>至少提供英文等語言選項。</p></td><td><span class="decision-status">未確認採納</span></td></tr>'+
+ '</tbody></table></div>'+
+ '<p class="decision-comparison-note">註：上述「已採納」指建議方向可由原始彙整表確認；不等於功能已上線或成效已驗證。「未確認採納」表示現有資料不足以確定最終決策。</p>'+
  '<div class="evidence-partial"><span>PARTIAL MATCH / 只能部分支持</span><strong>按鈕回饋、初次使用引導 ↔ 主要按鈕微動畫</strong><p>動畫可以提示互動狀態或吸引注意，但不能直接等同於完整教學；仍需釐清新手真正需要的提示。</p></div>'+
  '<div class="evidence-two-col"><div><span>COMPETITIVE OPPORTUNITIES</span><strong>有市場案例，但不能只憑競品推定需求</strong><p>加購、會員、推薦標籤與熱門排名偏向營收或促購機會，必須再評估是否符合店家目標與使用情境。</p></div><div><span>UNMATCHED NEEDS</span><strong>既有競品清單未直接回答的問題</strong><p>例如信用卡付款少一次確認、單一付款方式跳過選擇、載具掃描困難、付款後領取提醒、取餐號碼找回與店員端逾時提醒，應另外研究或設計驗證。</p></div></div>'+
  '<div class="state-note">來源界線：前 13 條 User Stories 為研究者依 7 位合作店家管理者轉述的消費者行為及店家需求整理，非直接訪談消費者；另 4 條是競品分析衍生的待驗證需求假設。競品功能覆蓋率取自本專案當時的分析樣本，不等於市場市佔率。</div>'+
