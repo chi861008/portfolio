@@ -1395,7 +1395,7 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 /* Site-wide bilingual navigation */
 .language-toggle{display:flex;align-items:center;gap:7px;padding:9px 0 9px 11px;border:0;background:transparent;color:#2d2d2a;font:750 12px/1 'DM Sans',sans-serif;letter-spacing:.03em;white-space:nowrap;cursor:pointer}
 .language-toggle:hover,.language-toggle:focus-visible{color:#b35d3f}.language-toggle:focus-visible{outline:2px solid #b35d3f;outline-offset:5px;border-radius:2px}
-.language-current{color:#1f1d1b}.language-next{color:#352c27}.language-divider{color:#49372e;font-weight:500}
+.language-current{display:inline-flex;align-items:center;justify-content:center;min-width:28px;min-height:28px;padding:5px 7px;background:#231f1c;color:#fff9f1;border-radius:3px;font-weight:800}.language-next{color:#352c27;font-weight:650}.language-divider{color:#49372e;font-weight:500}
 .language-toggle:hover .language-next{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:650px){.nav-links{gap:12px}.language-toggle{padding:10px 0 10px 6px;font-size:12px}.nav-contact{padding:8px 9px}}
 /* English editorial case components */
