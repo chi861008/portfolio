@@ -1080,8 +1080,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-competitor-analysis{margin:50px 0 55px}
 .kds-case .kds-competitor-analysis>h3{font-size:clamp(24px,2.8vw,34px);margin-bottom:14px}
 .kds-case .kds-competitor-analysis>p{max-width:900px}
-.kds-case .kds-compare-button{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;margin:18px 0 34px;padding:16px 21px;background:#242424;color:#fff;font-weight:750;font-size:15px;text-decoration:none;border:1px solid #242424;transition:background .2s,color .2s}
-.kds-case .kds-compare-button:hover,.kds-case .kds-compare-button:focus-visible{background:#fff;color:#242424}
+.kds-case .kds-compare-button{display:flex;width:max-content;align-items:center;justify-content:space-between;gap:28px;margin:18px 0 34px auto;padding:16px 21px;background:#b65d3a;color:#fff;font-weight:750;font-size:15px;text-decoration:none;border:1px solid #b65d3a;transition:background .2s,color .2s}
+.kds-case .kds-compare-button:hover,.kds-case .kds-compare-button:focus-visible{background:#914526;color:#fff}
 .kds-case .kds-compare-button span{font-size:22px;font-weight:400}
 .kds-competitor-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .kds-competitor-findings article{background:#f0eeea;padding:27px 26px 30px;border-top:2px solid #2b2927}
@@ -1091,7 +1091,7 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-competitor-analysis .kds-research-turn{margin:30px 0}
 .kds-case .kds-competitor-analysis .kds-future-insight{margin:30px 0 0}
 .kds-case .kds-competitor-analysis .kds-future-insight ul{padding-left:21px;line-height:1.85}
-@media(max-width:680px){.kds-competitor-findings{grid-template-columns:1fr}.kds-competitor-findings article{padding:22px 20px}.kds-case .kds-compare-button{width:100%;box-sizing:border-box}.kds-competitor-findings h4{font-size:19px}}
+@media(max-width:680px){.kds-competitor-findings{grid-template-columns:1fr}.kds-competitor-findings article{padding:22px 20px}.kds-case .kds-compare-button{width:max-content;max-width:100%;box-sizing:border-box}.kds-competitor-findings h4{font-size:19px}}
 
 /* KDS MVP release scope and field-study identity */
 .kds-case .kds-mvp-callout{background:#f2eee8;border-left:5px solid #f27327;padding:36px 37px;margin:34px 0 48px}
@@ -1243,3 +1243,11 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .decision-status--adopted{background:#25231f;color:#fff;}
 .kds-case .decision-comparison-note{margin:14px 0 44px!important;color:#777069;font-size:13px!important;line-height:1.8!important;}
 @media(max-width:700px){.kds-case .decision-comparison table{min-width:650px;}.kds-case .decision-comparison td{padding-top:18px;padding-bottom:20px;}.kds-case .decision-comparison td strong{font-size:14px;}.kds-case .decision-comparison td p{font-size:12px;}}
+
+/* KDS UI critique: calm, whitespace-led list */
+.kds-case .kds-ui-review{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px;row-gap:34px;margin:35px 0 40px}
+.kds-case .kds-ui-review>div{min-width:0}
+.kds-case .kds-ui-review span{display:block;color:#ae5f3e;font-size:11px;font-weight:800;letter-spacing:.1em;margin-bottom:11px}
+.kds-case .kds-ui-review strong{display:block;font-size:20px;line-height:1.5;color:#25231f}
+.kds-case .kds-ui-review p{font-size:14px;line-height:1.8;margin:10px 0 0;color:#6e6963}
+@media(max-width:700px){.kds-case .kds-ui-review{grid-template-columns:1fr;row-gap:26px}.kds-case .kds-ui-review strong{font-size:18px}}
