@@ -1055,3 +1055,13 @@ body .case-layout .side-index a.is-active b{color:#fff;}
   .home-mode .intro-portrait .intro-visual{width:min(88%,420px);max-width:420px;margin-left:auto;margin-right:auto;justify-self:center}
   .home-mode .intro-portrait .intro-photo-frame{width:100%;margin-inline:auto}
 }
+
+/* Desktop About image: a near-square crop with the original softly rounded corners. */
+@media (min-width:651px){
+  .home-mode .intro-photo-frame{aspect-ratio:1 / 1.06;border-radius:8px}
+  .home-mode .intro-visual .intro-photo-frame img{border-radius:8px;object-fit:cover;object-position:center}
+}
+@media (max-width:650px){
+  .home-mode .intro-photo-frame{aspect-ratio:3 / 4;border-radius:8px}
+  .home-mode .intro-visual .intro-photo-frame img{border-radius:8px}
+}
