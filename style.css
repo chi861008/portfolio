@@ -1080,8 +1080,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-competitor-analysis{margin:50px 0 55px}
 .kds-case .kds-competitor-analysis>h3{font-size:clamp(24px,2.8vw,34px);margin-bottom:14px}
 .kds-case .kds-competitor-analysis>p{max-width:900px}
-.kds-case .kds-compare-button{display:flex;width:max-content;align-items:center;justify-content:space-between;gap:28px;margin:18px 0 34px auto;padding:16px 21px;background:#b65d3a;color:#fff;font-weight:750;font-size:15px;text-decoration:none;border:1px solid #b65d3a;transition:background .2s,color .2s}
-.kds-case .kds-compare-button:hover,.kds-case .kds-compare-button:focus-visible{background:#914526;color:#fff}
+.kds-case .kds-compare-button{display:flex;width:max-content;align-items:center;justify-content:space-between;gap:28px;margin:18px 0 34px auto;padding:16px 21px;background:#ff603c;color:#171717;font-weight:750;font-size:15px;text-decoration:none;border:1px solid #ff603c;transition:background .2s,color .2s}
+.kds-case .kds-compare-button:hover,.kds-case .kds-compare-button:focus-visible{background:#ed512f;color:#171717}
 .kds-case .kds-compare-button span{font-size:22px;font-weight:400}
 .kds-competitor-findings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .kds-competitor-findings article{background:#f0eeea;padding:27px 26px 30px;border-top:2px solid #2b2927}
