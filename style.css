@@ -892,3 +892,9 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 
 /* Previous interview evidence belongs to the same KIOSK interview section. */
 .kiosk-case .research-track--interviews .interview-prior-evidence{margin:48px 0 20px;max-width:820px;padding:17px 20px;border-left:3px solid #b06e4b;background:#eeeae3;color:#494640;font-size:14px;line-height:1.85;}
+
+/* Four KIOSK research methods form a balanced centered 2×2 composition. */
+.kiosk-case .research-method-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:790px;gap:24px;margin:44px auto 70px;}
+.kiosk-case .research-method-grid .research-method{transform:none;grid-column:auto;width:100%;justify-self:stretch;}
+@media(max-width:760px){.kiosk-case .research-method-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;gap:16px;}.kiosk-case .research-method-grid .research-method:last-child{grid-column:auto;width:100%;}}
+@media(max-width:500px){.kiosk-case .research-method-grid{grid-template-columns:1fr;max-width:290px;gap:18px;}}
