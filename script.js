@@ -235,26 +235,23 @@ function updateWorkHold(){
   const viewport=window.innerHeight;
   const mobile=window.matchMedia('(max-width:650px)').matches;
   const pinnedLayout=window.matchMedia('(min-width:901px)').matches;
-  // Finish every staggered entrance exactly when the Works scene reaches its
-  // sticky position. Otherwise cards can remain at different Y offsets while
-  // the page is pinned, leaving their image edges and captions misaligned.
-  const workTop=work.getBoundingClientRect().top;
-  const stickyTop=82;
-  const entranceStart=viewport*.72;
-  // Align all three cards *before* the scene pins, leaving a clean and
-  // complete composition during the brief sticky hold.
-  const entranceEnd=Math.max(stickyTop+36,viewport*.42);
-  const sharedProgress=Math.min(1,Math.max(0,(entranceStart-workTop)/Math.max(1,entranceStart-entranceEnd)));
+  // Keep the entrance visible as the Works scene approaches and then pins.
+  // The older range ended before the cards were comfortably in view.
+  const holdTop=work.parentElement.getBoundingClientRect().top;
+  const entranceStart=viewport*.97;
+  const entranceEnd=-viewport*.40;
+  const sharedProgress=Math.min(1,Math.max(0,(entranceStart-holdTop)/Math.max(1,entranceStart-entranceEnd)));
   cards.forEach((card,i)=>{
     // Track each actual card rather than the earlier-arriving section heading.
     // The stagger remains visible while the image is on screen and rewinds on scroll-up.
     const priorShift=parseFloat(card.style.getPropertyValue('--work-enter-y'))||0;
     const top=card.getBoundingClientRect().top-priorShift;
-    const progress=reduced?1:pinnedLayout?sharedProgress:Math.min(1,Math.max(0,(viewport*.94-top)/(viewport*(mobile?.72:.62))));
+    const baseProgress=pinnedLayout?sharedProgress:Math.min(1,Math.max(0,(viewport*.98-top)/(viewport*(mobile?.8:.72))));
+    const progress=reduced?1:Math.max(0,Math.min(1,(baseProgress-i*.075)/(1-i*.075)));
     const eased=progress*progress*(3-2*progress);
-    const distance=(mobile?[80,110,140]:[65,135,205])[i];
+    const distance=(mobile?[135,165,195]:[125,165,205])[i];
     card.style.setProperty('--work-enter-y',`${((1-eased)*distance).toFixed(1)}px`);
-    card.style.setProperty('--work-enter-opacity',(0.75+eased*.25).toFixed(3));
+    card.style.setProperty('--work-enter-opacity',(0.25+eased*.75).toFixed(3));
   });
 }
 function updateCaseToc(){
