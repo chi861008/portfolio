@@ -1206,3 +1206,13 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-scope-legend p{font-size:12px;line-height:1.8;color:#6a625c;margin:0}
 @media(max-width:800px){.kds-scope-layout{grid-template-columns:1fr;gap:28px}.kds-scope-rings{max-width:500px}.kds-scope-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.kds-scope-legend>div{gap:8px}.kds-case .kds-insight-mvp-map{gap:9px}}
 @media(max-width:600px){.kds-case .kds-insight-mvp-map{grid-template-columns:1fr;margin-bottom:52px}.kds-scope-legend{grid-template-columns:1fr}.kds-scope-rings{max-width:390px}.kds-scope-rings strong{font-size:12px}.kds-scope-center strong{font-size:11px}.kds-scope-center span{font-size:8px}.kds-scope-layout{margin-bottom:56px}}
+
+/* KDS overview → discovery: remove stacked rules and excess vertical whitespace. */
+.kds-case .story-section#overview{padding-bottom:34px}
+.kds-case .story-section#overview .kds-case-scenario{margin-bottom:0}
+.kds-case .story-section#overview .kds-case-scenario figcaption{border-bottom:0;padding:10px 0 0}
+.kds-case .story-section#overview + .story-section{padding-top:44px;border-top:0}
+@media(max-width:800px){
+  .kds-case .story-section#overview{padding-bottom:24px}
+  .kds-case .story-section#overview + .story-section{padding-top:32px}
+}
