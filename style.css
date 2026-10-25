@@ -1308,3 +1308,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-case #validation .test-finding-grid h4{font-size:clamp(21px,2vw,26px);line-height:1.45;margin:0 0 15px}
 .kiosk-case #validation .test-finding-grid p{font-size:clamp(17px,1.45vw,19px);line-height:1.8;color:#4c4741}
 @media(max-width:650px){.kiosk-case #validation .test-finding-grid{gap:14px}.kiosk-case #validation .test-finding-grid>div,.kiosk-case #validation .test-finding-grid>div+div{padding:24px 21px}}
+
+/* Four Kiosk iteration variants are design decisions, not secondary photo captions. */
+.kiosk-case #validation .design-phase--iteration .layout-variants figcaption{font-size:clamp(17px,1.55vw,20px);line-height:1.6;font-weight:750;color:#282523;margin-top:20px;letter-spacing:-.012em}
+.kiosk-case #validation .design-phase--iteration .layout-variants figure{padding-bottom:32px}
+@media(max-width:650px){.kiosk-case #validation .design-phase--iteration .layout-variants figcaption{font-size:18px;margin-top:16px}}
