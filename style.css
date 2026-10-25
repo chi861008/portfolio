@@ -37,7 +37,7 @@ body{overflow-x:clip}
 }
 @media(prefers-reduced-motion:reduce){.home-mode .intro-hold .intro-photo-frame,.home-mode .intro-hold .intro-photo-frame img{transform:none!important}}
 @media(max-width:650px){.home-mode .hero-hold{height:170svh}.home-mode .hero-hold .identity-hero{top:67px;height:calc(100svh - 67px)}.home-mode .intro-hold{min-height:195svh}.home-mode .intro-hold .intro-portrait{top:25px;padding:30px 0;gap:22px}}
-.home-mode .work-hold{position:relative;padding-bottom:clamp(125px,19svh,185px)}
+.home-mode .work-hold{position:relative;padding-bottom:clamp(260px,48svh,460px)}
 /* The pinned scene must fit *inside* the viewport; an oversized sticky
    element silently scrolls past instead of holding at the top. */
 .home-mode .work-hold #work{position:sticky;top:82px;height:calc(100svh - 82px);min-height:0;padding-top:clamp(14px,2.5svh,26px);padding-bottom:clamp(12px,2svh,20px);display:flex;flex-direction:column;justify-content:center}
