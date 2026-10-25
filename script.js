@@ -86,7 +86,7 @@ sec('validation','05 / DESIGN & VALIDATION','從設計方案到初步使用者�
  '<div class="design-phase design-phase--iteration"><div class="phase-banner"><span>PHASE 03 / SECOND ITERATION</span><strong>測試結果推動第二輪版型</strong><p>從單一方形按鈕，延伸出四種資訊呈現方式。</p></div><div class="solution"><span class="solution-num">04 / SECOND DESIGN ITERATION</span><h3>由單一方形按鈕延伸四種選項版型</h3>'+paragraph('根據第一次 Prototype 測試的理解障礙，我們不再讓所有選項沿用相同的方形按鈕，而是依資訊量與操作目的延伸出文字、橫向、精簡橫列與圖像大卡等四種形式，讓不同類型的選項有更適合的資訊呈現。這是測試後的第二輪設計成果，並非前期訪談直接產生的方案。')+
  '<div class="layout-variants"><figure><img src="./kiosk-layout-compact.png" alt="純文字三欄式的飯量選項，正常、多、少"><figcaption>文字選項｜飯量、甜度等不需圖片的設定</figcaption></figure><figure><img src="./kiosk-layout-wide.png" alt="橫向商品卡片含商品圖片、價格與品項說明"><figcaption>橫向版型｜需展示說明的商品</figcaption></figure><figure><img src="./kiosk-layout-row.png" alt="精簡橫向商品列，包括圖片、名稱、價格及加減按鈕"><figcaption>精簡橫列｜快速調整加購數量</figcaption></figure><figure><img src="./kiosk-layout-tile.png" alt="大型方形套餐組合選項卡，含圖片、名稱及加價金額"><figcaption>圖像大卡｜需要辨識附餐內容的套餐</figcaption></figure></div>'+
  '<div class="state-note">迭代狀態：完成第二輪設計，但專案在此階段結束，未再次進行可用性測試；因此不能宣稱新版按鈕已經改善理解率或操作效率。</div></div>'+
- '<div class="evidence-card"><span class="overline">VALIDATION LIMIT</span><p>第一輪僅 6 位內部同事參與，尚無門店顧客測試、前後任務時間或錯誤率比較；第二輪按鈕版型亦未複測。因此目前只能呈現初步回饋與設計迭代，不推論實際門店成效。</p></div></div>')+
+ '</div>')+
 sec('reflection','06 / OUTCOME & REFLECTION','好的自助體驗，必須同時理解決策、資訊與環境',
  '<div class="outcome-highlight"><strong>4</strong><div><span>ADOPTED DESIGN DIRECTIONS / 已採納的改善方向</span><p>根據當時保留的建議彙整表，確認加購功能、側邊欄類別選項、付款位置呈現，以及套餐／單點快速切換共 4 個方向獲採納；尚無可核對的實際上線與商業成果數據。</p></div></div>'+
  paragraph('這次專案讓我從研究執行延伸到設計機會的辨識，進一步參與改善方向的評估與設計。加點商品、套餐切換與付款位置引導分別回應營運促購、重複操作與軟硬體理解的問題；而 Prototype 之後的四種按鈕版型，則呈現從測試回饋走向第二輪設計的迭代過程。')+
