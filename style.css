@@ -1329,3 +1329,6 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-case #validation .test-finding-grid .test-finding-positive,.kiosk-case #validation .test-finding-grid .test-finding-negative{border-top:1px solid #e6e0d8}
 .kiosk-case #validation .test-finding-grid .test-finding-positive .test-finding-mark{font-size:0;position:relative}
 .kiosk-case #validation .test-finding-grid .test-finding-positive .test-finding-mark::before{content:"";display:block;width:9px;height:17px;border:solid currentColor;border-width:0 3px 3px 0;transform:translateY(-2px) rotate(45deg)}
+
+.kiosk-case .story-section#overview .contribution-summary p+p{margin-top:12px}
+.kiosk-case .story-section#overview .contribution-summary strong{color:#2e2925;font-weight:750}

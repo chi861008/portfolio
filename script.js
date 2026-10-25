@@ -18,6 +18,7 @@ return sec('overview','01 / OVERVIEW','從介面優化到完整的自助點餐�
  '<h3>專案起源｜產品版本整併與升級</h3>'+
  paragraph('團隊反映既有 KIOSK 銷售表現未達預期，並懷疑產品功能與使用體驗可能存在競爭差距。公司原有點餐與付款設備分離，因此已規劃推出整合兩者的新一代機台，並把握改版機會檢視既有軟體的操作體驗。')+
  paragraph('這不只是將原本的畫面移到新機台：不同餐飲業態的菜單架構、不同角色的需求，以及畫面與實體付款設備如何配合，都需要重新理解。團隊因此希望從市場競爭差距與真實使用需求出發，為新版 KIOSK 找到有依據的軟體改善方向。')+
+ '<div class="contribution-summary"><span class="overline">MY CONTRIBUTION / 我的貢獻與權責</span><p><strong>我負責</strong>市場與競品研究、整理功能差距及使用者操作問題，並提出改善建議；產品 Roadmap 由團隊決定，我並未獨立定案。</p><p><strong>可確認的成果範圍：</strong>現存原始建議表可逐項核對 4 個採納方向。原 Product Backlog 已無法取得，故不將過去提到的 11 項視為已核實成果；開發完成、上線時間與實際成效也尚未確認。</p></div>'+
  '<figure class="scenario-figure"><img src="./kiosk-scenario.png" alt="顧客在餐廳操作整合螢幕與多種付款設備的自助點餐機之使用情境示意"><figcaption>新版自助點餐機的使用情境示意，用於說明螢幕與實體付款設備的相對位置；非實地觀察照片。</figcaption></figure>')+
 sec('research','02 / RESEARCH FRAMEWORK','三個研究問題，對應三條證據來源',
  '<div class="research-question-grid"><div><span>RQ 01 / PRODUCT FIT</span><strong>不同餐飲業態對 KIOSK 的功能與操作流程有什麼需求？</strong><div class="rq-decision"><b>支援決策</b>判斷優先切入的店型與菜單適配方向</div><div class="rq-value"><b>預期商業價值</b>提高目標客群與產品的匹配程度，減少不適合的導入機會</div></div><div><span>RQ 02 / COMPETITIVE GAP</span><strong>我們與市場競品有哪些關鍵功能差距？</strong><div class="rq-decision"><b>支援決策</b>辨識基礎功能差距與值得評估的設計機會</div><div class="rq-value"><b>預期商業價值</b>補足競爭門檻，提升產品在店家選型時的吸引力</div></div><div><span>RQ 03 / USER EXPERIENCE</span><strong>既有店家遇到哪些操作問題與未滿足需求？</strong><div class="rq-decision"><b>支援決策</b>改善顧客操作卡點與門市支援負擔</div><div class="rq-value"><b>預期商業價值</b>降低店員協助成本與交易中斷風險，讓自助結帳更順暢</div></div></div>'+
@@ -64,7 +65,7 @@ sec('solutions','04 / PRODUCT RECOMMENDATIONS','以使用者需求為主軸，�
  '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>載具掃描困難、付款後缺乏領取提醒。</p></td><td><strong>掃描回饋與付款後提示</strong><p>釐清失敗原因及顧客真正需要的完成確認。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
  '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>取餐號碼不易找回、店員端需要逾時提醒。</p></td><td><strong>取餐資訊找回與逾時提醒</strong><p>分別驗證顧客與店員的實際使用情境。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
 '</tbody></table></div>'+
- '<div class="callout"><strong>決策與權責界線</strong><p>我負責研究、彙整功能差距與使用者問題，並提出改善建議；未獨立決定 Roadmap。目前能依原始建議表逐項確認的是以上 4 個採納方向。原 Product Backlog 清單已無法取得，因此不將先前提及的 11 項視為可核實的逐項成果。是否完成開發、何時上線及實際成效均未經確認。</p></div>')+
+ '')+
 sec('validation','05 / DESIGN & VALIDATION','從設計方案到初步使用者驗證',
  '<div class="design-phase design-phase--proposal"><div class="phase-banner"><span>PHASE 01 / DESIGN PROPOSALS</span><strong>研究轉譯為設計方案</strong><p>三個畫面成果，分別回應加購、套餐切換與付款設備定位。</p></div><div class="solution"><span class="solution-num">01 / ADOPTED DIRECTION</span><h3>加點商品畫面</h3>'+paragraph('為了讓店家在既有點餐流程中提供額外加購選項，我們增加獨立的加點畫面，以商品圖片、價格與數量加減控制呈現選擇，並提供「不需要，謝謝」的跳過入口。此畫面對應原始建議表中的「加購功能」，目標是讓有意願的顧客更容易選購附加商品。')+
  '<figure class="design-shot design-shot--upsell"><img src="./kiosk-add-on-screen.png" alt="Kiosk 新增的加點商品介面，顯示商品卡、價格、數量增減與不需要謝謝、加入購物車按鈕"><figcaption>後續新增的加點介面設計｜保留略過加點的操作選擇。畫面是設計成果，未提供轉換率或客單價提升的實測數據。</figcaption></figure></div>'+
