@@ -1121,3 +1121,26 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .story-section .research-method p{font-size:14px;line-height:1.62;color:#716c66;margin:0}
 @media(max-width:760px){.kds-case .research-method-grid{max-width:620px;gap:16px;margin:34px auto 64px}.kds-case .research-method strong{font-size:20px}}
 @media(max-width:500px){.kds-case .research-method-grid{grid-template-columns:1fr;max-width:290px;gap:18px}.kds-case .research-method,.kds-case .research-method:nth-child(even){padding:26px 22px}.kds-case .research-method strong{font-size:21px}.kds-case .story-section .research-method p{font-size:13px}}
+
+/* KDS user-analysis chapter: three editorial insights, with source and design implication. */
+.kds-case .kds-user-insights{display:grid;grid-template-columns:1fr;gap:18px;margin:32px 0 28px}
+.kds-case .kds-user-insight{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);background:#f0efeb;border-top:2px solid #302e2b;overflow:hidden}
+.kds-case .kds-user-insight-main{padding:37px 34px 39px}
+.kds-case .kds-user-insight-kicker{display:flex;align-items:center;gap:12px;color:#a85e42;font-size:11px;font-weight:800;letter-spacing:.11em}
+.kds-case .kds-user-insight-kicker b{font-size:36px;letter-spacing:-.06em;font-weight:750;line-height:1}
+.kds-case .kds-user-insight h4{font-size:clamp(23px,2.5vw,32px);line-height:1.4;letter-spacing:-.035em;margin:21px 0 18px}
+.kds-case .kds-user-insight-main p{font-size:15px;line-height:1.9;margin:0}
+.kds-case .kds-user-insight aside{background:#e9e3dc;padding:39px 29px;border-left:1px solid #d8d0c8}
+.kds-case .kds-user-insight:nth-child(2) aside{background:#eee7df}
+.kds-case .kds-user-insight:nth-child(3) aside{background:#e7e4df}
+.kds-case .kds-user-insight aside span{display:block;color:#a85e42;font-size:10px;font-weight:800;letter-spacing:.08em;margin-bottom:12px}
+.kds-case .kds-user-insight aside strong{display:block;border-top:1px solid #cfc5bb;padding-top:18px;margin-top:19px;font-size:13px}
+.kds-case .kds-user-insight aside p{font-size:13px;line-height:1.8;margin:7px 0 0}
+.kds-case .kds-insight-limitation{font-size:13px;line-height:1.85;color:#615d59;background:#f7f4ef;border-left:3px solid #b86b4a;padding:15px 19px;margin:24px 0 55px}
+@media(max-width:720px){.kds-case .kds-user-insight{grid-template-columns:1fr}.kds-case .kds-user-insight-main{padding:27px 23px}.kds-case .kds-user-insight aside{border-left:0;border-top:1px solid #d8d0c8;padding:24px 23px}.kds-case .kds-user-insight h4{font-size:24px}}
+
+.kds-case .kds-user-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:30px 0 55px}
+.kds-case .kds-user-metrics>div{background:#efefed;padding:24px 20px 22px;border-radius:7px}
+.kds-case .kds-user-metrics strong{display:block;color:#e85e35;font-size:clamp(23px,2.8vw,34px);margin-bottom:9px}
+.kds-case .kds-user-metrics span{display:block;font-size:13px;color:#4d4a47;line-height:1.7}
+@media(max-width:650px){.kds-case .kds-user-metrics{grid-template-columns:1fr;gap:10px}.kds-case .kds-user-metrics>div{padding:17px 20px}}
