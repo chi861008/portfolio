@@ -942,3 +942,42 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 
 /* Keep mini's yellow artwork monochrome, matching the other interview logos. */
 .kiosk-case .interview-brand-logos img[src$="kiosk-logo-mini-mono.svg"]{filter:brightness(0);}
+
+/* Mobile identity cover: Yuan / portrait / Chi, keeping existing motion targets. */
+@media(max-width:650px){
+  .home-mode .identity-hero{padding:20px 0 30px;}
+  .home-mode .identity-hero .identity-wrap{width:calc(100% - 48px);}
+  .home-mode .identity-caption{margin-bottom:25px;}
+  .home-mode .identity-title{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+  }
+  .home-mode .identity-title>span{
+    display:block;
+    width:max-content;
+    font-size:clamp(70px,22vw,110px);
+    line-height:.88;
+    letter-spacing:-.095em;
+  }
+  .home-mode .identity-title>span:first-child{align-self:flex-start;}
+  .home-mode .identity-title>span:last-child{align-self:flex-end;}
+  .home-mode .identity-title .identity-photo{
+    align-self:center;
+    width:clamp(165px,46vw,220px);
+    height:clamp(175px,49vw,230px);
+    transform:none;
+    margin:3px 0;
+  }
+  .home-mode .identity-details{margin-top:34px;}
+}
+@media(max-width:650px) and (max-height:710px){
+  .home-mode .identity-caption{margin-bottom:15px;}
+  .home-mode .identity-title{gap:5px;}
+  .home-mode .identity-title>span{font-size:clamp(62px,20vw,90px);}
+  .home-mode .identity-title .identity-photo{width:clamp(150px,42vw,190px);height:clamp(158px,44vw,202px);}
+  .home-mode .identity-details{margin-top:24px;}
+}
