@@ -1391,3 +1391,23 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .scheduling-case .schedule-measure .schedule-point p{font-size:14px}
 @media(max-width:900px){.scheduling-case .case-layout{gap:0}.schedule-feature-quote{grid-template-columns:1fr;gap:15px}.schedule-build-grid,.schedule-measure>div{grid-template-columns:1fr 1fr}.schedule-preference{grid-template-columns:1fr;gap:27px}}
 @media(max-width:650px){.scheduling-case .story-section,.scheduling-case .story-section+.story-section{padding:70px 0 48px}.scheduling-case .story-section>h2{font-size:34px;margin-bottom:26px}.scheduling-case .story-section>p{font-size:16px}.scheduling-case .case-banner .work-visual{height:300px}.schedule-feature-quote{padding:29px 27px;margin:35px 0}.schedule-problem-grid,.schedule-decision-grid,.schedule-comparison,.schedule-flow,.schedule-build-grid,.schedule-measure>div{grid-template-columns:1fr;gap:25px}.schedule-problem-grid,.schedule-decision-grid{margin:38px 0}.schedule-comparison{margin:35px 0 56px;gap:10px}.schedule-comparison>div{min-height:0;padding:29px 26px}.schedule-turn{margin:40px 0 0;padding:28px}.scheduling-case .schedule-turn p{font-size:21px}.schedule-flow{margin:38px 0 53px}.schedule-choice-demo{padding:25px 18px}.schedule-days i{height:39px;font-size:12px}.schedule-testimonial{padding:36px 20px;margin:38px 0 58px}.schedule-repo{align-items:flex-start;flex-direction:column;gap:24px}.schedule-learning{padding:29px;margin:30px 0 56px}.schedule-feature-quote strong{font-size:24px}}
+
+/* Site-wide bilingual navigation */
+.language-toggle{display:flex;align-items:center;gap:7px;padding:9px 0 9px 11px;border:0;background:transparent;color:#2d2d2a;font:750 12px/1 'DM Sans',sans-serif;letter-spacing:.03em;white-space:nowrap;cursor:pointer}
+.language-toggle:hover,.language-toggle:focus-visible{color:#b35d3f}.language-toggle:focus-visible{outline:2px solid #b35d3f;outline-offset:5px;border-radius:2px}
+.language-current{color:#2d2d2a}.language-next{color:#9b9690}.language-divider{color:#bbb5ad;font-weight:400}
+@media(max-width:650px){.nav-links{gap:12px}.language-toggle{padding:10px 0 10px 6px;font-size:12px}.nav-contact{padding:8px 9px}}
+/* English editorial case components */
+.english-evidence{padding:24px 0 8px;border-top:1px solid #d6d1c8;margin:27px 0}
+.english-evidence>span{font-size:11px;font-weight:800;letter-spacing:.13em;color:#a1654e}
+.english-evidence h3{font-size:clamp(20px,2.4vw,25px);line-height:1.4;letter-spacing:-.03em;margin:14px 0 11px}
+.story-section .english-evidence p{font-size:16px;line-height:1.87;margin:0}
+.english-pair,.english-three{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:38px;margin:33px 0 48px}
+.english-three{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.english-figure{margin:40px 0 64px}.english-figure img{display:block;width:100%;height:auto;object-fit:contain;background:#f2f0ec}
+.english-figure figcaption,.english-gallery figcaption{font-size:13px;line-height:1.6;color:#77716c;margin-top:11px}
+.english-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin:44px 0 70px}.english-gallery figure{margin:0}.english-gallery img{display:block;width:100%;height:auto;object-fit:contain;background:#f1f0ec}
+.scheduling-case .english-pair .english-evidence{margin:0}.scheduling-case .schedule-flow .english-evidence,.scheduling-case .schedule-build-grid .english-evidence,.scheduling-case .schedule-measure .english-evidence{margin:0}
+.scheduling-case .schedule-flow .english-evidence h3{font-size:23px}.scheduling-case .schedule-flow .english-evidence p{font-size:16px}
+.kiosk-case .english-evidence,.kds-case .english-evidence{border-left:0}.kiosk-case .story-section .english-evidence p,.kds-case .story-section .english-evidence p{font-size:16px}
+@media(max-width:700px){.english-pair,.english-three,.english-gallery{grid-template-columns:1fr;gap:18px}.english-figure{margin:32px 0 47px}.english-gallery{margin:35px 0 50px}.english-evidence{margin:20px 0}.scheduling-case .schedule-build-grid,.scheduling-case .schedule-measure>div{grid-template-columns:1fr}}
