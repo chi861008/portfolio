@@ -1324,3 +1324,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-case #validation .test-finding-grid .test-finding-negative .test-finding-mark{color:#aa715b}
 .kiosk-case #validation .test-finding-grid .test-finding-label span,.kiosk-case #validation .test-finding-grid .test-finding-negative .test-finding-label span{color:#776a60;font-size:12px}
 .kiosk-case #validation .test-finding-grid h4{font-weight:800}
+
+/* Refine outcome cards: no emphasized top rule; geometric, straight-line check. */
+.kiosk-case #validation .test-finding-grid .test-finding-positive,.kiosk-case #validation .test-finding-grid .test-finding-negative{border-top:1px solid #e6e0d8}
+.kiosk-case #validation .test-finding-grid .test-finding-positive .test-finding-mark{font-size:0;position:relative}
+.kiosk-case #validation .test-finding-grid .test-finding-positive .test-finding-mark::before{content:"";display:block;width:9px;height:17px;border:solid currentColor;border-width:0 3px 3px 0;transform:translateY(-2px) rotate(45deg)}
