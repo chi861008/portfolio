@@ -1062,6 +1062,6 @@ body .case-layout .side-index a.is-active b{color:#fff;}
   .home-mode .intro-visual .intro-photo-frame img{border-radius:8px;object-fit:cover;object-position:center}
 }
 @media (max-width:650px){
-  .home-mode .intro-photo-frame{aspect-ratio:3 / 4;border-radius:8px}
-  .home-mode .intro-visual .intro-photo-frame img{border-radius:8px}
+  .home-mode .intro-photo-frame{aspect-ratio:1 / 1.06;border-radius:8px}
+  .home-mode .intro-visual .intro-photo-frame img{border-radius:8px;object-fit:cover;object-position:center}
 }
