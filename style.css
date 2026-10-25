@@ -1157,10 +1157,14 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kds-case .kds-insight-evidence strong,.kds-case .kds-insight-implication strong{display:block;color:#a35c40;font-size:11px;margin-bottom:4px}
 .kds-case .kds-insight-feature figure{margin:0;padding:26px;background:#f3eee8;display:flex;flex-direction:column;justify-content:center;min-width:0}
 .kds-case .kds-insight-feature figcaption{font-size:12px;line-height:1.7;color:#776f67;margin:20px 0 0}
-.kds-case .kds-insight-context{background:#f6f3ee;border-left:3px solid #b76a4b;padding:19px 24px;margin:0 0 65px}
-.kds-case .kds-insight-context>span{font-size:10px;font-weight:800;letter-spacing:.11em;color:#a85d43}
-.kds-case .kds-insight-context p{font-size:16px;line-height:1.85;font-weight:600;margin:10px 0 8px}
-.kds-case .kds-insight-context small{font-size:11px;line-height:1.7;color:#81776f}
+.kds-case .kds-insight-context{position:relative;background:transparent;border:0;padding:26px clamp(42px,5vw,72px) 20px;margin:4px 0 65px}
+.kds-case .kds-insight-context::before,.kds-case .kds-insight-context::after{position:absolute;font-family:Georgia,serif;font-size:clamp(60px,8vw,93px);line-height:1;color:#c58a6d;opacity:.68}
+.kds-case .kds-insight-context::before{content:'“';left:0;top:2px}
+.kds-case .kds-insight-context::after{content:'”';right:0;bottom:14px}
+.kds-case .kds-insight-context>span{display:block;font-size:11px;font-weight:800;letter-spacing:.09em;color:#ab6246;margin-bottom:14px}
+.kds-case .kds-insight-context blockquote{font-size:clamp(23px,2.8vw,31px);letter-spacing:-.03em;line-height:1.68;font-weight:750;color:#2c2925;margin:0}
+.kds-case .kds-insight-context figcaption{font-size:12px;line-height:1.75;color:#8c847c;margin-top:18px}
+@media(max-width:700px){.kds-case .kds-insight-context{padding:22px 38px 15px}.kds-case .kds-insight-context blockquote{font-size:24px}}
 .kds-mini-flow{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:370px;margin:auto;width:100%;text-align:center}
 .kds-mini-flow>div,.kds-time-flow>div,.kds-attention-flow>div{background:#fffdfa;border:1px solid #d7cdc3;border-radius:8px;padding:18px 13px}
 .kds-mini-flow small,.kds-time-flow small{display:block;color:#83766b;font-size:11px;margin-bottom:8px}
