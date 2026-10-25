@@ -1065,3 +1065,13 @@ body .case-layout .side-index a.is-active b{color:#fff;}
   .home-mode .intro-photo-frame{aspect-ratio:1 / 1.06;border-radius:8px}
   .home-mode .intro-visual .intro-photo-frame img{border-radius:8px;object-fit:cover;object-position:center}
 }
+
+/* KDS five-part case-study presentation */
+.kds-case .kds-feature-matrix{max-width:780px;margin:38px auto 48px}
+.kds-case .kds-feature-matrix img{width:100%;height:auto;max-height:780px;object-fit:contain;object-position:top}
+.kds-case .kds-ui-compare,.kds-case .kds-independent-screen{margin:38px 0 55px}
+.kds-case .kds-ui-compare img,.kds-case .kds-independent-screen img{width:100%;height:auto;max-height:none;object-fit:contain}
+.kds-case .kds-shot a{display:block;cursor:zoom-in}
+.kds-case .kds-batch-line{grid-template-columns:minmax(100px,.34fr) 1fr;gap:20px}
+.kds-case .kds-batch-line b{font-size:16px;line-height:1.65;font-weight:700}
+@media(max-width:680px){.kds-case .kds-feature-matrix img{max-height:620px}.kds-case .kds-batch-line{grid-template-columns:1fr;gap:6px;padding:17px}.kds-case .kds-batch-line b{font-size:14px}}
