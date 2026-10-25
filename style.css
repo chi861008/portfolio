@@ -920,3 +920,22 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-case .payment-comparison figure:last-child>span{color:#ac6346;}
 .kiosk-case .payment-comparison figure figcaption,
 .kiosk-case .payment-comparison figure:last-child figcaption{color:#625d56;}
+
+/* KIOSK: whitespace creates section rhythm; decoration stays secondary. */
+.kiosk-case .story-section{border-bottom:0;}
+.kiosk-case .story-section:not(:last-child)::after{content:none;display:none;}
+.kiosk-case .research-track .findings-divider{border-top:0;padding-top:0;}
+.kiosk-case .research-track>h3{border-top:0;padding-top:0;}
+.kiosk-case .research-audience{border:0;padding:18px 0 24px;align-items:flex-start;gap:44px;}
+.kiosk-case .research-audience>.research-audience-summary{display:block;min-width:260px;max-width:300px;flex:0 0 30%;}
+.kiosk-case .research-audience-count{display:flex;align-items:center;gap:13px;}
+.kiosk-case .interview-brand-logos{display:flex;align-items:center;justify-content:flex-start;gap:13px;margin:24px 0 0;}
+.kiosk-case .interview-brand-logos img{width:70px;height:66px;object-fit:contain;display:block;opacity:.68;}
+.kiosk-case .market-compare{border-block:0;}
+.kiosk-case .segment-filters>div{border-top:0;}
+@media(max-width:760px){
+  .kiosk-case .research-audience{display:block;}
+  .kiosk-case .research-audience>.research-audience-summary{max-width:none;min-width:0;margin-bottom:24px;}
+  .kiosk-case .interview-brand-logos{gap:16px;margin-top:18px;}
+  .kiosk-case .interview-brand-logos img{width:64px;height:60px;}
+}
