@@ -1024,3 +1024,18 @@ body .case-layout .side-index a.is-active b{color:#fff;}
   .kiosk-case .insight-feature .insight-feature-kicker .insight-number{font-size:54px;}
   .kiosk-case .insight-feature .insight-feature-copy h4{margin-top:22px;}
 }
+
+/* A participant's verbatim line: quiet emphasis within the meal-switching insight. */
+.kiosk-case .insight-feature .insight-direct-quote{
+  margin:27px 0 0;
+  padding:0;
+  max-width:35ch;
+  color:#9e624b;
+  font-size:clamp(18px,1.85vw,23px);
+  line-height:1.7;
+  font-weight:650;
+  letter-spacing:-.02em;
+}
+@media(max-width:650px){
+  .kiosk-case .insight-feature .insight-direct-quote{margin-top:23px;font-size:20px;}
+}
