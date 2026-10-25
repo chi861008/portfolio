@@ -898,3 +898,17 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .kiosk-case .research-method-grid .research-method{transform:none;grid-column:auto;width:100%;justify-self:stretch;}
 @media(max-width:760px){.kiosk-case .research-method-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px;gap:16px;}.kiosk-case .research-method-grid .research-method:last-child{grid-column:auto;width:100%;}}
 @media(max-width:500px){.kiosk-case .research-method-grid{grid-template-columns:1fr;max-width:290px;gap:18px;}}
+
+/* Unified evidence-to-decision table replaces the duplicate comparison and adoption cards. */
+.kiosk-case .decision-comparison{margin:30px 0 14px;overflow-x:auto;border-top:2px solid #292722;border-bottom:1px solid #d7d1c8;}
+.kiosk-case .decision-comparison table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;}
+.kiosk-case .decision-comparison th{padding:17px 17px 18px 0;color:#665f58;font-size:12px;font-weight:800;letter-spacing:.035em;border-bottom:1px solid #cfc8bf;}
+.kiosk-case .decision-comparison th:nth-child(1){width:38%;}.kiosk-case .decision-comparison th:nth-child(2){width:42%;}.kiosk-case .decision-comparison th:nth-child(3){width:20%;}
+.kiosk-case .decision-comparison td{padding:23px 18px 25px 0;border-bottom:1px solid #e1dcd5;vertical-align:top;}
+.kiosk-case .decision-comparison tbody tr:last-child td{border-bottom:0;}
+.kiosk-case .decision-comparison td strong{display:block;font-size:16px;line-height:1.5;color:#25231f;}
+.kiosk-case .decision-comparison td p{margin:8px 0 0;color:#716b64;font-size:14px;line-height:1.72;}
+.kiosk-case .decision-status{display:inline-block;padding:7px 10px;border-radius:3px;background:#eeece8;color:#66605a;font-size:12px;font-style:normal;font-weight:750;white-space:nowrap;}
+.kiosk-case .decision-status--adopted{background:#25231f;color:#fff;}
+.kiosk-case .decision-comparison-note{margin:14px 0 44px!important;color:#777069;font-size:13px!important;line-height:1.8!important;}
+@media(max-width:700px){.kiosk-case .decision-comparison table{min-width:650px;}.kiosk-case .decision-comparison td{padding-top:18px;padding-bottom:20px;}.kiosk-case .decision-comparison td strong{font-size:14px;}.kiosk-case .decision-comparison td p{font-size:12px;}}
