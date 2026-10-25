@@ -1395,7 +1395,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 /* Site-wide bilingual navigation */
 .language-toggle{display:flex;align-items:center;gap:7px;padding:9px 0 9px 11px;border:0;background:transparent;color:#2d2d2a;font:750 12px/1 'DM Sans',sans-serif;letter-spacing:.03em;white-space:nowrap;cursor:pointer}
 .language-toggle:hover,.language-toggle:focus-visible{color:#b35d3f}.language-toggle:focus-visible{outline:2px solid #b35d3f;outline-offset:5px;border-radius:2px}
-.language-current{color:#2d2d2a}.language-next{color:#9b9690}.language-divider{color:#bbb5ad;font-weight:400}
+.language-current{color:#1f1d1b}.language-next{color:#352c27}.language-divider{color:#49372e;font-weight:500}
+.language-toggle:hover .language-next{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:650px){.nav-links{gap:12px}.language-toggle{padding:10px 0 10px 6px;font-size:12px}.nav-contact{padding:8px 9px}}
 /* English editorial case components */
 .english-evidence{padding:24px 0 8px;border-top:1px solid #d6d1c8;margin:27px 0}
