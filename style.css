@@ -1039,3 +1039,8 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 @media(max-width:650px){
   .kiosk-case .insight-feature .insight-direct-quote{margin-top:23px;font-size:20px;}
 }
+
+/* Keep the entire About Me cross-legged portrait visible, including white socks and shoes. */
+.home-mode .intro-photo-frame{background:#f4f4f3}
+.home-mode .intro-visual .intro-photo-frame img{object-fit:contain;object-position:center center}
+.photo-journey-back{object-fit:contain;object-position:center center;background:#f4f4f3}
