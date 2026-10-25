@@ -1332,3 +1332,62 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 
 .kiosk-case .story-section#overview .contribution-summary p+p{margin-top:12px}
 .kiosk-case .story-section#overview .contribution-summary strong{color:#2e2925;font-weight:750}
+
+/* Pilates scheduling case — editorial rhythm and decision-led storytelling */
+.scheduling-case .case-layout{gap:70px}
+.scheduling-case .case-article{max-width:900px}
+.scheduling-case .story-section{padding:96px 0 104px;border:0}
+.scheduling-case .story-section+.story-section{padding-top:56px}
+.scheduling-case .story-section>.story-kicker{color:#a3654f;font-size:12px;letter-spacing:.14em}
+.scheduling-case .story-section>h2{font-size:clamp(35px,4vw,51px);line-height:1.32;margin:15px 0 34px;max-width:830px}
+.scheduling-case .story-section>p{font-size:17px;line-height:1.91;max-width:810px;margin:0 0 24px}
+.scheduling-case .story-section .schedule-lead{font-size:clamp(22px,2.7vw,29px);line-height:1.62;font-weight:680;color:#282824;max-width:780px;margin-bottom:28px}
+.scheduling-case .case-banner{margin-bottom:20px}
+.scheduling-case .case-banner .work-visual{height:420px}
+.schedule-feature-quote{background:#e9e6df;padding:43px 47px;margin:47px 0 40px;display:grid;grid-template-columns:170px 1fr;gap:36px;align-items:start}
+.schedule-feature-quote span,.schedule-small-label,.schedule-point>span,.schedule-turn>span,.schedule-comparison>div>span,.schedule-preference-title>span,.schedule-choice-demo>span,.schedule-flow>div>span,.schedule-testimonial figcaption,.schedule-repo span,.schedule-learning>span{font-size:11px;font-weight:800;letter-spacing:.13em;color:#95604b}
+.schedule-feature-quote strong{font-size:clamp(23px,2.7vw,31px);line-height:1.55;letter-spacing:-.035em;color:#252521}
+.scheduling-case .story-section .schedule-status-copy{font-size:15px;color:#6b6963;margin-top:10px}
+.schedule-problem-grid,.schedule-decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;margin:55px 0}
+.schedule-point{padding-top:21px;border-top:1px solid #cbc7bf}
+.schedule-point h3{font-size:23px;line-height:1.42;margin:17px 0 12px;letter-spacing:-.035em}
+.scheduling-case .schedule-point p{font-size:16px;line-height:1.85;margin:0;color:#55544f}
+.schedule-turn{margin:65px 0 15px;padding:35px 40px;background:#f1efea}
+.scheduling-case .schedule-turn p{font-size:24px;line-height:1.65;color:#34332f;margin:16px 0 0}
+.schedule-comparison{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:44px 0 78px}
+.schedule-comparison>div{padding:36px 33px;min-height:245px}
+.schedule-compare-old{background:#e9e7e3}.schedule-compare-new{background:#dce5db}
+.schedule-comparison h3{font-size:25px;line-height:1.45;margin:23px 0 12px}
+.scheduling-case .schedule-comparison p{font-size:16px;line-height:1.76;margin:0}
+.schedule-preference{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center;margin:0 0 20px}
+.schedule-preference h3{font-size:29px;line-height:1.4;letter-spacing:-.04em;margin:19px 0 16px}
+.scheduling-case .schedule-preference p{font-size:16px;line-height:1.86;margin:0}
+.schedule-choice-demo{padding:34px 26px;background:#f1efea}
+.schedule-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin:29px 0 19px}
+.schedule-days i{display:flex;align-items:center;justify-content:center;font-style:normal;background:#fff;height:43px;font-size:14px;font-weight:700;color:#9c9b96;white-space:nowrap}
+.schedule-days i.picked{background:#373c36;color:#fff}
+.schedule-choice-demo small{display:block;font-size:12px;line-height:1.6;color:#74716b}
+.schedule-flow{display:grid;grid-template-columns:repeat(2,1fr);gap:43px 42px;margin:54px 0 68px}
+.schedule-flow>div{padding:23px 0 0;border-top:1px solid #cac7bf}
+.schedule-flow h3{font-size:23px;margin:14px 0 11px;line-height:1.45}
+.scheduling-case .schedule-flow p{font-size:16px;line-height:1.81;margin:0}
+.schedule-decision-grid{margin:45px 0 0;gap:48px}
+.schedule-build-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px;margin:57px 0 76px}
+.schedule-build-grid .schedule-point h3{font-size:20px}
+.scheduling-case .schedule-build-grid .schedule-point p{font-size:15px}
+.schedule-testimonial{margin:44px 0 72px;padding:42px 0;text-align:center;background:#e7e9e1}
+.schedule-testimonial blockquote{font-size:clamp(28px,4vw,43px);line-height:1.45;font-weight:700;letter-spacing:-.04em;margin:0 0 16px}
+.schedule-testimonial figcaption{font-weight:500;letter-spacing:0;font-size:13px;color:#6e7169}
+.schedule-repo{display:flex;justify-content:space-between;gap:40px;align-items:center;padding:34px 0;border-top:1px solid #c9c5bc;border-bottom:1px solid #c9c5bc}
+.schedule-repo strong{display:block;font-size:23px;margin:10px 0}
+.scheduling-case .schedule-repo p{font-size:15px;margin:0;line-height:1.75}
+.schedule-repo a{flex-shrink:0;text-decoration:none;font-weight:750;font-size:14px;color:#333}
+.schedule-learning{margin:42px 0 70px;padding:35px 39px;background:#f0eee7}
+.schedule-learning strong{display:block;font-size:26px;line-height:1.4;margin:14px 0}
+.scheduling-case .schedule-learning p{font-size:16px;line-height:1.82;margin:0}
+.schedule-measure h3{font-size:28px;line-height:1.45;letter-spacing:-.04em;margin:0 0 22px}
+.schedule-measure>div{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.schedule-measure .schedule-point h3{font-size:19px}
+.scheduling-case .schedule-measure .schedule-point p{font-size:14px}
+@media(max-width:900px){.scheduling-case .case-layout{gap:0}.schedule-feature-quote{grid-template-columns:1fr;gap:15px}.schedule-build-grid,.schedule-measure>div{grid-template-columns:1fr 1fr}.schedule-preference{grid-template-columns:1fr;gap:27px}}
+@media(max-width:650px){.scheduling-case .story-section,.scheduling-case .story-section+.story-section{padding:70px 0 48px}.scheduling-case .story-section>h2{font-size:34px;margin-bottom:26px}.scheduling-case .story-section>p{font-size:16px}.scheduling-case .case-banner .work-visual{height:300px}.schedule-feature-quote{padding:29px 27px;margin:35px 0}.schedule-problem-grid,.schedule-decision-grid,.schedule-comparison,.schedule-flow,.schedule-build-grid,.schedule-measure>div{grid-template-columns:1fr;gap:25px}.schedule-problem-grid,.schedule-decision-grid{margin:38px 0}.schedule-comparison{margin:35px 0 56px;gap:10px}.schedule-comparison>div{min-height:0;padding:29px 26px}.schedule-turn{margin:40px 0 0;padding:28px}.scheduling-case .schedule-turn p{font-size:21px}.schedule-flow{margin:38px 0 53px}.schedule-choice-demo{padding:25px 18px}.schedule-days i{height:39px;font-size:12px}.schedule-testimonial{padding:36px 20px;margin:38px 0 58px}.schedule-repo{align-items:flex-start;flex-direction:column;gap:24px}.schedule-learning{padding:29px;margin:30px 0 56px}.schedule-feature-quote strong{font-size:24px}}
