@@ -1049,3 +1049,9 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .home-mode .intro-photo-frame{aspect-ratio:3 / 4;background:transparent;border-radius:0}
 .home-mode .intro-visual .intro-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:0}
 .photo-journey-back{object-fit:cover;object-position:center;background:transparent}
+
+/* Mobile About portrait: centered and larger, while preserving the full 3:4 image. */
+@media (max-width:650px){
+  .home-mode .intro-portrait .intro-visual{width:min(88%,420px);max-width:420px;margin-left:auto;margin-right:auto;justify-self:center}
+  .home-mode .intro-portrait .intro-photo-frame{width:100%;margin-inline:auto}
+}
