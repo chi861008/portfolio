@@ -886,7 +886,7 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .case-top .case-title-row .case-cover-date{justify-self:end;padding-top:6px;font-size:13px;line-height:1.5;font-weight:600;letter-spacing:.015em;font-variant-numeric:tabular-nums;white-space:nowrap;color:#686868;}
 .kiosk-cover .case-cover-date,.kds-cover .case-cover-date{color:#ccc!important;}
 /* Navigation links are self-explanatory; remove redundant top rule. */
-.case-layout .side-index{border-top:0;padding-top:0;}
+.case-layout .side-index{border-top:0;padding-top:28px;}
 @media(max-width:900px){.case-top .case-title-row{grid-template-columns:1fr;row-gap:14px;}.case-top .case-title-row .case-cover-date{justify-self:start;padding-top:0;}}
 @media(max-width:650px){.case-top .case-title-row{margin-top:54px;}}
 
