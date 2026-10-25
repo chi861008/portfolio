@@ -65,9 +65,6 @@ sec('solutions','04 / PRODUCT RECOMMENDATIONS','以使用者需求為主軸，�
  '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>載具掃描困難、付款後缺乏領取提醒。</p></td><td><strong>掃描回饋與付款後提示</strong><p>釐清失敗原因及顧客真正需要的完成確認。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
  '<tr><td><strong>店家轉述需求（競品未直接對應）</strong><p>取餐號碼不易找回、店員端需要逾時提醒。</p></td><td><strong>取餐資訊找回與逾時提醒</strong><p>分別驗證顧客與店員的實際使用情境。</p></td><td><span class="decision-status">待研究／驗證</span></td></tr>'+ 
 '</tbody></table></div>'+
- '<p class="decision-comparison-note">註：上述「已採納」指建議方向可由原始彙整表確認；不等於功能已上線或成效已驗證。「未確認採納」表示現有資料不足以確定最終決策；「待釐清需求」「待評估」「待研究／驗證」表示仍屬研究判斷，尚不能推定已進入產品決策。</p>'+
- '<div class="state-note">來源界線：前 13 條 User Stories 為研究者依 7 位合作店家管理者轉述的消費者行為及店家需求整理，非直接訪談消費者；另 4 條是競品分析衍生的待驗證需求假設。競品功能覆蓋率取自本專案當時的分析樣本，不等於市場市佔率。</div>'+
- '<p>以上是原始「跟上功能」建議彙整表能確認的採納方向；商業價值和指標是預期目的，並非已驗證的實際成效。</p>'+
  '<div class="callout"><strong>決策與權責界線</strong><p>我負責研究、彙整功能差距與使用者問題，並提出改善建議；未獨立決定 Roadmap。目前能依原始建議表逐項確認的是以上 4 個採納方向。原 Product Backlog 清單已無法取得，因此不將先前提及的 11 項視為可核實的逐項成果。是否完成開發、何時上線及實際成效均未經確認。</p></div>')+
 sec('validation','05 / DESIGN & VALIDATION','從設計方案到初步使用者驗證',
  '<div class="design-phase design-phase--proposal"><div class="phase-banner"><span>PHASE 01 / DESIGN PROPOSALS</span><strong>研究轉譯為設計方案</strong><p>三個畫面成果，分別回應加購、套餐切換與付款設備定位。</p></div><div class="solution"><span class="solution-num">01 / ADOPTED DIRECTION</span><h3>加點商品畫面</h3>'+paragraph('為了讓店家在既有點餐流程中提供額外加購選項，我們增加獨立的加點畫面，以商品圖片、價格與數量加減控制呈現選擇，並提供「不需要，謝謝」的跳過入口。此畫面對應原始建議表中的「加購功能」，目標是讓有意願的顧客更容易選購附加商品。')+
