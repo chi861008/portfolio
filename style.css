@@ -889,3 +889,6 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .case-layout .side-index{border-top:0;padding-top:0;}
 @media(max-width:900px){.case-top .case-title-row{grid-template-columns:1fr;row-gap:14px;}.case-top .case-title-row .case-cover-date{justify-self:start;padding-top:0;}}
 @media(max-width:650px){.case-top .case-title-row{margin-top:54px;}}
+
+/* Previous interview evidence belongs to the same KIOSK interview section. */
+.kiosk-case .research-track--interviews .interview-prior-evidence{margin:48px 0 20px;max-width:820px;padding:17px 20px;border-left:3px solid #b06e4b;background:#eeeae3;color:#494640;font-size:14px;line-height:1.85;}
