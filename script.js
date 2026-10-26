@@ -235,19 +235,20 @@ function updateWorkHold(){
   const viewport=window.innerHeight;
   const mobile=window.matchMedia('(max-width:650px)').matches;
   const pinnedLayout=window.matchMedia('(min-width:901px)').matches;
-  // Keep the entrance visible as the Works scene approaches and then pins.
-  // The older range ended before the cards were comfortably in view.
+  // Drive the desktop entrance ONLY while the section is pinned. The scene
+  // stays fixed until all cards have aligned, then holds briefly before exit.
   const holdTop=work.parentElement.getBoundingClientRect().top;
-  const entranceStart=viewport*.97;
-  const entranceEnd=-viewport*.40;
-  const sharedProgress=Math.min(1,Math.max(0,(entranceStart-holdTop)/Math.max(1,entranceStart-entranceEnd)));
+  const pinStart=82;
+  const pinnedTravel=Math.max(320,viewport*.65);
+  const sharedProgress=Math.min(1,Math.max(0,(pinStart-holdTop)/pinnedTravel));
   cards.forEach((card,i)=>{
     // Track each actual card rather than the earlier-arriving section heading.
     // The stagger remains visible while the image is on screen and rewinds on scroll-up.
     const priorShift=parseFloat(card.style.getPropertyValue('--work-enter-y'))||0;
     const top=card.getBoundingClientRect().top-priorShift;
     const baseProgress=pinnedLayout?sharedProgress:Math.min(1,Math.max(0,(viewport*.98-top)/(viewport*(mobile?.8:.72))));
-    const progress=reduced?1:Math.max(0,Math.min(1,(baseProgress-i*.075)/(1-i*.075)));
+    const stagger=pinnedLayout?i*.12:i*.075;
+    const progress=reduced?1:Math.max(0,Math.min(1,(baseProgress-stagger)/(1-stagger)));
     const eased=progress*progress*(3-2*progress);
     const distance=(mobile?[135,165,195]:[125,165,205])[i];
     card.style.setProperty('--work-enter-y',`${((1-eased)*distance).toFixed(1)}px`);
