@@ -21,15 +21,16 @@ body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){.home-mode .dark-band .thinking-line{transform:none!important}}
 .home-mode .identity-hero{min-height:calc(100svh - 82px);display:flex;align-items:center}
 .home-mode .footer{display:none}
-.contact-flip-section{display:flex;align-items:center;justify-content:center;min-height:350px;padding:80px 20px 105px;background:#f9f9f6;perspective:1000px}
-.contact-flip{display:block;width:205px;height:205px;border-radius:50%;outline-offset:12px;cursor:pointer}
+.home-mode .dark-band .wrap{position:relative}
+.contact-flip-section{position:absolute;right:0;top:0;display:block;perspective:1000px;z-index:2}
+.contact-flip{display:block;width:110px;height:110px;border-radius:50%;outline-offset:8px;cursor:pointer}
 .contact-flip-inner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .68s cubic-bezier(.2,.75,.2,1)}
 .contact-flip:hover .contact-flip-inner,.contact-flip:focus-visible .contact-flip-inner{transform:rotateY(180deg)}
 .contact-flip-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#ff603c;color:#fff;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 15px 36px rgba(255,96,60,.12)}
-.contact-flip-front svg{width:91px;height:91px}
-.contact-flip-back{transform:rotateY(180deg);font-family:'DM Sans',sans-serif;font-weight:700;font-size:28px;line-height:1.12;letter-spacing:-.04em;text-align:center}
-.contact-flip-arrow{font-size:24px}
-@media(max-width:650px){.contact-flip-section{min-height:290px;padding:55px 20px 75px}.contact-flip{width:174px;height:174px}.contact-flip-front svg{width:76px;height:76px}.contact-flip-back{font-size:24px}}
+.contact-flip-front svg{width:61px;height:61px}
+.contact-flip-back{transform:rotateY(180deg);font-family:'DM Sans',sans-serif;font-weight:700;font-size:17px;line-height:1.12;letter-spacing:-.04em;text-align:center}
+.contact-flip-arrow{font-size:15px}
+@media(max-width:650px){.contact-flip-section{right:0;top:-28px}.contact-flip{width:78px;height:78px}.contact-flip-front svg{width:46px;height:46px}.contact-flip-back{font-size:13px}.contact-flip-arrow{font-size:12px}}
 @media(hover:none){.contact-flip:active .contact-flip-inner{transform:rotateY(180deg)}}
 @media(prefers-reduced-motion:reduce){.contact-flip-inner{transition:none}}
 .home-mode .identity-hero .identity-wrap{width:min(1260px,calc(100% - 10vw))}
@@ -569,6 +570,10 @@ body{overflow-x:clip}
 .scroll-signature path:first-child{stroke-width:4.8}
 .scroll-signature path:nth-child(8){stroke-width:3.1}
 .scroll-signature path:last-child{stroke-width:3.5}
+.home-mode .intro-copy .scroll-signature path{stroke-width:3.5}
+.home-mode .intro-copy .scroll-signature path:first-child{stroke-width:4}
+.home-mode .intro-copy .scroll-signature path:nth-child(8){stroke-width:2.6}
+.home-mode .intro-copy .scroll-signature path:last-child{stroke-width:3}
 @media(max-width:650px){.intro-copy .scroll-signature{width:min(72%,246px);margin:28px 0 25px -10px}}
 @media(max-width:650px){.intro-copy .signature-action-row{gap:8px;margin:18px 0}.intro-copy .signature-action-row .scroll-signature{width:auto;margin:0}.intro-copy .signature-action-row .intro-link{padding:10px 11px;font-size:11px;gap:7px}}
 @media(max-width:650px){.home-mode .intro-portrait .intro-copy .signature-action-row{margin:22px 0 0;gap:12px}.home-mode .intro-portrait .intro-copy .signature-action-row .scroll-signature{width:min(46%,175px);max-width:175px}.home-mode .intro-portrait .intro-bottom-link{margin:0 auto 14px}}
