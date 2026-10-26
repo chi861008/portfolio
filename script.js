@@ -134,7 +134,25 @@ const toc={kiosk:['Overview','Research Framework','Research Findings','Recommend
 function caseSnapshot(p){if(p.id==='kds')return '<div class="case-overview-intro case-project-meta"><span>廚房顯示系統</span></div><div class="case-snapshot"><div><span>TEAM GOAL / 專案背景與目標</span><p>以既有第一代 KDS 的問題為起點，規劃新版第一階段 MVP：優先完成製餐資訊理解、誤操作排除與批次製餐。</p></div><div><span>CHALLENGE / 關鍵研究問題</span><p>廚房不是單純依進單順序製作；不同製程、時間、設備容量及內外場協作都會改變資訊需求。</p></div><div><span>MY ROLE / 我的貢獻</span><p>整理歷史研究與既有客戶反饋、參與競品及 LA PASTA 現場研究，並協助對齊 UI 與研究結果；正式改善建議由另一位 UX 夥伴主提。</p></div><div><span>RESULT / 階段成果</span><p>研究與競品比較支持下一版功能取捨；UI 討論後調整資訊層級。跨訂單聚合、時間與產能分批為個人獨立概念，尚未驗證。</p></div></div>';if(p.id!=='kiosk')return '<div class="case-overview-intro case-project-meta"><span>'+p.zh+'</span></div><div class="meta-row case-role-summary"><div class="meta-item"><span>我的角色</span><strong>'+p.role+'</strong></div><div class="meta-item"><span>專案範圍</span><strong>'+p.type+'</strong></div></div>';return '<div class="case-overview-intro case-project-meta"><span>次世代自助點餐機</span></div><div class="case-snapshot"><div><span>TEAM GOAL / 專案背景與目標</span><p>整合原本分離的點餐與付款設備，並重新檢視完整的自助點餐與付款體驗。</p></div><div><span>CHALLENGE / 關鍵設計挑戰</span><p>軟硬體互動複雜；不同餐飲業態與菜單結構的需求差異大，且終端消費者招募受限。</p></div><div><span>MY ROLE / 我的貢獻</span><p>參與前期研究與問題定義，主要負責消費者端 KIOSK 操作流程與介面設計；另一位 UX 負責店家後端。付款設備位置引導由我獨立提出與設計，經 PM 評估後採納試作。</p></div><div><span>RESULT / 階段成果</span><p>完成 4 個品牌、7 位餐廳管理者訪談、競品分析與 6 人 Prototype 測試；目前可由原始建議表確認 4 個設計方向獲採納，實際上線成效尚未確認。</p></div></div>';}
 function casePage(p){const next=projects[(projects.indexOf(p)+1)%projects.length];const anchors=p.id==='kds'?['overview','research','opportunity','solutions','reflection']:['overview','research','opportunity','solutions','validation','reflection'];const banner=p.id==='kiosk'||p.id==='kds'?'':'<div class="case-banner">'+visual(p.visual)+'</div>';return '<div class="wrap"><section class="case-top'+(p.id==='kiosk'?' kiosk-cover':p.id==='kds'?' kds-cover':'')+'"><a href="#/work" class="back-link">← BACK TO SELECTED WORK</a><div class="case-title-row"><h1>'+p.title+'<span class="orange">.</span></h1><time class="case-cover-date" datetime="'+(p.id==='kiosk'?'2025-11':p.id==='kds'?'2026-06':'2026')+'">'+(p.id==='kiosk'?'2025.11 — 2026.04':p.id==='kds'?'2026.06 — 2026.07':p.year)+'</time></div><p class="case-deck">'+(p.id==='kiosk'?'整合軟硬體付款引導，重新檢視無人自助點餐的完整流程。':p.summary)+'</p>'+caseSnapshot(p)+'</section>'+banner+'<div class="case-layout"><aside class="side-index">'+toc[p.id].map((t,i)=>'<a href="#'+anchors[i]+'"><b>0'+(i+1)+'</b>'+t+'</a>').join('')+'</aside><article class="case-article">'+bodyMap[p.id]()+'</article></div><a class="next-case" href="#/case/'+next.id+'"><div><small>NEXT CASE STUDY →</small><h2>'+next.title+'</h2></div><span>↗</span></a></div>';}
 function aboutPage(){return '<div class="wrap"><section class="case-top"><a class="back-link" href="#/">← HOME</a><div class="eyebrow" style="margin-top:75px">THE PERSON BEHIND THE WORK</div><h1>Curious.<br>Thoughtful.<br><span class="orange">Hands-on.</span></h1><p class="case-deck">工業設計背景，現職 UX 設計師，正朝產品經理方向發展。我喜歡把研究中看見的需求變成有邏輯、可操作、可以反覆驗證的產品。</p></section></div>'+aboutSection()+'<section class="dark-band"><div class="wrap"><div class="eyebrow">LET’S CONNECT</div><h2>Have a product problem worth solving?</h2><p>歡迎交流產品研究、產品設計及 0→1 的實作機會。</p><a href="mailto:chi861008@gmail.com">Say hello ↗</a></div></section>';}
-function render(){let route=decodeURI(location.hash.replace(/^#\/?/,'')).split('/').filter(Boolean);let view=route[0]||'';document.body.classList.toggle('home-mode',!(view==='case'||view==='about'));document.body.classList.toggle('kiosk-case',view==='case'&&route[1]==='kiosk');document.body.classList.toggle('kds-case',view==='case'&&route[1]==='kds');document.body.classList.toggle('scheduling-case',view==='case'&&route[1]==='scheduling');document.querySelectorAll('[data-nav]').forEach(a=>a.removeAttribute('aria-current'));if(view==='case'){const p=projects.find(p=>p.id===route[1]);app.innerHTML=p?(isEnglish()?window.PortfolioEN.casePage(p,projects,visual):casePage(p)):(isEnglish()?window.PortfolioEN.home(projects,visual):home());document.title=(p?p.title:'Work')+' — Yuan Chi';}else if(view==='about'){app.innerHTML=isEnglish()?window.PortfolioEN.about():aboutPage();document.title='About — Yuan Chi';}else{app.innerHTML=isEnglish()?window.PortfolioEN.home(projects,visual):home();document.title='Yuan Chi — Product Portfolio';}updateLanguageControls();window.scrollTo({top:0,left:0,behavior:'instant'});if(view==='case')requestAnimationFrame(updateCaseToc);}
+// English home/about use the exact current Chinese markup. Only copy changes:
+// imagery, signatures, scroll scenes and future layout edits stay identical.
+const englishSharedText=[
+ ['我是一名具工業設計背景的 UX 設計師，正在朝產品經理發展。我喜歡從真實問題出發，透過研究梳理需求與產品邏輯，再將想法做成能被實際使用的產品。','I am a UX designer with an industrial design background, currently growing toward product management. I start from real problems, connect research to product logic, and turn ideas into products people can actually use.'],
+ ['從 B2B 餐飲系統到自己開發排課工具，我關心的不只是介面，而是找到值得解決的問題，並把解決方案實現。','From B2B restaurant systems to building my own scheduling tool, I care about finding problems worth solving and bringing meaningful solutions to life.'],
+ ['三個代表性的產品案例：從 0→1 建立產品，到研究支持的設計決策與場域驗證。','Three selected cases: building a product from zero, making research-informed design decisions, and validating ideas in context.'],
+ ['我喜歡從證據裡找出產品機會、整理使用者與商業需求，並把抽象想法轉化為可以操作、驗證與改進的產品。','I find product opportunities in evidence, connect user and business needs, and turn abstract ideas into products that can be used, tested, and improved.'],
+ ['皮拉提斯排課系統','Pilates Scheduling System'],
+ ['次世代自助點餐機','Next-generation Self-ordering Kiosk'],
+ ['廚房顯示系統研究與概念設計','Kitchen Display System Research & Concept'],
+ ['工業設計背景，現職 UX 設計師，正朝產品經理方向發展。我喜歡把研究中看見的需求變成有邏輯、可操作、可以反覆驗證的產品。','An industrial-design-trained UX designer growing toward product management. I turn research findings into understandable, usable products that can be tested and improved.'],
+ ['我的背景跨越工業設計、使用者研究與數位產品設計。現在我正朝產品經理發展，也持續用 AI 輔助開發，把身邊看見的問題轉成真正可以操作的產品。','My background spans industrial design, UX research, and digital product design. I am growing toward product management and using AI-assisted development to turn everyday problems into working tools.'],
+ ['我喜歡定義問題、串聯不同線索、提出解法，以及把複雜的邏輯整理得讓人容易理解。','I enjoy framing problems, connecting evidence, proposing solutions, and making complex product logic easy to understand.'],
+ ['歡迎交流產品研究、產品設計及 0→1 的實作機會。','I would love to connect about product research, product design, and building products from zero.']
+];
+function translateSharedPage(markup){for(const [zh,en] of englishSharedText)markup=markup.replaceAll(zh,en);return markup;}
+function englishHome(){return translateSharedPage(home());}
+function englishAbout(){return translateSharedPage(aboutPage());}
+function render(){let route=decodeURI(location.hash.replace(/^#\/?/,'')).split('/').filter(Boolean);let view=route[0]||'';document.body.classList.toggle('home-mode',!(view==='case'||view==='about'));document.body.classList.toggle('kiosk-case',view==='case'&&route[1]==='kiosk');document.body.classList.toggle('kds-case',view==='case'&&route[1]==='kds');document.body.classList.toggle('scheduling-case',view==='case'&&route[1]==='scheduling');document.querySelectorAll('[data-nav]').forEach(a=>a.removeAttribute('aria-current'));if(view==='case'){const p=projects.find(p=>p.id===route[1]);app.innerHTML=p?(isEnglish()?window.PortfolioEN.casePage(p,projects,visual):casePage(p)):(isEnglish()?englishHome():home());document.title=(p?p.title:'Work')+' — Yuan Chi';}else if(view==='about'){app.innerHTML=isEnglish()?englishAbout():aboutPage();document.title='About — Yuan Chi';}else{app.innerHTML=isEnglish()?englishHome():home();document.title='Yuan Chi — Product Portfolio';if(view==='work'){requestAnimationFrame(()=>document.querySelector('#work')?.scrollIntoView({behavior:'smooth'}));}}updateLanguageControls();if(view==='case'||view==='about')window.scrollTo(0,0);}
 app.addEventListener('click',event=>{const link=event.target.closest('a[href^="#"]');if(!link)return;const href=link.getAttribute('href');if(['#overview','#research','#user-analysis','#opportunity','#solutions','#validation','#reflection'].includes(href)){event.preventDefault();document.querySelectorAll('.side-index a').forEach(item=>{const active=item.getAttribute('href')===href;item.classList.toggle('is-active',active);if(active)item.setAttribute('aria-current','location');else item.removeAttribute('aria-current');});document.querySelector(href)?.scrollIntoView({behavior:'smooth',block:'start'});}});
 function applyOrbitLettering(){
   const ring=document.querySelector('.orbit-word');
@@ -159,10 +177,11 @@ function addScrollSignature(){
     '<path d="M351 52 L352 50"/>'+
     '<path d="M66 99 C124 111 213 112 288 110 C327 108 353 107 378 108"/>'+
     '</svg>';
-  const actionRow=document.createElement('div');
-  actionRow.className='signature-action-row';
-  link.before(actionRow);
-  actionRow.append(signature,link);
+  // Keep the signature directly under the biography. The button belongs to
+  // the whole introduction section, centered under both text and portrait.
+  link.before(signature);
+  link.classList.add('intro-bottom-link');
+  document.querySelector('.intro-portrait')?.append(link);
   const paths=[...signature.querySelectorAll('path')];
   let total=0;
   for(const path of paths){const length=path.getTotalLength();path.dataset.length=length;path.dataset.start=total;total+=length;path.style.strokeDasharray=length;path.style.strokeDashoffset=length;}
@@ -238,8 +257,11 @@ function updateWorkHold(){
   // Drive the desktop entrance ONLY while the section is pinned. The scene
   // stays fixed until all cards have aligned, then holds briefly before exit.
   const holdTop=work.parentElement.getBoundingClientRect().top;
-  const pinStart=82;
-  const pinnedTravel=Math.max(320,viewport*.65);
+  // The hold is 240svh tall while its sticky scene is one viewport tall.
+  // All three cards finish before the last part of that pinned distance.
+  const pinStart=0;
+  const availableTravel=Math.max(1,work.parentElement.offsetHeight-work.offsetHeight);
+  const pinnedTravel=availableTravel*.76;
   const sharedProgress=Math.min(1,Math.max(0,(pinStart-holdTop)/pinnedTravel));
   cards.forEach((card,i)=>{
     // Track each actual card rather than the earlier-arriving section heading.
@@ -247,12 +269,12 @@ function updateWorkHold(){
     const priorShift=parseFloat(card.style.getPropertyValue('--work-enter-y'))||0;
     const top=card.getBoundingClientRect().top-priorShift;
     const baseProgress=pinnedLayout?sharedProgress:Math.min(1,Math.max(0,(viewport*.98-top)/(viewport*(mobile?.8:.72))));
-    const stagger=pinnedLayout?i*.12:i*.075;
+    const stagger=pinnedLayout?i*.11:i*.075;
     const progress=reduced?1:Math.max(0,Math.min(1,(baseProgress-stagger)/(1-stagger)));
     const eased=progress*progress*(3-2*progress);
     const distance=(mobile?[135,165,195]:[125,165,205])[i];
     card.style.setProperty('--work-enter-y',`${((1-eased)*distance).toFixed(1)}px`);
-    card.style.setProperty('--work-enter-opacity',(0.25+eased*.75).toFixed(3));
+    card.style.setProperty('--work-enter-opacity',(0.67+eased*.33).toFixed(3));
   });
 }
 function updateCaseToc(){
