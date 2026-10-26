@@ -263,7 +263,7 @@ function updateWorkHold(){
   // All three cards finish before the last part of that pinned distance.
   const pinStart=0;
   const availableTravel=Math.max(1,work.parentElement.offsetHeight-work.offsetHeight);
-  const pinnedTravel=availableTravel*.76;
+  const pinnedTravel=availableTravel*.68;
   const enteringDistance=viewport*.95;
   const approachProgress=Math.min(1,Math.max(0,(enteringDistance-holdTop)/enteringDistance));
   const pinnedProgress=Math.min(1,Math.max(0,(pinStart-holdTop)/pinnedTravel));
