@@ -188,6 +188,14 @@ function addScrollSignature(){
   for(const path of paths){const length=path.getTotalLength();path.dataset.length=length;path.dataset.start=total;total+=length;path.style.strokeDasharray=length;path.style.strokeDashoffset=length;}
   signature.dataset.totalLength=total;
 }
+function addContactFlip(){
+  if(!document.body.classList.contains('home-mode'))return;
+  const section=document.createElement('section');
+  section.className='contact-flip-section';
+  section.setAttribute('aria-label','Contact Yuan Chi');
+  section.innerHTML='<a class="contact-flip" href="mailto:chi861008@gmail.com" aria-label="Contact me — send an email to Yuan Chi"><span class="contact-flip-inner"><span class="contact-flip-face contact-flip-front" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 49V29c0-4 6-6 8-1l2 20V18c0-6 8-6 8 0v28-31c0-6 8-6 8 0v31-27c0-6 8-6 8 0v29-20c0-6 8-6 8 0v31l6-10c4-7 13-3 9 5L73 76c-4 8-10 12-21 12H42c-10 0-17-7-21-17L13 55c-4-8 5-13 10-6l4 6V49Z" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-flip-face contact-flip-back" aria-hidden="true"><span>Contact<br>me <span class="contact-flip-arrow">↗</span></span></span></span></a></section>';
+  app.append(section);
+}
 function frameIntroPhoto(){
   const photo=document.querySelector('.intro-visual > img');
   if(!photo)return;
@@ -405,7 +413,7 @@ function updateThinkingParallax(){
   band.style.setProperty('--thinking-horizontal',shift.toFixed(1)+'px');
   band.style.setProperty('--thinking-horizontal-reverse',(-shift).toFixed(1)+'px');
 }
-function renderPage(){window.scrollTo({top:0,left:0,behavior:'instant'});document.querySelector('.photo-journey')?.remove();document.querySelector('.home-opening')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));scheduleTocUpdate();if(document.body.classList.contains('home-mode')&&(!location.hash||location.hash==='#/'||location.hash==='#')){window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(0,0);playHomeOpening();}));}}
+function renderPage(){window.scrollTo({top:0,left:0,behavior:'instant'});document.querySelector('.photo-journey')?.remove();document.querySelector('.home-opening')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();addContactFlip();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));scheduleTocUpdate();if(document.body.classList.contains('home-mode')&&(!location.hash||location.hash==='#/'||location.hash==='#')){window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(0,0);playHomeOpening();}));}}
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 window.addEventListener('pageshow',()=>{window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));});
 window.addEventListener('hashchange',renderPage);renderPage();
