@@ -550,7 +550,8 @@ body{overflow-x:clip}
 .intro-copy .signature-action-row{display:flex;align-items:center;gap:clamp(10px,2vw,24px);margin:30px 0 26px}
 .intro-copy .signature-action-row .scroll-signature{flex:1 1 0;min-width:0;width:auto;margin:0;max-width:282px}
 .intro-copy .signature-action-row .intro-link{flex:0 0 auto;margin:0;white-space:nowrap;gap:12px}
-.home-mode .intro-portrait .intro-copy .scroll-signature{width:min(78%,300px);margin:28px auto 0;transform:rotate(-2deg)}
+.home-mode .intro-portrait .intro-copy .signature-action-row{margin:28px 0 0;gap:clamp(18px,3vw,34px)}
+.home-mode .intro-portrait .intro-copy .signature-action-row .scroll-signature{flex:0 1 210px;width:min(48%,210px);max-width:210px;margin:0;transform:rotate(-2deg)}
 .home-mode .intro-portrait .intro-bottom-link{grid-column:1/-1;justify-self:center;align-self:center;margin:4px 0 0;padding:16px 22px;font-size:14px;gap:28px}
 .scroll-signature svg{display:block;width:100%;height:auto;overflow:visible}
 .scroll-signature path{stroke-width:4.2;vector-effect:non-scaling-stroke}
@@ -559,7 +560,7 @@ body{overflow-x:clip}
 .scroll-signature path:last-child{stroke-width:3.5}
 @media(max-width:650px){.intro-copy .scroll-signature{width:min(72%,246px);margin:28px 0 25px -10px}}
 @media(max-width:650px){.intro-copy .signature-action-row{gap:8px;margin:18px 0}.intro-copy .signature-action-row .scroll-signature{width:auto;margin:0}.intro-copy .signature-action-row .intro-link{padding:10px 11px;font-size:11px;gap:7px}}
-@media(max-width:650px){.home-mode .intro-portrait .intro-copy .scroll-signature{width:min(73%,260px);margin:22px auto 0}.home-mode .intro-portrait .intro-bottom-link{margin:0 auto 14px}}
+@media(max-width:650px){.home-mode .intro-portrait .intro-copy .signature-action-row{margin:22px 0 0;gap:12px}.home-mode .intro-portrait .intro-copy .signature-action-row .scroll-signature{width:min(46%,175px);max-width:175px}.home-mode .intro-portrait .intro-bottom-link{margin:0 auto 14px}}
 /* The SVG keeps a fixed-pixel stroke, so it needs a lighter pen on small screens. */
 @media(max-width:650px){
   .scroll-signature path{stroke-width:3.1}
