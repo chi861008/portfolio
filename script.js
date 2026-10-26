@@ -193,8 +193,8 @@ function addContactFlip(){
   const section=document.createElement('section');
   section.className='contact-flip-section';
   section.setAttribute('aria-label','Contact Yuan Chi');
-  section.innerHTML='<a class="contact-flip" href="mailto:chi861008@gmail.com" aria-label="Contact me — send an email to Yuan Chi"><span class="contact-flip-inner"><span class="contact-flip-face contact-flip-front" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M27 49V29c0-4 6-6 8-1l2 20V18c0-6 8-6 8 0v28-31c0-6 8-6 8 0v31-27c0-6 8-6 8 0v29-20c0-6 8-6 8 0v31l6-10c4-7 13-3 9 5L73 76c-4 8-10 12-21 12H42c-10 0-17-7-21-17L13 55c-4-8 5-13 10-6l4 6V49Z" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="contact-flip-face contact-flip-back" aria-hidden="true"><span>Contact<br>me <span class="contact-flip-arrow">↗</span></span></span></span></a></section>';
-  app.append(section);
+  section.innerHTML='<a class="contact-flip" href="mailto:chi861008@gmail.com" aria-label="Contact me — send an email to Yuan Chi"><span class="contact-flip-inner"><span class="contact-flip-face contact-flip-front" aria-hidden="true"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M36 80c-7-4-11-10-14-18l-7-15c-2-4 3-8 7-5l10 12V25c0-5 8-5 8 0v19-27c0-5 8-5 8 0v27-25c0-5 8-5 8 0v27-21c0-5 8-5 8 0v33l7-9c5-6 13-1 9 6L71 77c-4 8-9 10-20 10H46c-4 0-7-2-10-7Z"/></svg></span><span class="contact-flip-face contact-flip-back" aria-hidden="true"><span>Contact<br>me <span class="contact-flip-arrow">↗</span></span></span></span></a></section>';
+  document.querySelector('.home-mode .dark-band .wrap')?.append(section);
 }
 function frameIntroPhoto(){
   const photo=document.querySelector('.intro-visual > img');
