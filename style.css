@@ -27,12 +27,12 @@ body{overflow-x:clip}
 @media(hover:hover){.contact-flip:hover .contact-flip-inner{transform:rotateY(180deg)}}
 .contact-flip:focus-visible .contact-flip-inner{transform:rotateY(180deg)}
 .contact-flip-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;background:#ff603c;color:#fff;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.contact-flip-front img{display:block;width:61px;height:61px;object-fit:contain;filter:brightness(0) invert(1);transform-origin:50% 83%;transform:rotate(12deg);animation:contact-hand-wave 5.4s ease-in-out infinite}
+.contact-flip-front img{position:relative;left:-6px;top:-3px;display:block;width:61px;height:61px;object-fit:contain;filter:brightness(0) invert(1);transform-origin:50% 83%;transform:rotate(12deg);animation:contact-hand-wave 5.4s ease-in-out infinite}
 @keyframes contact-hand-wave{0%,8%,35%,100%{transform:rotate(12deg)}13%{transform:rotate(-5deg)}18%{transform:rotate(22deg)}23%{transform:rotate(-2deg)}28%{transform:rotate(18deg)}}
 .contact-flip:hover .contact-flip-front img,.contact-flip:focus-visible .contact-flip-front img{animation-play-state:paused}
 .contact-flip-back{transform:rotateY(180deg);font-family:'DM Sans',sans-serif;font-weight:700;font-size:17px;line-height:1.12;letter-spacing:-.04em;text-align:center}
 .contact-flip-arrow{font-size:15px}
-@media(max-width:650px){.contact-flip{right:22px;width:78px;height:78px}.contact-flip-front img{width:46px;height:46px}.contact-flip-back{font-size:13px}.contact-flip-arrow{font-size:12px}}
+@media(max-width:650px){.contact-flip{right:22px;width:78px;height:78px}.contact-flip-front img{width:46px;height:46px;left:-4px;top:-2px}.contact-flip-back{font-size:13px}.contact-flip-arrow{font-size:12px}}
 @media(hover:none){.contact-flip:active .contact-flip-inner{transform:rotateY(180deg)}}
 @media(prefers-reduced-motion:reduce){.contact-flip-inner{transition:none}.contact-flip-front img{animation:none}}
 .home-mode .identity-hero .identity-wrap{width:min(1260px,calc(100% - 10vw))}
