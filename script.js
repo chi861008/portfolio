@@ -254,22 +254,28 @@ function updateWorkHold(){
   const viewport=window.innerHeight;
   const mobile=window.matchMedia('(max-width:650px)').matches;
   const pinnedLayout=window.matchMedia('(min-width:901px)').matches;
-  // Drive the desktop entrance ONLY while the section is pinned. The scene
-  // stays fixed until all cards have aligned, then holds briefly before exit.
+  // Stage 1: the cards are already moving as this section enters the viewport.
+  // Stage 2: once the heading reaches its pin, the scene stays still while
+  // scrolling completes the remaining entrance. Only then is it released.
   const holdTop=work.parentElement.getBoundingClientRect().top;
   // The hold is 240svh tall while its sticky scene is one viewport tall.
   // All three cards finish before the last part of that pinned distance.
   const pinStart=0;
   const availableTravel=Math.max(1,work.parentElement.offsetHeight-work.offsetHeight);
   const pinnedTravel=availableTravel*.76;
-  const sharedProgress=Math.min(1,Math.max(0,(pinStart-holdTop)/pinnedTravel));
+  const enteringDistance=viewport*.95;
+  const approachProgress=Math.min(1,Math.max(0,(enteringDistance-holdTop)/enteringDistance));
+  const pinnedProgress=Math.min(1,Math.max(0,(pinStart-holdTop)/pinnedTravel));
+  const sharedProgress=.38*approachProgress+.62*pinnedProgress;
   cards.forEach((card,i)=>{
     // Track each actual card rather than the earlier-arriving section heading.
     // The stagger remains visible while the image is on screen and rewinds on scroll-up.
     const priorShift=parseFloat(card.style.getPropertyValue('--work-enter-y'))||0;
     const top=card.getBoundingClientRect().top-priorShift;
     const baseProgress=pinnedLayout?sharedProgress:Math.min(1,Math.max(0,(viewport*.98-top)/(viewport*(mobile?.8:.72))));
-    const stagger=pinnedLayout?i*.11:i*.075;
+    // Every card moves from the first visible moment. Different travel
+    // distances provide the stagger without leaving later cards motionless.
+    const stagger=pinnedLayout?0:i*.075;
     const progress=reduced?1:Math.max(0,Math.min(1,(baseProgress-stagger)/(1-stagger)));
     const eased=progress*progress*(3-2*progress);
     const distance=(mobile?[135,165,195]:[125,165,205])[i];
