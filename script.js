@@ -177,11 +177,12 @@ function addScrollSignature(){
     '<path d="M351 52 L352 50"/>'+
     '<path d="M66 99 C124 111 213 112 288 110 C327 108 353 107 378 108"/>'+
     '</svg>';
-  // Keep the signature directly under the biography. The button belongs to
-  // the whole introduction section, centered under both text and portrait.
-  link.before(signature);
-  link.classList.add('intro-bottom-link');
-  document.querySelector('.intro-portrait')?.append(link);
+  // Place the smaller signature and About Me action together under the bio.
+  const actionRow=document.createElement('div');
+  actionRow.className='signature-action-row';
+  link.before(actionRow);
+  link.classList.remove('intro-bottom-link');
+  actionRow.append(signature,link);
   const paths=[...signature.querySelectorAll('path')];
   let total=0;
   for(const path of paths){const length=path.getTotalLength();path.dataset.length=length;path.dataset.start=total;total+=length;path.style.strokeDasharray=length;path.style.strokeDashoffset=length;}
