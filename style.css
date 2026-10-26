@@ -22,9 +22,10 @@ body{overflow-x:clip}
 .home-mode .identity-hero{min-height:calc(100svh - 82px);display:flex;align-items:center}
 .home-mode .footer{display:none}
 .contact-flip-section{position:relative;height:0;z-index:6;perspective:1000px}
-.contact-flip{position:absolute;right:clamp(28px,6vw,100px);top:0;transform:translateY(-50%);display:block;width:110px;height:110px;border-radius:50%;outline-offset:8px;cursor:pointer}
+.contact-flip{position:absolute;right:clamp(28px,6vw,100px);top:0;transform:translateY(-50%);display:block;width:110px;height:110px;border-radius:50%;outline-offset:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 .contact-flip-inner{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;transition:transform .68s cubic-bezier(.2,.75,.2,1)}
-.contact-flip:hover .contact-flip-inner,.contact-flip:focus-visible .contact-flip-inner{transform:rotateY(180deg)}
+@media(hover:hover){.contact-flip:hover .contact-flip-inner{transform:rotateY(180deg)}}
+.contact-flip:focus-visible .contact-flip-inner{transform:rotateY(180deg)}
 .contact-flip-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;background:#ff603c;color:#fff;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .contact-flip-front img{display:block;width:61px;height:61px;object-fit:contain;filter:brightness(0) invert(1);transform-origin:50% 83%;animation:contact-hand-wave 5.4s ease-in-out infinite}
 @keyframes contact-hand-wave{0%,8%,35%,100%{transform:rotate(0deg)}13%{transform:rotate(17deg)}18%{transform:rotate(-10deg)}23%{transform:rotate(14deg)}28%{transform:rotate(-6deg)}}
