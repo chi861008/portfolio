@@ -37,13 +37,13 @@ body{overflow-x:clip}
 }
 @media(prefers-reduced-motion:reduce){.home-mode .intro-hold .intro-photo-frame,.home-mode .intro-hold .intro-photo-frame img{transform:none!important}}
 @media(max-width:650px){.home-mode .hero-hold{height:170svh}.home-mode .hero-hold .identity-hero{top:67px;height:calc(100svh - 67px)}.home-mode .intro-hold{min-height:195svh}.home-mode .intro-hold .intro-portrait{top:25px;padding:30px 0;gap:22px}}
-.home-mode .work-hold{position:relative;padding-bottom:95svh}
+.home-mode .work-hold{position:relative;height:240svh;padding-bottom:0}
 /* The pinned scene must fit *inside* the viewport; an oversized sticky
    element silently scrolls past instead of holding at the top. */
-.home-mode .work-hold #work{position:sticky;top:82px;height:calc(100svh - 82px);min-height:0;padding-top:clamp(14px,2.5svh,26px);padding-bottom:clamp(12px,2svh,20px);display:flex;flex-direction:column;justify-content:center}
+.home-mode .work-hold #work{position:sticky;top:0;height:100svh;min-height:0;box-sizing:border-box;padding-top:clamp(90px,10svh,118px);padding-bottom:clamp(18px,4svh,38px);display:flex;flex-direction:column;justify-content:center}
 .home-mode .work-hold .selected-head{position:relative;padding:0;margin-bottom:clamp(14px,2.5svh,28px)}
 .home-mode .work-hold .identity-works .work-visual,.home-mode .work-hold .identity-works .work-card:first-child .work-visual{height:300px}
-@media(max-width:900px){.home-mode .work-hold{padding-bottom:24px}.home-mode .work-hold #work{position:relative;top:auto;height:auto;padding:60px 0 28px;display:block}.home-mode .work-hold .selected-head{padding:12px 0 16px;margin-bottom:20px}.home-mode .work-hold .identity-works .work-visual,.home-mode .work-hold .identity-works .work-card:first-child .work-visual{height:300px}}
+@media(max-width:900px){.home-mode .work-hold{height:auto;padding-bottom:24px}.home-mode .work-hold #work{position:relative;top:auto;height:auto;padding:60px 0 28px;display:block}.home-mode .work-hold .selected-head{padding:12px 0 16px;margin-bottom:20px}.home-mode .work-hold .identity-works .work-visual,.home-mode .work-hold .identity-works .work-card:first-child .work-visual{height:300px}}
 .home-mode .identity-works .work-card{transform:translate3d(0,var(--work-enter-y,0px),0);opacity:var(--work-enter-opacity,1);will-change:transform,opacity}
 @media(prefers-reduced-motion:reduce){.home-mode .identity-works .work-card{transform:none!important;opacity:1!important}}
 .home-mode .identity-photo .flip-face,.home-mode .intro-photo-frame,.home-mode .intro-photo-frame img,.photo-journey-face{border-radius:8px}
@@ -550,6 +550,8 @@ body{overflow-x:clip}
 .intro-copy .signature-action-row{display:flex;align-items:center;gap:clamp(10px,2vw,24px);margin:30px 0 26px}
 .intro-copy .signature-action-row .scroll-signature{flex:1 1 0;min-width:0;width:auto;margin:0;max-width:282px}
 .intro-copy .signature-action-row .intro-link{flex:0 0 auto;margin:0;white-space:nowrap;gap:12px}
+.home-mode .intro-portrait .intro-copy .scroll-signature{width:min(78%,300px);margin:28px auto 0;transform:rotate(-2deg)}
+.home-mode .intro-portrait .intro-bottom-link{grid-column:1/-1;justify-self:center;align-self:center;margin:4px 0 0;padding:16px 22px;font-size:14px;gap:28px}
 .scroll-signature svg{display:block;width:100%;height:auto;overflow:visible}
 .scroll-signature path{stroke-width:4.2;vector-effect:non-scaling-stroke}
 .scroll-signature path:first-child{stroke-width:4.8}
@@ -557,6 +559,7 @@ body{overflow-x:clip}
 .scroll-signature path:last-child{stroke-width:3.5}
 @media(max-width:650px){.intro-copy .scroll-signature{width:min(72%,246px);margin:28px 0 25px -10px}}
 @media(max-width:650px){.intro-copy .signature-action-row{gap:8px;margin:18px 0}.intro-copy .signature-action-row .scroll-signature{width:auto;margin:0}.intro-copy .signature-action-row .intro-link{padding:10px 11px;font-size:11px;gap:7px}}
+@media(max-width:650px){.home-mode .intro-portrait .intro-copy .scroll-signature{width:min(73%,260px);margin:22px auto 0}.home-mode .intro-portrait .intro-bottom-link{margin:0 auto 14px}}
 /* The SVG keeps a fixed-pixel stroke, so it needs a lighter pen on small screens. */
 @media(max-width:650px){
   .scroll-signature path{stroke-width:3.1}
