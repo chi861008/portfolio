@@ -1435,3 +1435,17 @@ body .case-layout .side-index a.is-active b{color:#fff;}
 .scheduling-case .schedule-flow .english-evidence h3{font-size:23px}.scheduling-case .schedule-flow .english-evidence p{font-size:16px}
 .kiosk-case .english-evidence,.kds-case .english-evidence{border-left:0}.kiosk-case .story-section .english-evidence p,.kds-case .story-section .english-evidence p{font-size:16px}
 @media(max-width:700px){.english-pair,.english-three,.english-gallery{grid-template-columns:1fr;gap:18px}.english-figure{margin:32px 0 47px}.english-gallery{margin:35px 0 50px}.english-evidence{margin:20px 0}.scheduling-case .schedule-build-grid,.scheduling-case .schedule-measure>div{grid-template-columns:1fr}}
+
+/* Editorial chapter-title line reveal and staggered paragraph entrance. */
+.motion-title .motion-line-clip{display:block;overflow:hidden;padding-block:.065em;margin-block:-.065em}
+.motion-title .motion-line-inner{display:block;opacity:0;transform:translate3d(0,112%,0);transition:transform 850ms cubic-bezier(.22,1,.36,1),opacity 550ms ease;transition-delay:calc(var(--line-index,0)*115ms);will-change:transform}
+.motion-title.motion-visible .motion-line-inner{opacity:1;transform:translate3d(0,0,0)}
+.motion-copy{opacity:0;transform:translate3d(0,16px,0);transition:opacity 570ms ease,transform 650ms cubic-bezier(.22,1,.36,1);transition-delay:var(--copy-delay,120ms)}
+.motion-copy.motion-visible{opacity:1;transform:translate3d(0,0,0)}
+@media(prefers-reduced-motion:reduce){.motion-title .motion-line-inner,.motion-copy{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* KDS: stay within the viewport and use vertical gestures only. */
+html:has(.kds-case){overflow-x:clip}
+.kds-case{max-width:100%;overflow-x:clip;touch-action:pan-y pinch-zoom}
+.kds-case .case-layout,.kds-case .case-article,.kds-case .story-section{min-width:0;max-width:100%}
+.kds-case img{max-width:100%}
