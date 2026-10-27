@@ -94,6 +94,33 @@ sec('reflection','06 / OUTCOME & REFLECTION','好的自助體驗，必須同時�
  '<div class="state-note"><strong>成果與證據限制：</strong>原始建議表可核對 4 個獲採納的設計方向；原 Product Backlog 已無法取得，因此不將先前提到的 11 項視為已核實成果。Roadmap 由團隊決定，採納不等於完成開發或上線，銷售與營運影響也尚未驗證。</div><ul><li><strong>從畫面走向情境：</strong>理解使用者當下看見什麼、能接觸到什麼。</li><li><strong>從研究走向決策：</strong>讓洞察連接實際可行的設計方案。</li><li><strong>從方案走向驗證：</strong>區分已採納的建議、易用性表現與真正的營運成效。</li></ul>'+
  '<div class="callout"><strong>如果後續導入門店，我會追蹤什麼？</strong><p>付款求助頻率、操作時間、完成率，以及套餐切換是否降低重複點選。這些是後續評估方向，並非目前已有的成效數據。</p></div>');
 }
+
+const schedulingIllustration=(kind,en=false)=>{
+ const zh={
+  continuity:['學生課程','主要老師','代課老師','主要老師','主要老師'],
+  authority:['學生時段','課程間隔','老師分配','排課草案','老師檢查與調整'],
+  changing:['初次排課','臨時請假','尋找代課／補課','更新課表'],
+  adoption:['自動產生課表','新工具學習','異動維護','整體負擔待驗證'],
+  collaboration:['學生','主要老師','代課老師','LINE 協作與通知']
+ };
+ const english={
+  continuity:['Student lessons','Main teacher','Substitute','Main teacher','Main teacher'],
+  authority:['Availability','Lesson spacing','Teacher assignment','Draft timetable','Instructor reviews and adjusts'],
+  changing:['Initial plan','Absence','Find cover / make-up','Update schedule'],
+  adoption:['Auto-generated plan','Tool onboarding','Change upkeep','Total effort unverified'],
+  collaboration:['Student','Main instructor','Substitute','LINE communication']
+ };
+ const v=(en?english:zh)[kind];
+ let inside='';
+ if(kind==='continuity')inside='<div class="schedule-scene-label">'+v[0]+'</div><div class="schedule-scene-lessons">'+v.slice(1).map((t,i)=>'<div class="'+(i===1?'substitute':'')+'"><span>'+(i+1).toString().padStart(2,'0')+'</span><strong>'+t+'</strong></div>').join('')+'</div>';
+ if(kind==='authority')inside='<div class="schedule-scene-constraints">'+v.slice(0,3).map(t=>'<span>'+t+'</span>').join('')+'</div><div class="schedule-scene-arrow">↓</div><div class="schedule-scene-draft">'+v[3]+'</div><div class="schedule-scene-arrow">↓</div><div class="schedule-scene-decision">'+v[4]+' ✓</div>';
+ if(kind==='changing')inside='<div class="schedule-scene-stages">'+v.map((t,i)=>'<div class="'+(i===1?'changed':'')+'"><span>'+String(i+1).padStart(2,'0')+'</span><strong>'+t+'</strong></div>').join('')+'</div>';
+ if(kind==='adoption')inside='<div class="schedule-scene-work"><div><span>−</span><strong>'+v[0]+'</strong></div><div><span>+</span><strong>'+v[1]+'</strong></div><div><span>+</span><strong>'+v[2]+'</strong></div></div><div class="schedule-scene-decision">'+v[3]+'</div>';
+ if(kind==='collaboration')inside='<div class="schedule-scene-people">'+v.slice(0,3).map((t,i)=>'<div><span class="person-avatar">'+['●','◆','●'][i]+'</span><strong>'+t+'</strong></div>').join('')+'</div><div class="schedule-scene-links">↕　↕　↕</div><div class="schedule-scene-decision">'+v[3]+'</div>';
+ return '<div class="schedule-scene schedule-scene--'+kind+'" aria-hidden="true">'+inside+'</div>';
+};
+const schedulingInsight=(num,label,title,copy,kind,caption,en=false)=>'<article class="schedule-insight-card"><div class="schedule-insight-copy"><div class="schedule-insight-heading"><em>'+num+'</em><span>'+label+'</span></div><h4>'+title+'</h4><p>'+copy+'</p></div><figure class="schedule-insight-figure">'+schedulingIllustration(kind,en)+'<figcaption>'+caption+'</figcaption></figure></article>';
+
 function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
  return sec('overview','01 / PROJECT OVERVIEW','從老師每月的排課困境，打造一套可操作的產品',
@@ -103,7 +130,11 @@ function schedulingBody(){
   '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作 MVP，以模擬資料測試排課規則與例外情境，並向老師展示收集回饋；尚未由老師在日常工作中正式操作，也沒有可確認的時間節省或留存數據。</p>')+
  sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
   '<div class="schedule-problem-grid">'+point('TEACHER / 已知回饋','逐一協調，工作高度集中在老師身上','老師需要彙整不同學生的可上課時段，還要考慮原老師授課比例、課程間隔與代課協作；每月初排課約 2–3 小時，後續仍常有取消和異動。')+point('STUDENT / 老師轉述','先搶先得，不是受歡迎的解法','老師曾嘗試讓學生自行搶課，但她觀察到取消情況反而增加，因而回到由老師主導安排。這是老師提供的經驗，尚無前後取消率的量化比較。')+'</div>'+
-  '<h3>訪談前｜三個初步洞察</h3><div class="schedule-build-grid">'+point('INSIGHT 01 / 教學連續性','排課品質不只取決於完成堂數，更在於維持學生與主要老師的教學連續性。','將主要老師授課目標納入排課條件，而非只追求排入最多課程。')+point('INSIGHT 02 / 排課決策','排課涉及多重條件與例外取捨，無法完全自動化，仍需保留老師的最終決策權。','由系統產生草案，老師可檢視衝突、調整安排並處理例外。')+point('INSIGHT 03 / 持續性協調','排課不是一次性的時間分配，而是伴隨請假、補課與代課需求持續變動的協調過程。','除了初次排課，也應考慮課程異動後的重新安排與資訊同步。')+'</div><p>以上為正式深入訪談前，根據既有溝通與需求整理形成的初步洞察；尚待真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
+  '<h3>訪談前｜初步關鍵洞察</h3>'+
+  schedulingInsight('01','TEACHING CONTINUITY / 教學連續性','排課品質不只取決於完成堂數，更在於維持學生與主要老師的教學連續性。','老師重視學生持續由主要老師授課，因此排課規則需要兼顧授課連續性，而不只是盡可能排入最多堂數。','continuity','教學安排示意｜主要老師與代課老師交錯授課；非真實課程資料。')+
+  schedulingInsight('02','DECISION AUTHORITY / 排課決策','排課涉及多重條件與例外取捨，無法完全自動化，仍需保留老師的最終決策權。','學生時段、課程間隔與授課老師可能互相衝突。系統提供草案及衝突資訊，再由老師完成取捨與調整。','authority','多條件排課示意｜說明草案仍需人工審核；非演算法效能測試。')+
+  schedulingInsight('03','CONTINUOUS COORDINATION / 持續協調','排課不是一次性的時間分配，而是伴隨請假、補課與代課需求持續變動的協調過程。','初次排出課表只是起點；後續異動需要重新安排老師與學生時間，並同步最新課程資訊。','changing','課表異動流程示意｜請假與補課會形成後續協調。')+
+  '<p class="schedule-insight-disclaimer">以上為正式深入訪談前，根據既有溝通與需求整理形成的初步洞察；尚待真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
  sec('opportunity','03 / PRODUCT STRATEGY','產品策略：先蒐集可接受時段，再由老師統一安排',
   paragraph('我沒有直接採用學生自行搶課的常見模式：老師先前曾嘗試，卻觀察到取消變多，也難以兼顧每位學生的需求。第一版因此選擇集中分配：學生先提交可接受時段，系統產出整月草案，再由老師調整與確認。規則考量原老師授課目標、學生可用時段與整體排入堂數；目前尚未驗證時間或留存效益。')+
   '<div class="schedule-comparison"><div class="schedule-compare-old"><span>BEFORE / FIRST COME, FIRST SERVED</span><h3>誰先按，誰先有</h3><p>學生競爭熱門時間；老師較容易完成單筆預約，但可能無法兼顧整體需求。</p></div><div class="schedule-compare-new"><span>AFTER / PREFERENCE-BASED ALLOCATION</span><h3>先看所有人能接受什麼</h3><p>學生提供可接受時段，系統建立排課草案，再由老師調整與確認。</p></div></div>'+
@@ -119,8 +150,8 @@ function schedulingBody(){
  sec('reflection','06 / OUTCOME & REFLECTION','從自動排課，到重新理解整體協調成本',
   '<div class="schedule-learning"><span>WHAT I BUILT / 階段成果</span><strong>第一版 MVP 已能將人工排課限制轉成可檢查、可修改的課表。</strong><p>已實作可接受時段、原老師授課目標、課程間隔、排課草案與人工調整，並完成模擬資料與例外情境的功能測試。尚未正式導入老師日常工作，沒有已驗證的時間節省或留存成效。</p></div>'+
   paragraph('向老師展示 MVP 後，我發現初次排課只是一部分。老師仍需教學生使用新工具，處理取消與改期，並在 LINE 群組協調代課。如果系統要求她同時維護新舊兩套流程，即使初次排課更快，整體工作也可能變多。這是 Demo 後的初步回饋，尚非實際導入的量測結果。')+
-  '<div class="schedule-learning"><span>訪談後 INSIGHT 04 / 導入成本</span><strong>自動化不必然減輕工作負擔，新工具的學習與維護成本可能抵銷排課效率帶來的效益。</strong><p>設計意涵：從完整排課流程評估效率，而非只關注初次產生課表所節省的時間。</p></div>'+
-  '<div class="schedule-learning"><span>訪談後 INSIGHT 05 / 協作生態</span><strong>排課仰賴既有的跨角色協作，若新系統無法銜接原有工具，反而可能增加溝通與維護成本。</strong><p>設計意涵：優先探索與 LINE 等既有管道的整合，減少跨工具的重複操作與資訊同步負擔。</p></div>'+
+  ''+schedulingInsight('04','ADOPTION COST / 導入成本','自動化不必然減輕工作負擔，新工具的學習與維護成本可能抵銷排課效率帶來的效益。','老師除了產生課表，還需教學生操作、處理後續異動。因此必須評估整體工作量，而非只看初次排課的速度。','adoption','導入成本示意｜自動化收益與額外維護工作需一起評估；非量化結果。')+''+
+  ''+schedulingInsight('05','COLLABORATION / 協作生態','排課仰賴既有的跨角色協作，若新系統無法銜接原有工具，反而可能增加溝通與維護成本。','老師透過 LINE 與學生及代課老師協調。若仍需同步維護新系統，可能增加跨工具的重複操作。','collaboration','跨角色協作示意｜LINE 為既有溝通管道，整合功能仍待驗證。')+''+
   '<div class="schedule-measure"><h3>下一步：驗證整體流程，而不只是初次排課</h3><div>'+point('01 / TIME','整體協調時間','追蹤蒐集時段、排課、異動與代課的總處理時間。')+point('02 / ADOPTION','師生導入負擔','觀察新工具學習、重複輸入與老師人工介入的頻率。')+point('03 / COLLABORATION','LINE 流程銜接','驗證是否能降低取消、補課與代課協調的跨工具成本。')+'</div></div>'+
   '<div class="schedule-turn"><span>KEY TAKEAWAY / 核心反思</span><p><strong>產品價值不只是讓單一任務變快，而是讓使用者的整體工作更輕鬆。</strong>我從 UX 流程設計延伸到產品規則、實作與功能驗證，也學到能運作的系統，仍需要放回真實服務中才能判斷是否值得採用。</p></div>');
 }
