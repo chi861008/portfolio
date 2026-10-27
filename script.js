@@ -98,27 +98,27 @@ function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
  return sec('overview','01 / PROJECT OVERVIEW','我把老師每月的排課協調，變成一套可以運作的產品流程',
   '<p class="schedule-lead">當課程時間有限、每位學生的空檔又不同，老師需要處理的不是單純的預約，而是一場反覆協商。</p>'+
-  paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每次排課，都要在 LINE 上收集學生時間、反覆協調，再由老師人工安排。我從需求釐清開始，獨立定義雙方的操作流程與排課規則，運用 AI 輔助開發，將想法實作成可操作的系統。')+
+  paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。我從這個問題出發，自行規劃 UX 與產品流程，運用 AI 輔助開發完成第一版可操作 MVP。')+
   '<div class="schedule-feature-quote"><span>DESIGN QUESTION</span><strong>能不能讓學生先說出「我能接受的時間」，再讓老師一次安排所有人？</strong></div>'+
-  '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作版本並向老師展示概念；目前仍在早期驗證階段，尚無可確認的排課時間節省或學生留存數據。</p>')+
+  '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作 MVP，以模擬資料測試排課規則與例外情境，並向老師展示收集回饋；尚未由老師在日常工作中正式操作，也沒有可確認的時間節省或留存數據。</p>')+
  sec('research','02 / PROBLEM DISCOVERY','老師想省下協調時間，學生卻不喜歡搶課',
-  '<div class="schedule-problem-grid">'+point('TEACHER / 已知回饋','逐一協調，工作高度集中在老師身上','老師需要彙整多位學生的可上課時間。當無法逐一安排時，曾考慮或改用先搶先得的方式。')+point('STUDENT / 老師轉述','先搶先得，不是受歡迎的解法','老師表示學生不喜歡搶課。這是老師轉述的回饋，尚未直接訪談學生確認不滿的具體原因。')+'</div>'+
+  '<div class="schedule-problem-grid">'+point('TEACHER / 已知回饋','逐一協調，工作高度集中在老師身上','老師需要彙整不同學生的可上課時段，還要考慮原老師授課比例、課程間隔與代課協作；每月初排課約 2–3 小時，後續仍常有取消和異動。')+point('STUDENT / 老師轉述','先搶先得，不是受歡迎的解法','老師曾嘗試讓學生自行搶課，但她觀察到取消情況反而增加，因而回到由老師主導安排。這是老師提供的經驗，尚無前後取消率的量化比較。')+'</div>'+
   '<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
  sec('opportunity','03 / PRODUCT STRATEGY','我選擇集中安排，而非讓學生競爭稀缺時段',
-  paragraph('先搶先得把決策交給學生的手速；集中安排則先收集每個人的可接受時段，再由老師決定整體分配。我選擇後者，是希望保留更多能持續上課的學生，而不只服務剛好能第一時間上線的人。這是產品策略假設，並非已證實的留存提升。')+
+  paragraph('第一版聚焦每月初耗時的人工排課：學生先提交可接受時段，系統產出建議，再由老師檢查與修正。老師同時重視服務承諾，認為學生不能幾乎都由代課老師授課，因此排課規則優先考量每人原老師的授課目標，再盡量提高學生覆蓋與整體排入堂數。尚未證實對留存或排課時間的影響。')+
   '<div class="schedule-comparison"><div class="schedule-compare-old"><span>BEFORE / FIRST COME, FIRST SERVED</span><h3>誰先按，誰先有</h3><p>學生競爭熱門時間；老師較容易完成單筆預約，但可能無法兼顧整體需求。</p></div><div class="schedule-compare-new"><span>AFTER / PREFERENCE-BASED ALLOCATION</span><h3>先看所有人能接受什麼</h3><p>學生提供可接受時段，系統建立排課草案，再由老師調整與確認。</p></div></div>'+
   '<div class="schedule-preference"><div class="schedule-preference-title"><span>DESIGN PRINCIPLE 01</span><h3>「可接受」不等於「一定要開放很多選項」</h3><p>學生可以只選星期二，系統就把星期二當作限制；也可以選多天，增加安排的彈性。設計尊重個人邊界，不強迫學生為了演算法放寬需求。</p></div><div class="schedule-choice-demo" aria-label="學生選擇可接受上課日的概念示意"><span>STUDENT A / AVAILABLE DAY</span><div class="schedule-days"><i>一</i><i class="picked">二 ✓</i><i>三</i><i>四</i><i>五</i><i>六</i><i>日</i></div><small>概念示意：此學生只接受星期二；不是產品實際畫面。</small></div></div>')+
  sec('solutions','04 / EXPERIENCE & RULES','自動安排不是終點，老師仍需要保有控制權',
   '<div class="schedule-flow"><div><span>01 / INPUT</span><h3>學生提交可接受時段</h3><p>由學生先提供時間限制，免去老師逐一收集與整理。</p></div><div><span>02 / DRAFT</span><h3>系統產生排課草案</h3><p>依學生條件與可用時段進行配置，讓老師一次檢視整體結果。</p></div><div><span>03 / REVIEW</span><h3>老師介入例外與調整</h3><p>自動安排後仍可人工修改；未排入的學生也保留在待處理清單，顯示無法安排的原因。</p></div><div><span>04 / CONFIRM</span><h3>完成確認後，穩定課表</h3><p>排課進入正式階段後，學生不能自行取消既有課程；需要調整則由老師協助。</p></div></div>'+
-  '<div class="schedule-decision-grid">'+point('DESIGN PRINCIPLE 02','自動化 + 人工主導','讓演算法處理重複配置，但保留老師處理特殊狀況的彈性與最終決定權。')+point('DESIGN PRINCIPLE 03','未排入的人不能消失','待處理名單需要說明誰未排入，以及原因，讓老師知道下一步該處理什麼。')+'</div>')+
+  '<div class="schedule-decision-grid">'+point('DESIGN PRINCIPLE 02','以學生為中心的課表審核','同一份課表提供整月老師視角與個別學生視角；老師能查看學生已排課程與可用時段，直接調整課程、安排未排入堂數或代課。')+point('DESIGN PRINCIPLE 03','保留老師的最終決定權','演算法先兼顧原老師授課目標、學生覆蓋率、可選時段較少者與三天間隔；無法排入的課程與原因保留供老師處理。')+'</div>')+
  sec('validation','05 / FROM IDEA TO PRODUCT','從 UX 設計跨到產品規則與實作',
-  paragraph('我以獨立 Product Builder 的角色處理需求、UX 流程、PRD、功能邊界與 AI 輔助開發。隨著規則累積，我發現最大的挑戰不是單一頁面，而是每個狀態會如何影響下一步：例如學生何時不能自行取消、老師何時可以手動修改，以及測試資料如何與正式使用隔離。')+
-  '<div class="schedule-build-grid">'+point('PRODUCT DEFINITION','定義權限與例外','將「誰能改課、何時可以改、怎麼處理未排入學生」整理成可實作的產品規則。')+point('ITERATIVE BUILD','分階段實作與檢查','使用 PRD 與分階段開發管理變動，透過實際操作調整設計與系統行為。')+point('ENVIRONMENT','正式資料與測試分離','清除排課資料是開發者反覆測試的需求；正式環境不開放這類重置功能。')+'</div>'+
-  '<figure class="schedule-testimonial"><blockquote>「感覺真的會比較省事。」</blockquote><figcaption>老師觀看概念／系統展示後的初步回饋。這不是實際使用後的效率量測。</figcaption></figure>'+
+  paragraph('我以獨立 Product Builder 的角色負責需求、UI／UX、產品流程、AI 輔助程式開發、GitHub／Vercel 部署和測試驗收。第一版使用模擬資料，設計時段衝突、間隔不足、無法排入等情境，透過程式化測試及人工檢查確認主要規則；這是功能驗證，尚非老師實際操作的易用性或效率驗證。')+
+  '<div class="schedule-build-grid">'+point('RULES TO PRODUCT','將人工經驗轉換成規則','以學生時段、原老師授課目標、可排入堂數與課程間隔建立排課邏輯；無法完成的安排保留人工處理。')+point('TWO REVIEW PERSPECTIVES','整月與個別學生雙視角','老師可從整體時間分布切換到特定學生，確認課程安排並直接調整、補課或指定代課。')+point('TEST & DELIVERY','AI 輔助開發與驗收','自行設計介面、測試案例，利用 AI Coding 迭代程式，管理 GitHub、Vercel 部署；以模擬資料檢查例外狀態。')+'</div>'+
+  '<div class="schedule-learning"><span>INITIAL DEMO FEEDBACK</span><strong>能排出課表，不代表老師願意改變既有工作方式。</strong><p>第一次向老師展示 MVP 時，她擔心需要教每個學生操作新軟體，以及臨時取消、重新安排的持續管理負擔。這是 Demo 回饋，並非正式使用後的測量。</p></div>'+
   '<div class="schedule-repo"><div><span>WORKING PRODUCT / SOURCE</span><strong>從概念到可操作的產品</strong><p>設計、規則與開發持續迭代中，可查看目前的程式實作。</p></div><a href="'+repoURL+'" target="_blank" rel="noopener">Explore GitHub ↗</a></div>')+
- sec('reflection','06 / PRODUCT LEARNINGS','一個功能看似合理，不代表它值得優先做',
-  paragraph('我一度設計「集中排／分散排」策略，推測老師會希望選擇自己的工作節奏。但後來發現目前合作老師的時段基本上已排滿，兩種策略可能不會產生實際差異。這個需求更多來自我的推測，而不是老師提出的痛點。')+
-  '<div class="schedule-learning"><span>WHAT I WOULD CHANGE</span><strong>保留概念，但降低優先順序。</strong><p>把開發焦點放回真正影響排課的條件：學生接受範圍、安排失敗原因與老師的手動調整。先驗證真實價值，再擴充策略選項。</p></div>'+
+ sec('reflection','06 / PRODUCT LEARNINGS','從自動排課功能，重新思考整體服務流程',
+  paragraph('第一版從每月 2–3 小時的人工排課痛點出發，我很快投入自動排課開發，過程中也不斷增加功能。直到 Demo 後才更清楚看見導入門檻：老師不想教所有學生使用另一套系統，而原本的課程異動、代課協調都發生在 LINE。原老師會在共同 LINE 群組詢問代課，有空的老師回覆，再由原老師更新課表。只把工作搬到新軟體，可能增加重複維護的成本；這個風險仍待實際驗證。')+
+  '<div class="schedule-learning"><span>NEXT PRODUCT HYPOTHESIS</span><strong>不急著讓所有人改用新工具，而是先研究既有協作如何銜接。</strong><p>下一步探索讓 LINE 成為熟悉的溝通入口，由系統處理複雜的排課與狀態同步；先驗證師生及代課老師的完整流程、操作負擔，再決定開發範圍。LINE Bot／LIFF 仍屬規劃，尚未完成使用驗證。</p></div>'+
   '<div class="schedule-measure"><h3>下一步要回答的，不是「功能是否齊全」</h3><div>'+point('01 / TIME','老師排一次課花多久？','比較既有人工流程與系統輔助流程的總處理時間。')+point('02 / ALLOCATION','多少需求被成功安排？','追蹤排入比例、未排入原因，以及老師需要介入多少次。')+point('03 / RETENTION','學生是否願意持續使用？','觀察學生對排課方式的接受度與後續續課情形，才有依據檢驗留存假設。')+'</div></div>');
 }
 function kdsBody(){
