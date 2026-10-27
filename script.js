@@ -103,7 +103,7 @@ function schedulingBody(){
   '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作 MVP，以模擬資料測試排課規則與例外情境，並向老師展示收集回饋；尚未由老師在日常工作中正式操作，也沒有可確認的時間節省或留存數據。</p>')+
  sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
   '<div class="schedule-problem-grid">'+point('TEACHER / 已知回饋','逐一協調，工作高度集中在老師身上','老師需要彙整不同學生的可上課時段，還要考慮原老師授課比例、課程間隔與代課協作；每月初排課約 2–3 小時，後續仍常有取消和異動。')+point('STUDENT / 老師轉述','先搶先得，不是受歡迎的解法','老師曾嘗試讓學生自行搶課，但她觀察到取消情況反而增加，因而回到由老師主導安排。這是老師提供的經驗，尚無前後取消率的量化比較。')+'</div>'+
-  '<h3>三個關鍵洞察｜Key Insights</h3><div class="schedule-build-grid">'+point('INSIGHT 01 / 分配方式','老師需要合理分配，而非更快搶課','老師曾試過學生自行搶課，卻觀察到取消增加；先蒐集可接受時段，再由老師統一安排，更貼近目前的服務方式。')+point('INSIGHT 02 / 服務品質','排入足夠堂數，不代表排得好','老師在意學生持續由主要老師授課，不能只追求排入數量；授課目標也需納入規則。')+point('INSIGHT 03 / 人工控制','排課取捨無法完全交給演算法','時段、堂數、間隔與代課可能互相衝突。系統應提供草案、未排入原因及檢視視角，讓老師最終調整。')+'</div><p>以上為根據老師回饋及排課條件整理的設計洞察；未直接訪談學生，也尚未經真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
+  '<h3>訪談前｜三個初步洞察</h3><div class="schedule-build-grid">'+point('INSIGHT 01 / 教學連續性','排課品質不只取決於完成堂數，更在於維持學生與主要老師的教學連續性。','將主要老師授課目標納入排課條件，而非只追求排入最多課程。')+point('INSIGHT 02 / 排課決策','排課涉及多重條件與例外取捨，無法完全自動化，仍需保留老師的最終決策權。','由系統產生草案，老師可檢視衝突、調整安排並處理例外。')+point('INSIGHT 03 / 持續性協調','排課不是一次性的時間分配，而是伴隨請假、補課與代課需求持續變動的協調過程。','除了初次排課，也應考慮課程異動後的重新安排與資訊同步。')+'</div><p>以上為正式深入訪談前，根據既有溝通與需求整理形成的初步洞察；尚待真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
  sec('opportunity','03 / PRODUCT STRATEGY','產品策略：先蒐集可接受時段，再由老師統一安排',
   paragraph('我沒有直接採用學生自行搶課的常見模式：老師先前曾嘗試，卻觀察到取消變多，也難以兼顧每位學生的需求。第一版因此選擇集中分配：學生先提交可接受時段，系統產出整月草案，再由老師調整與確認。規則考量原老師授課目標、學生可用時段與整體排入堂數；目前尚未驗證時間或留存效益。')+
   '<div class="schedule-comparison"><div class="schedule-compare-old"><span>BEFORE / FIRST COME, FIRST SERVED</span><h3>誰先按，誰先有</h3><p>學生競爭熱門時間；老師較容易完成單筆預約，但可能無法兼顧整體需求。</p></div><div class="schedule-compare-new"><span>AFTER / PREFERENCE-BASED ALLOCATION</span><h3>先看所有人能接受什麼</h3><p>學生提供可接受時段，系統建立排課草案，再由老師調整與確認。</p></div></div>'+
@@ -119,8 +119,8 @@ function schedulingBody(){
  sec('reflection','06 / OUTCOME & REFLECTION','從自動排課，到重新理解整體協調成本',
   '<div class="schedule-learning"><span>WHAT I BUILT / 階段成果</span><strong>第一版 MVP 已能將人工排課限制轉成可檢查、可修改的課表。</strong><p>已實作可接受時段、原老師授課目標、課程間隔、排課草案與人工調整，並完成模擬資料與例外情境的功能測試。尚未正式導入老師日常工作，沒有已驗證的時間節省或留存成效。</p></div>'+
   paragraph('向老師展示 MVP 後，我發現初次排課只是一部分。老師仍需教學生使用新工具，處理取消與改期，並在 LINE 群組協調代課。如果系統要求她同時維護新舊兩套流程，即使初次排課更快，整體工作也可能變多。這是 Demo 後的初步回饋，尚非實際導入的量測結果。')+
-  '<div class="schedule-learning"><span>NEW INSIGHT 04 / 導入成本</span><strong>單一任務效率提升，可能被新工具的學習與管理成本抵銷。</strong><p>因此下一步不應急著擴充功能，而應先觀察完整服務流程中的重複輸入與人工協調。</p></div>'+
-  '<div class="schedule-learning"><span>NEW INSIGHT 05 / 跨角色協作</span><strong>排課是一個連結學生、原老師與代課老師的服務，而不只是單人操作的軟體。</strong><p>現有 LINE 群組已承擔溝通與代課尋找的功能。LINE Bot／LIFF 是可能的銜接方向，目前仍是待驗證假設。</p></div>'+
+  '<div class="schedule-learning"><span>訪談後 INSIGHT 04 / 導入成本</span><strong>自動化不必然減輕工作負擔，新工具的學習與維護成本可能抵銷排課效率帶來的效益。</strong><p>設計意涵：從完整排課流程評估效率，而非只關注初次產生課表所節省的時間。</p></div>'+
+  '<div class="schedule-learning"><span>訪談後 INSIGHT 05 / 協作生態</span><strong>排課仰賴既有的跨角色協作，若新系統無法銜接原有工具，反而可能增加溝通與維護成本。</strong><p>設計意涵：優先探索與 LINE 等既有管道的整合，減少跨工具的重複操作與資訊同步負擔。</p></div>'+
   '<div class="schedule-measure"><h3>下一步：驗證整體流程，而不只是初次排課</h3><div>'+point('01 / TIME','整體協調時間','追蹤蒐集時段、排課、異動與代課的總處理時間。')+point('02 / ADOPTION','師生導入負擔','觀察新工具學習、重複輸入與老師人工介入的頻率。')+point('03 / COLLABORATION','LINE 流程銜接','驗證是否能降低取消、補課與代課協調的跨工具成本。')+'</div></div>'+
   '<div class="schedule-turn"><span>KEY TAKEAWAY / 核心反思</span><p><strong>產品價值不只是讓單一任務變快，而是讓使用者的整體工作更輕鬆。</strong>我從 UX 流程設計延伸到產品規則、實作與功能驗證，也學到能運作的系統，仍需要放回真實服務中才能判斷是否值得採用。</p></div>');
 }
