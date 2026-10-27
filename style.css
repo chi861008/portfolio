@@ -1449,3 +1449,10 @@ html:has(.kds-case){overflow-x:clip}
 .kds-case{max-width:100%;overflow-x:clip;touch-action:pan-y pinch-zoom}
 .kds-case .case-layout,.kds-case .case-article,.kds-case .story-section{min-width:0;max-width:100%}
 .kds-case img{max-width:100%}
+
+/* Kiosk layout examples: aligned labels above each image, without staggered cards. */
+.kiosk-case #validation .design-phase--iteration .layout-variants{align-items:stretch}
+.kiosk-case #validation .design-phase--iteration .layout-variants figure{justify-content:flex-start;transform:none;min-height:0;padding:28px 24px 32px}
+.kiosk-case #validation .design-phase--iteration .layout-variants figcaption{margin:0 0 22px;min-height:3.2em;display:flex;align-items:flex-start}
+.kiosk-case #validation .design-phase--iteration .layout-variants img{margin-top:0;max-height:260px;object-fit:contain;object-position:center top}
+@media(max-width:650px){.kiosk-case #validation .design-phase--iteration .layout-variants figcaption{min-height:0;margin-bottom:18px}}
