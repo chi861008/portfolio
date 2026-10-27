@@ -96,30 +96,33 @@ sec('reflection','06 / OUTCOME & REFLECTION','好的自助體驗，必須同時�
 }
 function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
- return sec('overview','01 / PROJECT OVERVIEW','我把老師每月的排課協調，變成一套可以運作的產品流程',
+ return sec('overview','01 / PROJECT OVERVIEW','從老師每月的排課困境，打造一套可操作的產品',
   '<p class="schedule-lead">當課程時間有限、每位學生的空檔又不同，老師需要處理的不是單純的預約，而是一場反覆協商。</p>'+
   paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。目前已完成第一版可操作 MVP，後續仍需確認它是否適合老師既有的協作流程。')+
   '<div class="schedule-feature-quote"><span>DESIGN QUESTION</span><strong>能不能讓學生先說出「我能接受的時間」，再讓老師一次安排所有人？</strong></div>'+
   '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作 MVP，以模擬資料測試排課規則與例外情境，並向老師展示收集回饋；尚未由老師在日常工作中正式操作，也沒有可確認的時間節省或留存數據。</p>')+
- sec('research','02 / PROBLEM DISCOVERY','老師想省下協調時間，學生卻不喜歡搶課',
+ sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
   '<div class="schedule-problem-grid">'+point('TEACHER / 已知回饋','逐一協調，工作高度集中在老師身上','老師需要彙整不同學生的可上課時段，還要考慮原老師授課比例、課程間隔與代課協作；每月初排課約 2–3 小時，後續仍常有取消和異動。')+point('STUDENT / 老師轉述','先搶先得，不是受歡迎的解法','老師曾嘗試讓學生自行搶課，但她觀察到取消情況反而增加，因而回到由老師主導安排。這是老師提供的經驗，尚無前後取消率的量化比較。')+'</div>'+
-  '<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
- sec('opportunity','03 / PRODUCT STRATEGY','我選擇集中安排，而非讓學生競爭稀缺時段',
-  paragraph('第一版聚焦每月初耗時的人工排課：學生先提交可接受時段，系統產出建議，再由老師檢查與修正。老師同時重視服務承諾，認為學生不能幾乎都由代課老師授課，因此排課規則優先考量每人原老師的授課目標，再盡量提高學生覆蓋與整體排入堂數。尚未證實對留存或排課時間的影響。')+
+  '<h3>三個關鍵洞察｜Key Insights</h3><div class="schedule-build-grid">'+point('INSIGHT 01 / 分配方式','老師需要合理分配，而非更快搶課','老師曾試過學生自行搶課，卻觀察到取消增加；先蒐集可接受時段，再由老師統一安排，更貼近目前的服務方式。')+point('INSIGHT 02 / 服務品質','排入足夠堂數，不代表排得好','老師在意學生持續由主要老師授課，不能只追求排入數量；授課目標也需納入規則。')+point('INSIGHT 03 / 人工控制','排課取捨無法完全交給演算法','時段、堂數、間隔與代課可能互相衝突。系統應提供草案、未排入原因及檢視視角，讓老師最終調整。')+'</div><p>以上為根據老師回饋及排課條件整理的設計洞察；未直接訪談學生，也尚未經真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
+ sec('opportunity','03 / PRODUCT STRATEGY','產品策略：先蒐集可接受時段，再由老師統一安排',
+  paragraph('我沒有直接採用學生自行搶課的常見模式：老師先前曾嘗試，卻觀察到取消變多，也難以兼顧每位學生的需求。第一版因此選擇集中分配：學生先提交可接受時段，系統產出整月草案，再由老師調整與確認。規則考量原老師授課目標、學生可用時段與整體排入堂數；目前尚未驗證時間或留存效益。')+
   '<div class="schedule-comparison"><div class="schedule-compare-old"><span>BEFORE / FIRST COME, FIRST SERVED</span><h3>誰先按，誰先有</h3><p>學生競爭熱門時間；老師較容易完成單筆預約，但可能無法兼顧整體需求。</p></div><div class="schedule-compare-new"><span>AFTER / PREFERENCE-BASED ALLOCATION</span><h3>先看所有人能接受什麼</h3><p>學生提供可接受時段，系統建立排課草案，再由老師調整與確認。</p></div></div>'+
   '<div class="schedule-preference"><div class="schedule-preference-title"><span>DESIGN PRINCIPLE 01</span><h3>「可接受」不等於「一定要開放很多選項」</h3><p>學生可以只選星期二，系統就把星期二當作限制；也可以選多天，增加安排的彈性。設計尊重個人邊界，不強迫學生為了演算法放寬需求。</p></div><div class="schedule-choice-demo" aria-label="學生選擇可接受上課日的概念示意"><span>STUDENT A / AVAILABLE DAY</span><div class="schedule-days"><i>一</i><i class="picked">二 ✓</i><i>三</i><i>四</i><i>五</i><i>六</i><i>日</i></div><small>概念示意：此學生只接受星期二；不是產品實際畫面。</small></div></div>')+
- sec('solutions','04 / EXPERIENCE & RULES','自動安排不是終點，老師仍需要保有控制權',
+ sec('solutions','04 / EXPERIENCE & RULES','方案設計：將排課規則轉成可調整的工作流程',
   '<div class="schedule-flow"><div><span>01 / INPUT</span><h3>學生提交可接受時段</h3><p>由學生先提供時間限制，免去老師逐一收集與整理。</p></div><div><span>02 / DRAFT</span><h3>系統產生排課草案</h3><p>依學生條件與可用時段進行配置，讓老師一次檢視整體結果。</p></div><div><span>03 / REVIEW</span><h3>老師介入例外與調整</h3><p>自動安排後仍可人工修改；未排入的學生也保留在待處理清單，顯示無法安排的原因。</p></div><div><span>04 / CONFIRM</span><h3>完成確認後，穩定課表</h3><p>排課進入正式階段後，學生不能自行取消既有課程；需要調整則由老師協助。</p></div></div>'+
   '<div class="schedule-decision-grid">'+point('DESIGN PRINCIPLE 02','以學生為中心的課表審核','同一份課表提供整月老師視角與個別學生視角；老師能查看學生已排課程與可用時段，直接調整課程、安排未排入堂數或代課。')+point('DESIGN PRINCIPLE 03','保留老師的最終決定權','演算法先兼顧原老師授課目標、學生覆蓋率、可選時段較少者與三天間隔；無法排入的課程與原因保留供老師處理。')+'</div>')+
- sec('validation','05 / FROM IDEA TO PRODUCT','從 UX 設計跨到產品規則與實作',
+ sec('validation','05 / FROM IDEA TO PRODUCT','打造 MVP：從產品規則到功能驗證與老師回饋',
   paragraph('我以獨立 Product Builder 的角色負責需求、UI／UX、產品流程、AI 輔助程式開發、GitHub／Vercel 部署和測試驗收。第一版使用模擬資料，設計時段衝突、間隔不足、無法排入等情境，透過程式化測試及人工檢查確認主要規則；這是功能驗證，尚非老師實際操作的易用性或效率驗證。')+
   '<div class="schedule-build-grid">'+point('RULES TO PRODUCT','將人工經驗轉換成規則','以學生時段、原老師授課目標、可排入堂數與課程間隔建立排課邏輯；無法完成的安排保留人工處理。')+point('TWO REVIEW PERSPECTIVES','整月與個別學生雙視角','老師可從整體時間分布切換到特定學生，確認課程安排並直接調整、補課或指定代課。')+point('TEST & DELIVERY','AI 輔助開發與驗收','自行設計介面、測試案例，利用 AI Coding 迭代程式，管理 GitHub、Vercel 部署；以模擬資料檢查例外狀態。')+'</div>'+
   '<div class="schedule-learning"><span>INITIAL DEMO FEEDBACK</span><strong>能排出課表，不代表老師願意改變既有工作方式。</strong><p>第一次向老師展示 MVP 時，她擔心需要教每個學生操作新軟體，以及臨時取消、重新安排的持續管理負擔。這是 Demo 回饋，並非正式使用後的測量。</p></div>'+
   '<div class="schedule-repo"><div><span>WORKING PRODUCT / SOURCE</span><strong>從概念到可操作的產品</strong><p>設計、規則與開發持續迭代中，可查看目前的程式實作。</p></div><a href="'+repoURL+'" target="_blank" rel="noopener">Explore GitHub ↗</a></div>')+
- sec('reflection','06 / PRODUCT LEARNINGS','從自動排課功能，重新思考整體服務流程',
-  paragraph('第一版從每月 2–3 小時的人工排課痛點出發，我很快投入自動排課開發，過程中也不斷增加功能。直到 Demo 後才更清楚看見導入門檻：老師不想教所有學生使用另一套系統，而原本的課程異動、代課協調都發生在 LINE。原老師會在共同 LINE 群組詢問代課，有空的老師回覆，再由原老師更新課表。只把工作搬到新軟體，可能增加重複維護的成本；這個風險仍待實際驗證。')+
-  '<div class="schedule-learning"><span>NEXT PRODUCT HYPOTHESIS</span><strong>不急著讓所有人改用新工具，而是先研究既有協作如何銜接。</strong><p>下一步探索讓 LINE 成為熟悉的溝通入口，由系統處理複雜的排課與狀態同步；先驗證師生及代課老師的完整流程、操作負擔，再決定開發範圍。LINE Bot／LIFF 仍屬規劃，尚未完成使用驗證。</p></div>'+
-  '<div class="schedule-measure"><h3>目前已知與下一步驗證</h3><div>'+point('01 / TIME','已知：人工排課約 2–3 小時','待驗證：真實使用系統後，包含修改與協作的總處理時間是否縮短。')+point('02 / ALLOCATION','已完成：模擬資料與衝突情境測試','待驗證：真實排入比例、未排入原因及老師介入次數。')+point('03 / ADOPTION','已知：老師擔心學生學習成本','待驗證：師生是否願意持續使用，以及 LINE 協作是否降低重複操作。')+'</div></div>');
+ sec('reflection','06 / OUTCOME & REFLECTION','從自動排課，到重新理解整體協調成本',
+  '<div class="schedule-learning"><span>WHAT I BUILT / 階段成果</span><strong>第一版 MVP 已能將人工排課限制轉成可檢查、可修改的課表。</strong><p>已實作可接受時段、原老師授課目標、課程間隔、排課草案與人工調整，並完成模擬資料與例外情境的功能測試。尚未正式導入老師日常工作，沒有已驗證的時間節省或留存成效。</p></div>'+
+  paragraph('向老師展示 MVP 後，我發現初次排課只是一部分。老師仍需教學生使用新工具，處理取消與改期，並在 LINE 群組協調代課。如果系統要求她同時維護新舊兩套流程，即使初次排課更快，整體工作也可能變多。這是 Demo 後的初步回饋，尚非實際導入的量測結果。')+
+  '<div class="schedule-learning"><span>NEW INSIGHT 04 / 導入成本</span><strong>單一任務效率提升，可能被新工具的學習與管理成本抵銷。</strong><p>因此下一步不應急著擴充功能，而應先觀察完整服務流程中的重複輸入與人工協調。</p></div>'+
+  '<div class="schedule-learning"><span>NEW INSIGHT 05 / 跨角色協作</span><strong>排課是一個連結學生、原老師與代課老師的服務，而不只是單人操作的軟體。</strong><p>現有 LINE 群組已承擔溝通與代課尋找的功能。LINE Bot／LIFF 是可能的銜接方向，目前仍是待驗證假設。</p></div>'+
+  '<div class="schedule-measure"><h3>下一步：驗證整體流程，而不只是初次排課</h3><div>'+point('01 / TIME','整體協調時間','追蹤蒐集時段、排課、異動與代課的總處理時間。')+point('02 / ADOPTION','師生導入負擔','觀察新工具學習、重複輸入與老師人工介入的頻率。')+point('03 / COLLABORATION','LINE 流程銜接','驗證是否能降低取消、補課與代課協調的跨工具成本。')+'</div></div>'+
+  '<div class="schedule-turn"><span>KEY TAKEAWAY / 核心反思</span><p><strong>產品價值不只是讓單一任務變快，而是讓使用者的整體工作更輕鬆。</strong>我從 UX 流程設計延伸到產品規則、實作與功能驗證，也學到能運作的系統，仍需要放回真實服務中才能判斷是否值得採用。</p></div>');
 }
 function kdsBody(){
  return sec("overview","01 / CONTEXT","從工程師 Demo 到可交付的 KDS：先釐清廚房真正需要什麼","\n<p>因為有客戶表達購買 KDS 的意願，公司決定將工程師依自身理解開發的初步 Demo 推進為正式產品。原型已可呈現並處理訂單，但仍有<strong>長餐名截斷、跑馬燈閱讀負擔、誤完成後難以找回、油污環境觸控不便</strong>等問題。因此需要先釐清第一階段的功能範圍與真實廚房流程，支持團隊把 Demo 轉成可交付的產品。</p>\n<figure class=\"scenario-figure kds-case-scenario\"><img loading=\"lazy\" src=\"./kds-case-hero.png\" alt=\"KDS 廚房作業情境示意\"><figcaption>廚房使用情境示意，非本次現場研究照片。</figcaption></figure>\n")+
