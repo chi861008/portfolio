@@ -19,11 +19,11 @@ const sec=(id,kicker,title,inner)=>'<section class="story-section" id="'+id+'"><
 const paragraph=t=>'<p>'+t+'</p>';
 const fact=(n,title,desc)=>'<div class="fact-box"><span class="fact-id">'+n+'</span><h3>'+title+'</h3><p>'+desc+'</p></div>';
 function kioskBody(){
-return sec('overview','01 / OVERVIEW','從介面優化到完整的自助點餐體驗',
- '<h3>專案起源｜產品版本整併與升級</h3>'+
+return sec('overview','01 / OVERVIEW','當 KIOSK 銷售未達預期，我如何用研究協助新版產品做出設計取捨',
+ '<div class="contribution-summary"><span class="overline">DECISION STORY / 這篇案例的核心</span><p><strong>商業問題：</strong>既有 KIOSK 銷售未達預期，新一代機台改版需要釐清市場適配與使用阻礙。</p><p><strong>研究如何影響決策：</strong>我透過探索性市場盤點、競品研究、7 位店家管理者訪談及 6 人內部原型測試，整理出可被評估的產品改善方向；其中 4 項可由原始建議表核實已採納，後續也依測試回饋提出第二輪介面設計。</p><p><strong>成果邊界：</strong>團隊決定 Roadmap；採納設計方向不等於已上線或已改善銷售，商業成效尚未驗證。</p></div><h3>專案起源｜產品版本整併與升級</h3>'+
  paragraph('團隊反映既有 KIOSK 銷售表現未達預期，並懷疑產品功能與使用體驗可能存在競爭差距。公司原有點餐與付款設備分離，因此已規劃推出整合兩者的新一代機台，並把握改版機會檢視既有軟體的操作體驗。')+
  paragraph('這不只是將原本的畫面移到新機台：不同餐飲業態的菜單架構、不同角色的需求，以及畫面與實體付款設備如何配合，都需要重新理解。團隊因此希望從市場競爭差距與真實使用需求出發，為新版 KIOSK 找到有依據的軟體改善方向。')+
- '<div class="contribution-summary"><span class="overline">MY CONTRIBUTION / 我的貢獻與權責</span><p><strong>我負責</strong>市場與競品研究、整理功能差距及使用者操作問題，並提出改善建議；產品 Roadmap 由團隊決定，我並未獨立定案。</p><p><strong>可確認的成果範圍：</strong>現存原始建議表可逐項核對 4 個採納方向。原 Product Backlog 已無法取得，故不將過去提到的 11 項視為已核實成果；開發完成、上線時間與實際成效也尚未確認。</p></div>'+
+ '<div class="contribution-summary"><span class="overline">MY CONTRIBUTION / 我的貢獻與權責</span><p><strong>我負責</strong>市場與競品研究、整理功能差距及使用者操作問題、參與方案設計與原型驗證；產品 Roadmap 由團隊決定，我並未獨立定案。</p><p><strong>證據限制：</strong>保留的原始建議表能核對 4 個採納方向；原 Product Backlog 已無法取得，因此不將先前提到的 11 項當成已核實成果，開發、上線與營運影響也尚未確認。</p></div>'+
  '<figure class="scenario-figure"><img src="./kiosk-scenario.png" alt="顧客在餐廳操作整合螢幕與多種付款設備的自助點餐機之使用情境示意"><figcaption>新版自助點餐機的使用情境示意，用於說明螢幕與實體付款設備的相對位置；非實地觀察照片。</figcaption></figure>')+
 sec('research','02 / RESEARCH FRAMEWORK','三個研究問題，對應三條證據來源',
  '<div class="research-question-grid"><div><span>RQ 01 / PRODUCT FIT</span><strong>不同餐飲業態對 KIOSK 的功能與操作流程有什麼需求？</strong><div class="rq-decision"><b>支援決策</b>判斷優先切入的店型與菜單適配方向</div><div class="rq-value"><b>預期商業價值</b>提高目標客群與產品的匹配程度，減少不適合的導入機會</div></div><div><span>RQ 02 / COMPETITIVE GAP</span><strong>我們與市場競品有哪些關鍵功能差距？</strong><div class="rq-decision"><b>支援決策</b>辨識基礎功能差距與值得評估的設計機會</div><div class="rq-value"><b>預期商業價值</b>補足競爭門檻，提升產品在店家選型時的吸引力</div></div><div><span>RQ 03 / USER EXPERIENCE</span><strong>既有店家遇到哪些操作問題與未滿足需求？</strong><div class="rq-decision"><b>支援決策</b>改善顧客操作卡點與門市支援負擔</div><div class="rq-value"><b>預期商業價值</b>降低店員協助成本與交易中斷風險，讓自助結帳更順暢</div></div></div>'+
