@@ -1494,3 +1494,19 @@ html:has(.kds-case){overflow-x:clip}
 .schedule-scene-people strong{font-size:12px;line-height:1.45}
 .schedule-scene-links{letter-spacing:.8em;color:#bf7552;font-size:21px;margin:9px 0}
 @media(max-width:700px){.scheduling-case .schedule-insight-card{grid-template-columns:1fr;gap:12px;margin:27px 0 54px}.scheduling-case .schedule-insight-copy{padding:4px 0}.scheduling-case .schedule-insight-heading{margin-bottom:12px}.scheduling-case .schedule-insight-heading em{font-size:66px}.scheduling-case .schedule-insight-card h4{font-size:27px;margin-bottom:14px}.scheduling-case .schedule-insight-figure{min-height:240px;padding:18px}.scheduling-case .story-section .schedule-insight-disclaimer{margin-top:-14px}}
+
+/* Pilates product reframing and next-stage plan */
+.scheduling-case .schedule-reframe{margin:72px 0;background:#f1eee9;padding:37px 38px 39px}
+.scheduling-case .schedule-reframe>span,.scheduling-case .schedule-next-steps>span{display:block;font-size:11px;letter-spacing:.14em;font-weight:850;color:#a6654a}
+.scheduling-case .schedule-reframe>h3,.scheduling-case .schedule-next-steps>h3{font-size:clamp(25px,2.7vw,33px);line-height:1.38;letter-spacing:-.045em;margin:15px 0 16px}
+.scheduling-case .story-section .schedule-reframe>p{font-size:15px;line-height:1.85;margin-bottom:30px}
+.scheduling-case .schedule-strategy-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.scheduling-case .schedule-strategy-grid>div{padding:22px 18px;background:#fcfaf7;border-top:2px solid #c77e5b}
+.scheduling-case .schedule-strategy-grid span{font-size:10px;font-weight:800;letter-spacing:.1em;color:#a76345}
+.scheduling-case .schedule-strategy-grid strong{display:block;font-size:18px;line-height:1.5;margin:10px 0}
+.scheduling-case .story-section .schedule-strategy-grid p{font-size:13px;line-height:1.8;margin:0}
+.scheduling-case .schedule-next-steps{margin:78px 0 64px}
+.scheduling-case .schedule-next-steps-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-top:28px}
+.scheduling-case .schedule-next-steps-grid>div{margin:0;padding:21px;border-top:1px solid #bfb5aa;background:#f8f6f2}
+.scheduling-case .schedule-next-steps-grid span{color:#a76345}
+@media(max-width:700px){.scheduling-case .schedule-reframe{padding:27px 22px;margin:54px 0}.scheduling-case .schedule-strategy-grid,.scheduling-case .schedule-next-steps-grid{grid-template-columns:1fr}.scheduling-case .schedule-strategy-grid>div{padding:21px}.scheduling-case .schedule-next-steps{margin:58px 0}}
