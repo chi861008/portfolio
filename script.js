@@ -429,7 +429,66 @@ function updateThinkingParallax(){
   band.style.setProperty('--thinking-horizontal',shift.toFixed(1)+'px');
   band.style.setProperty('--thinking-horizontal-reverse',(-shift).toFixed(1)+'px');
 }
-function renderPage(){window.scrollTo({top:0,left:0,behavior:'instant'});document.querySelector('.photo-journey')?.remove();document.querySelector('.home-opening')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();addContactFlip();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));scheduleTocUpdate();if(document.body.classList.contains('home-mode')&&(!location.hash||location.hash==='#/'||location.hash==='#')){window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(0,0);playHomeOpening();}));}}
+let typographyObserver;
+const typographyTitleSelector='.intro-copy h2,.selected-head h2,.about-mini h2,.case-top h1,.story-section>h2,.story-section>h3,.research-track>h3,.design-phase h3,.next-case h2';
+const typographyCopySelector='.intro-copy>p,.selected-head>p,.about-mini p,.case-top>.case-deck,.story-section>p,.story-section .insight-feature-copy>p,.story-section .solution>p,.dark-band .wrap>p';
+function splitTitleIntoLines(heading){
+  const original=heading.innerHTML;
+  const walker=document.createTreeWalker(heading,NodeFilter.SHOW_TEXT);
+  const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+  const lines=[];const range=document.createRange();
+  for(const node of nodes){
+    for(let offset=0;offset<node.length;offset++){
+      if(!node.textContent[offset].trim())continue;
+      range.setStart(node,offset);range.setEnd(node,offset+1);
+      const rect=range.getBoundingClientRect();if(!rect.height)continue;
+      let line=lines.find(item=>Math.abs(item.top-rect.top)<Math.max(3,rect.height*.3));
+      if(!line){line={top:rect.top,startNode:node,startOffset:offset,endNode:node,endOffset:offset+1};lines.push(line);}
+      else{line.endNode=node;line.endOffset=offset+1;}
+    }
+  }
+  if(!lines.length||lines.length>12)return;
+  const fragments=lines.map(line=>{const part=document.createRange();part.setStart(line.startNode,line.startOffset);part.setEnd(line.endNode,line.endOffset);return part.cloneContents();});
+  const accessibleText=heading.textContent.trim();heading.replaceChildren();heading.setAttribute('aria-label',accessibleText);
+  fragments.forEach((fragment,index)=>{const clip=document.createElement('span');clip.className='motion-line-clip';clip.setAttribute('aria-hidden','true');const inner=document.createElement('span');inner.className='motion-line-inner';inner.style.setProperty('--line-index',index);inner.append(fragment);clip.append(inner);heading.append(clip);});
+  heading.dataset.motionSource=original;heading.classList.add('motion-title');
+}
+function setupTypographyMotion(){
+  typographyObserver?.disconnect();
+  const root=document.querySelector('#app');if(!root)return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+  root.querySelectorAll(typographyTitleSelector).forEach(splitTitleIntoLines);
+  root.querySelectorAll(typographyCopySelector).forEach((paragraph)=>{
+    paragraph.classList.add('motion-copy');
+    let index=0;let sibling=paragraph.previousElementSibling;
+    while(sibling&&sibling.matches('p.motion-copy')){index++;sibling=sibling.previousElementSibling;}
+    paragraph.style.setProperty('--copy-delay',`${Math.min(index,3)*90+120}ms`);
+  });
+  if(!('IntersectionObserver' in window)){root.querySelectorAll('.motion-title,.motion-copy').forEach(el=>el.classList.add('motion-visible'));return;}
+  typographyObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('motion-visible');typographyObserver.unobserve(entry.target);}});
+  },{threshold:0.08,rootMargin:'0px 0px -6% 0px'});
+  root.querySelectorAll('.motion-title,.motion-copy').forEach(el=>typographyObserver.observe(el));
+}
+let typographyRefreshTimer;
+let typographyViewportWidth=window.innerWidth;
+function refreshTypographyLineBreaks(){
+  clearTimeout(typographyRefreshTimer);
+  typographyRefreshTimer=setTimeout(()=>{
+    if(window.innerWidth===typographyViewportWidth)return;
+    typographyViewportWidth=window.innerWidth;
+    document.querySelectorAll('#app .motion-title').forEach(heading=>{
+      const original=heading.dataset.motionSource;if(!original)return;
+      const wasVisible=heading.classList.contains('motion-visible');
+      heading.classList.remove('motion-title');heading.innerHTML=original;
+      splitTitleIntoLines(heading);
+      if(wasVisible)heading.classList.add('motion-visible');
+    });
+  },160);
+}
+window.addEventListener('resize',refreshTypographyLineBreaks,{passive:true});
+function renderPage(){window.scrollTo({top:0,left:0,behavior:'instant'});document.querySelector('.photo-journey')?.remove();document.querySelector('.home-opening')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();addContactFlip();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));setupTypographyMotion();scheduleTocUpdate();if(document.body.classList.contains('home-mode')&&(!location.hash||location.hash==='#/'||location.hash==='#')){window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(0,0);playHomeOpening();}));}}
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 window.addEventListener('pageshow',()=>{window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));});
 window.addEventListener('hashchange',renderPage);renderPage();
