@@ -146,11 +146,11 @@ function schedulingBody(){
  sec('validation','06 / FROM IDEA TO PRODUCT','打造 MVP：從產品規則到功能驗證與老師回饋',
   '<div class="schedule-live-demo"><div class="schedule-live-copy"><span>TRY THE PRODUCT / 互動展示</span><h3>不必登入，直接體驗排課流程</h3><p>用模擬資料體驗學生選擇可上課時段、老師產生排課草案，以及切換學生／老師視角並手動調整課程。展示版保留產品主要互動，並非連接正式資料庫的完整系統。</p><a href="./pilates-demo.html" target="_blank" rel="noopener">在新視窗開啟互動展示 ↗</a><small>無需 LINE 登入 · 不存取任何真實學生資料 · 桌機與手機皆可操作</small></div><div class="schedule-live-frame"><iframe src="./pilates-demo.html" title="皮拉提斯排課系統免登入互動展示" loading="lazy"></iframe></div></div>'+
   paragraph('我以獨立 Product Builder 的角色負責需求、UI／UX、產品流程、AI 輔助程式開發、GitHub／Vercel 部署和測試驗收。第一版使用模擬資料，設計時段衝突、間隔不足、無法排入等情境，透過程式化測試及人工檢查確認主要規則；這是功能驗證，尚非老師實際操作的易用性或效率驗證。')+
-  '<div class="schedule-build-grid">'+point('RULE CHECKS','排課條件與衝突測試','以模擬資料檢查時段衝突、課程間隔不足、學生無法排入及人工調整等狀況。')+point('MANUAL REVIEW','人工核對排課結果','逐位核對課程分配、可上課時段及異動後狀態；這是開發者驗收，尚非老師的易用性測試。')+point('BUILD & DELIVERY','AI 輔助開發與版本管理','自行定義測試案例並使用 AI Coding 迭代功能，透過 GitHub 與 Vercel 管理部署和驗收。')+'</div>'+
-  '<div class="schedule-learning"><span>INITIAL DEMO FEEDBACK</span><strong>能排出課表，不代表老師願意改變既有工作方式。</strong><p>第一次向老師展示 MVP 時，她擔心需要教每個學生操作新軟體，以及臨時取消、重新安排的持續管理負擔。這是 Demo 回饋，並非正式使用後的測量。</p></div>'+
-  '<div class="schedule-repo"><div><span>WORKING PRODUCT / SOURCE</span><strong>從概念到可操作的產品</strong><p>設計、規則與開發持續迭代中，可查看目前的程式實作。</p></div><a href="'+repoURL+'" target="_blank" rel="noopener">Explore GitHub ↗</a></div>')+
+  '<div class="schedule-build-grid">'+point('RULE CHECKS','排課條件與衝突測試','以模擬資料檢查時段衝突、課程間隔不足、學生無法排入及人工調整等狀況。')+point('MANUAL REVIEW','人工核對排課結果','逐位核對課程分配、可上課時段及異動後狀態；這是開發者驗收，尚非老師的易用性測試。')+point('BUILD & DELIVERY','AI 輔助開發與版本管理','自行定義測試案例並使用 AI Coding 迭代功能，透過 GitHub 與 Vercel 管理部署和驗收。')+'</div>')+
  sec('reflection','07 / OUTCOME & REFLECTION','從功能做得完整，到重新判斷什麼值得先做',
   '<div class="schedule-learning"><span>WHAT I BUILT / 階段成果</span><strong>第一版 MVP 已能將人工排課限制轉成可檢查、可修改的課表。</strong><p>已實作學生可接受時段、主要老師授課目標、課程間隔、排課草案與人工調整，並透過模擬資料檢查主要規則及例外情境。系統尚未正式導入，沒有已驗證的時間節省或留存成效。第一版 PRD 與手動測試過程將於後續補充。</p></div>'+
+  '<div class="schedule-learning"><span>INITIAL DEMO FEEDBACK</span><strong>能排出課表，不代表老師願意改變既有工作方式。</strong><p>第一次向老師展示 MVP 時，她擔心需要教每個學生操作新軟體，以及臨時取消、重新安排的持續管理負擔。這是 Demo 回饋，並非正式使用後的測量。</p></div>'+
+  '<div class="schedule-repo"><div><span>WORKING PRODUCT / SOURCE</span><strong>從概念到可操作的產品</strong><p>設計、規則與開發持續迭代中，可查看目前的程式實作。</p></div><a href="'+repoURL+'" target="_blank" rel="noopener">Explore GitHub ↗</a></div>'+
   paragraph('起初，我以一位老師的排課困境為起點，將她提出的條件與例外情境逐步做成系統功能。隨著開發深入，我不斷補足規則，希望讓產品盡可能完整。然而，MVP 展示後的回饋讓我意識到：自己過早將單一使用者的需求視為產品需求，尚未充分確認不同老師的共通問題、釐清最小範圍，就投入了大量開發時間。')+
   paragraph('更重要的是，功能能運作不代表老師願意改變工作方式。她仍須教學生操作新工具、處理請假與補課，並在 LINE 群組尋找代課。若新系統無法銜接既有流程，即使初次排課更快，也可能增加後續維護成本。這是 Demo 後的初步回饋，而非實際導入的量測結果。')+
   schedulingInsight('04','ADOPTION COST / 導入成本','自動化不必然減輕工作負擔，新工具的學習與維護成本可能抵銷排課效率帶來的效益。','不能只評估系統產生課表的速度，也要檢視學生學習、老師修改及日常異動的整體成本。','adoption','導入成本示意｜自動化收益與額外維護工作需一起評估；非量化結果。')+
