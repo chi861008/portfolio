@@ -1564,3 +1564,15 @@ html:has(.kds-case){overflow-x:clip}
 .scheduling-case .schedule-live-frame{width:min(100%,390px);margin:0 auto;border:9px solid #292827;border-radius:30px;overflow:hidden;background:#f7f3ed;box-shadow:0 24px 48px #322a212b}
 .scheduling-case .schedule-live-frame iframe{display:block;border:0;width:100%;height:660px;background:#f7f3ed}
 @media(max-width:850px){.scheduling-case .schedule-live-demo{grid-template-columns:1fr}.scheduling-case .schedule-live-frame{max-width:390px}}
+
+/* Kiosk interactive demo (portrait kiosk screen inside a device bezel) */
+.kiosk-live-demo{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:clamp(24px,4vw,58px);background:#eee9e2;border-radius:28px;padding:clamp(22px,3.5vw,46px);margin:42px 0 60px;align-items:center}
+.kiosk-live-copy>span{display:block;color:#be6b4d;font-weight:800;font-size:11px;letter-spacing:.13em}
+.kiosk-live-copy h3{font-size:clamp(28px,3vw,40px);line-height:1.28;letter-spacing:-.045em;margin:17px 0 20px;color:#24211f;text-wrap:balance}
+.kiosk-live-copy p{font-size:16px;line-height:1.9;color:#625c57;margin:0 0 30px}
+.kiosk-live-copy a{display:inline-block;padding:14px 20px;background:#262320;color:#fff;border-radius:9px;font-weight:750;text-decoration:none;font-size:14px}
+.kiosk-live-copy a:hover{background:#d0704f}
+.kiosk-live-copy small{display:block;margin-top:16px;color:#81786f;font-size:12px;line-height:1.7}
+.kiosk-live-frame{width:min(100%,360px);margin:0 auto;border:10px solid #292827;border-radius:28px;overflow:hidden;background:#FAF9F7;box-shadow:0 24px 48px #322a212b}
+.kiosk-live-frame iframe{display:block;border:0;width:100%;aspect-ratio:9/16;height:auto;background:#FAF9F7}
+@media(max-width:850px){.kiosk-live-demo{grid-template-columns:1fr}.kiosk-live-frame{max-width:340px}}
