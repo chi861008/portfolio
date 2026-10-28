@@ -1585,10 +1585,10 @@ html:has(.kds-case){overflow-x:clip}
 @media(max-width:850px){.kds-live-frame{max-width:100%}}
 
 /* "Try it now" jump button at the top of each case study */
-.try-demo-cta{display:inline-flex;align-items:center;gap:10px;margin:22px 0 4px;padding:14px 22px;background:#262320;color:#fff;border-radius:999px;font-weight:750;font-size:15px;text-decoration:none;letter-spacing:.01em}
+.try-demo-cta{display:inline-flex;align-items:center;gap:10px;margin:22px 0 4px;padding:14px 24px;background:#d0704f;color:#fff;border-radius:999px;font-weight:750;font-size:15px;text-decoration:none;letter-spacing:.01em}
 .try-demo-cta span{display:inline-block;animation:try-demo-nudge 1.8s ease-in-out infinite}
-.try-demo-cta:hover{background:#d0704f}
-.try-demo-cta:focus-visible{outline:3px solid #d0704f;outline-offset:3px}
+.try-demo-cta:hover{background:#b85d3e}
+.try-demo-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
 #try-demo{scroll-margin-top:96px}
 @keyframes try-demo-nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 @media (prefers-reduced-motion:reduce){.try-demo-cta span{animation:none}}
