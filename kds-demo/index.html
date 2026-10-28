@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>廚房出餐看板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: a fixed 1440×1080 kitchen tablet, scaled to fit. Sizes are the Figma frame's px. Single dark look, by design. */
+:root{
+  --bg:#4A4A4A; --bar:#3C3C3C; --foot:#3F3F3F; --card:#424242; --sep:#383838; --ink:#FFFFFF; --ink-2:#E0E0E0; --mute:#A8A8A8;
+  --red:#E15534; --orange:#FFC06D; --grey:#6C6C6C; --tab:#F5A33B; --teal:#5CABB4; --teal-2:#3DB3BB; --blue:#2A7BB7; --blue-d:#004D89;
+  --done:#4B4B4B; --void:#FBD9CB; --void-ink:#6B4A3E; --agg:#6F6F6F; --sub:#797979; --panel:#3F3F3F; --seg:#FFC06D; --save:#E15433;
+  --outer:#2B2B2B;
+  --font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{margin:0;background:var(--outer);color:var(--ink);font-family:var(--font);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;
+  box-sizing:border-box;overflow:hidden;-webkit-tap-highlight-color:transparent}
+#viewport{position:relative;width:100%;height:100%}
+#stage{position:absolute;left:50%;top:50%;width:1440px;height:1080px;transform-origin:center;background:var(--bg);overflow:hidden;line-height:1.2;
+  font-variant-numeric:tabular-nums;box-shadow:0 10px 40px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;line-height:1.2}
+button:focus-visible{outline:3px solid var(--teal-2);outline-offset:2px}
+svg{display:block}
+
+/* header */
+.hdr{position:absolute;left:0;right:0;top:0;height:96px;background:var(--bar);display:flex;align-items:center}
+.menu{width:56px;height:56px;margin-left:12px;display:grid;place-items:center;color:#C8C8C8}
+.menu svg{width:38px;height:38px}
+.clock{margin-left:30px;min-width:160px;text-align:center;color:#CFCFCF;white-space:nowrap}
+.clock b{display:block;font-size:40px;font-weight:400;letter-spacing:.02em;line-height:1}
+.clock span{display:block;font-size:22px;margin-top:4px}
+.vline{width:1px;height:60px;background:#666;margin:0 26px 0 24px}
+.stw{position:relative}
+.station{display:flex;align-items:center;gap:8px;font-size:26px;color:#CFCFCF;height:60px;white-space:nowrap}
+.station svg{width:22px;height:22px}
+.dd{position:absolute;left:0;top:70px;min-width:200px;background:#2F2F2F;border-radius:6px;box-shadow:0 12px 30px rgba(0,0,0,.45);padding:8px 0;z-index:30}
+.dd button{display:flex;width:100%;padding:16px 24px;font-size:24px;color:var(--ink-2);gap:12px;align-items:center;white-space:nowrap}
+.dd button.on{color:var(--tab)}
+.dd button:hover{background:#3A3A3A}
+.dd small{margin-left:auto;font-size:20px;color:var(--mute)}
+.tabs{margin-left:auto;display:flex;align-items:center}
+.tab{font-size:26px;color:#CFCFCF;padding:0 26px;position:relative;height:48px;display:flex;align-items:center;gap:8px}
+.tab+.tab::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:1px;background:#888}
+.tab.on{color:var(--tab)}
+.tab i{font-style:normal;font-size:18px;min-width:28px;height:28px;padding:0 8px;border-radius:14px;background:#555;color:#ddd;display:grid;place-items:center}
+.tab.on i{background:var(--tab);color:#3a2a10}
+.views{margin-left:14px;height:60px;padding:3px;background:#727272;border-radius:4px;display:flex;gap:2px}
+.views button{width:58px;height:54px;border-radius:2px;display:grid;place-items:center;color:#EAEAEA}
+.views button svg{width:30px;height:30px}
+.views button.on{background:#D8D8D8;color:#555}
+.pause{margin:0 14px 0 20px;width:180px;height:78px;border:2px solid var(--teal-2);border-radius:4px;display:flex;align-items:center;gap:10px;padding-left:10px;color:var(--teal-2);text-align:left}
+.pause .pc{width:40px;height:40px;border-radius:50%;background:var(--teal-2);display:grid;place-items:center;color:var(--bar);flex:none}
+.pause .pc svg{width:20px;height:20px}
+.pause small{display:block;font-size:18px}
+.pause b{display:block;font-size:27px;font-weight:400}
+.pause.off{border-color:var(--orange);color:var(--orange)}
+.pause.off .pc{background:var(--orange)}
+
+/* board */
+.board{position:absolute;left:0;right:0;top:96px;bottom:48px;overflow-x:auto;overflow-y:hidden;display:flex;gap:22px;padding:16px 22px 18px;scrollbar-width:none;cursor:grab}
+.board::-webkit-scrollbar{display:none}
+.board.drag{cursor:grabbing;user-select:none}
+.col{flex:none;width:var(--cw,428px);display:flex;flex-direction:column;height:100%}
+.card{background:var(--card);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;max-height:calc(100% - 98px);animation:cardin .35s ease}
+.card.new{animation:cardin .35s ease,flash 1.6s .35s ease}
+@keyframes cardin{from{opacity:0;transform:translateY(12px)}}
+@keyframes flash{0%,100%{box-shadow:0 0 0 0 rgba(93,201,212,0)}30%{box-shadow:0 0 0 6px rgba(93,201,212,.8)}}
+.ch{flex:none;height:112px;padding:11px 12px 0;background:var(--grey);color:#fff}
+.ch.o{background:var(--hc-o,var(--orange));color:var(--hc-o-ink,#3A3020)}
+.ch.r{background:var(--hc-r,var(--red))}
+.ch .r1{display:flex;align-items:center;gap:12px;height:40px}
+.ch .no{font-size:36px;width:44px}
+.chip{height:36px;padding:0 10px;border-radius:4px;background:rgba(255,255,255,.22);font-size:24px;display:flex;align-items:center;white-space:nowrap}
+.c4 .ch .r1{gap:8px}
+.c4 .ch .chip{font-size:20px;padding:0 7px}
+.c4 .ch .no{font-size:32px;width:38px}
+.c4 .nm{font-size:calc(30px*var(--fs,1));line-height:42px}
+.c4 .ch .age{margin-left:14px}
+.ch.o .chip{background:rgba(255,255,255,.45)}
+.chip.t{background:var(--teal-2)!important;color:#fff}
+.ch .r2{display:flex;align-items:center;height:56px;margin-top:6px}
+.ch .ty{font-size:28px}
+.ch .age{display:flex;align-items:center;gap:6px;font-size:24px;margin-left:26px}
+.ch .age svg{width:24px;height:24px}
+.ch .nt{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:24px;padding:8px 0 8px 12px;color:inherit}
+.ch .nt svg{width:22px;height:22px;transition:transform .2s}
+.ch .nt.open svg{transform:rotate(180deg)}
+.ch .nt:disabled{opacity:.5;cursor:default}
+.note{flex:none;background:#2F2F2F;padding:14px 18px;font-size:24px;color:#F3E2C7;border-bottom:2px solid var(--sep);line-height:1.4}
+.items{overflow-y:auto;scrollbar-width:none;flex:1}
+.items::-webkit-scrollbar{display:none}
+.it{display:grid;grid-template-columns:52px 1fr 44px;column-gap:12px;align-items:start;padding:24px 16px 20px 11px;border-top:2px solid var(--sep);cursor:pointer;transition:background .15s}
+.items .it:first-child{border-top:12px solid var(--sep)}
+.qty{width:52px;height:50px;border:1.5px solid #D0D0D0;border-radius:3px;display:grid;place-items:center;font-size:34px}
+.nm{font-size:calc(36px*var(--fs,1));line-height:50px;min-width:0}
+.nm .set{font-size:20px;margin-left:10px;padding:2px 8px;border-radius:3px;background:#fff;color:#333;vertical-align:middle;position:relative;top:-4px}
+.mods{grid-column:2;font-size:calc(26px*var(--fs,1));color:var(--ink-2);margin-top:6px;line-height:1.5}
+.tag{grid-column:2;justify-self:start;margin-top:6px;border:1px solid #D8D8D8;padding:3px 10px;font-size:calc(24px*var(--fs,1))}
+.dot{grid-column:3;grid-row:1;width:44px;height:44px;border-radius:50%;background:#131313;border:2px solid #555;margin-top:3px;display:grid;place-items:center;color:#fff}
+.dot svg{width:26px;height:26px;opacity:0}
+.it.doing{background:var(--blue)}
+.it.doing .dot{background:var(--blue-d);border-color:var(--blue-d)}
+.it.doing .tag{border-color:#fff}
+.it.done{background:var(--done);color:#8E8E8E}
+.it.done .qty{border-color:#777}
+.it.done .mods{color:#8E8E8E}
+.it.done .tag{border-color:#777}
+.it.done .dot{background:#5FACB5;border-color:#5FACB5}
+.it.done .dot svg{opacity:1}
+.it.void{background:var(--void);color:var(--void-ink);cursor:default}
+.it.void .qty{border-color:var(--void-ink)}
+.it.void .nm,.it.void .mods{text-decoration:line-through}
+.it.void .mods{color:var(--void-ink)}
+.it.void .tag{border-color:var(--void-ink)}
+.it .trash{grid-column:3;grid-row:1;width:46px;height:46px;border-radius:4px;background:var(--red);display:grid;place-items:center;color:#fff}
+.it .trash svg{width:26px;height:26px}
+.it .undo{grid-column:3;grid-row:1;width:58px;height:58px;margin:-6px -6px 0 -8px;border-radius:4px;background:var(--blue);display:grid;place-items:center;color:#fff}
+.it .undo svg{width:30px;height:30px}
+.voidnote{grid-column:2;font-size:20px;margin-top:8px;color:var(--void-ink)}
+.act{flex:none;margin-top:20px;align-self:flex-end;width:230px;height:78px;border-radius:2px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;gap:34px;font-size:30px;font-weight:500}
+.act svg{width:28px;height:28px}
+.act.blue{background:var(--blue)}
+.act:active{filter:brightness(.92)}
+.empty{margin:auto;text-align:center;color:#9a9a9a;font-size:28px;line-height:1.8}
+.empty b{display:block;font-size:34px;color:#CFCFCF;font-weight:500}
+
+/* aggregated views */
+.ah{flex:none;height:64px;background:var(--agg);display:grid;place-items:center;font-size:32px}
+.grp{padding:14px 11px 14px;border-top:2px solid var(--sep)}
+.items .grp:first-child{border-top:12px solid var(--sep)}
+.gh{display:grid;grid-template-columns:52px 1fr 44px;column-gap:12px;align-items:start;padding-left:0}
+.gh .qty.r{background:#C54224;border-color:#C54224}
+.gh .qty.o{background:#D6A363;border-color:#D6A363;color:#33281a}
+.subs{display:flex;flex-direction:column;gap:8px;margin:12px 0 0 64px}
+.subs.full{margin-left:0}
+.sub{background:var(--sub);border-radius:6px;padding:9px 10px;cursor:pointer}
+.sub .sr{display:flex;align-items:center;gap:12px;font-size:28px}
+.sub .q{width:40px;height:40px;border:1.5px solid #E0E0E0;border-radius:3px;display:grid;place-items:center;font-size:26px;flex:none}
+.sub .set{font-size:24px;padding:2px 6px;border-radius:3px;background:#fff;color:#333}
+.sub .sn{background:#5f5f5f;margin-top:8px;border-radius:4px;padding:8px 10px;font-size:22px;display:flex;align-items:center;justify-content:space-between}
+.sub .sn svg{width:22px;height:22px}
+.sub .snt{font-size:22px;color:#F3E2C7;padding:8px 10px 2px;line-height:1.4}
+.sub.done{opacity:.45;text-decoration:line-through}
+
+/* footer + toast */
+.foot{position:absolute;left:0;right:0;bottom:0;height:48px;background:var(--foot);display:flex;align-items:center;padding:0 22px;gap:24px;font-size:20px;color:#A8A8A8}
+.foot .sp{margin-left:auto;display:flex;gap:10px}
+.foot .sp button{width:56px;height:36px;border-radius:4px;background:#555;display:grid;place-items:center;color:#ddd}
+.foot .sp svg{width:22px;height:22px}
+.toast{position:absolute;left:0;top:0;height:86px;padding:0 18px 0 30px;background:#D2D2D2;color:#333;display:flex;align-items:center;gap:14px;font-size:26px;z-index:40;border-radius:0 0 8px 0;box-shadow:0 8px 24px rgba(0,0,0,.35);animation:tin .25s ease}
+@keyframes tin{from{transform:translateY(-100%)}}
+.toast .chip{background:transparent;border:1.5px solid #999;color:#333;height:40px}
+.toast .ub{display:flex;align-items:center;gap:8px;background:#fff;height:52px;padding:0 16px;border-radius:2px;font-size:26px}
+.toast .ub svg{width:22px;height:22px}
+.toast .x{width:48px;height:48px;display:grid;place-items:center}
+.toast .x svg{width:28px;height:28px}
+
+/* settings */
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:50;animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.panel{position:absolute;top:0;right:0;bottom:0;left:576px;background:var(--panel);z-index:51;padding:22px 22px 0 21px;display:flex;flex-direction:column;gap:0;animation:slide .25s ease;font-size:26px}
+@keyframes slide{from{transform:translateX(40px);opacity:0}}
+.ps{height:60px;background:var(--agg);display:flex;align-items:center;padding-left:12px;font-size:28px;margin-bottom:6px}
+.pr{display:flex;align-items:center;gap:10px;min-height:60px;padding-left:12px}
+.pr.ind{padding-left:38px;min-height:50px;margin-top:-6px;margin-bottom:10px}
+.sel{position:relative;display:inline-flex;align-items:center;border-bottom:1px solid #888;height:44px}
+.sel select{appearance:none;-webkit-appearance:none;background:transparent;border:0;color:var(--teal-2);font:inherit;font-size:24px;padding:0 34px 0 18px;height:44px;cursor:pointer}
+.sel select option{background:#333;color:#fff}
+.sel::after{content:"";position:absolute;right:10px;top:15px;width:8px;height:8px;border-right:2px solid var(--teal-2);border-bottom:2px solid var(--teal-2);transform:rotate(45deg);pointer-events:none}
+.sel .sw{width:22px;height:22px;margin-left:8px;pointer-events:none}
+.sel.color select{width:56px;color:transparent;padding:0;position:absolute;inset:0}
+.sel.color{width:56px}
+.cb{display:flex;align-items:center;gap:10px;cursor:pointer}
+.cb input{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2px solid #ddd;border-radius:2px;margin:0;display:grid;place-items:center;cursor:pointer}
+.cb input:checked{background:var(--teal-2);border-color:var(--teal-2)}
+.cb input:checked::after{content:"";width:6px;height:12px;border:solid #fff;border-width:0 3px 3px 0;transform:translate(0,-2px) rotate(45deg)}
+.seg{display:inline-flex;border:1px solid #888;border-radius:2px;overflow:hidden;margin-left:12px}
+.seg button{min-width:84px;height:52px;padding:0 20px;font-size:26px}
+.seg button+button{border-left:1px solid #888}
+.seg button.on{background:var(--seg);color:#333}
+.pa{margin-top:auto;display:flex;justify-content:flex-end;gap:12px;padding:20px 0 180px}
+.pa button{height:62px;padding:0 20px;font-size:28px;border-radius:2px}
+.pa .cn{border:1px solid #bbb}
+.pa .sv{background:var(--save)}
+.dis{opacity:.45}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<style>
+html.embed body{padding:0;background:#4A4A4A}
+html.embed #stage{box-shadow:none}
+</style>
+<script>if(window.self!==window.top)document.documentElement.classList.add("embed");</script>
+</head>
+<body>
+<div id="viewport"><div id="stage" role="application" aria-label="廚房出餐看板"></div></div>
+
+<script>
+(function(){
+"use strict";
+const I={
+  menu:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
+  chev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 9 7 7 7-7"/></svg>',
+  clock:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M12 6v6l4 3" fill="none" stroke="var(--clk,#E15534)" stroke-width="2.4" stroke-linecap="round"/></svg>',
+  list:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h8"/></svg>',
+  g2:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>',
+  g3:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="3" width="6" height="5"/><rect x="9" y="3" width="6" height="5"/><rect x="16" y="3" width="6" height="5"/><rect x="2" y="9.5" width="6" height="5"/><rect x="9" y="9.5" width="6" height="5"/><rect x="16" y="9.5" width="6" height="5"/><rect x="2" y="16" width="6" height="5"/><rect x="9" y="16" width="6" height="5"/><rect x="16" y="16" width="6" height="5"/></svg>',
+  play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+  pause:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
+  undo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7 5 11l4 4"/><path d="M5 11h9a5 5 0 0 1 0 10h-3"/></svg>',
+  x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 7V4h4v3M6 7l1 13h10l1-13"/></svg>',
+  left:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>',
+  right:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>'
+};
+
+/* ---------- menu knowledge ---------- */
+const PROD={
+  "蒙布朗":["甜點","pastry"],"巧克力千層":["甜點","pastry"],"提拉米蘇":["甜點","pastry"],"布蕾":["甜點","pastry"],
+  "綠茶":["飲料","drink"],"紅茶":["飲料","drink"],"美式咖啡":["飲料","drink"],"拿鐵":["飲料","drink"],
+  "瑪格麗特披薩":["披薩","hot"],"海鮮披薩":["披薩","hot"],
+  "青醬雞肉麵":["麵食","hot"],"白酒蛤蜊義大利麵":["麵食","hot"],"南瓜濃湯":["湯品","hot"]
+};
+const CAT_ORDER=["甜點","飲料","披薩","麵食","湯品"];
+const STATIONS=[["all","全部站台"],["drink","飲料台"],["pastry","點心台"],["hot","熱食台"]];
+const COLORS={orange:["橘","#FFC06D","#3A3020","#E07B00"],red:["紅","#E15534","#fff","#DD2C2C"],yellow:["黃","#F2D45C","#3A3420","#E8C21E"],purple:["紫","#9B7BD8","#fff","#8A5CD6"]};
+
+/* ---------- state ---------- */
+const MIN=60000, now=()=>Date.now();
+let seq=1, iid=1, ono=248;
+function mk(name,qty,mods,tag,extra){return Object.assign({id:iid++,name,qty,mods:mods||[],tag:tag||"",state:"todo",set:false},extra||{});}
+function order(type,table,ageMin,items,o){
+  o=o||{}; ono+=o.skip||1;
+  return Object.assign({id:seq++,no:String(ono).padStart(4,"0"),table,ref:"#"+(1230+seq),type,t0:now()-ageMin*MIN-Math.floor(Math.random()*40000),items,note:"",status:"active"},o);
+}
+const S={
+  tab:"active", view:"order", station:"all", paused:false, settings:null, panel:false, dd:false, notes:{}, toast:null, newIds:new Set(),
+  cfg:{schedLead:30,autoClose:false,autoMin:30,showSet:true,font:"normal",cols:3,sound:"default",refresh:5,warnO:5,warnR:10,colO:"orange",colR:"red"},
+  orders:[]
+};
+S.orders.push(order("內用","1F-4",14,[mk("蒙布朗",1,["2x 奶油"]),mk("瑪格麗特披薩",2),mk("巧克力千層",1,["醬多"],"不要冰淇淋"),mk("綠茶",1,["無糖","去冰"],"",{set:true}),mk("紅茶",1,["無糖","去冰"],"",{set:true}),mk("白酒蛤蜊義大利麵",2)],{note:"兩位兒童，飲料請先上"}));
+S.orders.push(order("外帶","—",7,[mk("南瓜濃湯",2),mk("布蕾",2),mk("海鮮披薩",2),mk("美式咖啡",2,["無糖","熱"]),mk("青醬雞肉麵",2,["加焗烤"])]));
+S.orders.push(order("內用","2F-1",3,[mk("巧克力千層",1,["醬多"],"不要冰淇淋"),mk("蒙布朗",2,["2x 奶油"],"",{state:"void"}),mk("海鮮披薩",2),mk("綠茶",1,["無糖","去冰"]),mk("紅茶",1,["無糖","去冰"]),mk("青醬雞肉麵",2,["加焗烤"])],{note:"客人對堅果過敏"}));
+S.orders.push(order("外帶","—",1,[mk("提拉米蘇",2),mk("拿鐵",1,["少冰"],"",{set:true}),mk("瑪格麗特披薩",1)]));
+/* already served */
+S.orders.push(order("內用","1F-2",26,[mk("蒙布朗",1,["2x 奶油"]),mk("綠茶",1,["無糖","去冰"]),mk("紅茶",1,["無糖","去冰"])].map(i=>(i.state="done",i)),{status:"done",doneAt:now()-6*MIN}));
+S.orders.push(order("外帶","—",22,[mk("南瓜濃湯",2),mk("布蕾",2),mk("美式咖啡",2,["無糖","熱"])].map(i=>(i.state="done",i)),{status:"done",doneAt:now()-3*MIN}));
+/* scheduled pickups */
+S.orders.push(order("內用","1F-6",0,[mk("蒙布朗",1,["2x 奶油"]),mk("瑪格麗特披薩",2),mk("巧克力千層",1,["醬多"],"不要冰淇淋")],{status:"sched",pickup:now()+31*MIN+20000,note:"預約 4 位"}));
+S.orders.push(order("外帶","—",0,[mk("海鮮披薩",2),mk("綠茶",2,["無糖","去冰"])],{status:"sched",pickup:now()+75*MIN}));
+S.orders.push(order("內用","2F-3",0,[mk("提拉米蘇",3),mk("美式咖啡",3,["熱"])],{status:"sched",pickup:now()+120*MIN}));
+/* fix seq numbers to read 01.. in each list */
+
+/* ---------- helpers ---------- */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad2=n=>String(n).padStart(2,"0");
+const ageMin=o=>Math.max(0,Math.floor((now()-o.t0)/MIN));
+function level(o){const a=ageMin(o);return a>=S.cfg.warnR?"r":a>=S.cfg.warnO?"o":"";}
+const inStation=it=>S.station==="all"||PROD[it.name][1]===S.station;
+const list=st=>S.orders.filter(o=>o.status===st);
+function visItems(o){return o.items.filter(inStation);}
+function hm(t){const d=new Date(t);return pad2(d.getHours())+":"+pad2(d.getMinutes());}
+function md(t){const d=new Date(t);return (d.getMonth()+1)+" / "+d.getDate();}
+
+/* ---------- views ---------- */
+const $=document.getElementById("stage");
+function header(){
+  const d=new Date(), wk="日一二三四五六"[d.getDay()];
+  const n={active:list("active").length,done:list("done").length,sched:list("sched").length};
+  return `<div class="hdr">
+    <button class="menu" data-a="panel" aria-label="設定">${I.menu}</button>
+    <div class="clock"><b id="clk">${hm(d)}</b><span>${d.getMonth()+1}月${d.getDate()}日 · 週${wk}</span></div>
+    <span class="vline"></span>
+    <div class="stw"><button class="station" data-a="dd" aria-expanded="${S.dd}">${STATIONS.find(s=>s[0]===S.station)[1]}${I.chev}</button>
+      ${S.dd?`<div class="dd">${STATIONS.map(([k,n])=>`<button class="${k===S.station?"on":""}" data-a="st:${k}">${n}<small>${countStation(k)} 項</small></button>`).join("")}</div>`:""}</div>
+    <nav class="tabs">${[["active","製餐中"],["done","已出餐"],["sched","待排入"]].map(([k,t])=>`<button class="tab ${S.tab===k?"on":""}" data-a="tab:${k}">${t}${n[k]?`<i>${n[k]}</i>`:""}</button>`).join("")}</nav>
+    <div class="views">${[["order",I.list,"依訂單"],["cat",I.g2,"依分類"],["prod",I.g3,"依品項"]].map(([k,ic,l])=>`<button class="${S.view===k?"on":""}" data-a="view:${k}" aria-label="${l}" title="${l}">${ic}</button>`).join("")}</div>
+    <button class="pause ${S.paused?"off":""}" data-a="pause"><span class="pc">${S.paused?I.pause:I.play}</span><span><small>${S.paused?"已暫停進單":"進單中"}</small><b>${S.paused?"恢復進單":"暫停進單"}</b></span></button>
+  </div>`;
+}
+function countStation(k){let n=0;list("active").forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void"&&(k==="all"||PROD[it.name][1]===k))n+=it.qty;}));return n;}
+function cardHead(o,i){
+  const lv=S.tab==="active"?level(o):"", sched=o.status==="sched", open=S.notes[o.id];
+  return `<div class="ch ${lv}"><div class="r1"><span class="no">${pad2(i+1)}</span><span class="chip">${o.no}</span>${o.table!=="—"?`<span class="chip">${o.table}</span>`:""}<span class="chip">${o.ref}</span></div>
+    <div class="r2"><span class="ty">${o.type}</span>${sched?`<span class="chip t" style="margin-left:14px">${md(o.pickup)}</span><span class="chip t" style="margin-left:8px">${hm(o.pickup)}</span>`
+      :`<span class="age" style="--clk:${lv==="r"?COLORS[S.cfg.colR][1]:lv==="o"?COLORS[S.cfg.colO][1]:"#6C6C6C"}">${I.clock}${S.tab==="done"?"出餐 "+hm(o.doneAt):ageMin(o)+"分"}</span>`}
+    <button class="nt ${open?"open":""}" data-a="note:${o.id}" ${o.note?"":"disabled"}>備註${I.chev}</button></div></div>
+    ${open&&o.note?`<div class="note">${esc(o.note)}</div>`:""}`;
+}
+function itemRow(o,it){
+  const set=it.set&&S.cfg.showSet?`<span class="set">套</span>`:"";
+  const body=`<span class="qty">${it.qty}</span><span class="nm">${esc(it.name)}${set}</span>`;
+  const extra=`${it.mods.length?`<span class="mods">- ${it.mods.map(esc).join("、")}</span>`:""}${it.tag?`<span class="tag">${esc(it.tag)}</span>`:""}`;
+  if(S.tab==="done") return `<div class="it">${body}<button class="undo" data-a="undo:${o.id}:${it.id}" aria-label="退回重做">${I.undo}</button>${extra}</div>`;
+  if(S.tab==="sched") return `<div class="it" style="cursor:default">${body}<span></span>${extra}</div>`;
+  if(it.state==="void") return `<div class="it void">${body}<button class="trash" data-a="ack:${o.id}:${it.id}" aria-label="確認刪除">${I.trash}</button>${extra}<span class="voidnote">前台已取消，點垃圾桶確認</span></div>`;
+  return `<div class="it ${it.state==="todo"?"":it.state}" data-a="row:${o.id}:${it.id}">${body}<button class="dot" data-a="tick:${o.id}:${it.id}" aria-label="完成">${I.check}</button>${extra}</div>`;
+}
+function vOrders(){
+  let os=list(S.tab);
+  if(S.tab==="done") os=os.sort((a,b)=>b.doneAt-a.doneAt);
+  else if(S.tab==="sched") os=os.sort((a,b)=>a.pickup-b.pickup);
+  else os=os.sort((a,b)=>a.t0-b.t0);
+  os=os.filter(o=>visItems(o).length);
+  if(!os.length) return `<div class="empty"><b>${{active:"目前沒有待製作的訂單",done:"還沒有已出餐的訂單",sched:"沒有預定單"}[S.tab]}</b>${S.tab==="active"&&S.paused?"進單已暫停，點右上角恢復進單":S.station!=="all"?"可切換站台查看其他品項":""}</div>`;
+  return os.map((o,i)=>`<div class="col"><div class="card ${S.newIds.has(o.id)?"new":""}">${cardHead(o,i)}<div class="items">${visItems(o).map(it=>itemRow(o,it)).join("")}</div></div>
+    ${S.tab==="active"?`<button class="act" data-a="bump:${o.id}">${I.check}整單完成</button>`:S.tab==="done"?`<button class="act blue" data-a="restore:${o.id}">${I.undo}整單復原</button>`:""}</div>`).join("");
+}
+function aggregate(){
+  const rows=[];
+  list("active").sort((a,b)=>a.t0-b.t0).forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void"&&inStation(it))rows.push({o,it});}));
+  return rows;
+}
+const rank=lv=>lv==="r"?2:lv==="o"?1:0;
+function subRow(r,showMods){
+  const open=S.notes["s"+r.it.id];
+  return `<div class="sub" data-a="subtick:${r.o.id}:${r.it.id}"><div class="sr"><span class="q">${r.it.qty}</span>${r.o.type} ${r.o.no}${r.it.set&&S.cfg.showSet?`<span class="set">套</span>`:""}${showMods&&r.it.mods.length?`<span style="font-size:22px;color:#eee">- ${r.it.mods.join("、")}</span>`:""}</div>
+    ${r.o.note?`<button class="sn" data-a="snote:${r.it.id}" style="width:100%">備註${I.chev}</button>${open?`<div class="snt">${esc(r.o.note)}</div>`:""}`:""}</div>`;
+}
+function group(rows,title,key){
+  const q=rows.reduce((a,r)=>a+r.it.qty,0), lv=["","o","r"][Math.max(...rows.map(r=>rank(level(r.o))))];
+  const it=rows[0].it;
+  return `<div class="grp"><div class="gh"><span class="qty ${lv}">${q}</span><span class="nm">${title}</span><button class="dot" data-a="gtick:${key}" aria-label="此品項全部完成">${I.check}</button>
+    ${key.startsWith("p")?"":`${it.mods.length?`<span class="mods">- ${it.mods.join("、")}</span>`:""}${it.tag?`<span class="tag">${esc(it.tag)}</span>`:""}`}</div>
+    <div class="subs">${rows.map(r=>subRow(r,false)).join("")}</div></div>`;
+}
+let GROUPS={};
+function vAgg(){
+  GROUPS={};
+  const rows=aggregate();
+  if(!rows.length) return `<div class="empty"><b>目前沒有待製作的品項</b>${S.paused?"進單已暫停":""}</div>`;
+  const cols=new Map();
+  if(S.view==="cat"){
+    rows.forEach(r=>{const c=PROD[r.it.name][0];if(!cols.has(c))cols.set(c,new Map());const k=r.it.name+"|"+r.it.mods.join()+"|"+r.it.tag;const m=cols.get(c);if(!m.has(k))m.set(k,[]);m.get(k).push(r);});
+    return CAT_ORDER.filter(c=>cols.has(c)).map(c=>{let gi=0;const gs=[...cols.get(c).values()].map(g=>{const key="c"+c+(gi++);GROUPS[key]=g;return group(g,esc(g[0].it.name),key);}).join("");
+      GROUPS["col"+c]=[].concat(...cols.get(c).values());
+      return `<div class="col"><div class="card"><div class="ah">${c}</div><div class="items">${gs}</div></div><button class="act" data-a="batch:col${c}">${I.check}批次完成</button></div>`;}).join("");
+  }
+  rows.forEach(r=>{const c=r.it.name;if(!cols.has(c))cols.set(c,new Map());const k=r.it.mods.join()+"|"+r.it.tag;const m=cols.get(c);if(!m.has(k))m.set(k,[]);m.get(k).push(r);});
+  return [...cols.entries()].map(([name,m])=>{let gi=0;const gs=[...m.values()].map(g=>{const key="p"+name+(gi++);GROUPS[key]=g;const it=g[0].it;
+      const title=`${it.mods.length?"- "+it.mods.join("、"):"一般"}${it.tag?`<span class="tag" style="display:inline-block;margin:0 0 0 10px;font-size:22px">${esc(it.tag)}</span>`:""}`;
+      return group(g,`<span style="font-size:28px">${title}</span>`,key);}).join("");
+    GROUPS["col"+name]=[].concat(...m.values());
+    return `<div class="col"><div class="card"><div class="ah">${esc(name)}</div><div class="items">${gs}</div></div><button class="act" data-a="batch:col${esc(name)}">${I.check}批次完成</button></div>`;}).join("");
+}
+function footer(){
+  const a=list("active");let items=0;a.forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void")items+=it.qty;}));
+  const next=list("sched").sort((x,y)=>x.pickup-y.pickup)[0];
+  return `<div class="foot"><span>製餐中 ${a.length} 張單・待製作 ${items} 份</span>${next?`<span>下一張預定單 ${hm(next.pickup)} 取餐，${Math.max(0,Math.ceil((next.pickup-now())/MIN)-S.cfg.schedLead)} 分鐘後排入</span>`:""}
+    <span>點品項＝製作中，點圓圈＝完成</span>
+    <span class="sp"><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
+}
+function vPanel(){
+  if(!S.panel) return "";
+  const c=S.settings, opt=(v,arr)=>arr.map(n=>`<option value="${n}" ${String(v)===String(n)?"selected":""}>${n}</option>`).join("");
+  const colSel=(k)=>`<span class="sel color"><select id="${k}" data-k="${k}" aria-label="標註顏色">${Object.entries(COLORS).map(([key,v])=>`<option value="${key}" ${c[k]===key?"selected":""}>${v[0]}</option>`).join("")}</select><span class="sw" style="background:${COLORS[c[k]][3]}"></span></span>`;
+  return `<div class="scrim" data-a="pcancel"></div><div class="panel" role="dialog" aria-label="設定">
+    <div class="ps">單據狀態轉換設定</div>
+    <div class="pr">預定單於取餐前 <span class="sel"><select id="schedLead" data-k="schedLead">${opt(c.schedLead,[15,20,30,45,60])}</select></span> 分鐘自動排入製餐區</div>
+    <div class="pr"><label class="cb"><input type="checkbox" id="autoClose" data-k="autoClose" ${c.autoClose?"checked":""}>啟用自動銷單</label></div>
+    <div class="pr ind ${c.autoClose?"":"dis"}">進入製餐區達 <span class="sel"><select id="autoMin" data-k="autoMin" ${c.autoClose?"":"disabled"}>${opt(c.autoMin,[15,20,30,45,60])}</select></span> 分鐘後自動銷單並提示</div>
+    <div class="ps">顯示設定</div>
+    <div class="pr"><label class="cb"><input type="checkbox" id="showSet" data-k="showSet" ${c.showSet?"checked":""}>套餐商品需要顯示套餐名稱</label></div>
+    <div class="pr">訂單字級<span class="seg"><button class="${c.font==="normal"?"on":""}" data-a="seg:font:normal">預設</button><button class="${c.font==="large"?"on":""}" data-a="seg:font:large">大</button></span></div>
+    <div class="pr">行列數<span class="seg"><button class="${c.cols===3?"on":""}" data-a="seg:cols:3">3x1</button><button class="${c.cols===4?"on":""}" data-a="seg:cols:4">4x1</button></span></div>
+    <div class="pr">訂單調整通知音效 <span class="sel"><select id="sound" data-k="sound">${[["default","預設"],["bell","鈴聲"],["off","關閉"]].map(([k,n])=>`<option value="${k}" ${c.sound===k?"selected":""}>${n}</option>`).join("")}</select></span></div>
+    <div class="pr">資訊刷新頻率 <span class="sel"><select id="refresh" data-k="refresh">${opt(c.refresh,[1,5,10,30])}</select></span> 秒</div>
+    <div class="ps" style="margin-top:6px">等待時間標註</div>
+    <div class="pr">訂單進入製餐區後，<span class="sel"><select id="warnO" data-k="warnO">${opt(c.warnO,[3,5,8,10])}</select></span> 分鐘後，標註為 ${colSel("colO")}</div>
+    <div class="pr">訂單進入製餐區後，<span class="sel"><select id="warnR" data-k="warnR">${opt(c.warnR,[8,10,15,20])}</select></span> 分鐘後，標註為 ${colSel("colR")}</div>
+    <div class="pa"><button class="cn" data-a="pcancel">取消</button><button class="sv" data-a="psave">儲存</button></div>
+  </div>`;
+}
+function vToast(){
+  const t=S.toast;if(!t)return"";
+  return `<div class="toast" role="status">${t.text}${t.undo?`<button class="ub" data-a="tundo">${I.undo}回復</button>`:""}<button class="x" data-a="tclose" aria-label="關閉">${I.x}</button></div>`;
+}
+function applyVars(){
+  $.style.setProperty("--fs",S.cfg.font==="large"?1.2:1);
+  $.style.setProperty("--cw",S.cfg.cols===4?"318px":"428px");$.classList.toggle("c4",S.cfg.cols===4);
+  const o=COLORS[S.cfg.colO],r=COLORS[S.cfg.colR];
+  $.style.setProperty("--hc-o",o[1]);$.style.setProperty("--hc-o-ink",o[2]);$.style.setProperty("--hc-r",r[1]);
+}
+function render(){
+  const b=$.querySelector(".board"), sx=b?b.scrollLeft:0, keep={};
+  $.querySelectorAll(".items").forEach((el,i)=>keep[i]=el.scrollTop);
+  applyVars();
+  $.innerHTML=header()+`<div class="board" id="board">${S.view==="order"||S.tab!=="active"?vOrders():vAgg()}</div>`+footer()+vToast()+vPanel();
+  const nb=$.querySelector(".board"); if(nb) nb.scrollLeft=sx;
+  $.querySelectorAll(".items").forEach((el,i)=>{if(keep[i])el.scrollTop=keep[i];});
+  S.newIds.clear();
+}
+
+/* ---------- actions ---------- */
+let toastT;
+function toast(text,undo,ms){S.toast={text,undo};clearTimeout(toastT);toastT=setTimeout(()=>{S.toast=null;render();},ms||6000);}
+const find=id=>S.orders.find(o=>o.id===+id);
+function bump(o,auto){
+  const prev=new Map(o.items.map(i=>[i.id,i.state]));
+  o.status="done";o.doneAt=now();o.items=o.items.filter(i=>i.state!=="void");o.items.forEach(i=>i.state="done");
+  toast(`${auto?"自動銷單":"已完成"}　${o.type}<span class="chip">${o.no}</span>`,()=>{o.status="active";o.items.forEach(i=>i.state=prev.get(i.id)||"todo");});
+}
+function maybeBump(o){if(o.items.every(i=>i.state==="done"||i.state==="void"))bump(o);}
+$.addEventListener("click",e=>{
+  const el=e.target.closest("[data-a]"); if(!el||el.disabled) return;
+  if(drag.moved){drag.moved=false;return;}
+  e.stopPropagation();
+  const [a,x,y]=el.dataset.a.split(":");
+  switch(a){
+    case "tab": S.tab=x; S.dd=false; render(); {const b=$.querySelector(".board");if(b)b.scrollLeft=0;} break;
+    case "view": S.view=x; if(S.tab!=="active"&&x!=="order") S.tab="active"; render(); {const b=$.querySelector(".board");if(b)b.scrollLeft=0;} break;
+    case "dd": S.dd=!S.dd; render(); break;
+    case "st": S.station=x; S.dd=false; render(); break;
+    case "pause": S.paused=!S.paused; toast(S.paused?"已暫停進單，新訂單會先保留在前台":"已恢復進單",null,3000); render(); break;
+    case "note": S.notes[x]=!S.notes[x]; render(); break;
+    case "snote": S.notes["s"+x]=!S.notes["s"+x]; render(); break;
+    case "row": {const it=find(x).items.find(i=>i.id===+y); it.state=it.state==="doing"?"todo":it.state==="done"?"todo":"doing"; render(); break;}
+    case "tick": {const it=find(x).items.find(i=>i.id===+y); it.state=it.state==="done"?"todo":"done"; render(); break;}
+    case "ack": {const o=find(x); o.items=o.items.filter(i=>i.id!==+y); if(!o.items.length){o.status="done";o.doneAt=now();} render(); break;}
+    case "bump": bump(find(x)); render(); break;
+    case "restore": {const o=find(x); o.status="active"; o.t0=now(); o.items.forEach(i=>i.state="todo"); S.newIds.add(o.id); toast(`已整單復原　${o.type}<span class="chip">${o.no}</span>　回到製餐中`,null,4000); render(); break;}
+    case "undo": {const o=find(x), it=o.items.find(i=>i.id===+y); it.state="todo"; o.status="active"; S.newIds.add(o.id); toast(`已退回重做　${o.type}<span class="chip">${o.no}</span>　${esc(it.name)}`,null,4000); render(); break;}
+    case "subtick": {const o=find(x), it=o.items.find(i=>i.id===+y); it.state="done"; maybeBump(o); render(); break;}
+    case "gtick": case "batch": {const g=GROUPS[x]; const touched=new Set(); g.forEach(r=>{r.it.state="done";touched.add(r.o);}); touched.forEach(maybeBump); render(); break;}
+    case "tundo": if(S.toast&&S.toast.undo){S.toast.undo();} S.toast=null; render(); break;
+    case "tclose": S.toast=null; render(); break;
+    case "scroll": {const b=$.querySelector(".board"); b.scrollBy({left:+x*(S.cfg.cols===4?340:450),behavior:"smooth"}); break;}
+    case "panel": S.settings=JSON.parse(JSON.stringify(S.cfg)); S.panel=true; S.dd=false; render(); break;
+    case "pcancel": S.panel=false; render(); break;
+    case "psave": S.cfg=S.settings; S.panel=false; restartTick(); toast("設定已儲存",null,2500); render(); break;
+    case "seg": S.settings[x]=x==="cols"?+y:y; render(); break;
+  }
+});
+$.addEventListener("change",e=>{
+  const k=e.target.dataset.k; if(!k||!S.settings) return;
+  const v=e.target.type==="checkbox"?e.target.checked:(/^\d+$/.test(e.target.value)?+e.target.value:e.target.value);
+  S.settings[k]=v; render();
+});
+document.addEventListener("click",e=>{if(S.dd&&!e.target.closest(".stw")){S.dd=false;render();}});
+
+/* drag to scroll the board with a mouse */
+const drag={on:false,x:0,sx:0,moved:false};
+$.addEventListener("pointerdown",e=>{const b=e.target.closest(".board");if(!b||e.pointerType!=="mouse")return;drag.on=true;drag.x=e.clientX;drag.sx=b.scrollLeft;drag.moved=false;});
+window.addEventListener("pointermove",e=>{if(!drag.on)return;const b=$.querySelector(".board");const s=parseFloat(getComputedStyle($).transform.split(",")[0].replace("matrix(",""))||1;const dx=(e.clientX-drag.x)/s;if(Math.abs(dx)>6){drag.moved=true;b.classList.add("drag");}b.scrollLeft=drag.sx-dx;});
+window.addEventListener("pointerup",()=>{if(!drag.on)return;drag.on=false;const b=$.querySelector(".board");if(b)b.classList.remove("drag");setTimeout(()=>drag.moved=false,0);});
+
+/* ---------- live simulation ---------- */
+const MENU=[["蒙布朗",[["2x 奶油"],[]]],["巧克力千層",[["醬多"],[]]],["提拉米蘇",[[]]],["布蕾",[[]]],["綠茶",[["無糖","去冰"],["微糖","少冰"]]],["紅茶",[["無糖","去冰"],["半糖","正常冰"]]],["美式咖啡",[["熱"],["無糖","冰"]]],["拿鐵",[["熱"],["少冰"]]],["瑪格麗特披薩",[[]]],["海鮮披薩",[[]]],["青醬雞肉麵",[["加焗烤"],[]]],["白酒蛤蜊義大利麵",[[]]],["南瓜濃湯",[[]]]];
+const rnd=n=>Math.floor(Math.random()*n);
+function newOrder(){
+  const n=2+rnd(3), used=new Set(), items=[];
+  while(items.length<n){const m=MENU[rnd(MENU.length)]; if(used.has(m[0]))continue; used.add(m[0]); items.push(mk(m[0],1+rnd(2),m[1][rnd(m[1].length)],Math.random()<.15?"不要香菜":""));}
+  const din=Math.random()<.6, o=order(din?"內用":"外帶",din?(1+rnd(2))+"F-"+(1+rnd(9)):"—",0,items);
+  o.t0=now(); S.orders.push(o); S.newIds.add(o.id);
+  toast(`新訂單　${o.type}<span class="chip">${o.no}</span>　${items.length} 項`,null,3500);
+}
+let tick, lastNew=now();
+function step(){
+  const t=now();
+  list("sched").forEach(o=>{if(o.pickup-t<=S.cfg.schedLead*MIN){o.status="active";o.t0=t;S.newIds.add(o.id);toast(`預定單已排入製餐區　${o.type}<span class="chip">${o.no}</span>　${hm(o.pickup)} 取餐`,null,4000);}});
+  if(S.cfg.autoClose) list("active").forEach(o=>{if(ageMin(o)>=S.cfg.autoMin) bump(o,true);});
+  if(!S.paused&&t-lastNew>45000&&list("active").length<8){lastNew=t;newOrder();}
+  if(!S.panel&&!S.dd&&!drag.on) render(); else {const c=$.querySelector("#clk"); if(c) c.textContent=hm(t);}
+}
+function restartTick(){clearInterval(tick);tick=setInterval(step,S.cfg.refresh*1000);}
+restartTick();
+
+/* ---------- scale to fit ---------- */
+const vp=document.getElementById("viewport");
+function fit(){const s=Math.min(vp.clientWidth/1440,vp.clientHeight/1080);$.style.transform=`translate(-50%,-50%) scale(${s})`;}
+new ResizeObserver(fit).observe(vp); fit();
+render();
+})();
+</script>
+</body>
+</html>

@@ -1576,3 +1576,10 @@ html:has(.kds-case){overflow-x:clip}
 .kiosk-live-frame{width:min(100%,360px);margin:0 auto;border:10px solid #292827;border-radius:28px;overflow:hidden;background:#FAF9F7;box-shadow:0 24px 48px #322a212b}
 .kiosk-live-frame iframe{display:block;border:0;width:100%;aspect-ratio:9/16;height:auto;background:#FAF9F7}
 @media(max-width:850px){.kiosk-live-demo{grid-template-columns:1fr}.kiosk-live-frame{max-width:340px}}
+
+/* KDS interactive demo: landscape tablet, so copy sits above a full-width frame */
+.kds-live-demo{grid-template-columns:1fr}
+.kds-live-demo .kiosk-live-copy{max-width:760px}
+.kds-live-frame{width:100%;max-width:960px;border-radius:24px}
+.kds-live-frame iframe{aspect-ratio:4/3;background:#4A4A4A}
+@media(max-width:850px){.kds-live-frame{max-width:100%}}
