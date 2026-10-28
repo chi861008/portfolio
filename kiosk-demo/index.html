@@ -545,7 +545,7 @@ function vTable(){
 const langBtn=(top)=>`<button class="lang" style="top:${top}px" data-a="lang">${ICON.lang}<span><b>更換語言</b><small>Language</small></span></button>`;
 function vAttract(){
   const sl=[["飲品買一送一","同筆訂單任選兩杯，較低價者免費"],["丼飯升級套餐 + $50","加購小菜、湯品或飲料其中兩項"],["手機點餐，到店付款","在手機下單後，點「我要付款」輸入取餐碼"]];
-  return `<div class="screen"><button class="hero" data-a="start" aria-label="開始點餐"><span class="slides">${sl.map(([t,s],i)=>`<span class="slide"><img src="assets/hero${i+1}.jpg" alt=""><span class="cap"><b>${t}</b><span>${s}</span></span></span>`).join("")}</span><span class="dots"><i></i><i></i><i></i></span><span class="tapme">點擊螢幕開始點餐</span></button>
+  return `<div class="screen"><div class="hero"><span class="slides">${sl.map(([t,s],i)=>`<span class="slide"><img src="assets/hero${i+1}.jpg" alt=""><span class="cap"><b>${t}</b><span>${s}</span></span></span>`).join("")}</span><span class="dots"><i></i><i></i><i></i></span></div>
     <button class="big l" data-a="start">${ICON.dine}<span>我要點餐</span></button><button class="big r" data-a="mpay">${ICON.money}<span>我要付款</span></button>
     ${langBtn(1718)}</div>`;
 }
