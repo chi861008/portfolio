@@ -2,6 +2,12 @@
    teacher/auth/studio APIs say "not logged in" so the app falls back to its built-in demo mode,
    student availability submits succeed as demo, anything else is "not found". */
 (function(){
+  // Every reload of the teacher page starts the demo fresh (students, submissions, schedules, shares).
+  try{
+    if(/^\/pilates-demo\/teacher\/?$/.test(location.pathname)){
+      for(var i=localStorage.length-1;i>=0;i--){var k=localStorage.key(i);if(k&&k.indexOf('pilates-')===0)localStorage.removeItem(k);}
+    }
+  }catch(e){}
   var f=window.fetch;
   window.fetch=function(u,o){
     var s=typeof u==='string'?u:(u&&u.url)||'';
