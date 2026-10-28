@@ -124,9 +124,9 @@ const schedulingInsight=(num,label,title,copy,kind,caption,en=false)=>'<article 
 function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
  return sec('overview','01 / PROJECT OVERVIEW','從老師每月的排課困境，打造一套可操作的產品',
-  '<p class="schedule-lead">當課程時間有限、每位學生的空檔又不同，老師需要處理的不是單純的預約，而是一場反覆協商。</p>'+
+  '<p class="schedule-lead">這套排課系統希望讓學生在自己的時間限制內客製化可接受的上課時段，並透過集中分配取得更公平、雙方可接受的排課結果；同時協助老師用自動排課與靈活調整減少協調工作，朝每月 120 堂課的業績目標安排課程。</p>'+
   paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。目前已完成第一版可操作 MVP，後續仍需確認它是否適合老師既有的協作流程。')+
-  '<div class="schedule-feature-quote"><span>DESIGN QUESTION</span><strong>能不能讓學生先說出「我能接受的時間」，再讓老師一次安排所有人？</strong></div>'+
+  '<div class="schedule-feature-quote"><span>DESIGN QUESTION</span><strong>如何尊重每位學生的時間偏好，兼顧分配公平與教學連續性，並讓老師高效率地完成每月排課？</strong></div>'+
   '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作 MVP，以模擬資料測試排課規則與例外情境，並向老師展示收集回饋；尚未由老師在日常工作中正式操作，也沒有可確認的時間節省或留存數據。</p>')+
  sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
   '<div class="schedule-problem-grid">'+point('TEACHER / 已知回饋','逐一協調，工作高度集中在老師身上','老師需要彙整不同學生的可上課時段，還要考慮原老師授課比例、課程間隔與代課協作；每月初排課約 2–3 小時，後續仍常有取消和異動。')+point('STUDENT / 老師轉述','先搶先得，不是受歡迎的解法','老師曾嘗試讓學生自行搶課，但她觀察到取消情況反而增加，因而回到由老師主導安排。這是老師提供的經驗，尚無前後取消率的量化比較。')+'</div>'+
@@ -134,9 +134,9 @@ function schedulingBody(){
   schedulingInsight('01','TEACHING CONTINUITY / 教學連續性','排課品質不只取決於完成堂數，更在於維持學生與主要老師的教學連續性。','老師重視學生持續由主要老師授課，因此排課規則需要兼顧授課連續性，而不只是盡可能排入最多堂數。','continuity','教學安排示意｜主要老師與代課老師交錯授課；非真實課程資料。')+
   schedulingInsight('02','DECISION AUTHORITY / 排課決策','排課涉及多重條件與例外取捨，無法完全自動化，仍需保留老師的最終決策權。','學生時段、課程間隔與授課老師可能互相衝突。系統提供草案及衝突資訊，再由老師完成取捨與調整。','authority','多條件排課示意｜說明草案仍需人工審核；非演算法效能測試。')+
   schedulingInsight('03','CONTINUOUS COORDINATION / 持續協調','排課不是一次性的時間分配，而是伴隨請假、補課與代課需求持續變動的協調過程。','初次排出課表只是起點；後續異動需要重新安排老師與學生時間，並同步最新課程資訊。','changing','課表異動流程示意｜請假與補課會形成後續協調。')+
-  '<p class="schedule-insight-disclaimer">以上為正式深入訪談前，根據既有溝通與需求整理形成的初步洞察；尚待真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，分配出更多雙方都能接受的課程」。</strong></p></div>')+
+  '<p class="schedule-insight-disclaimer">以上為正式深入訪談前，根據既有溝通與需求整理形成的初步洞察；尚待真實使用驗證。</p>'+'<div class="schedule-turn"><span>PRODUCT FRAMING / 問題重新定義</span><p>核心問題不是「如何讓學生更快搶到課」，而是<strong>「如何在有限時段內，公平地安排學生可接受的課程，同時讓老師能彈性調整整月課表」。</strong></p></div>')+
  sec('opportunity','03 / PRODUCT STRATEGY','產品策略：先蒐集可接受時段，再由老師統一安排',
-  paragraph('我沒有直接採用學生自行搶課的常見模式：老師先前曾嘗試，卻觀察到取消變多，也難以兼顧每位學生的需求。第一版因此選擇集中分配：學生先提交可接受時段，系統產出整月草案，再由老師調整與確認。規則考量原老師授課目標、學生可用時段與整體排入堂數；目前尚未驗證時間或留存效益。')+
+  paragraph('我沒有直接採用學生自行搶課的常見模式：老師先前曾嘗試，卻觀察到取消變多，也難以兼顧每位學生的需求。第一版因此選擇集中分配：學生先提交可接受時段，系統產出整月草案，再由老師調整與確認。規則考量原老師授課目標、學生可用時段與整體排入堂數；每月 120 堂是老師希望達到的業績目標，不是已由系統驗證的排課成果；目前亦尚未驗證實際省時或留存效益。')+
   '<div class="schedule-comparison"><div class="schedule-compare-old"><span>BEFORE / FIRST COME, FIRST SERVED</span><h3>誰先按，誰先有</h3><p>學生競爭熱門時間；老師較容易完成單筆預約，但可能無法兼顧整體需求。</p></div><div class="schedule-compare-new"><span>AFTER / PREFERENCE-BASED ALLOCATION</span><h3>先看所有人能接受什麼</h3><p>學生提供可接受時段，系統建立排課草案，再由老師調整與確認。</p></div></div>'+
   '<div class="schedule-preference"><div class="schedule-preference-title"><span>DESIGN PRINCIPLE 01</span><h3>「可接受」不等於「一定要開放很多選項」</h3><p>學生可以只選星期二，系統就把星期二當作限制；也可以選多天，增加安排的彈性。設計尊重個人邊界，不強迫學生為了演算法放寬需求。</p></div><div class="schedule-choice-demo" aria-label="學生選擇可接受上課日的概念示意"><span>STUDENT A / AVAILABLE DAY</span><div class="schedule-days"><i>一</i><i class="picked">二 ✓</i><i>三</i><i>四</i><i>五</i><i>六</i><i>日</i></div><small>概念示意：此學生只接受星期二；不是產品實際畫面。</small></div></div>')+
  sec('solutions','04 / EXPERIENCE & RULES','方案設計：將排課規則轉成可調整的工作流程',
