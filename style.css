@@ -1683,3 +1683,13 @@ html body.kiosk-case .research-track>h4.research-question-heading::before{conten
 html body.kiosk-case .market-evidence-heading>span{display:none}
 html body.kiosk-case .research-track>h4.research-question-heading{font-size:19px;line-height:1.5;margin:34px 0 12px}
 html body.kiosk-case .market-evidence-heading{display:none}
+/* research questions: one card per question, same type weight across question → decision → value */
+html body.kiosk-case .research-question-grid{display:grid;grid-template-columns:1fr;gap:12px;margin:34px 0 64px;border:0}
+html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{background:#f4efe9;border:0;border-radius:16px;padding:24px 28px}
+html body.kiosk-case .research-question-grid>div>span,html body.kiosk-case .research-question-grid .rq-decision b,html body.kiosk-case .research-question-grid .rq-value b{font-size:11px;font-weight:800;letter-spacing:.09em;line-height:1.3;color:#af6345;margin:0 0 10px}
+html body.kiosk-case .research-question-grid>div>strong,html body.kiosk-case .research-question-grid .rq-decision,html body.kiosk-case .research-question-grid .rq-value{font-size:16px;font-weight:600;line-height:1.65;color:#2c2925}
+html body.kiosk-case .research-question-grid .rq-decision,html body.kiosk-case .research-question-grid .rq-value{padding-left:0}
+@media(min-width:801px){
+html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{column-gap:48px;row-gap:0}
+html body.kiosk-case .research-question-grid .rq-decision:before,html body.kiosk-case .research-question-grid .rq-value:before{left:-33px;top:22px;color:#d0704f;font-size:18px}
+}
