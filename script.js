@@ -7,7 +7,7 @@ const app = document.querySelector('#app');
 let portfolioLanguage = (()=>{try{return localStorage.getItem('yc-portfolio-language')==='en'?'en':'zh';}catch{return 'zh';}})();
 const isEnglish=()=>portfolioLanguage==='en';
 function setPortfolioLanguage(next){portfolioLanguage=next==='en'?'en':'zh';try{localStorage.setItem('yc-portfolio-language',portfolioLanguage);}catch{}renderPage();}
-function updateLanguageControls(){const toggle=document.querySelector('#language-toggle');if(toggle){const label=isEnglish()?'切換為繁體中文':'Switch to English';toggle.setAttribute('aria-label',label);toggle.setAttribute('title',label);const destination=toggle.querySelector('.language-destination');if(destination)destination.textContent=isEnglish()?'中':'EN';}document.documentElement.lang=isEnglish()?'en':'zh-Hant';const nav=document.querySelector('.nav-links');if(nav)nav.setAttribute('aria-label',isEnglish()?'Main navigation':'主選單');const node=document.querySelector('.footer-right a');if(node)node.textContent=isEnglish()?'Back to top ↑':'回到頂端 ↑';}
+function updateLanguageControls(){const toggle=document.querySelector('#language-toggle');if(toggle){const label=isEnglish()?'切換為繁體中文':'Switch to English';toggle.setAttribute('aria-label',label);toggle.setAttribute('title',label);const destination=toggle.querySelector('.language-destination');if(destination)destination.textContent=isEnglish()?'中':'EN';}document.documentElement.lang=isEnglish()?'en':'zh-Hant';const nav=document.querySelector('.nav-links');if(nav)nav.setAttribute('aria-label',isEnglish()?'Main navigation':'主選單');const demoBtn=document.querySelector('.nav-demo');if(demoBtn)demoBtn.innerHTML=(isEnglish()?'Try the demo':'直接體驗')+' <span aria-hidden="true">↓</span>';const node=document.querySelector('.footer-right a');if(node)node.textContent=isEnglish()?'Back to top ↑':'回到頂端 ↑';}
 document.querySelector('#language-toggle')?.addEventListener('click',()=>setPortfolioLanguage(isEnglish()?'zh':'en'));
 const figmaURL='https://www.figma.com/design/S2sh6gtlIJ3JtDM7i3MEiN/portfolio?node-id=1654-18351';
 const repoURL='https://github.com/chi861008/researved-system';
@@ -601,18 +601,8 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
   });
 })();
 
-/* floating "try the demo" pill: appears once the hero button scrolls away, hides while the demo is on screen */
+/* header "try the demo" button (case pages only): sits in the sticky header, so it stays on screen while scrolling */
 (function(){
-  const fab=document.createElement('button');fab.type='button';fab.className='demo-fab';fab.setAttribute('aria-hidden','true');fab.tabIndex=-1;
-  document.body.appendChild(fab);
-  fab.addEventListener('click',()=>{const cta=document.querySelector('.case-top .try-demo-cta');if(cta)cta.click();});
-  function update(){
-    const cta=document.querySelector('.case-top .try-demo-cta'),demo=document.getElementById('try-demo');
-    let show=false;
-    if(cta&&demo){const c=cta.getBoundingClientRect(),d=demo.getBoundingClientRect();show=c.bottom<0&&(d.top>innerHeight*.85||d.bottom<0);}
-    fab.innerHTML=(isEnglish()?'Try the demo':'直接體驗')+' <span aria-hidden="true">↓</span>';
-    fab.classList.toggle('on',show);fab.setAttribute('aria-hidden',show?'false':'true');fab.tabIndex=show?0:-1;
-  }
-  addEventListener('scroll',update,{passive:true});addEventListener('resize',update);addEventListener('hashchange',()=>setTimeout(update,60));
-  setInterval(update,800);update();
+  const btn=document.querySelector('.nav-demo');if(!btn)return;
+  btn.addEventListener('click',e=>{e.preventDefault();const cta=document.querySelector('.case-top .try-demo-cta');if(cta)cta.click();});
 })();
