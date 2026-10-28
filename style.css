@@ -1706,3 +1706,27 @@ body.kiosk-case .nav-demo,body.kds-case .nav-demo,body.scheduling-case .nav-demo
 body.kiosk-case .case-top .try-demo-cta,body.kds-case .case-top .try-demo-cta,body.scheduling-case .case-top .try-demo-cta{display:none}
 @media(max-width:650px){.nav-demo{min-height:38px;padding:0 14px;font-size:12px}}
 body.home-mode .nav-links a.nav-demo{display:none!important}
+/* heading tiers across cases: T1 section (h2) > T2 stage (orange bar) > T3 item */
+html body #app .case-article .story-section>h3,
+html body.kiosk-case #app .research-track .findings-divider>h3,
+html body #app .case-article .phase-banner strong,
+html body #app .case-article .design-phase>h3,
+html body #app .case-article .kds-competitor-analysis>h3,
+html body #app .case-article .kds-design-overview h3,
+html body #app .case-article .kds-scope-heading h3,
+html body #app .case-article .schedule-reframe>h3,
+html body #app .case-article .schedule-next-steps>h3{display:block;font-size:clamp(26px,2.8vw,34px);line-height:1.35;letter-spacing:-.035em;font-weight:800;color:#1f1d1b;padding-left:14px;border-left:4px solid #d0704f}
+html body #app .case-article .phase-banner>span{display:none}
+html body #app .case-article .phase-banner strong{margin:0 0 10px}
+html body #app .case-article .solution h3,
+html body #app .case-article .schedule-highlight-copy h3,
+html body #app .case-article .kds-design-feature-copy h3,
+html body #app .case-article .kds-design-phase-two h3,
+html body #app .case-article .schedule-preference-title h3,
+html body #app .case-article .market-conclusion h4,
+html body #app .case-article .test-finding-grid h4{font-size:clamp(20px,2vw,24px);line-height:1.45;letter-spacing:-.025em}
+html body #app .case-article .kiosk-live-copy h3,html body #app .case-article .schedule-live-copy h3{font-size:clamp(24px,2.4vw,30px)}
+/* give the Pilates demo a real 390px phone width so header pills and toggles don't clip */
+html body .scheduling-case .schedule-live-frame,html body.scheduling-case .schedule-live-frame{width:min(100%,408px)}
+html body.scheduling-case .schedule-live-demo{grid-template-columns:minmax(0,1fr) minmax(320px,408px)}
+@media(max-width:850px){html body.scheduling-case .schedule-live-demo{grid-template-columns:1fr}}
