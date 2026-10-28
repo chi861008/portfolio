@@ -600,3 +600,19 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
     if(key.startsWith('pil-'))pilates(key,box);else frameDemo(key,box);
   });
 })();
+
+/* floating "try the demo" pill: appears once the hero button scrolls away, hides while the demo is on screen */
+(function(){
+  const fab=document.createElement('button');fab.type='button';fab.className='demo-fab';fab.setAttribute('aria-hidden','true');fab.tabIndex=-1;
+  document.body.appendChild(fab);
+  fab.addEventListener('click',()=>{const cta=document.querySelector('.case-top .try-demo-cta');if(cta)cta.click();});
+  function update(){
+    const cta=document.querySelector('.case-top .try-demo-cta'),demo=document.getElementById('try-demo');
+    let show=false;
+    if(cta&&demo){const c=cta.getBoundingClientRect(),d=demo.getBoundingClientRect();show=c.bottom<0&&(d.top>innerHeight*.85||d.bottom<0);}
+    fab.innerHTML=(isEnglish()?'Try the demo':'直接體驗')+' <span aria-hidden="true">↓</span>';
+    fab.classList.toggle('on',show);fab.setAttribute('aria-hidden',show?'false':'true');fab.tabIndex=show?0:-1;
+  }
+  addEventListener('scroll',update,{passive:true});addEventListener('resize',update);addEventListener('hashchange',()=>setTimeout(update,60));
+  setInterval(update,800);update();
+})();
