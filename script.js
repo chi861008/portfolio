@@ -124,9 +124,9 @@ const schedulingInsight=(num,label,title,copy,kind,caption,en=false)=>'<article 
 function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
  return sec('overview','01 / PROJECT OVERVIEW','從老師每月的排課困境，打造一套可操作的產品',
-  '<p class="schedule-lead">這套排課系統希望讓學生在自己的時間限制內客製化可接受的上課時段，並透過集中分配取得更公平、雙方可接受的排課結果；同時協助老師用自動排課與靈活調整減少協調工作，朝每月 120 堂課的業績目標安排課程。</p>'+
+  '<p class="schedule-lead">讓學生選擇可接受的上課時段，讓老師更公平、有效率地安排整月課程。</p>'+
   paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。目前已完成第一版可操作 MVP，後續仍需確認它是否適合老師既有的協作流程。')+
-  '<figure class="scenario-figure pilates-case-scenario"><img loading="lazy" src="./assets/pilates-scenario.png" alt="皮拉提斯老師在教室內查看手機上的排課系統；合成使用情境示意，非訪談現場照片"><figcaption>皮拉提斯排課系統使用情境示意；為合成畫面，非真實使用紀錄。</figcaption></figure>'+
+  '<figure class="scenario-figure pilates-case-scenario"><img loading="eager" decoding="async" fetchpriority="high" width="2048" height="1536" src="./assets/pilates-scenario.webp" alt="皮拉提斯老師在教室內查看手機上的排課系統；合成使用情境示意，非訪談現場照片"><figcaption>皮拉提斯排課系統使用情境示意；為合成畫面，非真實使用紀錄。</figcaption></figure>'+
   '<div class="schedule-feature-quote"><span>DESIGN QUESTION</span><strong>如何尊重每位學生的時間偏好，兼顧分配公平與教學連續性，並讓老師高效率地完成每月排課？</strong></div>'+
   '<div class="schedule-small-label">PROJECT STATUS / 2026</div><p class="schedule-status-copy">已完成可操作 MVP，以模擬資料測試排課規則與例外情境，並向老師展示收集回饋；尚未由老師在日常工作中正式操作，也沒有可確認的時間節省或留存數據。</p>')+
  sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
