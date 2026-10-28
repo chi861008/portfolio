@@ -1510,3 +1510,26 @@ html:has(.kds-case){overflow-x:clip}
 .scheduling-case .schedule-next-steps-grid>div{margin:0;padding:21px;border-top:1px solid #bfb5aa;background:#f8f6f2}
 .scheduling-case .schedule-next-steps-grid span{color:#a76345}
 @media(max-width:700px){.scheduling-case .schedule-reframe{padding:27px 22px;margin:54px 0}.scheduling-case .schedule-strategy-grid,.scheduling-case .schedule-next-steps-grid{grid-template-columns:1fr}.scheduling-case .schedule-strategy-grid>div{padding:21px}.scheduling-case .schedule-next-steps{margin:58px 0}}
+
+/* Pilates design highlights: paired real product screenshots */
+.scheduling-case .schedule-highlight-intro{max-width:780px;font-size:17px;line-height:1.95;margin:20px 0 64px;color:#625c57}
+.scheduling-case .schedule-highlight{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.45fr);gap:clamp(38px,5vw,84px);align-items:center;padding:76px 0 90px;border-bottom:1px solid #e3ddd6}
+.scheduling-case .schedule-highlight:first-of-type{padding-top:22px}
+.scheduling-case .schedule-highlight:last-of-type{border:0;padding-bottom:34px}
+.scheduling-case .schedule-highlight-copy{align-self:center}
+.scheduling-case .schedule-highlight-num{display:block;color:#c76b4c;font-family:Georgia,serif;font-size:76px;line-height:.97;letter-spacing:-.07em;font-weight:500;margin-bottom:24px}
+.scheduling-case .schedule-highlight-kicker{display:block;font-size:11px;line-height:1.55;font-weight:850;letter-spacing:.15em;color:#9b6e5b}
+.scheduling-case .schedule-highlight-copy h3{font-size:clamp(28px,3.2vw,39px);line-height:1.36;letter-spacing:-.04em;margin:15px 0 34px;color:#25211f}
+.scheduling-case .schedule-highlight-copy dl{display:grid;gap:21px;margin:0}
+.scheduling-case .schedule-highlight-copy dl>div{display:grid;grid-template-columns:50px minmax(0,1fr);gap:17px}
+.scheduling-case .schedule-highlight-copy dt{font-size:12px;font-weight:850;color:#bc6e4e;padding-top:4px;white-space:nowrap}
+.scheduling-case .schedule-highlight-copy dd{margin:0;color:#5b5551;font-size:15px;line-height:1.85}
+.scheduling-case .story-section .schedule-highlight-skills{font-size:11px;letter-spacing:.06em;color:#9b928a;margin:31px 0 0;line-height:1.65}
+.scheduling-case .schedule-highlight-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+.scheduling-case .schedule-highlight-shot{margin:0;min-width:0}
+.scheduling-case .schedule-highlight-phone{border-radius:25px;overflow:hidden;background:#f5f1ea;border:1px solid #e5ddd4;box-shadow:0 21px 42px rgba(55,41,29,.10);aspect-ratio:480/890;display:flex;align-items:flex-start}
+.scheduling-case .schedule-highlight-phone img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.scheduling-case .schedule-highlight-shot figcaption{font-size:12px;color:#81766d;line-height:1.6;margin-top:16px;text-align:center}
+.scheduling-case .story-section .schedule-highlight-note{font-size:12px;color:#82786f;border-top:1px solid #e2dcd5;padding-top:19px;line-height:1.8;margin:18px 0 60px}
+@media(max-width:900px){.scheduling-case .schedule-highlight{grid-template-columns:1fr;gap:30px;padding:54px 0 64px}.scheduling-case .schedule-highlight-copy h3{max-width:560px}.scheduling-case .schedule-highlight-gallery{max-width:650px;margin:0 auto;width:100%}.scheduling-case .schedule-highlight-intro{margin-bottom:25px}}
+@media(max-width:540px){.scheduling-case .schedule-highlight-num{font-size:62px;margin-bottom:16px}.scheduling-case .schedule-highlight-copy h3{font-size:29px;margin:12px 0 24px}.scheduling-case .schedule-highlight-copy dl{gap:15px}.scheduling-case .schedule-highlight-copy dl>div{grid-template-columns:42px minmax(0,1fr);gap:9px}.scheduling-case .schedule-highlight-copy dd{font-size:14px}.scheduling-case .schedule-highlight-gallery{gap:10px}.scheduling-case .schedule-highlight-phone{border-radius:15px;aspect-ratio:480/940}.scheduling-case .schedule-highlight-shot figcaption{font-size:10px;margin-top:9px}.scheduling-case .schedule-highlight-intro{font-size:15px}}
