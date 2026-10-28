@@ -233,7 +233,7 @@ img{display:block;max-width:none}
 .scene .ring{position:absolute;left:146px;top:414px;width:30px;height:30px;border:2px solid var(--accent);border-radius:50%;opacity:0}
 .scene .ring.r2{animation-delay:2.25s!important}
 .scene .phone{position:absolute;left:180px;top:430px;width:58px;opacity:0}
-.scene .beam{position:absolute;left:141px;top:507px;width:42px;height:2.5px;border-radius:2px;background:#FF3B30;box-shadow:0 0 6px 1px #FF3B30;opacity:0}
+.scene .beam{position:absolute;left:141px;top:494px;width:42px;height:2.5px;border-radius:2px;background:#FF3B30;box-shadow:0 0 6px 1px #FF3B30;opacity:0}
 .scene .coin{position:absolute;left:261.5px;top:42px;width:24px;opacity:0;transform-origin:center}
 .scene .bslot{position:absolute;left:52px;top:368px;width:52px;height:70px;overflow:hidden}
 .scene .bill{position:absolute;left:4px;top:4px;width:44px;opacity:0}
@@ -255,7 +255,7 @@ img{display:block;max-width:none}
 .scene.scan .beam{animation:beam 1.6s 1.8s ease-in-out infinite}
 @keyframes phonein{from{opacity:0;transform:translate(40px,-30px) rotate(8deg)}to{opacity:1;transform:rotate(-6deg)}}
 @keyframes phonedip{0%,100%{opacity:1;transform:rotate(-6deg)}40%,60%{opacity:1;transform:translateY(8px) rotate(-6deg)}}
-@keyframes beam{0%,25%{opacity:0}40%,60%{opacity:1}75%,100%{opacity:0}}
+@keyframes beam{0%{opacity:0;transform:translateY(0)}10%{opacity:1;transform:translateY(0)}50%{opacity:1;transform:translateY(17px)}90%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(0)}}
 /* cash: coin slot, then pan down to the note acceptor */
 .scene.cash .kp{animation:campan 7s 1.2s ease-in-out infinite}
 .scene.cash .coin{animation:coinslot 7s 1.2s ease-in-out infinite}
