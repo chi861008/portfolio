@@ -91,6 +91,7 @@ sec('validation','05 / DESIGN & VALIDATION','從設計方案到初步使用者�
  '</div>')+
 sec('reflection','06 / OUTCOME & REFLECTION','好的自助體驗，必須同時理解決策、資訊與環境',
   paragraph('這次專案讓我從研究執行延伸到設計機會的辨識，進一步參與改善方向的評估與設計。加點商品、套餐切換與付款位置引導分別回應營運促購、重複操作與軟硬體理解的問題；而 Prototype 之後的四種按鈕版型，則呈現從測試回饋走向第二輪設計的迭代過程。')+
+  '<div class="kiosk-live-demo"><div class="kiosk-live-copy"><span>TRY THE PROTOTYPE / 互動展示</span><h3>直接操作新版點餐流程</h3><p>以 Figma Prototype 為基礎重建的可操作展示，涵蓋開始畫面、內用／外帶與桌號選擇、點餐與套餐升級、加點商品、發票設定，以及對照機台位置的付款引導動畫。菜單、價格與圖片為示意資料，付款為模擬流程；部分畫面與互動細節為展示需要補充。</p><a href="./kiosk-demo/index.html" target="_blank" rel="noopener">在新視窗開啟互動展示 ↗</a><small>不連接真實系統 · 付款頁可點「展示用」按鈕模擬完成 · 建議以桌機或平板觀看</small></div><div class="kiosk-live-frame"><iframe src="./kiosk-demo/index.html" title="次世代自助點餐機互動展示" loading="lazy"></iframe></div></div>'+
  '<div class="state-note"><strong>成果與證據限制：</strong>原始建議表可核對 4 個獲採納的設計方向；原 Product Backlog 已無法取得，因此不將先前提到的 11 項視為已核實成果。Roadmap 由團隊決定，採納不等於完成開發或上線，銷售與營運影響也尚未驗證。</div><ul><li><strong>從畫面走向情境：</strong>理解使用者當下看見什麼、能接觸到什麼。</li><li><strong>從研究走向決策：</strong>讓洞察連接實際可行的設計方案。</li><li><strong>從方案走向驗證：</strong>區分已採納的建議、易用性表現與真正的營運成效。</li></ul>'+
  '<div class="callout"><strong>如果後續導入門店，我會追蹤什麼？</strong><p>付款求助頻率、操作時間、完成率，以及套餐切換是否降低重複點選。這些是後續評估方向，並非目前已有的成效數據。</p></div>');
 }
