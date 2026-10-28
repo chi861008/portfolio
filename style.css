@@ -1693,3 +1693,10 @@ html body.kiosk-case .research-question-grid .rq-decision,html body.kiosk-case .
 html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{column-gap:48px;row-gap:0}
 html body.kiosk-case .research-question-grid .rq-decision:before,html body.kiosk-case .research-question-grid .rq-value:before{left:-33px;top:22px;color:#d0704f;font-size:18px}
 }
+/* hierarchy: section h2 > sub-stage h3 > individual insight titles */
+html body .case-article .story-section>h3,html body.kiosk-case .research-track .findings-divider>h3{font-size:clamp(26px,3vw,36px);line-height:1.35}
+html body.kiosk-case .insight-feature h4,html body.kds-case .kds-insight-feature h4,html body.scheduling-case .schedule-insight-card h4{font-size:clamp(20px,2vw,24px);line-height:1.45}
+html body.kiosk-case .insight-feature .insight-feature-kicker .insight-number{font-size:40px}
+html body.kds-case .kds-insight-feature .insight-number{font-size:32px}
+html body.scheduling-case .schedule-insight-heading em{font-size:48px}
+html body.kiosk-case .research-track>h4.research-question-heading{font-size:17px;color:#6b645d}
