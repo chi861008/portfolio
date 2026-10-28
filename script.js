@@ -13,7 +13,7 @@ const figmaURL='https://www.figma.com/design/S2sh6gtlIJ3JtDM7i3MEiN/portfolio?no
 const repoURL='https://github.com/chi861008/researved-system';
 const visual=(name)=>name==='schedule'?'<div class="work-visual visual-schedule"><div class="arrow-circle" aria-hidden="true">↗</div><div class="schedule-mock"><div class="schedule-top"><strong>Weekly schedule</strong><span>October / 2026　↗</span></div><div class="calendar-week">'+['MON','TUE','WED','THU','FRI','SAT','SUN'].map((d,i)=>'<div class="calendar-day"><b>'+d+'</b>'+(i===0||i===2||i===4?'<span class="calendar-pill">Pilates 10:00</span>':'')+(i===1||i===3?'<span class="calendar-pill orange-pill">Private 14:00</span>':'')+'</div>').join('')+'</div></div></div>':name==='kiosk'?'<div class="work-visual visual-kiosk kiosk-image-cover"><img src="./kiosk-cover.png" alt="KIOSK 自助點餐介面與付款引導的設計畫面拼貼"><div class="arrow-circle" aria-hidden="true">↗</div></div>':'<div class="work-visual visual-kds kds-image-cover"><img src="./kds-cover.png" alt="KDS 個人概念設計封面：深色廚房訂單與分類畫面的介面拼貼"><div class="arrow-circle" aria-hidden="true">↗</div></div>';
 const card=p=>'<a class="work-card" href="#/case/'+p.id+'">'+visual(p.visual)+'<div class="work-info"><div><h3>'+p.title+'</h3><p>'+p.zh+'<br>'+p.type+'</p></div><div class="project-number">'+p.number+' / 03</div></div></a>';
-function home(){return '<section class="identity-hero"><div class="identity-wrap"><h1 class="visually-hidden">Yuan Chi — UX Designer &amp; Product Builder</h1><div class="identity-caption">PORTFOLIO / 2026</div><div class="identity-title"><span>Yuan</span><figure class="identity-photo"><img src="./yuan-chi-portrait.png" alt="Yuan Chi 的黑白人像"><i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i></figure><span>Chi</span></div><div class="identity-details"><p>UX Designer ×<br>Product Builder</p><p>Research / Strategy / Design<br>From insight to working product</p><p>Based in Taiwan<br><a href="mailto:chi861008@gmail.com">chi861008@gmail.com ↗</a></p></div></div></section><section class="intro-portrait wrap" id="about"><div class="intro-copy"><div class="eyebrow">ABOUT ME</div><h2>Hi<span class="orange">.</span></h2><p>我是一名專注於 B2B SaaS 的 UX Researcher / Product Designer，正朝兼具設計與開發能力的 Product Builder、Product Manager 發展。</p><p>過去曾參與餐飲 POS、自助點餐機、雲端報表及廚房顯示系統等產品。工作之外，我也喜歡從生活中的真實問題發起 Side Project，讓研究、設計與開發不只停留在工作中，也能實際應用於日常生活。</p><a class="intro-link" href="#/about">More about me <span>↗</span></a></div><div class="intro-visual"><img src="./yuan-chi-about-crossleg-slim.svg" alt="Yuan Chi 個人黑白形象照"><div class="orbit-word">DESIGN · RESEARCH · PRODUCT · BUILD ·</div></div></section><section class="section-space wrap" id="work"><div class="section-head selected-head"><div><div class="eyebrow">SELECTED WORK / 2026</div><h2>Works record<span class="orange">.</span></h2></div></div><div class="work-grid identity-works">'+projects.map(card).join('')+'</div></section><section class="dark-band"><div class="wrap"><div class="eyebrow">THE WAY I THINK</div><h2>Fell in love with the problem, not the solution.</h2><a href="mailto:chi861008@gmail.com">Let’s connect ↗</a></div></section>';}
+function home(){return '<section class="identity-hero"><div class="identity-wrap"><h1 class="visually-hidden">Yuan Chi — UX Designer &amp; Product Builder</h1><div class="identity-caption">PORTFOLIO / 2026</div><div class="identity-title"><span>Yuan</span><figure class="identity-photo"><img src="./yuan-chi-expressive-hero.png" alt="Yuan Chi 俏皮的黑白個人照片" fetchpriority="high" loading="eager" decoding="async"><i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i></figure><span>Chi</span></div><div class="identity-details"><p>UX Designer ×<br>Product Builder</p><p>Research / Strategy / Design<br>From insight to working product</p><p>Based in Taiwan<br><a href="mailto:chi861008@gmail.com">chi861008@gmail.com ↗</a></p></div></div></section><section class="intro-portrait wrap" id="about"><div class="intro-copy"><div class="eyebrow">ABOUT ME</div><h2>Hi<span class="orange">.</span></h2><p>我是一名專注於 B2B SaaS 的 UX Researcher / Product Designer，正朝兼具設計與開發能力的 Product Builder、Product Manager 發展。</p><p>過去曾參與餐飲 POS、自助點餐機、雲端報表及廚房顯示系統等產品。工作之外，我也喜歡從生活中的真實問題發起 Side Project，讓研究、設計與開發不只停留在工作中，也能實際應用於日常生活。</p><a class="intro-link" href="#/about">More about me <span>↗</span></a></div><div class="intro-visual"><img src="./yuan-chi-about-crossleg-slim.svg" alt="Yuan Chi 個人黑白形象照"><div class="orbit-word">DESIGN · RESEARCH · PRODUCT · BUILD ·</div></div></section><section class="section-space wrap" id="work"><div class="section-head selected-head"><div><div class="eyebrow">SELECTED WORK / 2026</div><h2>Works record<span class="orange">.</span></h2></div></div><div class="work-grid identity-works">'+projects.map(card).join('')+'</div></section><section class="dark-band"><div class="wrap"><div class="eyebrow">THE WAY I THINK</div><h2>Fell in love with the problem, not the solution.</h2><a href="mailto:chi861008@gmail.com">Let’s connect ↗</a></div></section>';}
 function aboutSection(){return '<section class="section-space wrap" id="about"><div class="about-mini"><div><div class="eyebrow">02 / About</div><h2>Curious by nature.<br>Builder by choice.</h2></div><div><p>我的背景跨越工業設計、使用者研究與數位產品設計。現在我正朝產品經理發展，也持續用 AI 輔助開發，把身邊看見的問題轉成真正可以操作的產品。</p><p>我喜歡定義問題、串聯不同線索、提出解法，以及把複雜的邏輯整理得讓人容易理解。</p><div class="skills"><span class="chip">UX Research</span><span class="chip">Product Discovery</span><span class="chip">Product Thinking</span><span class="chip">Prototyping</span><span class="chip">AI-assisted Development</span></div></div></div></section>';}
 const sec=(id,kicker,title,inner)=>'<section class="story-section" id="'+id+'"><div class="story-kicker">'+kicker+'</div><h2>'+title+'</h2>'+inner+'</section>';
 const paragraph=t=>'<p>'+t+'</p>';
@@ -400,17 +400,20 @@ function setupThinkingBand(){
 }
 function setupHeroFlip(){
   const frame=document.querySelector('.home-mode .identity-photo');
-  const back=frame?.querySelector('img');
-  if(!frame||!back)return;
-  back.classList.add('flip-face','flip-face--back');
+  const front=frame?.querySelector('img');
+  if(!frame||!front)return;
+  // Keep the image fetched by the HTML parser; don't download a placeholder
+  // and replace it with the actual front face after JavaScript starts.
+  front.classList.add('flip-face','flip-face--front');
+  const spinner=document.createElement('div');
+  spinner.className='hero-flip-inner';
+  const back=document.createElement('img');
+  back.className='flip-face flip-face--back';
   back.src='./yuan-chi-hero-flip-back.png';
   back.alt='Yuan Chi 俏皮黑白肖像與橘色塗鴉';
-  const spinner=document.createElement('div');spinner.className='hero-flip-inner';
-  const front=document.createElement('img');
-  front.className='flip-face flip-face--front';
-  front.src='./yuan-chi-expressive-hero.png';
-  front.alt='Yuan Chi 俏皮的黑白個人照片';
-  spinner.append(front,back);frame.prepend(spinner);
+  back.decoding='async';
+  spinner.append(front,back);
+  frame.prepend(spinner);
 }
 function setupPhotoJourney(){
   document.querySelector('.photo-journey')?.remove();
