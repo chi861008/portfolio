@@ -235,8 +235,8 @@ img{display:block;max-width:none}
 .scene .phone{position:absolute;left:180px;top:430px;width:58px;opacity:0}
 .scene .beam{position:absolute;left:141px;top:494px;width:42px;height:2.5px;border-radius:2px;background:#FF3B30;box-shadow:0 0 6px 1px #FF3B30;opacity:0}
 .scene .coin{position:absolute;left:261.5px;top:42px;width:24px;opacity:0;transform-origin:center}
-.scene .bslot{position:absolute;left:50px;top:437px;width:56px;height:80px;overflow:hidden}
-.scene .bill{position:absolute;left:3px;top:0;width:50px;opacity:0;transform:translateY(47px) rotate(90deg)}
+.scene .bslot{position:absolute;left:50px;top:437px;width:56px;height:110px;overflow:hidden}
+.scene .bill{position:absolute;left:-15px;top:0;width:86px;opacity:0;transform:translateY(38px) rotate(90deg)}
 /* camera moves */
 .scene.tap .kw{animation:camtap .8s .35s cubic-bezier(.65,0,.35,1) forwards}
 .scene.scan .kw{animation:camscan .8s .35s cubic-bezier(.65,0,.35,1) forwards}
@@ -262,7 +262,7 @@ img{display:block;max-width:none}
 .scene.cash .bill{animation:bill 7s 1.2s ease-in-out infinite}
 @keyframes campan{0%,40%{transform:none}50%,90%{transform:translate(194px,-349.6px)}100%{transform:none}}
 @keyframes coinslot{0%{opacity:0;transform:translate(52px,-4px)}6%{opacity:1;transform:translate(46px,-4px)}20%{opacity:1;transform:translate(0,0)}27%{opacity:1;transform:translate(0,0) scaleX(.15)}30%,100%{opacity:0;transform:translate(0,0) scaleX(.15)}}
-@keyframes bill{0%,52%{opacity:0;transform:translateY(47px) rotate(90deg)}57%{opacity:1;transform:translateY(40px) rotate(90deg)}80%{opacity:1;transform:translateY(-43px) rotate(90deg)}82%,100%{opacity:0;transform:translateY(-43px) rotate(90deg)}}
+@keyframes bill{0%,52%{opacity:0;transform:translateY(42px) rotate(90deg)}57%{opacity:1;transform:translateY(38px) rotate(90deg)}80%{opacity:1;transform:translateY(-67px) rotate(90deg)}82%,100%{opacity:0;transform:translateY(-67px) rotate(90deg)}}
 .cashbox{position:absolute;left:0;right:0;top:1180px;display:flex;flex-direction:column;align-items:center;gap:22px}
 .meter{display:grid;grid-template-columns:auto auto;gap:16px 60px;font-size:36px}
 .meter b{text-align:right;font-weight:500}
