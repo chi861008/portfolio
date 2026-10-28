@@ -479,6 +479,17 @@ const vp=document.getElementById("viewport");
 function fit(){const s=Math.min(vp.clientWidth/1440,vp.clientHeight/1080);$.style.transform=`translate(-50%,-50%) scale(${s})`;}
 new ResizeObserver(fit).observe(vp); fit();
 render();
+/* portfolio deep links */
+(function(){
+  var P={
+    "prod":function(){S.tab="active";S.view="prod";S.panel=false;S.dd=false;toast("<b>品項視角</b>　跨訂單彙整同品項，一次製作一批",null,6500);render();},
+    "order":function(){S.tab="active";S.view="order";S.panel=false;S.dd=false;toast("<b>訂單視角</b>　依訂單追蹤每張單的製作狀態",null,6500);render();},
+    "done":function(){S.view="order";S.tab="done";S.panel=false;S.dd=false;toast("<b>誤觸找回</b>　在「已出餐」可把整單復原回製餐中",null,6500);render();}
+  };
+  addEventListener("message",function(e){var k=e.data&&e.data.demoGo;if(P[k]){try{P[k]();}catch(err){console.error(err);}}});
+  window.__demoReady=true;
+})();
+
 })();
 </script>
 </body>

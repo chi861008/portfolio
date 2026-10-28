@@ -837,7 +837,26 @@ const vp=document.getElementById("viewport");
 function fit(){const s=Math.min(vp.clientWidth/1080,vp.clientHeight/1920);$stage.style.transform=`translate(-50%,-50%) scale(${s})`;}
 new ResizeObserver(fit).observe(vp); fit();
 render();
+/* portfolio deep links: the parent page posts {demoGo:key} to jump straight to a design highlight */
+(function(){
+  function tip(title,text){var o=$stage.querySelector(".demo-tip");if(o)o.remove();var d=document.createElement("div");d.className="demo-tip";d.innerHTML="<b>"+title+"</b>"+text;$stage.appendChild(d);setTimeout(function(){d.classList.add("out")},6500);setTimeout(function(){d.remove()},7100);}
+  function base(){resetAll();S.mode="take";}
+  var P={
+    "pay-cash":function(){base();addLine(newDraft(PBY.oyako));S.upsellDone=true;S.invoice={type:"paper"};S.pay="cash";S.paid=0;go("process");tip("付款設備位置引導","畫面上的機台圖，直接對照實體機台的投幣口與紙鈔口");},
+    "combo":function(){base();openDetail(PBY.oyako);tip("套餐一鍵升級","在同一個商品頁直接升級套餐，不用刪掉重點");},
+    "addon":function(){base();addLine(newDraft(PBY.oyako));go("cart");S.sheet={kind:"upsell",q:{}};render();tip("加點商品","結帳前提供加購，也能一鍵略過");}
+  };
+  addEventListener("message",function(e){var k=e.data&&e.data.demoGo;if(P[k]){try{P[k]();}catch(err){console.error(err);}}});
+  window.__demoReady=true;
+})();
+
 })();
 </script>
+<style>
+.demo-tip{position:absolute;left:50%;bottom:210px;transform:translateX(-50%);z-index:60;max-width:880px;width:max-content;background:#2b2724;color:#fff;font-size:30px;line-height:1.5;padding:26px 40px;border-radius:28px;box-shadow:0 20px 50px rgba(0,0,0,.28);animation:demoTipIn .35s ease both;text-align:center}
+.demo-tip b{display:block;color:#ffb38a;font-size:26px;letter-spacing:.04em;margin-bottom:6px}
+.demo-tip.out{opacity:0;transition:opacity .5s}
+@keyframes demoTipIn{from{opacity:0;transform:translate(-50%,-14px)}to{opacity:1;transform:translate(-50%,0)}}
+</style>
 </body>
 </html>
