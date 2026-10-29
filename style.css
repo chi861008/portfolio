@@ -1885,3 +1885,13 @@ html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
  .kiosk-reflection-evidence{gap:1.6rem}
  .kiosk-foundation-note{margin-bottom:2rem}
 }
+
+/* Keep each option-layout rationale with its corresponding screen example. */
+.layout-variants--integrated{margin:1.4rem 0 1.1rem;gap:clamp(.9rem,2vw,1.6rem)}
+.layout-variants--integrated figure{min-width:0;min-height:0;justify-content:flex-start;gap:1.15rem;padding:clamp(1rem,2vw,1.6rem);background:#f5f3ef}
+.layout-variants--integrated .layout-variant-rationale{width:100%;display:grid;align-content:start;gap:.55rem}
+.layout-variant-rationale span{font-size:.69rem;letter-spacing:.1em;font-weight:800;color:#ad5a35}
+.layout-variant-rationale h4{margin:0;font-size:clamp(1rem,1.45vw,1.25rem);line-height:1.45;color:#292825}
+.layout-variant-rationale p{margin:0;font-size:.88rem;line-height:1.7;color:#66615b}
+.layout-variants--integrated img{width:100%;max-height:220px;height:auto;object-fit:contain;object-position:center;background:transparent}
+@media(max-width:650px){.layout-variants--integrated{grid-template-columns:1fr}.layout-variants--integrated figure{padding:1rem}.layout-variants--integrated img{max-height:200px}}
