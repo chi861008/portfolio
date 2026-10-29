@@ -304,7 +304,7 @@ function playHomeOpening(){
   const target=document.querySelector('.home-mode .identity-photo .flip-face--front');
   // A user who has already begun scrolling should see the real scroll-driven
   // flip, never a late entrance copy of the portrait.
-  if(!target||window.scrollY>2||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  if(!target||window.scrollY>2||window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.remove('home-boot');return;}
   const destination=target.getBoundingClientRect();
   if(!destination.width||!destination.height)return;
   const opening=document.createElement('div');opening.className='home-opening';opening.setAttribute('aria-hidden','true');
@@ -312,6 +312,7 @@ function playHomeOpening(){
   const image=document.createElement('img');image.className='home-opening-photo';image.src=target.currentSrc||target.src;image.alt='';
   const caption=document.createElement('span');caption.className='home-opening-caption';caption.textContent='YUAN CHI  /  PORTFOLIO';
   opening.append(backdrop,caption,image);document.body.appendChild(opening);
+  document.documentElement.classList.remove('home-boot');
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
   const startWidth=window.innerWidth;
