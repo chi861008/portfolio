@@ -2110,3 +2110,6 @@ html body.kiosk-case .hl-row{scroll-margin-top:100px}
 html body.kiosk-case .kiosk-decision-rows>div{transition:none}
 html body.kiosk-case mark.todo{background:#fff2a8;color:#5a4a00;padding:0 4px;border-radius:3px}
 html body.kiosk-case .jump-flash{animation:jumpFlash 1.6s ease}@keyframes jumpFlash{0%,60%{box-shadow:0 0 0 3px #d0704f}100%{box-shadow:0 0 0 3px rgba(208,112,79,0)}}
+html body.kiosk-case .rq-link{display:table;margin:0 0 8px;padding:6px 12px}
+html body.kiosk-case .rq-link span{margin-left:4px}
+html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
