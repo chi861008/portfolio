@@ -2081,3 +2081,12 @@ html body.kiosk-case .kiosk-decision-status{margin:14px 0 0;font-size:13px;color
 .scheduling-case .schedule-next-check h3{font-size:clamp(21px,2.5vw,28px);margin:13px 0 12px}
 .scheduling-case .schedule-next-check p{max-width:740px;font-size:15px;line-height:1.85;color:#5a5550;margin:0}
 @media(max-width:700px){.scheduling-case .schedule-strategy-pair,.scheduling-case .schedule-result-metrics{grid-template-columns:1fr;gap:14px}.scheduling-case .schedule-strategy-pair article{padding:27px 25px}.scheduling-case .schedule-result-metrics{gap:27px;margin-bottom:34px}.scheduling-case .schedule-result-metrics strong{font-size:58px}.scheduling-case .schedule-adoption-turn{padding:30px 25px}.scheduling-case .schedule-adoption-frictions{grid-template-columns:1fr;gap:20px}.scheduling-case .schedule-adoption-frictions>div{padding-top:16px}}
+
+/* Pilates reflection: each adoption barrier is an independent editorial insight row */
+.scheduling-case .schedule-adoption-frictions{display:block;margin:10px 0 66px}
+.scheduling-case .schedule-adoption-frictions>div{display:grid;grid-template-columns:115px minmax(0,1fr);column-gap:32px;row-gap:10px;align-items:start;border-top:1px solid #cfc9c1;padding:34px 0 38px}
+.scheduling-case .schedule-adoption-frictions>div:last-child{border-bottom:1px solid #cfc9c1}
+.scheduling-case .schedule-adoption-frictions span{grid-column:1;grid-row:1 / span 2;font-size:11px;line-height:1.7;letter-spacing:.09em;padding-top:5px}
+.scheduling-case .schedule-adoption-frictions h4{grid-column:2;grid-row:1;font-size:clamp(24px,2.7vw,32px);line-height:1.35;letter-spacing:-.025em;margin:0;color:#292623}
+.scheduling-case .schedule-adoption-frictions p{grid-column:2;grid-row:2;max-width:700px;font-size:16px;line-height:1.85;color:#67615b;margin:0}
+@media(max-width:700px){.scheduling-case .schedule-adoption-frictions{margin:8px 0 48px}.scheduling-case .schedule-adoption-frictions>div{grid-template-columns:1fr;gap:12px;padding:28px 0 32px}.scheduling-case .schedule-adoption-frictions span,.scheduling-case .schedule-adoption-frictions h4,.scheduling-case .schedule-adoption-frictions p{grid-column:1;grid-row:auto}.scheduling-case .schedule-adoption-frictions span{padding-top:0}.scheduling-case .schedule-adoption-frictions h4{font-size:25px}.scheduling-case .schedule-adoption-frictions p{font-size:15px}}
