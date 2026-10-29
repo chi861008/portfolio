@@ -2207,3 +2207,12 @@ html body.kds-case .kds-proactive-story{background:none;border-radius:0;padding:
 html body.scheduling-case .schedule-reframe{background:none;padding:30px 0 0;border-top:2px solid #24211f}
 /* limits list (case end) */
 html body #app .limits-box li{background:none!important;border-radius:0!important;border-top:1px solid #d5cfc8;padding-left:0!important;padding-right:0!important}
+/* KIOSK RQ + decision rows: oversized numbers, equal-width decision chips */
+html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{grid-template-columns:72px minmax(0,1.05fr) minmax(0,1fr) minmax(0,1fr);grid-template-areas:'num tag decision value' 'num question decision value' 'num source decision value'}
+html body.kiosk-case .rq-num{grid-area:num;font-size:60px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#d0704f;font-variant-numeric:tabular-nums}
+html body.kiosk-case .rq-link{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:250px;box-sizing:border-box}
+@media(max-width:800px){html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{grid-template-columns:52px minmax(0,1fr);grid-template-areas:'num tag' 'num question' 'num source' '. decision' '. value';column-gap:14px}html body.kiosk-case .rq-num{font-size:40px}}
+html body.kiosk-case .rq-back{display:table;margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#8a8178!important;text-decoration:none;border-bottom:1px solid #c9c1b8}
+html body.kiosk-case .rq-back:hover{color:#c05f3f!important;border-color:#c05f3f}
+html body.kiosk-case .research-question-grid>div[id^="rq-"]{scroll-margin-top:110px}
+html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decision{font-weight:400!important;color:#4f4a45!important}
