@@ -319,17 +319,16 @@ function playHomeOpening(){
   opening.append(backdrop,caption,image);document.body.appendChild(opening);
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
-  const startWidth=Math.min(window.innerWidth*(window.innerWidth<650?.56:.43),480);
-  const startHeight=Math.min(window.innerHeight*.68,startWidth*1.13);
-  const startLeft=(window.innerWidth-startWidth)/2,startTop=(window.innerHeight-startHeight)/2;
+  const startWidth=window.innerWidth;
+  const startHeight=window.innerHeight;
   const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
   const endLeft=destination.left+(destination.width-endWidth)/2;
   const endTop=destination.top+(destination.height-endHeight)/2;
   image.animate([
-    {left:startLeft+'px',top:startTop+'px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(-5deg)',offset:0},
-    {left:startLeft+'px',top:startTop+'px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(-5deg)',offset:.13},
-    {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg)',offset:1}
-  ],{duration:1450,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:0},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:.24},
+    {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg)',borderRadius:'8px',offset:1}
+  ],{duration:1600,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
   backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.36},{opacity:0,offset:1}],{duration:1080,easing:'ease-out',fill:'forwards'});
   caption.animate([{opacity:1,offset:0},{opacity:1,offset:.32},{opacity:0,offset:1}],{duration:850,fill:'forwards'});
   const cancelOnScroll=()=>{if(window.scrollY>2)finish();};
