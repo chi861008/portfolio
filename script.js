@@ -300,35 +300,49 @@ let tocFrame=0;
 function scheduleTocUpdate(){if(tocFrame)return;tocFrame=requestAnimationFrame(()=>{tocFrame=0;updateCaseToc();updateHomeMotion();updateWorkHold();updateThinkingParallax();updateScrollSignature();});}
 window.addEventListener('scroll',scheduleTocUpdate,{passive:true});
 window.addEventListener('resize',scheduleTocUpdate,{passive:true});
-function playHomeOpening(){
+let homeOpeningAttempt=0;
+async function playHomeOpening(){
+  const attempt=++homeOpeningAttempt;
   const target=document.querySelector('.home-mode .identity-photo .flip-face--front');
-  // A user who has already begun scrolling should see the real scroll-driven
-  // flip, never a late entrance copy of the portrait.
-  if(!target||window.scrollY>2||window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.remove('home-boot');return;}
+  const clearBoot=()=>document.documentElement.classList.remove('home-boot');
+  if(!target||window.scrollY>2||window.matchMedia('(prefers-reduced-motion: reduce)').matches){clearBoot();return;}
+  // Decode the *actual opening image* before starting its animation clock.
+  // Mobile Safari may otherwise finish the zoom while the first frame is still blank.
+  const image=document.createElement('img');
+  image.className='home-opening-photo';
+  image.src=target.currentSrc||target.src;
+  image.alt='';
+  try{
+    if(image.decode)await image.decode();
+    else if(!image.complete)await new Promise(resolve=>{image.onload=resolve;image.onerror=resolve;});
+  }catch{
+    if(!image.complete||!image.naturalWidth){clearBoot();return;}
+  }
+  if(attempt!==homeOpeningAttempt||!target.isConnected||!document.body.classList.contains('home-mode')||window.scrollY>2){clearBoot();return;}
   const destination=target.getBoundingClientRect();
-  if(!destination.width||!destination.height)return;
+  if(!destination.width||!destination.height){clearBoot();return;}
   const opening=document.createElement('div');opening.className='home-opening';opening.setAttribute('aria-hidden','true');
   const backdrop=document.createElement('div');backdrop.className='home-opening-backdrop';
-  const image=document.createElement('img');image.className='home-opening-photo';image.src=target.currentSrc||target.src;image.alt='';
   const caption=document.createElement('span');caption.className='home-opening-caption';caption.textContent='YUAN CHI  /  PORTFOLIO';
   opening.append(backdrop,caption,image);document.body.appendChild(opening);
-  document.documentElement.classList.remove('home-boot');
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
+  // Reveal a fully decoded photo on the same paint that removes the boot backdrop.
+  clearBoot();
   const startWidth=window.innerWidth;
   const startHeight=window.innerHeight;
   const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
   const endLeft=destination.left+(destination.width-endWidth)/2;
   const endTop=destination.top+(destination.height-endHeight)/2;
-  // 0.35s subtle zoom-in, 1.15s held close-up, then 0.4s fast shrink into the card.
+  // Zoom for 0.5s, visibly hold for 1.2s, then shrink in 0.4s.
   image.animate([
     {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1)',borderRadius:'0px',offset:0},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.06)',borderRadius:'0px',offset:.1842},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.06)',borderRadius:'0px',offset:.7895},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:.238095},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:.809524},
     {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg) scale(1)',borderRadius:'8px',offset:1}
-  ],{duration:1900,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
-  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.79},{opacity:0,offset:1}],{duration:1850,easing:'ease-out',fill:'forwards'});
-  caption.animate([{opacity:1,offset:0},{opacity:1,offset:.32},{opacity:0,offset:1}],{duration:1150,fill:'forwards'});
+  ],{duration:2100,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
+  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.81},{opacity:0,offset:1}],{duration:2100,easing:'ease-out',fill:'forwards'});
+  caption.animate([{opacity:1,offset:0},{opacity:1,offset:.35},{opacity:0,offset:1}],{duration:1200,fill:'forwards'});
   const cancelOnScroll=()=>{if(window.scrollY>2)finish();};
   const finish=()=>{
     if(!opening.isConnected)return;
@@ -337,11 +351,9 @@ function playHomeOpening(){
     if(portrait)portrait.classList.remove('opening-in-progress');
     opening.remove();
   };
-  // The entrance overlay and the scroll-driven flip are mutually exclusive.
-  // Cancel the overlay as soon as the first intentional scroll starts.
   window.addEventListener('scroll',cancelOnScroll,{passive:true});
   if(window.scrollY>2)finish();
-  window.setTimeout(finish,1950);
+  window.setTimeout(finish,2150);
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&opening.isConnected)finish();},{once:true});
 }
 function setupThinkingBand(){
