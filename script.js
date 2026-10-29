@@ -320,10 +320,11 @@ function playHomeOpening(){
   const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
   const endLeft=destination.left+(destination.width-endWidth)/2;
   const endTop=destination.top+(destination.height-endHeight)/2;
+  // Gently push in during the 1.5s fullscreen hold, then settle into the card in 0.4s.
   image.animate([
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:0},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:.79},
-    {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg)',borderRadius:'8px',offset:1}
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.015)',borderRadius:'0px',offset:0},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.055)',borderRadius:'0px',offset:.79},
+    {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg) scale(1)',borderRadius:'8px',offset:1}
   ],{duration:1900,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
   backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.79},{opacity:0,offset:1}],{duration:1850,easing:'ease-out',fill:'forwards'});
   caption.animate([{opacity:1,offset:0},{opacity:1,offset:.32},{opacity:0,offset:1}],{duration:1150,fill:'forwards'});
