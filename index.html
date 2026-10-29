@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#101010" />
-  <style>html,body{background:#101010}</style>
+  <style>html,body{background:#101010}#opening-shell{display:none;position:fixed;inset:0;z-index:1000;background:#101010;overflow:hidden}html.initial-home #opening-shell{display:block}#opening-shell img{display:block;width:100%;height:100%;object-fit:cover;object-position:56% 26%;filter:grayscale(1)}@media(max-width:700px){#opening-shell img{object-position:43% 26%}}</style>
+  <script>if(!location.hash||location.hash==='#/'||location.hash==='#')document.documentElement.classList.add('initial-home')</script>
   <link rel="preload" as="image" href="./hero-enhanced-1920x1080.jpg?v=20261029-hq" fetchpriority="high" />
   <title>Yuan Chi Chang — Product Portfolio</title>
   <meta name="description" content="Yuan Chi Chang 的產品作品集：從 UX 研究、產品決策到 0→1 Product Building。" />
@@ -17,6 +18,7 @@
   <link rel="stylesheet" href="./style.css?v=20261030-kiosk-video-restored" />
 </head>
 <body>
+  <div id="opening-shell" aria-hidden="true"><img src="./hero-enhanced-1920x1080.jpg?v=20261029-hq" alt="" fetchpriority="high" decoding="async"></div>
   <header class="nav">
     <a class="brand" href="#/" aria-label="Yuan Chi Chang — 回到首頁"><img class="brand-mark" src="./yuan-chi-mark.svg?v=3" alt="" width="38" height="44" /><span class="brand-portfolio">PORTFOLIO / 2026</span></a>
     <nav class="nav-links" aria-label="主選單">
@@ -34,6 +36,6 @@
   <script src="./hero-image-data.js?v=20261029-hq"></script>
   <script src="./hero-back-data.js?v=20261029toast2"></script>
   <script>window.HERO_BACK_IMAGE = './yuan-chi-hero-flip-back.png?v=20261029-coral-fix';</script>
-  <script src="./script.js?v=20261030-zoom-2600-no-white"></script>
+  <script src="./script.js?v=20261030-shell-first-paint"></script>
 </body>
 </html>
