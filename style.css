@@ -1700,12 +1700,15 @@ html body.kiosk-case .insight-feature .insight-feature-kicker .insight-number{fo
 html body.kds-case .kds-insight-feature .insight-number{font-size:32px}
 html body.scheduling-case .schedule-insight-heading em{font-size:48px}
 html body.kiosk-case .research-track>h4.research-question-heading{font-size:17px;color:#6b645d}
-.nav-demo{display:none;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;background:#d0704f;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none;white-space:nowrap;box-shadow:0 6px 16px rgba(208,112,79,.3);transition:background .18s}
-.nav-demo:hover{background:#b85d3e}
-body.kiosk-case .nav-demo,body.kds-case .nav-demo,body.scheduling-case .nav-demo{display:inline-flex}
+.demo-fab{position:fixed;right:max(32px,env(safe-area-inset-right,0px));bottom:calc(56px + env(safe-area-inset-bottom,0px));z-index:80;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#d0704f;color:#fff!important;text-decoration:none;box-shadow:0 10px 26px rgba(208,112,79,.38);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s,background .18s,transform .18s}
+.demo-fab svg{width:28px;height:28px}
+.demo-fab-tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translateY(-50%);padding:8px 14px;border-radius:999px;background:#24211f;color:#fff;font-size:13px;font-weight:800;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s}
+.demo-fab:hover .demo-fab-tip,.demo-fab:focus-visible .demo-fab-tip{opacity:1}
+.demo-fab:hover{transform:scale(1.06)}
+.demo-fab.on{opacity:1;visibility:visible}
+.demo-fab:hover{background:#b85d3e}
 body.kiosk-case .case-top .try-demo-cta,body.kds-case .case-top .try-demo-cta,body.scheduling-case .case-top .try-demo-cta{display:none}
-@media(max-width:650px){.nav-demo{min-height:38px;padding:0 14px;font-size:12px}}
-body.home-mode .nav-links a.nav-demo{display:none!important}
+@media(max-width:650px){.demo-fab{right:16px;bottom:calc(28px + env(safe-area-inset-bottom,0px));width:56px;height:56px}.demo-fab svg{width:24px;height:24px}}
 /* heading tiers across cases: T1 section (h2) > T2 stage (orange bar) > T3 item */
 html body #app .case-article .story-section>h3,
 html body.kiosk-case #app .research-track .findings-divider>h3,
@@ -1730,3 +1733,50 @@ html body #app .case-article .kiosk-live-copy h3,html body #app .case-article .s
 html body .scheduling-case .schedule-live-frame,html body.scheduling-case .schedule-live-frame{width:min(100%,408px)}
 html body.scheduling-case .schedule-live-demo{grid-template-columns:minmax(0,1fr) minmax(320px,408px)}
 @media(max-width:850px){html body.scheduling-case .schedule-live-demo{grid-template-columns:1fr}}
+/* Pilates demo renders at a real 390×660 phone and scales down to fit narrow screens */
+html body.scheduling-case .schedule-live-frame{position:relative;box-sizing:content-box;height:var(--pil-h,660px)}
+html body.scheduling-case .schedule-live-frame iframe{position:absolute;left:0;top:0;width:390px!important;height:660px!important;transform:scale(var(--pil-s,1));transform-origin:0 0}
+@media(max-width:650px){html body.scheduling-case .schedule-live-demo{padding:22px 12px;border-radius:20px}html body.scheduling-case .schedule-live-frame{width:calc(100% - 18px);border-width:7px;border-radius:26px}}
+html body.scheduling-case .schedule-live-frame{width:min(calc(100% - 18px),390px)}
+
+/* ===== spacing system: 8–16 inside one thing / 32 between siblings / 48–64 between items / 72 new stage / 120 new section ===== */
+html body #app .case-article .story-section{padding:120px 0 0!important;border-bottom:0!important}
+html body #app .case-article .story-section:first-child{padding-top:28px!important}
+html body #app .case-article .story-section>*,html body #app .case-article .story-section .research-track>*,html body #app .case-article .story-section .design-phase>*,html body #app .case-article .story-section .solution>*,html body #app .case-article .story-section .kds-user-insights>*{margin-top:0;margin-bottom:0}
+html body #app .case-article .story-section>*+*,html body #app .case-article .story-section .research-track>*+*,html body #app .case-article .story-section .design-phase>*+*,html body #app .case-article .story-section .solution>*+*,html body #app .case-article .story-section .kds-user-insights>*+*{margin-top:32px}
+html body #app .case-article .story-section>p+p,html body #app .case-article .story-section .research-track>p+p,html body #app .case-article .story-section .design-phase>p+p,html body #app .case-article .story-section .solution>p+p,html body #app .case-article .story-section .kds-user-insights>p+p{margin-top:16px}
+html body #app .case-article .story-section>.story-kicker+h2{margin-top:20px}
+html body #app .case-article .story-section > * + h3,html body #app .case-article .story-section > * + .research-track,html body #app .case-article .story-section > * + .design-phase,html body #app .case-article .story-section > * + .kds-competitor-analysis,html body #app .case-article .story-section > * + .kds-design-overview,html body #app .case-article .story-section > * + .kds-scope-heading,html body #app .case-article .story-section > * + .schedule-reframe,html body #app .case-article .story-section > * + .schedule-next-steps,html body #app .case-article .story-section > * + .limits-box{margin-top:72px}
+html body #app .case-article .story-section>h2+h3,html body #app .case-article .story-section>h2+.research-track,html body #app .case-article .story-section>h2+.design-phase,html body #app .case-article .story-section>h2+.kds-competitor-analysis,html body #app .case-article .story-section>h2+.kds-design-overview,html body #app .case-article .story-section>h2+.kds-scope-heading,html body #app .case-article .story-section>h2+.schedule-reframe,html body #app .case-article .story-section>h2+.schedule-next-steps,html body #app .case-article .story-section>h2+.limits-box{margin-top:40px}
+html body #app .case-article .story-section>h2+*{margin-top:40px}
+html body #app .case-article .story-section>h3+p,html body #app .case-article .story-section>h3+.motion-copy,html body #app .case-article .story-section .findings-divider+*,html body #app .case-article .story-section .phase-banner+*{margin-top:20px}
+html body #app .case-article .story-section .insight-feature+.insight-feature,html body #app .case-article .story-section .insight-feature+.schedule-insight-card,html body #app .case-article .story-section .insight-feature+.schedule-highlight,html body #app .case-article .story-section .insight-feature+.kds-design-feature,html body #app .case-article .story-section .insight-feature+.kds-design-phase-two,html body #app .case-article .story-section .schedule-insight-card+.insight-feature,html body #app .case-article .story-section .schedule-insight-card+.schedule-insight-card,html body #app .case-article .story-section .schedule-insight-card+.schedule-highlight,html body #app .case-article .story-section .schedule-insight-card+.kds-design-feature,html body #app .case-article .story-section .schedule-insight-card+.kds-design-phase-two,html body #app .case-article .story-section .schedule-highlight+.insight-feature,html body #app .case-article .story-section .schedule-highlight+.schedule-insight-card,html body #app .case-article .story-section .schedule-highlight+.schedule-highlight,html body #app .case-article .story-section .schedule-highlight+.kds-design-feature,html body #app .case-article .story-section .schedule-highlight+.kds-design-phase-two,html body #app .case-article .story-section .kds-design-feature+.insight-feature,html body #app .case-article .story-section .kds-design-feature+.schedule-insight-card,html body #app .case-article .story-section .kds-design-feature+.schedule-highlight,html body #app .case-article .story-section .kds-design-feature+.kds-design-feature,html body #app .case-article .story-section .kds-design-feature+.kds-design-phase-two,html body #app .case-article .story-section .kds-design-phase-two+.insight-feature,html body #app .case-article .story-section .kds-design-phase-two+.schedule-insight-card,html body #app .case-article .story-section .kds-design-phase-two+.schedule-highlight,html body #app .case-article .story-section .kds-design-phase-two+.kds-design-feature,html body #app .case-article .story-section .kds-design-phase-two+.kds-design-phase-two,html body #app .case-article .story-section .research-voice+.insight-feature,html body #app .case-article .story-section .research-voice+.schedule-insight-card,html body #app .case-article .story-section .research-voice+.schedule-highlight,html body #app .case-article .story-section .research-voice+.kds-design-feature,html body #app .case-article .story-section .research-voice+.kds-design-phase-two,html body #app .case-article .story-section .kds-insight-context+.insight-feature,html body #app .case-article .story-section .kds-insight-context+.schedule-insight-card,html body #app .case-article .story-section .kds-insight-context+.schedule-highlight,html body #app .case-article .story-section .kds-insight-context+.kds-design-feature,html body #app .case-article .story-section .kds-insight-context+.kds-design-phase-two{margin-top:56px}
+html body #app .case-article .story-section .insight-feature+.research-voice,html body #app .case-article .story-section .insight-feature+.kds-insight-context{margin-top:16px}
+html body #app .case-article .story-section * + .research-question-heading{margin-top:48px}
+html body #app .case-article .story-section .research-question-heading+*{margin-top:14px}
+html body #app .case-article .story-section .schedule-highlight-intro+.schedule-highlight{margin-top:28px}
+html body #app .case-article .story-section .schedule-highlight+.schedule-highlight-note,html body #app .case-article .story-section .schedule-insight-card+.schedule-insight-disclaimer{margin-top:24px}
+html body #app .case-article .story-section .solution{padding:0!important;border-top:0!important}
+html body #app .case-article .story-section .solution+.solution,html body #app .case-article .story-section .phase-banner+.solution{margin-top:64px}
+html body #app .case-article .story-section .phase-banner+.solution{margin-top:40px}
+html body #app .case-article .story-section .solution>.solution-num+h3{margin-top:10px}
+html body #app .case-article .story-section .solution>h3+p,html body #app .case-article .story-section .solution>h3+.motion-copy{margin-top:14px}
+html body #app .case-article .story-section .solution>p+p,html body #app .case-article .story-section .solution>.motion-copy+.motion-copy{margin-top:14px}
+html body #app .case-article .story-section .solution>p+figure,html body #app .case-article .story-section .solution>.motion-copy+figure,html body #app .case-article .story-section .solution>p+.payment-comparison,html body #app .case-article .story-section .solution>.motion-copy+.payment-comparison,html body #app .case-article .story-section .solution>p+.layout-variants,html body #app .case-article .story-section .solution>.motion-copy+.layout-variants{margin-top:28px}
+html body #app .case-article .story-section .solution>figure+.state-note,html body #app .case-article .story-section .solution>.payment-comparison+.state-note,html body #app .case-article .story-section .solution>.layout-variants+.layout-rules,html body #app .case-article .story-section .solution>.layout-rules+.state-note{margin-top:16px}
+html body #app .case-article .story-section .solution>*+.demo-jump,html body #app .case-article .story-section .kds-design-gallery+.demo-jump-row{margin-top:16px}
+html body #app .case-article .story-section .schedule-highlight-copy .demo-jump,html body #app .case-article .story-section .kds-design-feature-copy .demo-jump{margin-top:16px}
+html body #app .case-article .story-section .schedule-repo+*,html body #app .case-article .story-section .kds-evidence-columns+*,html body #app .case-article .story-section .kiosk-live-demo+*,html body #app .case-article .story-section .schedule-live-demo+*{margin-top:48px}
+html body #app .case-article .story-section .demo-jump-row+*{margin-top:56px}
+html body #app .case-article .story-section .design-phase{padding:0!important;border:0!important}
+html body #app .case-article .story-section>.scenario-figure{margin-top:40px!important}
+/* mobile: case table of contents becomes a sticky horizontal chip bar under the header */
+@media(max-width:900px){
+html body #app .case-layout .side-index{display:flex!important;position:sticky;top:66px;z-index:30;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:10px 16px!important;border:0;border-bottom:1px solid #e4dfd8;background:rgba(249,249,247,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+html body #app .case-layout .side-index::-webkit-scrollbar{display:none}
+html body #app .case-layout .side-index .side-title{display:none}
+html body #app .case-layout .side-index a{flex:none;width:auto!important;display:inline-flex;align-items:center;gap:6px;min-height:36px;margin:0!important;padding:0 14px!important;border:1px solid #d9d3cb!important;border-radius:999px;background:#fff;color:#5b554f;font-size:13px;white-space:nowrap;box-shadow:none}
+html body #app .case-layout .side-index a b{font-size:10px;color:#a39b92}
+html body #app .case-layout .side-index a.is-active{background:#24211f!important;border-color:#24211f!important;color:#fff!important}
+html body #app .case-layout .side-index a.is-active b{color:#f0c3ad}
+}
