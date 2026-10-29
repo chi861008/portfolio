@@ -2375,3 +2375,6 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .kiosk-topping-demo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .kiosk-topping-demo-grid span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:42px;border:1px solid #ded8d1;border-radius:4px;background:#e7e2dc;font-weight:700;font-size:14px}
 .kiosk-topping-demo-grid .selected{background:#ce4d13;border-color:#ce4d13;color:white}
+
+/* KDS: map focus regions remain interactive, but numbers appear only in right-hand list. */
+.kds-case .ba--kds .kds-box b{display:none!important}
