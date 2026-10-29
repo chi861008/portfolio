@@ -1795,3 +1795,22 @@ html body #app .case-layout .side-index a.is-active b{color:#f0c3ad}
 .demo-fab:hover span,.demo-fab:hover::before{animation:none}
 @media(max-width:650px){.demo-fab{width:64px;height:64px}.demo-fab span{font-size:15px}}
 @media (prefers-reduced-motion:reduce){.demo-fab.on::before,.demo-fab.on span{animation:none}}
+/* ---- design highlights as tabs + live demo ---- */
+.hl-tabs{margin-top:28px;background:#eee9e2;border-radius:28px;padding:clamp(20px,3vw,36px)}
+.hl-tablist{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 clamp(20px,3vw,32px)}
+.hl-tablist::-webkit-scrollbar{display:none}
+.hl-tablist button{flex:none;min-height:44px;padding:0 18px;border:1px solid #d6cfc6;border-radius:999px;background:#fff;color:#5b554f;font:inherit;font-size:14px;font-weight:750;cursor:pointer;white-space:nowrap;transition:background .18s,color .18s,border-color .18s}
+.hl-tablist button:hover{border-color:#24211f;color:#24211f}
+.hl-tablist button[aria-selected="true"]{background:#24211f;border-color:#24211f;color:#fff}
+.hl-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,330px);gap:clamp(24px,4vw,48px);align-items:start}
+.hl-panel .solution-num{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:#c05f3f}
+.hl-panel h3{margin:10px 0 14px;font-size:clamp(20px,2vw,24px);line-height:1.45;letter-spacing:-.025em;color:#1f1d1b}
+html body #app .case-article .hl-panel p{font-size:15px;line-height:1.9;color:#4f4a45;margin:0 0 14px}
+.hl-before{margin:20px 0 0;display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;align-items:center}
+.hl-before img{width:120px;border-radius:10px;border:1px solid #d6cfc6;background:#fff}
+.hl-before figcaption{font-size:13px;line-height:1.7;color:#6b645d}.hl-before b{display:block;color:#2c2925}
+.hl-panel .state-note{margin-top:18px}
+.hl-open{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;margin-top:6px;border-radius:999px;background:#24211f;color:#fff!important;font-weight:750;font-size:14px;text-decoration:none}
+.hl-small{display:block;margin-top:12px;font-size:12px;color:#81786f}
+.hl-stage .kiosk-live-frame{width:100%;margin:0}
+@media(max-width:850px){.hl-body{grid-template-columns:1fr}.hl-stage .kiosk-live-frame{max-width:320px;margin:0 auto}}

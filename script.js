@@ -72,15 +72,7 @@ sec('solutions','04 / PRODUCT RECOMMENDATIONS','以使用者需求為主軸，�
 '</tbody></table></div></details>'+
  '')+
 sec('validation','05 / DESIGN & VALIDATION','從設計方案到初步使用者驗證',
- '<div class="design-phase design-phase--proposal"><div class="phase-banner"><span>PHASE 01 / DESIGN PROPOSALS</span><strong>研究轉譯為設計方案</strong><p>三個畫面成果：我獨立提出的付款設備定位，以及套餐切換與加購。</p></div><div class="solution solution--featured"><span class="solution-num">01 / MY PROPOSAL · 我獨立提出、獲 PM 採納</span><h3>付款設備位置引導</h3>'+paragraph('顧客站在機台前時，注意力集中於螢幕，未必能同時看到機台周遭的付款裝置。單純顯示紙鈔或信用卡圖示，無法充分解釋設備在哪裡。')+
- paragraph('因此，我提出在付款畫面中呈現機台與付款設備的相對位置，讓使用者能直接對照畫面與實際操作環境。我的判斷是：這是唯一一個<strong>發生在主流程、會直接中斷交易、又需要店員介入</strong>的問題，改善它同時降低顧客卡關與門市支援成本，所以優先度最高。')+
- '<div class="payment-comparison"><figure><span>BEFORE / 既有付款提示</span><img src="./kiosk-payment-before.png" alt="舊付款介面以文字和抽象投鈔圖示提示現金支付，缺少與機台位置對應的指引"><figcaption>只提示投鈔動作，較難直接對照實體位置。</figcaption></figure><figure><span>AFTER / 新設計</span><img src="./kiosk-payment-after.png" alt="新付款畫面呈現完整自助點餐機並放大實體投鈔位置，讓顧客直接對照硬體模組"><figcaption>呈現機台全貌並局部放大付款入口，協助定位設備。</figcaption></figure></div>'+
- '<div class="state-note">貢獻：我根據店家訪談轉述的操作問題與機台畫面分析提出方案；因主流程重要性及試作可行性，獲 PM 採納並安排試作。原型測試中，付款是受測者回饋最順暢的環節。</div><a class="demo-jump" href="#try-demo" data-demo-go="pay-cash">在互動展示中看付款引導 <span aria-hidden="true">↓</span></a></div>'+
- '<div class="solution"><span class="solution-num">02 / HISTORICAL RESEARCH REVIEW</span><h3>套餐一鍵切換</h3>'+paragraph('回顧過往研究時，我重新辨識到既有系統把「單點」與「套餐」設成兩個獨立商品。顧客即使已經選好餐點，只要在結帳前臨時改變主意，就得先刪除原本品項、重新選擇另一個商品。團隊因此將這項尚未解決的歷史問題納入本次改版，提出在同一商品中直接「一鍵升級套餐／切回單點」的設計方向。')+
- '<figure class="design-shot design-shot--single"><img src="./kiosk-combo-upgrade.png" alt="新設計的商品詳情畫面：餐點下方直接提供套餐升級選項，可在同一畫面選擇附餐組合"><figcaption>商品詳情頁直接提供「套餐升級」選項。</figcaption></figure>'+
- '<div class="state-note">貢獻：團隊共同發想；我參與方案評估與設計。</div><a class="demo-jump" href="#try-demo" data-demo-go="combo">在互動展示中試套餐升級 <span aria-hidden="true">↓</span></a></div>'+
- '<div class="solution"><span class="solution-num">03 / ADOPTED DIRECTION</span><h3>加點商品畫面</h3>'+paragraph('為了讓店家在既有點餐流程中提供額外加購選項，我們增加獨立的加點畫面，以商品圖片、價格與數量加減控制呈現選擇，並提供「不需要，謝謝」的跳過入口。此畫面對應原始建議表中的「加購功能」，目標是讓有意願的顧客更容易選購附加商品。')+
- '<figure class="design-shot design-shot--upsell"><img src="./kiosk-add-on-screen.png" alt="Kiosk 新增的加點商品介面，顯示商品卡、價格、數量增減與不需要謝謝、加入購物車按鈕"><figcaption>加點介面｜保留「不需要，謝謝」的略過選擇。</figcaption></figure><a class="demo-jump" href="#try-demo" data-demo-go="addon">在互動展示中看加點畫面 <span aria-hidden="true">↓</span></a></div></div>'+
+ '<div class="design-phase design-phase--proposal"><div class="phase-banner"><span>PHASE 01 / DESIGN PROPOSALS</span><strong>研究轉譯為設計方案</strong><p>點頁籤切換設計亮點，展示中的機台會直接跳到對應畫面，可以實際操作。</p></div><div class="hl-tabs" id="try-demo"><div class="hl-tablist" role="tablist" aria-label="設計亮點"><button type="button" role="tab" data-hl="pay-cash" aria-selected="true">付款設備引導</button><button type="button" role="tab" data-hl="combo" aria-selected="false">套餐一鍵升級</button><button type="button" role="tab" data-hl="addon" aria-selected="false">加點商品</button><button type="button" role="tab" data-hl="free" aria-selected="false">自由操作</button></div><div class="hl-body"><div class="hl-panels"><div class="hl-panel" data-hl-panel="pay-cash"><span class="solution-num">01 / MY PROPOSAL · 我獨立提出、獲 PM 採納</span><h3>付款設備位置引導</h3><p>顧客站在機台前時，注意力集中於螢幕，未必能同時看到機台周遭的付款裝置。單純顯示紙鈔或信用卡圖示，無法充分解釋設備在哪裡。</p><p>因此，我提出在付款畫面中呈現機台與付款設備的相對位置，讓使用者能直接對照畫面與實際操作環境。我的判斷是：這是唯一一個<strong>發生在主流程、會直接中斷交易、又需要店員介入</strong>的問題，改善它同時降低顧客卡關與門市支援成本，所以優先度最高。</p><figure class="hl-before"><img src="./kiosk-payment-before.png" alt="舊付款介面以文字和抽象投鈔圖示提示現金支付"><figcaption><b>改版前</b>只提示投鈔動作，較難對照實體位置。新設計就在展示裡，可以直接操作。</figcaption></figure><div class="state-note">貢獻：我根據店家訪談轉述的操作問題與機台畫面分析提出方案；獲 PM 採納並安排試作。原型測試中，付款是受測者回饋最順暢的環節。</div></div><div class="hl-panel" data-hl-panel="combo" hidden><span class="solution-num">02 / HISTORICAL RESEARCH REVIEW</span><h3>套餐一鍵切換</h3><p>回顧過往研究時，我重新辨識到既有系統把「單點」與「套餐」設成兩個獨立商品。顧客只要在結帳前臨時改變主意，就得先刪除原本品項、重新選擇另一個商品。</p><p>改版後，在同一個商品頁直接「一鍵升級套餐／切回單點」。可以在展示裡直接點「套餐升級」試試看。</p><div class="state-note">貢獻：團隊共同發想；我參與方案評估與設計。</div></div><div class="hl-panel" data-hl-panel="addon" hidden><span class="solution-num">03 / ADOPTED DIRECTION</span><h3>加點商品畫面</h3><p>為了讓店家在既有點餐流程中提供額外加購選項，結帳前增加獨立的加點畫面，以商品圖片、價格與數量加減呈現選擇。</p><p>同時保留「不需要，謝謝」的略過入口，不讓促購變成阻礙。此畫面對應原始建議表中被採納的「加購功能」。</p></div><div class="hl-panel" data-hl-panel="free" hidden><span class="solution-num">TRY THE PROTOTYPE / 自由操作</span><h3>從頭走一遍新版點餐流程</h3><p>以 Figma Prototype 為基礎重建的可操作展示，涵蓋開始畫面、內用／外帶與桌號選擇、點餐與套餐升級、加點商品、發票設定，以及對照機台位置的付款引導動畫。菜單、價格與圖片為示意資料，付款為模擬流程；部分畫面與互動細節為展示需要補充。</p><a class="hl-open" href="./kiosk-demo/index.html?v=20261029" target="_blank" rel="noopener">在新視窗開啟 ↗</a><small class="hl-small">不連接真實系統 · 付款頁可點「展示用」按鈕模擬完成</small></div></div><div class="hl-stage"><div class="kiosk-live-frame"><iframe src="./kiosk-demo/index.html?v=20261029" title="次世代自助點餐機互動展示" loading="lazy"></iframe></div></div></div></div></div>'+
  '<div class="design-phase design-phase--testing"><div class="phase-banner"><span>PHASE 02 / PROTOTYPE TESTING</span><strong>透過操作回饋找出理解斷點</strong><p>6 位內部同事參與第一輪可用性測試。</p></div><h3>Prototype 驗證：付款流程順暢，套餐選項表意仍不清楚</h3>'+
  paragraph('我以 Prototype 進行 6 人前期可用性測試，受測者皆為公司同事。這一輪主要用來檢查新流程是否容易理解，並蒐集下一輪改善線索。')+
  '<figure class="design-shot test-session-photo"><img src="./kiosk-prototype-test.png" alt="六位公司同事分別在實體自助點餐機上操作 Prototype 的測試過程照片拼貼"><figcaption>Prototype 測試紀錄｜6 位公司同事在機台上操作設計原型。</figcaption></figure>'+
@@ -92,7 +84,7 @@ sec('validation','05 / DESIGN & VALIDATION','從設計方案到初步使用者�
 sec('reflection','06 / OUTCOME & REFLECTION','好的自助體驗，必須同時理解決策、資訊與環境',
   '<div class="contribution-summary business-loop"><span class="overline">BACK TO THE BUSINESS PROBLEM / 回到銷售問題</span><p>研究讓團隊看到：銷售不如預期，不只是「功能比競品少」，也包括<strong>店家導入後的支援成本</strong>。因此建議分成兩類——補齊店家選型時會比較的門檻（分類側欄、加購），以及降低門市負擔的體驗問題（付款設備定位、套餐切換）。前者讓產品在比較時不吃虧，後者讓店家導入後不需要一直派人站在機台旁。</p></div>'+
   paragraph('這次專案讓我從研究執行延伸到設計機會的辨識與優先排序。付款位置引導、套餐切換與加點商品分別回應軟硬體理解、重複操作與營運促購；Prototype 之後的四種版型，則是從測試回饋走向第二輪設計的迭代。')+
-  '<div class="kiosk-live-demo" id="try-demo"><div class="kiosk-live-copy"><span>TRY THE PROTOTYPE / 互動展示</span><h3>直接操作新版點餐流程</h3><p>以 Figma Prototype 為基礎重建的可操作展示，涵蓋開始畫面、內用／外帶與桌號選擇、點餐與套餐升級、加點商品、發票設定，以及對照機台位置的付款引導動畫。菜單、價格與圖片為示意資料，付款為模擬流程；部分畫面與互動細節為展示需要補充。</p><a href="./kiosk-demo/index.html?v=20261029" target="_blank" rel="noopener">在新視窗開啟互動展示 ↗</a><small>不連接真實系統 · 付款頁可點「展示用」按鈕模擬完成 · 建議以桌機或平板觀看</small></div><div class="kiosk-live-frame"><iframe src="./kiosk-demo/index.html?v=20261029" title="次世代自助點餐機互動展示" loading="lazy"></iframe></div></div>'+
+  
  '<ul><li><strong>從畫面走向情境：</strong>理解使用者當下看見什麼、能接觸到什麼。</li><li><strong>從研究走向決策：</strong>讓洞察連接實際可行的設計方案。</li><li><strong>從方案走向驗證：</strong>區分已採納的建議、易用性表現與真正的營運成效。</li></ul>'+
  '<div class="callout"><strong>如果後續導入門店，我會追蹤什麼？</strong><p>付款求助頻率、操作時間、完成率，以及套餐切換是否降低重複點選。這些是後續評估方向，並非目前已有的成效數據。</p></div>');
 }
@@ -623,3 +615,16 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
 
 /* mobile chip bar: keep the active chip in view */
 (function(){let last=null;setInterval(()=>{if(innerWidth>900)return;const a=document.querySelector('.side-index a.is-active');if(a&&a!==last){last=a;const bar=a.parentElement;bar.scrollTo({left:a.offsetLeft-bar.clientWidth/2+a.clientWidth/2,behavior:'smooth'});}},300);})();
+
+/* design-highlight tabs: each tab drives the live demo to its screen */
+(function(){
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  async function send(box,key){const f=box.querySelector('iframe');if(!f)return;if(f.getAttribute('loading')==='lazy')f.removeAttribute('loading');
+    for(let i=0;i<80;i++){try{if(f.contentWindow&&f.contentWindow.__demoReady)break;}catch(e){}await sleep(150);}
+    try{f.contentWindow.postMessage({demoGo:key,quiet:true},'*');}catch(e){}}
+  function select(box,key){box.querySelectorAll('[data-hl]').forEach(b=>b.setAttribute('aria-selected',b.dataset.hl===key?'true':'false'));
+    box.querySelectorAll('[data-hl-panel]').forEach(p=>p.hidden=p.dataset.hlPanel!==key);send(box,key);}
+  document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.hl-tablist [data-hl]');if(!b)return;select(b.closest('.hl-tabs'),b.dataset.hl);});
+  /* when the component first scrolls into view, put the demo on the selected tab's screen */
+  setInterval(()=>{document.querySelectorAll('.hl-tabs:not([data-armed])').forEach(box=>{const r=box.getBoundingClientRect();if(r.top<innerHeight*1.2&&r.bottom>0){box.dataset.armed='1';const cur=box.querySelector('[data-hl][aria-selected="true"]');if(cur)send(box,cur.dataset.hl);}});},400);
+})();
