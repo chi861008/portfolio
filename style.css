@@ -2388,3 +2388,8 @@ html body.kiosk-case .market-chart{border-top:0!important}
 /* Both flip sides reuse the very same portrait; only the transparent coral ink differs. */
 .home-mode .identity-photo .flip-face--back .flip-back-photo{filter:grayscale(1)!important;transform:none!important;object-position:50% 24%!important}
 .home-mode .identity-photo .flip-face--back .flip-orange-doodle{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 24%;filter:none!important;transform:none!important;pointer-events:none;z-index:2}
+
+/* Exact visual registration: front and back use the same source and fit. */
+.home-mode .identity-photo .hero-flip-inner>.flip-face--front,
+.home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-back-photo{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 24%!important;filter:grayscale(1)!important;scale:1!important}
+.home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{filter:none!important;transform:translate(-11%,-8%) scale(.82)!important;transform-origin:center!important}
