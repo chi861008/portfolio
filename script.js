@@ -369,9 +369,9 @@ function setupHeroFlip(){
   const doodle=document.createElementNS('http://www.w3.org/2000/svg','svg');
   doodle.setAttribute('class','flip-orange-doodle');
   doodle.setAttribute('viewBox','0 0 1672 941');
-  doodle.setAttribute('preserveAspectRatio','xMidYMid meet');
+  doodle.setAttribute('preserveAspectRatio','xMidYMid slice');
   doodle.setAttribute('aria-hidden','true');
-  doodle.innerHTML='<g transform="translate(483 43) scale(1.36)" fill="none" stroke="#ff603c" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M179 235 C165 219 151 199 150 181 C149 163 137 145 127 148 C117 150 119 172 124 190 C133 210 147 184 149 165 C151 145 143 131 132 135 C121 138 111 157 108 177 C103 198 127 200 136 177 C150 140 144 117 130 116 C109 113 97 153 104 175 C112 198 135 166 138 139 C142 106 131 88 113 87 C96 86 87 115 94 141 C103 171 121 147 125 120 C129 92 114 70 96 74 C79 75 72 98 78 125 C84 151 102 132 110 108 C121 78 108 67 87 71 C64 74 54 95 54 118 C54 142 65 159 85 156 C97 154 102 138 110 126"/></g>';
+  doodle.innerHTML='<g transform="translate(431 -25) scale(1.65)" fill="none" stroke="#ff603c" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M179 235 C165 219 151 199 150 181 C149 163 137 145 127 148 C117 150 119 172 124 190 C133 210 147 184 149 165 C151 145 143 131 132 135 C121 138 111 157 108 177 C103 198 127 200 136 177 C150 140 144 117 130 116 C109 113 97 153 104 175 C112 198 135 166 138 139 C142 106 131 88 113 87 C96 86 87 115 94 141 C103 171 121 147 125 120 C129 92 114 70 96 74 C79 75 72 98 78 125 C84 151 102 132 110 108 C121 78 108 67 87 71 C64 74 54 95 54 118 C54 142 65 159 85 156 C97 154 102 138 110 126"/></g>';
   back.append(backPhoto,doodle);
   spinner.append(front,back);
   frame.prepend(spinner);
