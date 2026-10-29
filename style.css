@@ -2238,3 +2238,20 @@ html body.kiosk-case .rq-link{max-width:none;gap:18px}
 @media(max-width:650px){html:lang(zh-Hant) body .demo-fab>span:first-child,html body .demo-fab>span:first-child{font-size:14px}}
 @media(max-width:650px){html body .demo-fab,html body .demo-fab>span:first-child{white-space:normal!important}}
 @media(max-width:650px){html body .demo-fab{bottom:calc(28px + env(safe-area-inset-bottom,0px))}}
+
+/* Dark full-bleed next-project section and footer on every case-study page. */
+body:is(.kiosk-case,.kds-case,.scheduling-case) .next-case{
+  position:relative;isolation:isolate;color:#f9f9f7;border-top:1px solid #484848;
+}
+body:is(.kiosk-case,.kds-case,.scheduling-case) .next-case::before{
+  content:"";position:absolute;z-index:-1;top:0;bottom:0;
+  left:calc(50% - 50vw);right:calc(50% - 50vw);
+  background:#1e1e1e;
+}
+body:is(.kiosk-case,.kds-case,.scheduling-case) .next-case small{color:#aaa}
+body:is(.kiosk-case,.kds-case,.scheduling-case) .next-case:hover h2{color:#ff603c}
+body:is(.kiosk-case,.kds-case,.scheduling-case) .footer{
+  background:#1e1e1e;color:#f9f9f7;border-top:1px solid #484848;
+}
+body:is(.kiosk-case,.kds-case,.scheduling-case) .footer span{color:#aaa}
+body:is(.kiosk-case,.kds-case,.scheduling-case) .footer a{border-bottom-color:#888}
