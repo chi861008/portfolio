@@ -1784,3 +1784,14 @@ html body #app .case-layout .side-index a.is-active b{color:#f0c3ad}
 .demo-fab span{display:block;font-size:15px;font-weight:800;line-height:1.25;text-align:center;letter-spacing:.04em}
 .demo-fab-tip{display:none}
 @media(max-width:650px){.demo-fab span{font-size:14px}}
+/* bigger round button with a gentle attention loop */
+.demo-fab{width:76px;height:76px}
+.demo-fab span{font-size:17px}
+.demo-fab::before{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #d0704f;opacity:0;pointer-events:none}
+.demo-fab.on::before{animation:fabRing 2.8s ease-out infinite}
+.demo-fab.on span{animation:fabNudge 2.8s ease-in-out infinite}
+@keyframes fabRing{0%{opacity:.55;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.45)}}
+@keyframes fabNudge{0%,60%,100%{transform:translateY(0)}70%{transform:translateY(3px)}80%{transform:translateY(-1px)}}
+.demo-fab:hover span,.demo-fab:hover::before{animation:none}
+@media(max-width:650px){.demo-fab{width:64px;height:64px}.demo-fab span{font-size:15px}}
+@media (prefers-reduced-motion:reduce){.demo-fab.on::before,.demo-fab.on span{animation:none}}
