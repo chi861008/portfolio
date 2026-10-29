@@ -1982,3 +1982,13 @@ html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
 .demo-fab:hover{background:#eee8e2;color:#24211f!important;border-color:#b9a89d;transform:translateY(-2px)}
 .demo-fab:focus-visible{outline:2px solid #bb795c;outline-offset:3px}
 @media(max-width:650px){.demo-fab{right:14px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:auto;height:44px;padding:0 15px;font-size:12px;gap:8px}}
+
+
+/* Final interaction navigation: solid editorial contrast, no pulsing rings or jitter. */
+.demo-fab{background:#302c29;color:#fff!important;border:1px solid #302c29;box-shadow:0 7px 18px rgba(32,27,24,.16);height:48px;padding:0 21px;gap:12px;transition:opacity .2s ease,visibility .2s,background .18s,transform .18s}
+.demo-fab::before,.demo-fab.on::before{content:none!important;animation:none!important}
+.demo-fab.on span,.demo-fab:hover span{animation:none!important;transform:none!important}
+.demo-fab span,.demo-fab.on span{font-size:14px;font-weight:700;letter-spacing:.01em;line-height:1.1}
+.demo-fab>span:last-child{font-size:18px;color:#e7a180;font-weight:400}
+.demo-fab:hover{background:#483b34;color:#fff!important;border-color:#483b34;transform:translateY(-2px)}
+@media(max-width:650px){.demo-fab{height:46px;padding:0 16px}.demo-fab span,.demo-fab.on span{font-size:13px}.demo-fab>span:last-child{font-size:17px}}
