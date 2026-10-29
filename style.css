@@ -2345,3 +2345,23 @@ html body #app .limits-box li:first-child{border-top:0!important}
 html body.kds-case .kds-design-phase-two{border-top:0!important;padding-top:0!important}
 html body.scheduling-case .schedule-repo+*,html body #app .story-section:last-child .schedule-repo{border-bottom:0!important}
 html body.scheduling-case .schedule-repo{border-bottom:0!important}
+/* ===== unified case closing: outcome → limits → learning → next ===== */
+html body #app .case-close{margin:64px 0 0;border-top:2px solid #24211f}
+html body #app .case-close-head{padding:18px 0 0}
+html body #app .case-close-head span{font-size:11px;font-weight:800;letter-spacing:.14em;color:#ac7055}
+html body #app .case-close>article{display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 24px;padding:30px 0 32px;border-bottom:1px solid #d5cfc8}
+html body #app .case-close>article:last-child{border-bottom:0}
+html body #app .cc-num{font-size:60px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#d0704f;font-variant-numeric:tabular-nums}
+html body #app .cc-body>span{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:#ac7055;margin-bottom:8px}
+html body #app .case-article .cc-body h3{font-size:clamp(20px,2vw,24px);line-height:1.4;margin:0 0 12px;color:#1f1d1b}
+html body #app .case-article .cc-body p,html body #app .case-article .cc-body li{font-size:15.5px;line-height:1.85;color:#4f4a45}
+html body #app .case-article .cc-body p{margin:0}
+html body #app .case-article .cc-body ul{margin:0;padding-left:1.1em;display:grid;gap:6px}
+html body #app .cc-limits{margin:4px 0 0}
+html body #app .cc-limits>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;padding:14px 0;border-top:1px solid #e3ddd6}
+html body #app .cc-limits>div.cc-lh{border-top:0;padding:0 0 8px}
+html body #app .cc-limits .cc-lh dt,html body #app .cc-limits .cc-lh dd{font-size:11px;font-weight:800;letter-spacing:.08em;color:#8a8178}
+html body #app .cc-limits dt{font-size:15px;font-weight:700;line-height:1.65;color:#2c2925}
+html body #app .cc-limits dd{margin:0;font-size:15px;line-height:1.75;color:#4f4a45}
+@media(max-width:700px){html body #app .case-close>article{grid-template-columns:52px minmax(0,1fr);gap:0 12px}html body #app .cc-num{font-size:40px}html body #app .cc-limits>div{grid-template-columns:1fr;gap:4px}html body #app .cc-limits .cc-lh{display:none}html body #app .cc-limits dd::before{content:'→ ';color:#d0704f}}
+html body #app .case-article .cc-body li{margin:0!important;padding:0!important}html body #app .case-article .cc-body ul{gap:8px!important}
