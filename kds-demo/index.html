@@ -156,13 +156,13 @@ svg{display:block}
 .sub .sn{background:#5f5f5f;margin-top:8px;border-radius:4px;padding:8px 10px;font-size:22px;display:flex;align-items:center;justify-content:space-between}
 .sub .sn svg{width:22px;height:22px}
 .sub .snt{font-size:22px;color:#F3E2C7;padding:8px 10px 2px;line-height:1.4}
-.sub.done{opacity:.5}.sub.done .q{border-color:#2E9E5B;background:#2E9E5B;color:#fff}
+.sub .sr{position:relative}.sub.done{opacity:.55}.sub.done .sr::after{content:"✓";position:absolute;right:2px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#2E9E5B;color:#fff;font-size:22px;font-weight:700;display:grid;place-items:center}
 .grp.gdone .gh .dot{background:#2E9E5B;border-color:#2E9E5B}.grp.gdone .gh .dot svg{opacity:1}.grp.gdone .gh .nm,.grp.gdone .gh .mods{color:#8E8E8E}
 
 /* footer + toast */
 .foot{position:absolute;left:0;right:0;bottom:0;height:64px;background:var(--foot);display:flex;align-items:center;padding:0 22px;gap:24px;font-size:20px;color:#A8A8A8}
 .foot .sp{margin-left:auto;display:flex;gap:10px;align-items:center}
-.foot .pg{font-size:24px;color:#E0E0E0;margin-right:14px;min-width:90px;text-align:right;white-space:nowrap}.foot .sp button:disabled{opacity:.35;cursor:default}
+.foot .pg{position:absolute;left:50%;transform:translateX(-50%);font-size:24px;color:#E0E0E0;white-space:nowrap}.foot .sp button:disabled{opacity:.35;cursor:default}
 .foot .sp button{width:96px;height:52px;border-radius:4px;background:#555;display:grid;place-items:center;color:#ddd}
 .foot .sp svg{width:30px;height:30px}
 .foot .lg{display:flex;align-items:center;gap:8px;color:#D0D0D0;white-space:nowrap}.foot .lg i{width:18px;height:18px;border-radius:3px;margin-left:6px}.foot .lg i:first-child{margin-left:0}
@@ -307,7 +307,7 @@ function cardHead(o,i){
   return `<div class="ch ${lv}"><div class="r1"><span class="no">${pad2(i+1)}</span><span class="chip">${o.no}</span>${o.table!=="—"?`<span class="chip">${o.table}</span>`:""}<span class="chip">${o.ref}</span></div>
     <div class="r2">${tyTag(o.type)}${sched?`<span class="chip t" style="margin-left:14px">${md(o.pickup)}</span><span class="chip t" style="margin-left:8px">${hm(o.pickup)}</span>`
       :`<span class="age" style="--clk:${lv==="r"?COLORS[S.cfg.colR][1]:lv==="o"?COLORS[S.cfg.colO][1]:"#6C6C6C"}">${I.clock}${S.tab==="done"?"出餐 "+hm(o.doneAt):ageMin(o)+"分"}</span>`}
-    <button class="nt ${open?"open":""}" data-a="note:${o.id}" ${o.note?"":"disabled"}>備註${I.chev}</button></div></div>
+    ${o.note?`<button class="nt ${open?"open":""}" data-a="note:${o.id}">備註${I.chev}</button>`:""}</div></div>
     ${open&&o.note?`<div class="note">${esc(o.note)}</div>`:""}`;
 }
 function tyTag(t,sm){return t==="外帶"?`<span class="ty to${sm?" sm":""}">${I.bag}外帶</span>`:`<span class="ty${sm?" sm":""}">${t}</span>`;}
@@ -370,9 +370,7 @@ function vAgg(){
 function footer(){
   const a=list("active");let items=0;a.forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void")items+=it.qty;}));
   const next=list("sched").sort((x,y)=>x.pickup-y.pickup)[0];
-  return `<div class="foot"><span>製餐中 ${a.length} 張單・待製作 ${items} 份</span>${next?`<span>預定單 ${hm(next.pickup)} 取餐・${Math.max(0,Math.ceil((next.pickup-now())/MIN)-S.cfg.schedLead)} 分後排入</span>`:""}
-    <span>點品項打勾，按「批次完成」送出</span>
-    <span class="sp"><span class="pg" id="pg"></span><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
+  return `<div class="foot"><span class="pg" id="pg"></span><span class="sp"><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
 }
 function vPanel(){
   if(!S.panel) return "";
