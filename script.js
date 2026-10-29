@@ -1,7 +1,7 @@
 const projects = [
   {id:'kiosk',number:'01',title:'KIOSK Redesign',zh:'次世代自助點餐機',type:'RESEARCH → PRODUCT DECISIONS',summary:'從研究發現到產品改善：整合軟硬體付款引導，重新檢視完整點餐體驗。',role:'UX Research & Product Design',year:'2025–2026',visual:'kiosk'},
   {id:'scheduling',number:'02',title:'Pilates Scheduling',zh:'皮拉提斯排課系統',type:'0→1 BUILD & RE-SCOPE',summary:'獨立做出可運作的排課產品，再從老師的回饋學會重新判斷：什麼才值得先做。',role:'Independent Product Builder',year:'2026',visual:'schedule'},
-  {id:'kds',number:'03',title:'Kitchen Display System',zh:'廚房顯示系統研究與概念設計',type:'TEAM RESEARCH + PERSONAL CONCEPT',summary:'在團隊 KDS 改版中負責研究與 UI 檢視（5 項建議全數採納），並獨立延伸設計支援批次製餐的品項視角。',role:'UX Research & Independent UI Concept',year:'2026',visual:'kds'}
+  {id:'kds',number:'03',title:'Kitchen Display System',zh:'廚房顯示系統研究與概念設計',type:'TEAM RESEARCH + PERSONAL CONCEPT',summary:'在團隊 KDS 改版中負責研究與 UI 檢視，並獨立延伸設計支援批次製餐的品項視角。',role:'UX Research & Independent UI Concept',year:'2026',visual:'kds'}
 ];
 const app = document.querySelector('#app');
 let portfolioLanguage = (()=>{try{return localStorage.getItem('yc-portfolio-language')==='en'?'en':'zh';}catch{return 'zh';}})();
