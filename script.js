@@ -552,7 +552,7 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
   function update(){
     const demo=document.getElementById('try-demo');let show=!!demo&&/^#\/case\//.test(location.hash);
     if(show){const d=demo.getBoundingClientRect();if(d.top<innerHeight*.6&&d.bottom>innerHeight*.4)show=false;}
-    const lbl=isEnglish()?'Explore interaction':'互動展示';if(fab.dataset.lbl!==lbl){fab.dataset.lbl=lbl;fab.setAttribute('aria-label',lbl);fab.innerHTML=isEnglish()?'<span>Explore interaction</span><span aria-hidden="true">↘</span>':'<span>互動展示</span><span aria-hidden="true">↘</span>';}
+    const lbl=isEnglish()?'Try it':'親手試玩';if(fab.dataset.lbl!==lbl){fab.dataset.lbl=lbl;fab.setAttribute('aria-label',lbl);fab.innerHTML='<span>'+lbl+'</span><span aria-hidden="true">↓</span>';}
     fab.classList.toggle('on',show);fab.tabIndex=show?0:-1;fab.setAttribute('aria-hidden',show?'false':'true');
   }
   addEventListener('scroll',update,{passive:true});addEventListener('resize',update);addEventListener('hashchange',()=>setTimeout(update,60));
