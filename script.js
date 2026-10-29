@@ -611,11 +611,48 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
   setInterval(()=>{document.querySelectorAll('.hl-tabs:not([data-armed])').forEach(box=>{const r=box.getBoundingClientRect();if(r.top<innerHeight*1.2&&r.bottom>0){box.dataset.armed='1';const cur=box.querySelector('[data-hl][aria-selected="true"]');if(cur)send(box,cur.dataset.hl);}});},400);
 })();
 
-/* highlight clips: play only while on screen */
+/* Highlight clips: make Safari autoplay robust, with a usable tap-to-play fallback. */
 (function(){
-  if(!('IntersectionObserver' in window))return;
-  const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{});}else v.pause();}),{threshold:.25});
-  setInterval(()=>document.querySelectorAll('.hl-clip video:not([data-io])').forEach(v=>{v.dataset.io='1';io.observe(v);}),700);
+  const start=v=>{
+    if(!v.isConnected||document.hidden)return;
+    v.muted=true;
+    v.defaultMuted=true;
+    v.playsInline=true;
+    v.setAttribute('playsinline','');
+    v.setAttribute('webkit-playsinline','');
+    const p=v.play();
+    if(p&&p.then)p.then(()=>{v.controls=false;v.removeAttribute('data-play-blocked');}).catch(()=>{
+      // Low Power Mode and user autoplay policies can reject even muted videos.
+      // Show native playback controls instead of silently leaving a frozen poster.
+      v.controls=true;
+      v.setAttribute('data-play-blocked','');
+    });
+  };
+  const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting)start(v);
+    else {v.pause();v.controls=false;}
+  }),{threshold:.12,rootMargin:'100px 0px'}):null;
+  const scan=()=>document.querySelectorAll('.hl-clip video:not([data-io])').forEach(v=>{
+    v.dataset.io='1';
+    v.preload='auto';
+    v.muted=true;
+    v.defaultMuted=true;
+    if(io)io.observe(v);
+    else start(v);
+  });
+  setInterval(scan,700);
+  scan();
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden)document.querySelectorAll('.hl-clip video[data-io]').forEach(v=>{
+      const r=v.getBoundingClientRect();
+      if(r.bottom>0&&r.top<innerHeight)start(v);
+    });
+  });
+  window.addEventListener('pageshow',()=>document.querySelectorAll('.hl-clip video[data-io]').forEach(v=>{
+    const r=v.getBoundingClientRect();
+    if(r.bottom>0&&r.top<innerHeight)start(v);
+  }));
 })();
 
 /* in-page jumps between the KIOSK research questions, decisions and highlight clips (hash routing would otherwise leave the case page) */
