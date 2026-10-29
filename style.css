@@ -1920,3 +1920,23 @@ html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
 .kds-proactive-story{max-width:850px;margin:36px 0 24px;padding:24px clamp(20px,3vw,34px);background:#f3eee9;border-radius:16px}
 .kds-proactive-story p:last-child{margin-bottom:0}
 @media(max-width:640px){.kiosk-market-integrated-head{text-align:left}.kiosk-market-integrated-foot{justify-content:flex-start;text-align:left}.kds-proactive-story{margin-top:24px}}
+
+
+/* KIOSK market map: circles on the left, three aligned market-level explanations on the right. */
+.kiosk-case .kiosk-market-integrated .kiosk-market-split{max-width:1060px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4.5vw,64px);margin:28px auto 0}
+.kiosk-case .kiosk-market-split .market-sizing--circles{min-width:0;margin:0;padding:0}
+.kiosk-case .kiosk-market-split .market-sizing-tam{width:min(100%,460px);padding-top:9%}
+.kiosk-case .kiosk-market-split .market-sizing-sam{padding-top:12%}
+.kiosk-case .kiosk-market-split .market-sizing-tam>strong{font-size:clamp(15px,1.6vw,19px);margin-top:5px}
+.kiosk-case .kiosk-market-split .market-sizing-sam>strong{font-size:clamp(14px,1.5vw,18px);margin-top:5px}
+.kiosk-case .kiosk-market-split .market-sizing-focus>strong{font-size:clamp(14px,1.6vw,19px);margin-top:6px}
+.kiosk-market-legend{display:grid;gap:0}
+.kiosk-market-legend>div{display:grid;grid-template-columns:12px minmax(0,1fr);gap:17px;padding:20px 0;border-bottom:1px solid var(--line)}
+.kiosk-market-legend>div:last-child{border-bottom:0}
+.kiosk-legend-mark{width:10px;height:10px;border-radius:50%;margin-top:7px;background:#c9c4be}
+.kiosk-legend-mark--sam{background:#c99077}
+.kiosk-legend-mark--focus{background:#d7b4a0}
+.kiosk-market-legend small{display:block;color:#a65f44;font-size:11px;letter-spacing:.12em;font-weight:700;margin-bottom:8px}
+.kiosk-market-legend h4{font-size:clamp(17px,1.75vw,22px);line-height:1.4;margin:0 0 7px;color:var(--ink)}
+.kiosk-market-legend p{font-size:14px;line-height:1.75;color:var(--muted);margin:0}
+@media(max-width:740px){.kiosk-case .kiosk-market-integrated .kiosk-market-split{grid-template-columns:1fr;gap:24px}.kiosk-case .kiosk-market-split .market-sizing-tam{max-width:420px}.kiosk-market-legend>div{padding:16px 0}.kiosk-market-legend h4{font-size:18px}}
