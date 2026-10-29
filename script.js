@@ -614,3 +614,9 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
   addEventListener('scroll',update,{passive:true});addEventListener('resize',update);addEventListener('hashchange',()=>setTimeout(update,60));
   setInterval(update,700);update();
 })();
+
+/* keep the Pilates phone at 390px logical width and scale it to the available frame */
+(function(){
+  function fit(){document.querySelectorAll('.schedule-live-frame').forEach(fr=>{const w=fr.clientWidth;if(!w)return;const s=Math.min(1,w/390);const v=s.toFixed(4);if(fr.dataset.s!==v){fr.dataset.s=v;fr.style.setProperty('--pil-s',v);fr.style.setProperty('--pil-h',Math.round(660*s)+'px');}});}
+  addEventListener('resize',fit);addEventListener('hashchange',()=>setTimeout(fit,80));setInterval(fit,600);fit();
+})();
