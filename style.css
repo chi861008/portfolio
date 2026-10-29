@@ -2366,3 +2366,12 @@ html body #app .cc-limits dd{margin:0;font-size:15px;line-height:1.75;color:#4f4
 @media(max-width:700px){html body #app .case-close>article{grid-template-columns:52px minmax(0,1fr);gap:0 12px}html body #app .cc-num{font-size:40px}html body #app .cc-limits>div{grid-template-columns:1fr;gap:4px}html body #app .cc-limits .cc-lh{display:none}html body #app .cc-limits dd::before{content:'→ ';color:#d0704f}}
 html body #app .case-article .cc-body li{margin:0!important;padding:0!important}html body #app .case-article .cc-body ul{gap:8px!important}
 html body.kiosk-case .market-chart{border-top:0!important}
+
+
+/* Kiosk layout comparison: text-only toppings example */
+.kiosk-topping-demo{width:100%;min-height:150px;padding:16px 14px 18px;background:#f0ece7;border-radius:10px;color:#35302b;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.kiosk-topping-demo-head{font-weight:750;font-size:15px;border-bottom:1px solid #ccc5bd;padding-bottom:8px;display:flex;align-items:center;gap:10px}
+.kiosk-topping-demo-head span{font-size:11px;font-weight:650;color:#399063;background:#d9efdf;padding:3px 7px;border-radius:4px}
+.kiosk-topping-demo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.kiosk-topping-demo-grid span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:42px;border:1px solid #ded8d1;border-radius:4px;background:#e7e2dc;font-weight:700;font-size:14px}
+.kiosk-topping-demo-grid .selected{background:#ce4d13;border-color:#ce4d13;color:white}
