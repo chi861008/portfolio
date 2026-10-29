@@ -2365,3 +2365,4 @@ html body #app .cc-limits dt{font-size:15px;font-weight:700;line-height:1.65;col
 html body #app .cc-limits dd{margin:0;font-size:15px;line-height:1.75;color:#4f4a45}
 @media(max-width:700px){html body #app .case-close>article{grid-template-columns:52px minmax(0,1fr);gap:0 12px}html body #app .cc-num{font-size:40px}html body #app .cc-limits>div{grid-template-columns:1fr;gap:4px}html body #app .cc-limits .cc-lh{display:none}html body #app .cc-limits dd::before{content:'→ ';color:#d0704f}}
 html body #app .case-article .cc-body li{margin:0!important;padding:0!important}html body #app .case-article .cc-body ul{gap:8px!important}
+html body.kiosk-case .market-chart{border-top:0!important}
