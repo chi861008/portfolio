@@ -1992,3 +1992,11 @@ html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
 .demo-fab>span:last-child{font-size:18px;color:#e7a180;font-weight:400}
 .demo-fab:hover{background:#483b34;color:#fff!important;border-color:#483b34;transform:translateY(-2px)}
 @media(max-width:650px){.demo-fab{height:46px;padding:0 16px}.demo-fab span,.demo-fab.on span{font-size:13px}.demo-fab>span:last-child{font-size:17px}}
+
+/* floating "try it" button: the one solid brand-orange action on the page, so it never reads as another black label */
+html body .demo-fab{background:#d0704f;border-color:#d0704f;color:#fff!important;box-shadow:0 8px 20px rgba(208,112,79,.32);height:52px;min-width:52px;padding:0 22px;gap:10px}
+html body .demo-fab span,html body .demo-fab.on span{font-size:15px;font-weight:800;letter-spacing:.04em;color:#fff}
+html body .demo-fab>span:last-child{font-size:18px;font-weight:700;color:#fff}
+html body .demo-fab:hover{background:#b85d3e;border-color:#b85d3e;transform:translateY(-2px)}
+html body .demo-fab:focus-visible{outline:3px solid #24211f;outline-offset:3px}
+@media(max-width:650px){html body .demo-fab{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));height:44px;padding:0 16px;gap:6px;box-shadow:0 6px 16px rgba(208,112,79,.3)}html body .demo-fab span,html body .demo-fab.on span{font-size:14px}html body .demo-fab>span:last-child{font-size:16px}}
