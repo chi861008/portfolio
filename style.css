@@ -2410,22 +2410,28 @@ html body.kiosk-case .market-chart{border-top:0!important}
 }
 
 
-/* Mobile Safari: clip video compositor surfaces before the first frame is painted. */
+/* Kiosk clips: keep the MP4 layer visible on iOS Safari from its first frame. */
 html body.kiosk-case #app .hl-clip-frame,
 html body.kiosk-case #app .kiosk-live-frame{
   isolation:isolate;
-  -webkit-mask-image:-webkit-radial-gradient(white,black);
-  clip-path:inset(0 round 26px);
+  -webkit-mask-image:none;
+  clip-path:none;
+  overflow:hidden;
+  border-radius:26px;
+  transform:translateZ(0);
 }
 html body.kiosk-case #app .hl-clip-frame video{
+  display:block;
+  width:100%;
   border-radius:17px;
-  clip-path:inset(0 round 17px);
-  -webkit-backface-visibility:hidden;
-  backface-visibility:hidden;
-  transform:translateZ(0);
+  clip-path:none;
+  -webkit-mask-image:none;
+  -webkit-backface-visibility:visible;
+  backface-visibility:visible;
+  transform:none;
 }
 html body.kiosk-case #app .kiosk-live-frame iframe{
   border-radius:18px;
-  clip-path:inset(0 round 18px);
-  transform:translateZ(0);
+  clip-path:none;
+  transform:none;
 }
