@@ -304,13 +304,14 @@ let homeOpeningAttempt=0;
 async function playHomeOpening(){
   const attempt=++homeOpeningAttempt;
   const target=document.querySelector('.home-mode .identity-photo .flip-face--front');
-  const clearBoot=()=>document.documentElement.classList.remove('home-boot');
+  const clearBoot=()=>{document.documentElement.classList.remove('home-boot','initial-home');document.getElementById('opening-shell')?.remove();};
   if(!target||window.scrollY>2||window.matchMedia('(prefers-reduced-motion: reduce)').matches){clearBoot();return;}
   // Decode the *actual opening image* before starting its animation clock.
   // Mobile Safari may otherwise finish the zoom while the first frame is still blank.
-  const image=document.createElement('img');
+  const shell=document.getElementById('opening-shell');
+  const image=shell?.querySelector('img')||document.createElement('img');
   image.className='home-opening-photo';
-  image.src=target.currentSrc||target.src;
+  if(!image.getAttribute('src'))image.src=target.currentSrc||target.src;
   image.alt='';
   try{
     if(image.decode)await image.decode();
@@ -327,7 +328,8 @@ async function playHomeOpening(){
   opening.append(backdrop,caption,image);document.body.appendChild(opening);
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
-  // Reveal a fully decoded photo on the same paint that removes the boot backdrop.
+  // Move the already-visible first-paint photo directly into the animation layer.
+  // This prevents a blank or orange intermediary frame on iOS Safari.
   clearBoot();
   const startWidth=window.innerWidth;
   const startHeight=window.innerHeight;
