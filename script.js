@@ -363,7 +363,13 @@ function setupPhotoJourney(){
   const destination=document.querySelector('.home-mode .intro-photo-frame');
   if(!hero||!destination)return;
   const overlay=document.createElement('div');overlay.className='photo-journey';overlay.setAttribute('aria-hidden','true');
-  overlay.dataset.endScroll=Math.max(1,destination.getBoundingClientRect().top+window.scrollY-window.innerHeight*.42);
+  const heroHold=document.querySelector('.home-mode .hero-hold');
+  const heroStage=heroHold?.querySelector('.identity-hero');
+  const heroStart=heroHold?heroHold.getBoundingClientRect().top+window.scrollY:0;
+  const heroTravel=heroHold&&heroStage?Math.max(1,heroHold.offsetHeight-heroStage.offsetHeight):1;
+  // The journey may begin only once the pinned hero has finished its 180° flip.
+  overlay.dataset.startScroll=heroStart+heroTravel*.60;
+  overlay.dataset.endScroll=Math.max(Number(overlay.dataset.startScroll)+1,destination.getBoundingClientRect().top+window.scrollY-window.innerHeight*.42);
   const card=document.createElement('div');card.className='photo-journey-card';
   const front=document.createElement('img');front.src='./yuan-chi-expressive-hero.png';front.className='photo-journey-face photo-journey-front';front.alt='';
   const back=document.createElement('img');back.src='./yuan-chi-about-crossleg-slim.svg';back.className='photo-journey-face photo-journey-back';back.alt='';
@@ -382,15 +388,13 @@ function updatePhotoJourney(){
   const source=hero.getBoundingClientRect(),dest=target.getBoundingClientRect();
   const sourceTop=source.top+scroll,destTop=dest.top+scroll;
   const end=Number(overlay.dataset.endScroll)||1;
-  const progress=Math.max(0,Math.min(1,scroll/end));
+  const begin=Number(overlay.dataset.startScroll)||0;
+  const progress=Math.max(0,Math.min(1,(scroll-begin)/Math.max(1,end-begin)));
   if(progress<=0){overlay.style.display='none';heroCard.style.visibility='';target.style.visibility='';return;}
   if(progress>=1){overlay.style.display='none';heroCard.style.visibility='hidden';target.style.visibility='';return;}
-  // Finish the flip at the original hero size before the photograph travels.
-  // Separating rotation from resizing prevents the rubbery 3D distortion.
-  const flipProgress=Math.max(0,Math.min(1,progress/.23));
-  const flipEase=flipProgress*flipProgress*(3-2*flipProgress);
-  const travelProgress=Math.max(0,Math.min(1,(progress-.23)/.77));
-  const ease=travelProgress*travelProgress*(3-2*travelProgress);
+  // The original hero completes the flip before this overlay becomes visible.
+  // Keep the journey card on its back face while it travels to the About section.
+  const ease=progress*progress*(3-2*progress);
   const lerp=(a,b)=>a+(b-a)*ease;
   overlay.style.display='block';heroCard.style.visibility='hidden';target.style.visibility='hidden';
   overlay.style.left=lerp(source.left,dest.left)+'px';
@@ -398,7 +402,7 @@ function updatePhotoJourney(){
   overlay.style.width=lerp(source.width,dest.width)+'px';
   overlay.style.height=lerp(source.height,dest.height)+'px';
   const card=overlay.firstElementChild;
-  card.style.transform=`rotateZ(${(1-ease)*4}deg) rotateY(${flipEase*180}deg)`;
+  card.style.transform=`rotateZ(${(1-ease)*4}deg) rotateY(180deg)`;
 }
 function updateThinkingParallax(){
   const band=document.querySelector('.home-mode .dark-band');
