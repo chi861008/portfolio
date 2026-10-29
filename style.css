@@ -2113,3 +2113,25 @@ html body.kiosk-case .jump-flash{animation:jumpFlash 1.6s ease}@keyframes jumpFl
 html body.kiosk-case .rq-link{display:table;margin:0 0 8px;padding:6px 12px}
 html body.kiosk-case .rq-link span{margin-left:4px}
 html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
+/* Pilates turning point: verbatim quote + hypothesis check */
+.scheduling-case .schedule-quote{margin:28px 0 0;padding:22px 26px;border-left:4px solid #d0704f;background:#f4efe9;border-radius:0 12px 12px 0}
+.scheduling-case .schedule-quote span{display:block;font-size:11px;font-weight:800;letter-spacing:.09em;color:#ac7055;margin-bottom:10px}
+.scheduling-case .schedule-quote p{margin:0;font-size:clamp(19px,2vw,23px);line-height:1.6;font-weight:700;color:#24211f}
+.scheduling-case .schedule-quote small{display:block;margin-top:8px;font-size:12px;color:#8a8178}
+.scheduling-case .schedule-hypo-check{margin:44px 0 40px}
+.scheduling-case .schedule-hypo-check>span{font-size:10px;letter-spacing:.12em;font-weight:800;color:#ac7055}
+.scheduling-case .schedule-hypo-check h3{font-size:clamp(21px,2.3vw,28px);line-height:1.35;margin:12px 0 18px}
+.scheduling-case .schedule-hypo-check table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.7}
+.scheduling-case .schedule-hypo-check th,.scheduling-case .schedule-hypo-check td{text-align:left;vertical-align:top;padding:14px 12px;border-bottom:1px solid #d8d2cb}
+.scheduling-case .schedule-hypo-check thead th{font-size:11px;letter-spacing:.06em;color:#8a8178;font-weight:800;border-bottom:2px solid #24211f}
+.scheduling-case .schedule-hypo-check tbody th{font-weight:800;color:#24211f;width:30%}
+.scheduling-case .schedule-hypo-check tbody th span{display:block;font-size:11px;color:#ac7055;letter-spacing:.06em;margin-bottom:2px}
+.scheduling-case .schedule-hypo-check td:nth-child(2){width:20%;white-space:nowrap}
+.scheduling-case .schedule-hypo-check td{color:#4f4a45}
+.scheduling-case .schedule-hypo-check em{font-style:normal;font-weight:800;font-size:13px;padding:3px 10px;border-radius:999px;display:inline-block}
+.scheduling-case .schedule-hypo-check .hc-ok{background:#e3efe6;color:#2f6b45}
+.scheduling-case .schedule-hypo-check .hc-up{background:#fff0d6;color:#8a5a00}
+.scheduling-case .schedule-hypo-check .hc-no{background:#fbe1d8;color:#a8401f}
+.scheduling-case .schedule-hypo-check tbody tr:last-child{background:#fbf3ef}
+.scheduling-case .schedule-hypo-check>p{margin:16px 0 0;font-size:15px;line-height:1.85;color:#55514d}
+@media(max-width:650px){.scheduling-case .schedule-hypo-check thead{display:none}.scheduling-case .schedule-hypo-check tr{display:grid;grid-template-columns:1fr auto;padding:14px 0;border-bottom:1px solid #d8d2cb}.scheduling-case .schedule-hypo-check th,.scheduling-case .schedule-hypo-check td{border:0;padding:0;width:auto!important}.scheduling-case .schedule-hypo-check td:last-child{grid-column:1/-1;margin-top:6px}.scheduling-case .schedule-hypo-check tbody tr:last-child{padding:14px 10px}}
