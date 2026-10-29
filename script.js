@@ -334,15 +334,17 @@ async function playHomeOpening(){
   const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
   const endLeft=destination.left+(destination.width-endWidth)/2;
   const endTop=destination.top+(destination.height-endHeight)/2;
-  // Zoom for 0.5s, visibly hold for 1.2s, then shrink in 0.4s.
+  // A visible 1.2s push-in, 1.5s hold, then a brisk 0.4s return to the hero card.
+  // Segment-specific easing keeps the push-in from being compressed by the final shrink.
+  const openingDuration=3100;
   image.animate([
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1)',borderRadius:'0px',offset:0},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:.238095},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:.809524},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1)',borderRadius:'0px',offset:0,easing:'ease-in-out'},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:1200/openingDuration,easing:'linear'},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:2700/openingDuration,easing:'cubic-bezier(.72,0,.28,1)'},
     {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg) scale(1)',borderRadius:'8px',offset:1}
-  ],{duration:2100,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
-  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.81},{opacity:0,offset:1}],{duration:2100,easing:'ease-out',fill:'forwards'});
-  caption.animate([{opacity:1,offset:0},{opacity:1,offset:.35},{opacity:0,offset:1}],{duration:1200,fill:'forwards'});
+  ],{duration:openingDuration,easing:'linear',fill:'forwards'});
+  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:2700/openingDuration},{opacity:0,offset:1}],{duration:openingDuration,easing:'linear',fill:'forwards'});
+  caption.animate([{opacity:1,offset:0},{opacity:1,offset:.6},{opacity:0,offset:1}],{duration:1800,fill:'forwards'});
   const cancelOnScroll=()=>{if(window.scrollY>2)finish();};
   const finish=()=>{
     if(!opening.isConnected)return;
@@ -353,7 +355,7 @@ async function playHomeOpening(){
   };
   window.addEventListener('scroll',cancelOnScroll,{passive:true});
   if(window.scrollY>2)finish();
-  window.setTimeout(finish,2150);
+  window.setTimeout(finish,openingDuration+50);
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&opening.isConnected)finish();},{once:true});
 }
 function setupThinkingBand(){
