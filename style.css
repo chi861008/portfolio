@@ -1853,3 +1853,8 @@ html body #app .case-article .hl-copy p{font-size:15px;line-height:1.9;color:#4f
 html body #app .case-article .story-section .hl-row+.schedule-highlight-note{margin-top:20px}
 html body #app .case-article .story-section .schedule-highlight-note+.schedule-live-demo{margin-top:56px}
 html body #app .case-article .story-section .schedule-highlight-intro+.hl-row{margin-top:28px}
+
+/* Pilates phone at iPhone 13 proportions (390×844) */
+html body.scheduling-case .schedule-live-frame iframe{height:844px!important}
+html body.scheduling-case .schedule-live-frame{height:var(--pil-h,720px)}
+html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
