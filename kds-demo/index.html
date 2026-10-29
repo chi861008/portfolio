@@ -91,7 +91,7 @@ svg{display:block}
 .chip.t{background:#F0F0F0!important;color:#2B2B2B}
 .ch .r2{display:flex;align-items:center;height:56px;margin-top:6px}
 .ch .ty{font-size:28px}
-.ty.to{display:inline-flex;align-items:center;height:42px;padding:0 16px;border-radius:21px;background:rgba(255,255,255,.22);color:#fff}.ch.o .ty.to{background:rgba(255,255,255,.55);color:#4A4A4A}
+.ty.to{display:inline-flex;align-items:center;height:42px;padding:0 14px;border-radius:21px;border:2px solid #fff;color:#fff}.ch.o .ty.to{color:#4A4A4A}
 .ty.sm{font-size:26px}.ty.sm.to{height:36px;font-size:24px;padding:0 11px}
 .ch .age{display:flex;align-items:center;gap:6px;font-size:24px;margin-left:26px}
 .ch .age svg{width:24px;height:24px}
@@ -162,8 +162,8 @@ svg{display:block}
 
 /* footer + toast */
 .foot{position:absolute;left:0;right:0;bottom:0;height:64px;background:var(--foot);display:flex;align-items:center;padding:0 22px;gap:24px;font-size:20px;color:#A8A8A8}
-.foot .sp{margin-left:auto;display:flex;gap:10px;align-items:center}
-.foot .pg{position:absolute;left:50%;transform:translateX(-50%);font-size:24px;color:#E0E0E0;white-space:nowrap}.foot .sp button:disabled{opacity:.35;cursor:default}
+.foot .sp{margin:0 auto;display:flex;gap:16px;align-items:center}
+.foot .pg{font-size:24px;color:#E0E0E0;white-space:nowrap;min-width:150px;text-align:center}.foot .sp button:disabled{opacity:.35;cursor:default}
 .foot .sp button{width:96px;height:52px;border-radius:4px;background:#555;display:grid;place-items:center;color:#ddd}
 .foot .sp svg{width:30px;height:30px}
 .foot .lg{display:flex;align-items:center;gap:8px;color:#D0D0D0;white-space:nowrap}.foot .lg i{width:18px;height:18px;border-radius:3px;margin-left:6px}.foot .lg i:first-child{margin-left:0}
@@ -342,7 +342,7 @@ function itemRow(o,it){
   const extra=`${it.mods.length?`<span class="mods">- ${it.mods.map(esc).join("、")}</span>`:""}${it.tag?`<span class="tag">${esc(it.tag)}</span>`:""}`;
   if(S.tab==="done") return `<div class="it">${body}<button class="undo" data-a="undo:${o.id}:${it.id}" aria-label="退回重做">${I.undo}</button>${extra}</div>`;
   if(S.tab==="sched") return `<div class="it" style="cursor:default">${body}<span></span>${extra}</div>`;
-  if(it.state==="void") return `<div class="it void">${body}<button class="trash" data-a="ack:${o.id}:${it.id}" aria-label="確認刪除">${I.trash}</button>${extra}<span class="voidnote">前台已取消，點垃圾桶確認</span></div>`;
+  if(it.state==="void") return `<div class="it void">${body}<button class="trash" data-a="ack:${o.id}:${it.id}" aria-label="確認刪除">${I.trash}</button>${extra}</div>`;
   return `<div class="it ${it.state==="todo"?(S.restored.has(o.id+":"+it.id)&&S.tab==="active"?"restored":""):it.state}" data-a="row:${o.id}:${it.id}">${body}<button class="dot" data-a="tick:${o.id}:${it.id}" aria-label="完成">${I.check}</button>${extra}</div>`;
 }
 function vOrders(){
@@ -395,7 +395,7 @@ function vAgg(){
 function footer(){
   const a=list("active");let items=0;a.forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void")items+=it.qty;}));
   const next=list("sched").sort((x,y)=>x.pickup-y.pickup)[0];
-  return `<div class="foot"><span class="pg" id="pg"></span><span class="sp"><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
+  return `<div class="foot"><span class="sp"><button data-a="scroll:-1" aria-label="上一頁">${I.left}</button><span class="pg" id="pg"></span><button data-a="scroll:1" aria-label="下一頁">${I.right}</button></span></div>`;
 }
 function vPanel(){
   if(!S.panel) return "";
