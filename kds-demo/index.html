@@ -91,6 +91,8 @@ svg{display:block}
 .chip.t{background:#F0F0F0!important;color:#2B2B2B}
 .ch .r2{display:flex;align-items:center;height:56px;margin-top:6px}
 .ch .ty{font-size:28px}
+.ty.to{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 12px 0 10px;border-radius:21px;background:#fff;color:#1E1E1E;font-weight:700}.ty.to svg{width:24px;height:24px}
+.ty.sm{font-size:26px}.ty.sm.to{height:36px;font-size:24px;padding:0 10px 0 8px}.ty.sm.to svg{width:20px;height:20px}
 .ch .age{display:flex;align-items:center;gap:6px;font-size:24px;margin-left:26px}
 .ch .age svg{width:24px;height:24px}
 .ch .nt{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:24px;padding:8px 0 8px 12px;color:inherit}
@@ -133,6 +135,8 @@ svg{display:block}
 .act svg{width:28px;height:28px}
 .act.blue{background:var(--blue)}
 .act:active{filter:brightness(.92)}
+.act:disabled{opacity:.35;cursor:default}
+.col>.act{margin-top:auto}
 .empty{margin:auto;text-align:center;color:#9a9a9a;font-size:28px;line-height:1.8}
 .empty b{display:block;font-size:34px;color:#CFCFCF;font-weight:500}
 
@@ -152,11 +156,13 @@ svg{display:block}
 .sub .sn{background:#5f5f5f;margin-top:8px;border-radius:4px;padding:8px 10px;font-size:22px;display:flex;align-items:center;justify-content:space-between}
 .sub .sn svg{width:22px;height:22px}
 .sub .snt{font-size:22px;color:#F3E2C7;padding:8px 10px 2px;line-height:1.4}
-.sub.done{opacity:.45;text-decoration:line-through}
+.sub.done{opacity:.5}.sub.done .q{border-color:#2E9E5B;background:#2E9E5B;color:#fff}
+.grp.gdone .gh .dot{background:#2E9E5B;border-color:#2E9E5B}.grp.gdone .gh .dot svg{opacity:1}.grp.gdone .gh .nm,.grp.gdone .gh .mods{color:#8E8E8E}
 
 /* footer + toast */
 .foot{position:absolute;left:0;right:0;bottom:0;height:64px;background:var(--foot);display:flex;align-items:center;padding:0 22px;gap:24px;font-size:20px;color:#A8A8A8}
-.foot .sp{margin-left:auto;display:flex;gap:10px}
+.foot .sp{margin-left:auto;display:flex;gap:10px;align-items:center}
+.foot .pg{font-size:24px;color:#E0E0E0;margin-right:14px;min-width:90px;text-align:right;white-space:nowrap}.foot .sp button:disabled{opacity:.35;cursor:default}
 .foot .sp button{width:96px;height:52px;border-radius:4px;background:#555;display:grid;place-items:center;color:#ddd}
 .foot .sp svg{width:30px;height:30px}
 .foot .lg{display:flex;align-items:center;gap:8px;color:#D0D0D0;white-space:nowrap}.foot .lg i{width:18px;height:18px;border-radius:3px;margin-left:6px}.foot .lg i:first-child{margin-left:0}
@@ -220,6 +226,7 @@ const I={
   g2:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg>',
   g3:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="3" width="6" height="5"/><rect x="9" y="3" width="6" height="5"/><rect x="16" y="3" width="6" height="5"/><rect x="2" y="9.5" width="6" height="5"/><rect x="9" y="9.5" width="6" height="5"/><rect x="16" y="9.5" width="6" height="5"/><rect x="2" y="16" width="6" height="5"/><rect x="9" y="16" width="6" height="5"/><rect x="16" y="16" width="6" height="5"/></svg>',
   play:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>',
+  bag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
   pause:'<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>',
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>',
   undo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7 5 11l4 4"/><path d="M5 11h9a5 5 0 0 1 0 10h-3"/></svg>',
@@ -274,7 +281,7 @@ const ageMin=o=>Math.max(0,Math.floor((now()-o.t0)/MIN));
 function level(o){const a=ageMin(o);return a>=S.cfg.warnR?"r":a>=S.cfg.warnO?"o":"";}
 const inStation=it=>S.station==="all"||PROD[it.name][1]===S.station;
 const list=st=>S.orders.filter(o=>o.status===st);
-function visItems(o){return o.items.filter(inStation);}
+function visItems(o){return o.items.filter(i=>inStation(i)&&(S.tab!=="active"||!i.gone));}
 function hm(t){const d=new Date(t);return pad2(d.getHours())+":"+pad2(d.getMinutes());}
 function md(t){const d=new Date(t);return (d.getMonth()+1)+" / "+d.getDate();}
 
@@ -298,11 +305,12 @@ function countStation(k){let n=0;list("active").forEach(o=>o.items.forEach(it=>{
 function cardHead(o,i){
   const lv=S.tab==="active"?level(o):S.tab==="done"?"fin":"", sched=o.status==="sched", open=S.notes[o.id];
   return `<div class="ch ${lv}"><div class="r1"><span class="no">${pad2(i+1)}</span><span class="chip">${o.no}</span>${o.table!=="—"?`<span class="chip">${o.table}</span>`:""}<span class="chip">${o.ref}</span></div>
-    <div class="r2"><span class="ty">${o.type}</span>${sched?`<span class="chip t" style="margin-left:14px">${md(o.pickup)}</span><span class="chip t" style="margin-left:8px">${hm(o.pickup)}</span>`
+    <div class="r2">${tyTag(o.type)}${sched?`<span class="chip t" style="margin-left:14px">${md(o.pickup)}</span><span class="chip t" style="margin-left:8px">${hm(o.pickup)}</span>`
       :`<span class="age" style="--clk:${lv==="r"?COLORS[S.cfg.colR][1]:lv==="o"?COLORS[S.cfg.colO][1]:"#6C6C6C"}">${I.clock}${S.tab==="done"?"出餐 "+hm(o.doneAt):ageMin(o)+"分"}</span>`}
     <button class="nt ${open?"open":""}" data-a="note:${o.id}" ${o.note?"":"disabled"}>備註${I.chev}</button></div></div>
     ${open&&o.note?`<div class="note">${esc(o.note)}</div>`:""}`;
 }
+function tyTag(t,sm){return t==="外帶"?`<span class="ty to${sm?" sm":""}">${I.bag}外帶</span>`:`<span class="ty${sm?" sm":""}">${t}</span>`;}
 function itemRow(o,it){
   const set=it.set&&S.cfg.showSet?`<span class="set">套</span>`:"";
   const body=`<span class="qty">${it.qty}</span><span class="nm">${esc(it.name)}${set}</span>`;
@@ -320,23 +328,23 @@ function vOrders(){
   os=os.filter(o=>visItems(o).length);
   if(!os.length) return `<div class="empty"><b>${{active:"目前沒有待製作的訂單",done:"還沒有已出餐的訂單",sched:"沒有預定單"}[S.tab]}</b>${S.tab==="active"&&S.paused?"進單已暫停，點右上角恢復進單":S.station!=="all"?"可切換站台查看其他品項":""}</div>`;
   return os.map((o,i)=>`<div class="col"><div class="card ${S.newIds.has(o.id)?"new":""}">${cardHead(o,i)}<div class="items">${visItems(o).map(it=>itemRow(o,it)).join("")}</div></div>
-    ${S.tab==="active"?`<button class="act" data-a="bump:${o.id}">${I.check}整單完成</button>`:S.tab==="done"?`<button class="act blue" data-a="restore:${o.id}">${I.undo}整單復原</button>`:""}</div>`).join("");
+    ${S.tab==="active"?`<button class="act" data-a="obatch:${o.id}" ${visItems(o).some(i=>i.state==="done")?"":"disabled"}>${I.check}批次完成</button>`:S.tab==="done"?`<button class="act blue" data-a="restore:${o.id}">${I.undo}整單復原</button>`:""}</div>`).join("");
 }
 function aggregate(){
   const rows=[];
-  list("active").sort((a,b)=>a.t0-b.t0).forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void"&&inStation(it))rows.push({o,it});}));
+  list("active").sort((a,b)=>a.t0-b.t0).forEach(o=>o.items.forEach(it=>{if(!it.gone&&it.state!=="void"&&inStation(it))rows.push({o,it});}));
   return rows;
 }
 const rank=lv=>lv==="r"?2:lv==="o"?1:0;
 function subRow(r,showMods){
   const open=S.notes["s"+r.it.id];
-  return `<div class="sub" data-a="subtick:${r.o.id}:${r.it.id}"><div class="sr"><span class="q">${r.it.qty}</span>${r.o.type} ${r.o.no}${r.it.set&&S.cfg.showSet?`<span class="set">套</span>`:""}${showMods&&r.it.mods.length?`<span style="font-size:22px;color:#eee">- ${r.it.mods.join("、")}</span>`:""}</div>
+  return `<div class="sub ${r.it.state==="done"?"done":""}" data-a="subtick:${r.o.id}:${r.it.id}"><div class="sr"><span class="q">${r.it.qty}</span>${tyTag(r.o.type,1)}<span>${r.o.no}</span>${r.it.set&&S.cfg.showSet?`<span class="set">套</span>`:""}${showMods&&r.it.mods.length?`<span style="font-size:22px;color:#eee">- ${r.it.mods.join("、")}</span>`:""}</div>
     ${r.o.note?`<button class="sn" data-a="snote:${r.it.id}" style="width:100%">備註${I.chev}</button>${open?`<div class="snt">${esc(r.o.note)}</div>`:""}`:""}</div>`;
 }
 function group(rows,title,key){
   const q=rows.reduce((a,r)=>a+r.it.qty,0), lv=["","o","r"][Math.max(...rows.map(r=>rank(level(r.o))))];
   const it=rows[0].it;
-  return `<div class="grp"><div class="gh"><span class="qty ${lv}">${q}</span><span class="nm">${title}</span><button class="dot" data-a="gtick:${key}" aria-label="此品項全部完成">${I.check}</button>
+  return `<div class="grp ${rows.every(r=>r.it.state==="done")?"gdone":""}"><div class="gh"><span class="qty ${lv}">${q}</span><span class="nm">${title}</span><button class="dot" data-a="gtick:${key}" aria-label="此品項全部完成">${I.check}</button>
     ${key.startsWith("p")?"":`${it.mods.length?`<span class="mods">- ${it.mods.join("、")}</span>`:""}${it.tag?`<span class="tag">${esc(it.tag)}</span>`:""}`}</div>
     <div class="subs">${rows.map(r=>subRow(r,false)).join("")}</div></div>`;
 }
@@ -350,21 +358,21 @@ function vAgg(){
     rows.forEach(r=>{const c=PROD[r.it.name][0];if(!cols.has(c))cols.set(c,new Map());const k=r.it.name+"|"+r.it.mods.join()+"|"+r.it.tag;const m=cols.get(c);if(!m.has(k))m.set(k,[]);m.get(k).push(r);});
     return CAT_ORDER.filter(c=>cols.has(c)).map(c=>{let gi=0;const gs=[...cols.get(c).values()].map(g=>{const key="c"+c+(gi++);GROUPS[key]=g;return group(g,esc(g[0].it.name),key);}).join("");
       GROUPS["col"+c]=[].concat(...cols.get(c).values());
-      return `<div class="col"><div class="card"><div class="ah">${c}</div><div class="items">${gs}</div></div><button class="act" data-a="batch:col${c}">${I.check}批次完成</button></div>`;}).join("");
+      return `<div class="col"><div class="card"><div class="ah">${c}</div><div class="items">${gs}</div></div><button class="act" data-a="batch:col${c}" ${[].concat(...cols.get(c).values()).some(r=>r.it.state==="done")?"":"disabled"}>${I.check}批次完成</button></div>`;}).join("");
   }
   rows.forEach(r=>{const c=r.it.name;if(!cols.has(c))cols.set(c,new Map());const k=r.it.mods.join()+"|"+r.it.tag;const m=cols.get(c);if(!m.has(k))m.set(k,[]);m.get(k).push(r);});
   return [...cols.entries()].map(([name,m])=>{let gi=0;const gs=[...m.values()].map(g=>{const key="p"+name+(gi++);GROUPS[key]=g;const it=g[0].it;
       const title=`${it.mods.length?"- "+it.mods.join("、"):"一般"}${it.tag?`<span class="tag" style="display:inline-block;margin:0 0 0 10px;font-size:22px">${esc(it.tag)}</span>`:""}`;
       return group(g,`<span style="font-size:28px">${title}</span>`,key);}).join("");
     GROUPS["col"+name]=[].concat(...m.values());
-    return `<div class="col"><div class="card"><div class="ah">${esc(name)}</div><div class="items">${gs}</div></div><button class="act" data-a="batch:col${esc(name)}">${I.check}批次完成</button></div>`;}).join("");
+    return `<div class="col"><div class="card"><div class="ah">${esc(name)}</div><div class="items">${gs}</div></div><button class="act" data-a="batch:col${esc(name)}" ${[].concat(...m.values()).some(r=>r.it.state==="done")?"":"disabled"}>${I.check}批次完成</button></div>`;}).join("");
 }
 function footer(){
   const a=list("active");let items=0;a.forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void")items+=it.qty;}));
   const next=list("sched").sort((x,y)=>x.pickup-y.pickup)[0];
-  return `<div class="foot">${S.tab==="active"?`<span class="lg"><i style="background:var(--hc-o,var(--orange))"></i>等 ${S.cfg.warnO} 分+<i style="background:var(--hc-r,var(--red))"></i>等 ${S.cfg.warnR} 分+</span>`:""}<span>製餐中 ${a.length} 張單・待製作 ${items} 份</span>${next?`<span>預定單 ${hm(next.pickup)} 取餐・${Math.max(0,Math.ceil((next.pickup-now())/MIN)-S.cfg.schedLead)} 分後排入</span>`:""}
-    <span>點品項打勾＝完成</span>
-    <span class="sp"><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
+  return `<div class="foot"><span>製餐中 ${a.length} 張單・待製作 ${items} 份</span>${next?`<span>預定單 ${hm(next.pickup)} 取餐・${Math.max(0,Math.ceil((next.pickup-now())/MIN)-S.cfg.schedLead)} 分後排入</span>`:""}
+    <span>點品項打勾，按「批次完成」送出</span>
+    <span class="sp"><span class="pg" id="pg"></span><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
 }
 function vPanel(){
   if(!S.panel) return "";
@@ -405,13 +413,15 @@ function render(){
   const nb=$.querySelector(".board"); if(nb) nb.scrollLeft=sx;
   $.querySelectorAll(".items").forEach((el,i)=>{if(keep[i])el.scrollTop=keep[i];});
   S.newIds.clear();
-  moreCue();
+  moreCue();pager();
   const tEl=$.querySelector(".toast");if(tEl){if(render._t===S.toast)tEl.classList.add("noanim");render._t=S.toast;}else render._t=null;
   const pEl=$.querySelector(".panel");if(pEl){if(render._p){pEl.classList.add("noanim");$.querySelectorAll(".scrim").forEach(x=>x.classList.add("noanim"));}render._p=true;}else render._p=false;
 }
 
+function pages(){const b=$.querySelector(".board");if(!b)return null;const cols=b.querySelectorAll(".col").length;const step=(S.cfg.cols===4?318:428)+22;const per=Math.max(1,Math.floor((b.clientWidth-22)/step));const n=Math.max(1,Math.ceil(cols/per));const w=per*step;return {n,w,cur:Math.min(n-1,Math.round(b.scrollLeft/w)),atEnd:b.scrollLeft+b.clientWidth>=b.scrollWidth-4};}
+function pager(){const P=pages(),el=$.querySelector("#pg");if(!P||!el)return;const cur=P.atEnd?P.n-1:P.cur;el.textContent=`第 ${cur+1} / ${P.n} 頁`;const bs=$.querySelectorAll(".foot .sp button");if(bs[0])bs[0].disabled=cur<=0;if(bs[1])bs[1].disabled=cur>=P.n-1;}
 function moreCue(){$.querySelectorAll(".items").forEach(el=>{const c=el.closest(".card");if(c)c.classList.toggle("more",el.scrollHeight-el.clientHeight-el.scrollTop>8);});}
-document.addEventListener("scroll",e=>{if(e.target&&e.target.classList&&e.target.classList.contains("items"))moreCue();},true);
+document.addEventListener("scroll",e=>{const t=e.target;if(!t||!t.classList)return;if(t.classList.contains("items"))moreCue();if(t.classList.contains("board"))pager();},true);
 /* ---------- actions ---------- */
 let toastT;
 function toast(text,undo,ms){S.toast={text,undo};clearTimeout(toastT);toastT=setTimeout(()=>{S.toast=null;render();},ms||6000);}
@@ -421,7 +431,8 @@ function bump(o,auto){
   o.status="done";o.doneAt=now();o.items=o.items.filter(i=>i.state!=="void");o.items.forEach(i=>i.state="done");
   toast(`${auto?"自動銷單":"已完成"}　${o.type}<span class="chip">${o.no}</span>`,()=>{o.status="active";o.items.forEach(i=>i.state=prev.get(i.id)||"todo");});
 }
-function maybeBump(o){if(o.items.every(i=>i.state==="done"||i.state==="void"))bump(o);}
+function maybeBump(o){if(o.status==="active"&&o.items.every(i=>i.state==="done"||i.state==="void"))bump(o);}
+function sendChecked(items){const touched=new Set();items.forEach(r=>{if(r.it.state==="done"){r.it.gone=true;touched.add(r.o);}});touched.forEach(maybeBump);return touched.size;}
 $.addEventListener("click",e=>{
   const el=e.target.closest("[data-a]"); if(!el||el.disabled) return;
   if(drag.moved){drag.moved=false;return;}
@@ -439,13 +450,15 @@ $.addEventListener("click",e=>{
     case "tick": case "row": {S.restored.delete(x+":"+y); const o=find(x), it=o.items.find(i=>i.id===+y); it.state=it.state==="done"?"todo":"done"; render(); if(it.state==="done"&&o.items.every(i=>i.state==="done"||i.state==="void")){clearTimeout(o._bt);o._bt=setTimeout(()=>{if(o.status==="active"&&o.items.every(i=>i.state==="done"||i.state==="void")){bump(o);render();}},700);} break;}
     case "ack": {const o=find(x); o.items=o.items.filter(i=>i.id!==+y); if(!o.items.length){o.status="done";o.doneAt=now();} render(); break;}
     case "bump": bump(find(x)); render(); break;
-    case "restore": {const o=find(x); o.status="active"; o.t0=now(); o.items.forEach(i=>{i.state="todo";S.restored.add(o.id+":"+i.id);}); S.newIds.add(o.id); toast(`已整單復原　${o.type}<span class="chip">${o.no}</span>　回到製餐中`,null,4000); render(); break;}
-    case "undo": {const o=find(x), it=o.items.find(i=>i.id===+y); it.state="todo"; S.restored.add(o.id+":"+it.id); o.status="active"; S.newIds.add(o.id); toast(`已退回重做　${o.type}<span class="chip">${o.no}</span>　${esc(it.name)}`,null,4000); render(); break;}
-    case "subtick": {const o=find(x), it=o.items.find(i=>i.id===+y); it.state="done"; maybeBump(o); render(); break;}
-    case "gtick": case "batch": {const g=GROUPS[x]; const touched=new Set(); g.forEach(r=>{r.it.state="done";touched.add(r.o);}); touched.forEach(maybeBump); render(); break;}
+    case "restore": {const o=find(x); o.status="active"; o.t0=now(); o.items.forEach(i=>{i.state="todo";i.gone=false;S.restored.add(o.id+":"+i.id);}); S.newIds.add(o.id); toast(`已整單復原　${o.type}<span class="chip">${o.no}</span>　回到製餐中`,null,4000); render(); break;}
+    case "undo": {const o=find(x), it=o.items.find(i=>i.id===+y); it.state="todo"; o.items.forEach(i=>{if(i!==it&&o.status==="done")i.gone=true;}); it.gone=false; S.restored.add(o.id+":"+it.id); o.status="active"; S.newIds.add(o.id); toast(`已退回重做　${o.type}<span class="chip">${o.no}</span>　${esc(it.name)}`,null,4000); render(); break;}
+    case "subtick": {const o=find(x), it=o.items.find(i=>i.id===+y); it.state=it.state==="done"?"todo":"done"; render(); break;}
+    case "gtick": {const g=GROUPS[x]; const all=g.every(r=>r.it.state==="done"); g.forEach(r=>r.it.state=all?"todo":"done"); render(); break;}
+    case "batch": {sendChecked(GROUPS[x]); render(); break;}
+    case "obatch": {const o=find(x); sendChecked(o.items.filter(inStation).map(it=>({o,it}))); render(); break;}
     case "tundo": if(S.toast&&S.toast.undo){S.toast.undo();} S.toast=null; render(); break;
     case "tclose": S.toast=null; render(); break;
-    case "scroll": {const b=$.querySelector(".board"); b.scrollBy({left:+x*(S.cfg.cols===4?340:450),behavior:"smooth"}); break;}
+    case "scroll": {const b=$.querySelector(".board"),P=pages(); if(!b||!P)break; const to=Math.max(0,Math.min(P.n-1,P.cur+(+x))); b.scrollTo({left:to*P.w,behavior:"smooth"}); break;}
     case "panel": S.settings=JSON.parse(JSON.stringify(S.cfg)); S.panel=true; S.dd=false; render(); break;
     case "pcancel": S.panel=false; render(); break;
     case "psave": S.cfg=S.settings; S.panel=false; restartTick(); toast("設定已儲存",null,2500); render(); break;
