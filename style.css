@@ -2219,3 +2219,9 @@ html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decis
 /* jump highlight fades out instead of leaving the row tinted */
 html body.kiosk-case .research-question-grid>div.jump-flash{animation:rowFlash 1.8s ease}
 @keyframes rowFlash{0%,50%{background:#fbe7dd}100%{background:transparent}}
+/* jump highlight: rounded tinted panel drawn behind the target, with breathing room on every side */
+html body #app .jump-flash{position:relative;isolation:isolate;animation:none!important}
+html body #app .jump-flash::after{content:"";position:absolute;inset:-12px -28px;border-radius:22px;background:#fbe7dd;z-index:-1;pointer-events:none;animation:jumpPanel 2.2s ease forwards}
+@keyframes jumpPanel{0%{opacity:0}12%,60%{opacity:1}100%{opacity:0}}
+@media(max-width:650px){html body #app .jump-flash::after{inset:-10px -12px;border-radius:16px}}
+html body.kiosk-case .rq-link{max-width:none;gap:18px}
