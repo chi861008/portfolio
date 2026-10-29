@@ -2216,6 +2216,14 @@ html body.kiosk-case .rq-back:hover{color:#c05f3f!important;border-color:#c05f3f
 html body.kiosk-case .research-question-grid>div[id^="rq-"]{scroll-margin-top:110px}
 html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decision{font-weight:400!important;color:#4f4a45!important}
 
+/* Header identity: a standalone original Y mark on mobile, paired with an editorial label on desktop. */
+.brand{gap:15px;min-width:0}
+.brand .brand-mark{width:38px;height:44px;flex:none;object-fit:contain;object-position:center center}
+.brand-portfolio{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.19em;line-height:1.2;white-space:nowrap;color:currentColor}
+@media(max-width:650px){.brand{gap:0}.brand .brand-mark{width:34px;height:40px}.brand-portfolio{display:none}}
+
+/* Keep the Y mark black on both light and orange backgrounds. */
+.brand .brand-mark{filter:brightness(0)}
 /* jump highlight fades out instead of leaving the row tinted */
 html body.kiosk-case .research-question-grid>div.jump-flash{animation:rowFlash 1.8s ease}
 @keyframes rowFlash{0%,50%{background:#fbe7dd}100%{background:transparent}}
