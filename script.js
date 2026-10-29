@@ -321,11 +321,11 @@ function playHomeOpening(){
   const endTop=destination.top+(destination.height-endHeight)/2;
   image.animate([
     {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:0},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:.46},
+    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg)',borderRadius:'0px',offset:.79},
     {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg)',borderRadius:'8px',offset:1}
-  ],{duration:1450,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
-  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.5},{opacity:0,offset:1}],{duration:1400,easing:'ease-out',fill:'forwards'});
-  caption.animate([{opacity:1,offset:0},{opacity:1,offset:.32},{opacity:0,offset:1}],{duration:850,fill:'forwards'});
+  ],{duration:1900,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
+  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.79},{opacity:0,offset:1}],{duration:1850,easing:'ease-out',fill:'forwards'});
+  caption.animate([{opacity:1,offset:0},{opacity:1,offset:.32},{opacity:0,offset:1}],{duration:1150,fill:'forwards'});
   const cancelOnScroll=()=>{if(window.scrollY>2)finish();};
   const finish=()=>{
     if(!opening.isConnected)return;
@@ -338,7 +338,7 @@ function playHomeOpening(){
   // Cancel the overlay as soon as the first intentional scroll starts.
   window.addEventListener('scroll',cancelOnScroll,{passive:true});
   if(window.scrollY>2)finish();
-  window.setTimeout(finish,1500);
+  window.setTimeout(finish,1950);
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&opening.isConnected)finish();},{once:true});
 }
 function setupThinkingBand(){
