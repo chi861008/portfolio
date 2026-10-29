@@ -2408,3 +2408,31 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{
   transform:translate(-19%,-14%) scale(.65)!important;
 }
+
+/* Safari flip registration: identical physical frame and clipping on both faces. */
+.home-mode .identity-photo .hero-flip-inner{
+  -webkit-transform-style:preserve-3d;
+  transform-style:preserve-3d;
+}
+.home-mode .identity-photo .hero-flip-inner>.flip-face--front,
+.home-mode .identity-photo .hero-flip-inner>.flip-face--back{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+  border-radius:8px!important;
+  overflow:hidden!important;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+}
+.home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-back-photo{
+  position:absolute;
+  inset:0;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  border-radius:inherit;
+}
