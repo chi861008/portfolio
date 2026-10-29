@@ -2222,3 +2222,6 @@ html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decis
 .brand .brand-mark{width:38px;height:44px;flex:none;object-fit:contain;object-position:center center}
 .brand-portfolio{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.19em;line-height:1.2;white-space:nowrap;color:currentColor}
 @media(max-width:650px){.brand{gap:0}.brand .brand-mark{width:34px;height:40px}.brand-portfolio{display:none}}
+
+/* Keep the Y mark black on both light and orange backgrounds. */
+.brand .brand-mark{filter:brightness(0)}
