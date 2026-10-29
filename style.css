@@ -110,7 +110,7 @@ body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 /* Home identity — adapted from Yuan Chi's original orange / black portfolio art direction */
-.home-mode .nav{background:#ff603c;border-bottom-color:#ff603c;padding-inline:5vw}
+.home-mode .nav{background:#ff603c;border-bottom-color:#ff603c;padding-inline:max(5vw,calc((100vw - 1260px)/2))}
 .home-mode .nav .nav-contact{border-color:#1a1a1a}
 .identity-hero{background:#ff603c;color:#111;min-height:555px;padding:24px 0 62px}
 .identity-wrap{width:min(1260px,calc(100% - 10vw));margin:auto}
