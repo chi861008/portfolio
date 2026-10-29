@@ -115,7 +115,7 @@ svg{display:block}
 .it.done .qty{border-color:#777}
 .it.done .mods{color:#8E8E8E}
 .it.done .tag{border-color:#777}
-.it.done .dot{background:#5FACB5;border-color:#5FACB5}
+.it.done .dot{background:#2E9E5B;border-color:#2E9E5B}
 .it.done .dot svg{opacity:1}
 .it.void{background:var(--void);color:var(--void-ink);cursor:default}
 .it.void .qty{border-color:var(--void-ink)}
@@ -359,7 +359,7 @@ function footer(){
   const a=list("active");let items=0;a.forEach(o=>o.items.forEach(it=>{if(it.state!=="done"&&it.state!=="void")items+=it.qty;}));
   const next=list("sched").sort((x,y)=>x.pickup-y.pickup)[0];
   return `<div class="foot"><span>製餐中 ${a.length} 張單・待製作 ${items} 份</span>${next?`<span>下一張預定單 ${hm(next.pickup)} 取餐，${Math.max(0,Math.ceil((next.pickup-now())/MIN)-S.cfg.schedLead)} 分鐘後排入</span>`:""}
-    <span>點品項＝製作中，點圓圈＝完成</span>
+    <span>點品項＝完成（打勾），整張單都完成會自動移到已出餐</span>
     <span class="sp"><button data-a="scroll:-1" aria-label="往左">${I.left}</button><button data-a="scroll:1" aria-label="往右">${I.right}</button></span></div>`;
 }
 function vPanel(){
@@ -428,8 +428,8 @@ $.addEventListener("click",e=>{
     case "pause": S.paused=!S.paused; toast(S.paused?"已暫停進單，新訂單會先保留在前台":"已恢復進單",null,3000); render(); break;
     case "note": S.notes[x]=!S.notes[x]; render(); break;
     case "snote": S.notes["s"+x]=!S.notes["s"+x]; render(); break;
-    case "row": {S.restored.delete(x+":"+y); const it=find(x).items.find(i=>i.id===+y); it.state=it.state==="doing"?"todo":it.state==="done"?"todo":"doing"; render(); break;}
-    case "tick": {S.restored.delete(x+":"+y); const it=find(x).items.find(i=>i.id===+y); it.state=it.state==="done"?"todo":"done"; render(); break;}
+    
+    case "tick": case "row": {S.restored.delete(x+":"+y); const o=find(x), it=o.items.find(i=>i.id===+y); it.state=it.state==="done"?"todo":"done"; render(); if(it.state==="done"&&o.items.every(i=>i.state==="done"||i.state==="void")){clearTimeout(o._bt);o._bt=setTimeout(()=>{if(o.status==="active"&&o.items.every(i=>i.state==="done"||i.state==="void")){bump(o);render();}},700);} break;}
     case "ack": {const o=find(x); o.items=o.items.filter(i=>i.id!==+y); if(!o.items.length){o.status="done";o.doneAt=now();} render(); break;}
     case "bump": bump(find(x)); render(); break;
     case "restore": {const o=find(x); o.status="active"; o.t0=now(); o.items.forEach(i=>{i.state="todo";S.restored.add(o.id+":"+i.id);}); S.newIds.add(o.id); toast(`已整單復原　${o.type}<span class="chip">${o.no}</span>　回到製餐中`,null,4000); render(); break;}
