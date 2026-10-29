@@ -601,3 +601,7 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
 
 /* in-page jumps between the KIOSK research questions, decisions and highlight clips (hash routing would otherwise leave the case page) */
 document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a.rq-link,a.dec-look,a.rq-back');if(!a)return;const id=(a.getAttribute('href')||'').slice(1);const el=document.getElementById(id);if(!el)return;e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.remove('jump-flash');void el.offsetWidth;el.classList.add('jump-flash');});
+
+/* KIOSK decision chips: all as wide as the longest label */
+(function(){function fit(){const ls=[...document.querySelectorAll('a.rq-link')];if(!ls.length)return;ls.forEach(a=>a.style.width='max-content');const w=Math.max(...ls.map(a=>a.getBoundingClientRect().width));ls.forEach(a=>a.style.width=Math.min(w,a.parentElement.clientWidth)+'px');}
+addEventListener('resize',fit);addEventListener('hashchange',()=>setTimeout(fit,120));setInterval(()=>{const a=document.querySelector('a.rq-link');if(a&&!a.style.width)fit();},500);document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('.lang-toggle,[data-lang],button'))setTimeout(fit,300);});})();

@@ -2191,7 +2191,6 @@ html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
 /* KIOSK research questions + design decisions (parallel, not sequential) */
 html body.kiosk-case .research-question-grid{border-top:2px solid #24211f!important}
 html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{background:none!important;border-radius:0!important;margin:0!important;border-bottom:1px solid #d5cfc8!important;padding-left:0!important;padding-right:0!important}
-html body.kiosk-case .research-question-grid>div:target,html body.kiosk-case .research-question-grid>div.jump-flash{background:#fbf3ef!important}
 /* design highlight rows (all cases) */
 html body #app .hl-row{background:none;border-radius:0;padding:40px 0;border-top:1px solid #d5cfc8}
 html body #app .case-article .story-section .hl-row+.hl-row{margin-top:0}
@@ -2225,3 +2224,16 @@ html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decis
 
 /* Keep the Y mark black on both light and orange backgrounds. */
 .brand .brand-mark{filter:brightness(0)}
+/* jump highlight fades out instead of leaving the row tinted */
+html body.kiosk-case .research-question-grid>div.jump-flash{animation:rowFlash 1.8s ease}
+@keyframes rowFlash{0%,50%{background:#fbe7dd}100%{background:transparent}}
+/* jump highlight: rounded tinted panel drawn behind the target, with breathing room on every side */
+html body #app .jump-flash{position:relative;isolation:isolate;animation:none!important}
+html body #app .jump-flash::after{content:"";position:absolute;inset:-12px -28px;border-radius:22px;background:#fbe7dd;z-index:-1;pointer-events:none;animation:jumpPanel 2.2s ease forwards}
+@keyframes jumpPanel{0%{opacity:0}12%,60%{opacity:1}100%{opacity:0}}
+@media(max-width:650px){html body #app .jump-flash::after{inset:-10px -12px;border-radius:16px}}
+html body.kiosk-case .rq-link{max-width:none;gap:18px}
+/* mobile: round "try it" button, raised off the bottom edge so it is easy to reach */
+@media(max-width:650px){html body .demo-fab{width:72px;height:72px;min-width:0;padding:0;border-radius:50%;flex-direction:column;gap:2px;right:14px;bottom:calc(96px + env(safe-area-inset-bottom,0px))}html body .demo-fab span,html body .demo-fab.on span{font-size:13px;line-height:1.15;letter-spacing:.02em;text-align:center}html body .demo-fab>span:first-child{max-width:2.6em;word-break:keep-all;line-break:anywhere}html body .demo-fab>span:last-child{font-size:15px}}
+@media(max-width:650px){html:lang(zh-Hant) body .demo-fab>span:first-child,html body .demo-fab>span:first-child{font-size:14px}}
+@media(max-width:650px){html body .demo-fab,html body .demo-fab>span:first-child{white-space:normal!important}}
