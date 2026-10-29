@@ -2375,3 +2375,9 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .kiosk-topping-demo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .kiosk-topping-demo-grid span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:42px;border:1px solid #ded8d1;border-radius:4px;background:#e7e2dc;font-weight:700;font-size:14px}
 .kiosk-topping-demo-grid .selected{background:#ce4d13;border-color:#ce4d13;color:white}
+
+/* KDS annotation focus: no labels on the screenshot; reveal the selected region only. */
+.kds-case .ba--kds .kds-map-img .kds-box{border-color:transparent!important;background:transparent!important;box-shadow:none!important;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.kds-case .ba--kds .kds-map-img .kds-box b{display:none!important}
+.kds-case .ba--kds .kds-map-img .kds-box.hot{border-color:#d0704f!important;background:rgba(208,112,79,.16)!important;box-shadow:0 0 0 3px rgba(208,112,79,.18)!important}
+.kds-case .ba--kds .ba-list li.on{background:rgba(208,112,79,.07)}
