@@ -1905,3 +1905,18 @@ html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
 .kiosk-reflection-section p{line-height:1.9;color:var(--muted);margin:0;max-width:780px}
 .kiosk-reflection-section ul{padding-left:1.4em;margin:0;color:var(--muted);line-height:1.9}
 .kiosk-reflection-section li+li{margin-top:10px}
+
+/* Integrated KIOSK market focus and KDS proactive design-review episode */
+.kiosk-market-integrated{margin:clamp(28px,4vw,52px) 0;max-width:100%;border-top:1px solid var(--line);padding-top:clamp(24px,3vw,40px)}
+.kiosk-market-integrated-head{max-width:760px;margin:0 auto 24px;text-align:center}
+.kiosk-market-integrated-head>span,.kds-proactive-story>span{display:block;font-size:11px;font-weight:700;letter-spacing:.13em;color:var(--accent);margin-bottom:12px}
+.kiosk-market-integrated-head h3,.kds-proactive-story h3{font-size:clamp(24px,3vw,36px);line-height:1.25;margin:0 0 14px}
+.kiosk-market-integrated-head p,.kds-proactive-story p{color:var(--muted);line-height:1.85;margin:0 0 14px}
+.kiosk-market-integrated .market-conclusion{margin:0 auto;max-width:860px}
+.kiosk-market-integrated-foot{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:12px 24px;margin:22px auto 0;max-width:760px;text-align:center}
+.kiosk-market-integrated-foot span{font-size:14px;color:var(--muted)}
+.kiosk-market-integrated-foot strong{font-size:25px;color:var(--ink);margin-right:5px}
+.kiosk-market-integrated-foot p{flex-basis:100%;font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+.kds-proactive-story{max-width:850px;margin:36px 0 24px;padding:24px clamp(20px,3vw,34px);background:#f3eee9;border-radius:16px}
+.kds-proactive-story p:last-child{margin-bottom:0}
+@media(max-width:640px){.kiosk-market-integrated-head{text-align:left}.kiosk-market-integrated-foot{justify-content:flex-start;text-align:left}.kds-proactive-story{margin-top:24px}}
