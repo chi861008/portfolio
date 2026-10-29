@@ -2052,3 +2052,32 @@ html body #app .case-article .story-section .kds-live-demo+.kds-design-phase-two
 /* KIOSK design decisions: same left-to-right row format as the research questions */
 html body.kiosk-case .kiosk-decision-rows{margin-top:28px}
 html body.kiosk-case .kiosk-decision-status{margin:14px 0 0;font-size:13px;color:#8a8178}
+
+
+/* Pilates case: strategic trade-offs and adoption turning point */
+.scheduling-case .schedule-strategy-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:35px 0 36px}
+.scheduling-case .schedule-strategy-pair article{padding:32px 31px 35px;background:#eeeae5;min-width:0}
+.scheduling-case .schedule-strategy-pair article:nth-child(2){background:#dde5dc}
+.scheduling-case .schedule-strategy-pair span,.scheduling-case .schedule-strategy-choice>span,.scheduling-case .schedule-result-metrics span,.scheduling-case .schedule-adoption-turn>span,.scheduling-case .schedule-adoption-frictions span,.scheduling-case .schedule-next-check>span{font-size:10px;letter-spacing:.12em;font-weight:800;color:#ac7055}
+.scheduling-case .schedule-strategy-pair h3{font-size:clamp(21px,2.2vw,27px);line-height:1.3;margin:18px 0 13px}
+.scheduling-case .schedule-strategy-pair p,.scheduling-case .schedule-strategy-choice p{font-size:15px;line-height:1.85;color:#55514d;margin:0}
+.scheduling-case .schedule-strategy-choice{padding:27px 0 32px;border-top:1px solid #cfcac3;border-bottom:1px solid #cfcac3;margin-bottom:42px}
+.scheduling-case .schedule-strategy-choice h3{font-size:clamp(21px,2.3vw,28px);margin:14px 0 10px}
+.scheduling-case .schedule-result-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin:28px 0 52px;padding-bottom:35px;border-bottom:1px solid #d5d0c9}
+.scheduling-case .schedule-result-metrics strong{display:block;font-size:clamp(53px,8vw,88px);letter-spacing:-.065em;line-height:1.1;margin:12px 0;color:#24211f;font-weight:650}
+.scheduling-case .schedule-result-metrics strong small{font-size:clamp(14px,1.5vw,19px);letter-spacing:0;font-weight:600;margin-left:8px}
+.scheduling-case .schedule-result-metrics p{font-size:13px;color:#77716a;line-height:1.65;margin:0}
+.scheduling-case .schedule-adoption-turn{padding:40px 42px 42px;background:#2c2927;color:#f7f5f2;margin:0 0 35px}
+.scheduling-case .schedule-adoption-turn>span{color:#e1a183}
+.scheduling-case .schedule-adoption-turn h3{font-size:clamp(26px,3.6vw,43px);letter-spacing:-.035em;line-height:1.3;color:inherit;margin:17px 0 20px;max-width:730px}
+.scheduling-case .schedule-adoption-turn p{font-size:15px;line-height:1.85;color:#ddd6d0;margin:0;max-width:720px}
+.scheduling-case .schedule-adoption-frictions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin:0 0 58px}
+.scheduling-case .schedule-adoption-frictions>div{padding-top:20px;border-top:1px solid #cfc9c1}
+.scheduling-case .schedule-adoption-frictions h4{font-size:19px;line-height:1.4;margin:12px 0;color:#292623}
+.scheduling-case .schedule-adoption-frictions p{font-size:14px;line-height:1.8;color:#67615b;margin:0}
+.scheduling-case .schedule-reframe--turn{margin:0 0 40px}
+.scheduling-case .schedule-reframe--turn h3{max-width:710px}
+.scheduling-case .schedule-next-check{padding:28px 0 36px;border-bottom:1px solid #d2ccc5;margin:0 0 40px}
+.scheduling-case .schedule-next-check h3{font-size:clamp(21px,2.5vw,28px);margin:13px 0 12px}
+.scheduling-case .schedule-next-check p{max-width:740px;font-size:15px;line-height:1.85;color:#5a5550;margin:0}
+@media(max-width:700px){.scheduling-case .schedule-strategy-pair,.scheduling-case .schedule-result-metrics{grid-template-columns:1fr;gap:14px}.scheduling-case .schedule-strategy-pair article{padding:27px 25px}.scheduling-case .schedule-result-metrics{gap:27px;margin-bottom:34px}.scheduling-case .schedule-result-metrics strong{font-size:58px}.scheduling-case .schedule-adoption-turn{padding:30px 25px}.scheduling-case .schedule-adoption-frictions{grid-template-columns:1fr;gap:20px}.scheduling-case .schedule-adoption-frictions>div{padding-top:16px}}
