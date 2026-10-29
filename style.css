@@ -2381,3 +2381,6 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .kds-case .ba--kds .kds-map-img .kds-box b{display:none!important}
 .kds-case .ba--kds .kds-map-img .kds-box.hot{border-color:#d0704f!important;background:rgba(208,112,79,.16)!important;box-shadow:0 0 0 3px rgba(208,112,79,.18)!important}
 .kds-case .ba--kds .ba-list li.on{background:rgba(208,112,79,.07)}
+
+/* Keep the back-face doodle in its original coral color and prevent nested image tilt. */
+.home-mode .identity-photo .flip-face--back .flip-back-photo{filter:none!important;transform:none!important;object-fit:cover;object-position:50% 24%}
