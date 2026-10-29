@@ -359,10 +359,14 @@ function setupHeroFlip(){
   const backPhoto=front.cloneNode(false);
   backPhoto.className='flip-back-photo';
   backPhoto.alt='';
-  // The edited back has the same 16:9 source dimensions as the front.
-  // Match sizing and cropping so the portrait does not jump during the flip.
-  backPhoto.src=window.HERO_BACK_IMAGE||front.src;
-  back.append(backPhoto);
+  // The two sides must share identical pixels, scale, and crop.
+  backPhoto.src=front.src;
+  const doodle=document.createElement('img');
+  doodle.className='flip-orange-doodle';
+  doodle.src='./yuan-chi-orange-doodle-overlay.png?v=20261029';
+  doodle.alt='';
+  doodle.setAttribute('aria-hidden','true');
+  back.append(backPhoto,doodle);
   spinner.append(front,back);
   frame.prepend(spinner);
 }
