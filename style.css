@@ -1827,3 +1827,19 @@ html body #app .hl-tablist button[aria-selected="true"] small{color:#cfc6bd}
 @media(hover:none){html body #app .hl-tablist button:not([aria-selected="true"]):hover{border-color:#d6cfc6}}
 @media(max-width:850px){html body #app .hl-tablist{grid-template-columns:repeat(2,minmax(0,1fr))}html body #app .hl-tablist button{min-height:70px;padding:12px 14px}html body #app .hl-tablist button b{font-size:19px}html body #app .hl-tablist button strong{font-size:15px}}
 @media(max-width:850px){html body #app .hl-tablist button{grid-template-columns:1fr;grid-template-areas:'num' 'title' 'sub';row-gap:3px;align-content:start;min-height:0;padding:12px 14px}html body #app .hl-tablist button b{font-size:13px;letter-spacing:.02em}html body #app .hl-tablist button strong{font-size:15px}html body #app .hl-tablist button small{font-size:11.5px}}
+/* ---- design highlights: one row per highlight (text left, recorded clip right) ---- */
+.hl-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,300px);gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(22px,3vw,36px);background:#f4efe9;border-radius:24px}
+html body #app .case-article .story-section .hl-row+.hl-row{margin-top:24px}
+html body #app .case-article .story-section .phase-banner+.hl-row{margin-top:32px}
+html body #app .case-article .story-section .hl-row+.kiosk-live-demo{margin-top:56px}
+.hl-copy .solution-num{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;color:#c05f3f}
+html body #app .case-article .hl-copy h3{margin:10px 0 14px;font-size:clamp(20px,2vw,24px);line-height:1.45;letter-spacing:-.025em;color:#1f1d1b}
+html body #app .case-article .hl-copy p{font-size:15px;line-height:1.9;color:#4f4a45;margin:0 0 14px}
+.hl-copy .state-note{margin-top:16px}
+.hl-try{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:14px;font-size:14px;font-weight:800;color:#c05f3f!important;text-decoration:none;border-bottom:1.5px solid currentColor;min-height:0;padding-bottom:2px}
+.hl-try:hover{color:#24211f!important}
+.hl-clip{margin:0}
+.hl-clip-frame{border:9px solid #292827;border-radius:26px;overflow:hidden;background:#FAF9F7;box-shadow:0 18px 40px #322a212b;aspect-ratio:9/16}
+.hl-clip-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.hl-clip figcaption{margin-top:12px;font-size:12px;line-height:1.6;color:#81786f;text-align:center}
+@media(max-width:850px){.hl-row{grid-template-columns:1fr}.hl-clip{max-width:260px;margin:0 auto}}
