@@ -91,8 +91,8 @@ svg{display:block}
 .chip.t{background:#F0F0F0!important;color:#2B2B2B}
 .ch .r2{display:flex;align-items:center;height:56px;margin-top:6px}
 .ch .ty{font-size:28px}
-.ty.to{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 12px 0 10px;border-radius:21px;background:#fff;color:#1E1E1E;font-weight:700}.ty.to svg{width:24px;height:24px}
-.ty.sm{font-size:26px}.ty.sm.to{height:36px;font-size:24px;padding:0 10px 0 8px}.ty.sm.to svg{width:20px;height:20px}
+.ty.to{display:inline-flex;align-items:center;height:42px;padding:0 14px;border-radius:21px;border:2px solid currentColor;color:inherit}
+.ty.sm{font-size:26px}.ty.sm.to{height:36px;font-size:24px;padding:0 11px}
 .ch .age{display:flex;align-items:center;gap:6px;font-size:24px;margin-left:26px}
 .ch .age svg{width:24px;height:24px}
 .ch .nt{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:24px;padding:8px 0 8px 12px;color:inherit}
@@ -310,7 +310,7 @@ function cardHead(o,i){
     ${o.note?`<button class="nt ${open?"open":""}" data-a="note:${o.id}">備註${I.chev}</button>`:""}</div></div>
     ${open&&o.note?`<div class="note">${esc(o.note)}</div>`:""}`;
 }
-function tyTag(t,sm){return t==="外帶"?`<span class="ty to${sm?" sm":""}">${I.bag}外帶</span>`:`<span class="ty${sm?" sm":""}">${t}</span>`;}
+function tyTag(t,sm){return t==="外帶"?`<span class="ty to${sm?" sm":""}">外帶</span>`:`<span class="ty${sm?" sm":""}">${t}</span>`;}
 function itemRow(o,it){
   const set=it.set&&S.cfg.showSet?`<span class="set">套</span>`:"";
   const body=`<span class="qty">${it.qty}</span><span class="nm">${esc(it.name)}${set}</span>`;
