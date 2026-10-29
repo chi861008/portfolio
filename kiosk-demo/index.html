@@ -840,14 +840,15 @@ new ResizeObserver(fit).observe(vp); fit();
 render();
 /* portfolio deep links: the parent page posts {demoGo:key} to jump straight to a design highlight */
 (function(){
-  function tip(title,text){var o=$stage.querySelector(".demo-tip");if(o)o.remove();var d=document.createElement("div");d.className="demo-tip";d.innerHTML="<b>"+title+"</b>"+text;$stage.appendChild(d);setTimeout(function(){d.classList.add("out")},6500);setTimeout(function(){d.remove()},7100);}
+  function tip(title,text){if(window.__demoQuiet)return;var o=$stage.querySelector(".demo-tip");if(o)o.remove();var d=document.createElement("div");d.className="demo-tip";d.innerHTML="<b>"+title+"</b>"+text;$stage.appendChild(d);setTimeout(function(){d.classList.add("out")},6500);setTimeout(function(){d.remove()},7100);}
   function base(){resetAll();S.mode="take";}
   var P={
     "pay-cash":function(){base();addLine(newDraft(PBY.oyako));S.upsellDone=true;S.invoice={type:"paper"};S.pay="cash";S.paid=0;go("process");tip("付款設備位置引導","畫面上的機台圖，直接對照實體機台的投幣口與紙鈔口");},
     "combo":function(){base();openDetail(PBY.oyako);tip("套餐一鍵升級","在同一個商品頁直接升級套餐，不用刪掉重點");},
+    "free":function(){resetAll();},
     "addon":function(){base();addLine(newDraft(PBY.oyako));go("cart");S.sheet={kind:"upsell",q:{}};render();tip("加點商品","結帳前提供加購，也能一鍵略過");}
   };
-  addEventListener("message",function(e){var k=e.data&&e.data.demoGo;if(P[k]){try{P[k]();}catch(err){console.error(err);}}});
+  addEventListener("message",function(e){var k=e.data&&e.data.demoGo;window.__demoQuiet=!!(e.data&&e.data.quiet);if(P[k]){try{P[k]();}catch(err){console.error(err);}}});
   window.__demoReady=true;
 })();
 
