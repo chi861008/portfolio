@@ -2331,3 +2331,4 @@ html body #app .ba--pay .ba-still{aspect-ratio:9/16}
 .kds-case .kds-box.hot{background:rgba(29,27,25,.14)!important;box-shadow:0 0 0 4px rgba(29,27,25,.22)!important}
 .kds-case .ba--kds .ba-list li>b,.kds-case .kds-map-list li>b{background:#1d1b19!important}
 .kds-case .ba--kds .ba-list li.on{background:#efebe6!important}
+.kiosk-case .kiosk-market-final-chart.is-open{border-top:0;border-bottom:0;padding-bottom:0}
