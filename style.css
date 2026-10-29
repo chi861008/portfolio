@@ -1780,3 +1780,7 @@ html body #app .case-layout .side-index a b{font-size:10px;color:#a39b92}
 html body #app .case-layout .side-index a.is-active{background:#24211f!important;border-color:#24211f!important;color:#fff!important}
 html body #app .case-layout .side-index a.is-active b{color:#f0c3ad}
 }
+
+.demo-fab span{display:block;font-size:15px;font-weight:800;line-height:1.25;text-align:center;letter-spacing:.04em}
+.demo-fab-tip{display:none}
+@media(max-width:650px){.demo-fab span{font-size:14px}}

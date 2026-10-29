@@ -608,7 +608,7 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
   function update(){
     const demo=document.getElementById('try-demo');let show=!!demo&&/^#\/case\//.test(location.hash);
     if(show){const d=demo.getBoundingClientRect();if(d.top<innerHeight*.6&&d.bottom>innerHeight*.4)show=false;}
-    const lbl=isEnglish()?'Try the demo':'直接體驗';if(fab.dataset.lbl!==lbl){fab.dataset.lbl=lbl;fab.setAttribute('aria-label',lbl);fab.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 9.5 20 13.6l-4.5 1.7-1.8 4.6z" fill="currentColor"/><path d="M5.5 2.5v3M2.5 5.5h3M3.6 3.6l2.1 2.1M9.5 3.4 8.6 5.5M3.4 9.5l2.1-.9"/></svg><span class="demo-fab-tip">'+lbl+'</span>';}
+    const lbl=isEnglish()?'Try the demo':'直接體驗';if(fab.dataset.lbl!==lbl){fab.dataset.lbl=lbl;fab.setAttribute('aria-label',lbl);fab.innerHTML=isEnglish()?'<span>Try<br>demo</span>':'<span>直接<br>體驗</span>';}
     fab.classList.toggle('on',show);fab.tabIndex=show?0:-1;fab.setAttribute('aria-hidden',show?'false':'true');
   }
   addEventListener('scroll',update,{passive:true});addEventListener('resize',update);addEventListener('hashchange',()=>setTimeout(update,60));
