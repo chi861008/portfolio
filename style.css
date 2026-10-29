@@ -2052,6 +2052,51 @@ html body #app .case-article .story-section .kds-live-demo+.kds-design-phase-two
 /* KIOSK design decisions: same left-to-right row format as the research questions */
 html body.kiosk-case .kiosk-decision-rows{margin-top:28px}
 html body.kiosk-case .kiosk-decision-status{margin:14px 0 0;font-size:13px;color:#8a8178}
+
+
+/* Pilates case: strategic trade-offs and adoption turning point */
+.scheduling-case .schedule-strategy-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:35px 0 36px}
+.scheduling-case .schedule-strategy-pair article{padding:32px 31px 35px;background:#eeeae5;min-width:0}
+.scheduling-case .schedule-strategy-pair article:nth-child(2){background:#dde5dc}
+.scheduling-case .schedule-strategy-pair span,.scheduling-case .schedule-strategy-choice>span,.scheduling-case .schedule-result-metrics span,.scheduling-case .schedule-adoption-turn>span,.scheduling-case .schedule-adoption-frictions span,.scheduling-case .schedule-next-check>span{font-size:10px;letter-spacing:.12em;font-weight:800;color:#ac7055}
+.scheduling-case .schedule-strategy-pair h3{font-size:clamp(21px,2.2vw,27px);line-height:1.3;margin:18px 0 13px}
+.scheduling-case .schedule-strategy-pair p,.scheduling-case .schedule-strategy-choice p{font-size:15px;line-height:1.85;color:#55514d;margin:0}
+.scheduling-case .schedule-strategy-choice{padding:27px 0 32px;border-top:1px solid #cfcac3;border-bottom:1px solid #cfcac3;margin-bottom:42px}
+.scheduling-case .schedule-strategy-choice h3{font-size:clamp(21px,2.3vw,28px);margin:14px 0 10px}
+.scheduling-case .schedule-result-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;margin:28px 0 52px;padding-bottom:35px;border-bottom:1px solid #d5d0c9}
+.scheduling-case .schedule-result-metrics strong{display:block;font-size:clamp(53px,8vw,88px);letter-spacing:-.065em;line-height:1.1;margin:12px 0;color:#24211f;font-weight:650}
+.scheduling-case .schedule-result-metrics strong small{font-size:clamp(14px,1.5vw,19px);letter-spacing:0;font-weight:600;margin-left:8px}
+.scheduling-case .schedule-result-metrics p{font-size:13px;color:#77716a;line-height:1.65;margin:0}
+.scheduling-case .schedule-adoption-turn{padding:40px 42px 42px;background:#2c2927;color:#f7f5f2;margin:0 0 35px}
+.scheduling-case .schedule-adoption-turn>span{color:#e1a183}
+.scheduling-case .schedule-adoption-turn h3{font-size:clamp(26px,3.6vw,43px);letter-spacing:-.035em;line-height:1.3;color:inherit;margin:17px 0 20px;max-width:730px}
+.scheduling-case .schedule-adoption-turn p{font-size:15px;line-height:1.85;color:#ddd6d0;margin:0;max-width:720px}
+.scheduling-case .schedule-adoption-frictions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin:0 0 58px}
+.scheduling-case .schedule-adoption-frictions>div{padding-top:20px;border-top:1px solid #cfc9c1}
+.scheduling-case .schedule-adoption-frictions h4{font-size:19px;line-height:1.4;margin:12px 0;color:#292623}
+.scheduling-case .schedule-adoption-frictions p{font-size:14px;line-height:1.8;color:#67615b;margin:0}
+.scheduling-case .schedule-reframe--turn{margin:0 0 40px}
+.scheduling-case .schedule-reframe--turn h3{max-width:710px}
+.scheduling-case .schedule-next-check{padding:28px 0 36px;border-bottom:1px solid #d2ccc5;margin:0 0 40px}
+.scheduling-case .schedule-next-check h3{font-size:clamp(21px,2.5vw,28px);margin:13px 0 12px}
+.scheduling-case .schedule-next-check p{max-width:740px;font-size:15px;line-height:1.85;color:#5a5550;margin:0}
+@media(max-width:700px){.scheduling-case .schedule-strategy-pair,.scheduling-case .schedule-result-metrics{grid-template-columns:1fr;gap:14px}.scheduling-case .schedule-strategy-pair article{padding:27px 25px}.scheduling-case .schedule-result-metrics{gap:27px;margin-bottom:34px}.scheduling-case .schedule-result-metrics strong{font-size:58px}.scheduling-case .schedule-adoption-turn{padding:30px 25px}.scheduling-case .schedule-adoption-frictions{grid-template-columns:1fr;gap:20px}.scheduling-case .schedule-adoption-frictions>div{padding-top:16px}}
+
+/* Pilates reflection: each adoption barrier is an independent editorial insight row */
+.scheduling-case .schedule-adoption-frictions{display:block;margin:10px 0 66px}
+.scheduling-case .schedule-adoption-frictions>div{display:grid;grid-template-columns:115px minmax(0,1fr);column-gap:32px;row-gap:10px;align-items:start;border-top:1px solid #cfc9c1;padding:34px 0 38px}
+.scheduling-case .schedule-adoption-frictions>div:last-child{border-bottom:1px solid #cfc9c1}
+.scheduling-case .schedule-adoption-frictions span{grid-column:1;grid-row:1 / span 2;font-size:11px;line-height:1.7;letter-spacing:.09em;padding-top:5px}
+.scheduling-case .schedule-adoption-frictions h4{grid-column:2;grid-row:1;font-size:clamp(24px,2.7vw,32px);line-height:1.35;letter-spacing:-.025em;margin:0;color:#292623}
+.scheduling-case .schedule-adoption-frictions p{grid-column:2;grid-row:2;max-width:700px;font-size:16px;line-height:1.85;color:#67615b;margin:0}
+@media(max-width:700px){.scheduling-case .schedule-adoption-frictions{margin:8px 0 48px}.scheduling-case .schedule-adoption-frictions>div{grid-template-columns:1fr;gap:12px;padding:28px 0 32px}.scheduling-case .schedule-adoption-frictions span,.scheduling-case .schedule-adoption-frictions h4,.scheduling-case .schedule-adoption-frictions p{grid-column:1;grid-row:auto}.scheduling-case .schedule-adoption-frictions span{padding-top:0}.scheduling-case .schedule-adoption-frictions h4{font-size:25px}.scheduling-case .schedule-adoption-frictions p{font-size:15px}}
+
+/* Pilates overview: clarify the original design question as a narrative transition */
+.scheduling-case .schedule-feature-quote{display:block;max-width:790px;margin:32px 0 52px;padding:4px 0 5px 28px;background:transparent;border-left:2px solid #be866e}
+.scheduling-case .schedule-feature-quote span{display:block;font-size:10px;letter-spacing:.12em;color:#a56b53;margin-bottom:15px}
+.scheduling-case .schedule-feature-quote p{font-size:15px;line-height:1.75;color:#79716b;margin:0 0 11px}
+.scheduling-case .schedule-feature-quote strong{display:block;font-size:clamp(22px,2.35vw,29px);line-height:1.48;font-weight:650;letter-spacing:-.028em;color:#302b28}
+@media(max-width:650px){.scheduling-case .schedule-feature-quote{margin:28px 0 43px;padding:2px 0 3px 19px}.scheduling-case .schedule-feature-quote p{font-size:14px}.scheduling-case .schedule-feature-quote strong{font-size:22px}}
 /* KIOSK evidence chain: RQ finding -> decision link, evidence-strength tags, jump to clip */
 html body.kiosk-case .rq-link{display:inline-block;margin:0 6px 0 0;padding:3px 10px;border-radius:999px;background:#fff;border:1px solid #d9b8a6;color:#a35f43!important;font-size:13px;font-weight:700;text-decoration:none}
 html body.kiosk-case .rq-link:hover{background:#d0704f;border-color:#d0704f;color:#fff!important}
