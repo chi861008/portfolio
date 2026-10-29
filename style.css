@@ -2164,3 +2164,13 @@ html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
 .scheduling-case .schedule-flow dt{color:#ac7055;font-size:11px;letter-spacing:.06em;margin-bottom:8px}
 .scheduling-case .schedule-flow dd{font-size:15px;font-weight:600;color:#2c2925;line-height:1.7}
 @media(max-width:850px){.scheduling-case .schedule-flow article{grid-template-columns:1fr;row-gap:0;padding:24px 22px}.scheduling-case .schedule-flow dl>div{grid-row:auto!important;grid-column:1!important;margin-top:16px}.scheduling-case .schedule-flow .schedule-days--mini{grid-row:auto}.scheduling-case .schedule-flow dl>div::before{content:none}}
+/* Pilates 03: no tinted blocks — oversized step numbers + hairlines */
+.scheduling-case .schedule-flow{gap:0;border-top:2px solid #24211f}
+.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){background:none;border-radius:0;padding:30px 0 32px;border-bottom:1px solid #d5cfc8;grid-template-columns:96px minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.15fr)}
+.scheduling-case .schedule-flow .sf-num{grid-column:1;grid-row:1/span 3;font-size:64px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#d0704f;font-variant-numeric:tabular-nums}
+.scheduling-case .schedule-flow article>span,.scheduling-case .schedule-flow h3,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2}
+.scheduling-case .schedule-flow dl>div:first-child{grid-column:3}
+.scheduling-case .schedule-flow dl>div:last-child{grid-column:4}
+.scheduling-case .schedule-flow article>span{color:#8a8178}
+@media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:64px minmax(0,1fr);padding:24px 0}.scheduling-case .schedule-flow .sf-num{font-size:44px;grid-row:1/span 6}.scheduling-case .schedule-flow dl>div,.scheduling-case .schedule-flow article>span,.scheduling-case .schedule-flow h3,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important}}
+@media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){column-gap:14px;grid-template-columns:58px minmax(0,1fr)}}
