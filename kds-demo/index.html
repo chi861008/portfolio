@@ -91,8 +91,8 @@ svg{display:block}
 .chip.t{background:#F0F0F0!important;color:#2B2B2B}
 .ch .r2{display:flex;align-items:center;height:56px;margin-top:6px}
 .ch .ty{font-size:28px}
-.ty.to{display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 12px 0 10px;border-radius:21px;background:#fff;color:#1E1E1E;font-weight:700}.ty.to svg{width:24px;height:24px}
-.ty.sm{font-size:26px}.ty.sm.to{height:36px;font-size:24px;padding:0 10px 0 8px}.ty.sm.to svg{width:20px;height:20px}
+.ty.to{display:inline-flex;align-items:center;height:42px;padding:0 16px;border-radius:21px;background:rgba(255,255,255,.22);color:#fff}.ch.o .ty.to{background:rgba(255,255,255,.55);color:#4A4A4A}
+.ty.sm{font-size:26px}.ty.sm.to{height:36px;font-size:24px;padding:0 11px}
 .ch .age{display:flex;align-items:center;gap:6px;font-size:24px;margin-left:26px}
 .ch .age svg{width:24px;height:24px}
 .ch .nt{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:24px;padding:8px 0 8px 12px;color:inherit}
@@ -157,6 +157,7 @@ svg{display:block}
 .sub .sn svg{width:22px;height:22px}
 .sub .snt{font-size:22px;color:#F3E2C7;padding:8px 10px 2px;line-height:1.4}
 .sub .sr{position:relative}.sub.done{opacity:.55}.sub.done .sr::after{content:"✓";position:absolute;right:2px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#2E9E5B;color:#fff;font-size:22px;font-weight:700;display:grid;place-items:center}
+.sub{cursor:default}.grp.gdone .subs{opacity:.5}
 .grp.gdone .gh .dot{background:#2E9E5B;border-color:#2E9E5B}.grp.gdone .gh .dot svg{opacity:1}.grp.gdone .gh .nm,.grp.gdone .gh .mods{color:#8E8E8E}
 
 /* footer + toast */
@@ -209,6 +210,30 @@ svg{display:block}
 <style>
 html.embed body{padding:0;background:#4A4A4A}
 html.embed #stage{box-shadow:none}
+</style>
+<style>
+/* header hierarchy: status tabs lead, controls sit on darker wells, clock/date recede */
+.hdr{background:#333}
+.clock b{color:#F2F2F2}
+.clock span{color:#9A9A9A;font-size:20px}
+.vline{background:#505050}
+.station{height:56px;padding:0 16px 0 18px;border-radius:8px;background:#474747;color:#F2F2F2}
+.tabs{align-self:stretch;gap:6px}
+.tab{height:100%;padding:0 24px;color:#9E9E9E}
+.tab+.tab::before{content:none}
+.tab.on{color:#fff;font-weight:600}
+.tab.on::after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:5px;border-radius:5px 5px 0 0;background:var(--tab)}
+.tab i{background:#474747;color:#CFCFCF}
+.views{background:#262626;padding:4px;border-radius:8px;margin-left:44px}
+.pause{margin-left:20px!important}
+.views button{color:#8E8E8E;border-radius:5px}
+.views button.on{background:#5A5A5A;color:#fff}
+.pause{border:0;background:#262626;border-radius:8px;color:#E6E6E6}
+.pause small{color:#9A9A9A}
+.pause .pc{background:#E6E6E6}
+.pause.off{background:var(--orange);color:#3A3020}
+.pause.off small{color:#5A4A30}
+.pause.off .pc{background:#3A3020;color:var(--orange)}
 </style>
 <script>if(window.self!==window.top)document.documentElement.classList.add("embed");</script>
 </head>
@@ -310,7 +335,7 @@ function cardHead(o,i){
     ${o.note?`<button class="nt ${open?"open":""}" data-a="note:${o.id}">備註${I.chev}</button>`:""}</div></div>
     ${open&&o.note?`<div class="note">${esc(o.note)}</div>`:""}`;
 }
-function tyTag(t,sm){return t==="外帶"?`<span class="ty to${sm?" sm":""}">${I.bag}外帶</span>`:`<span class="ty${sm?" sm":""}">${t}</span>`;}
+function tyTag(t,sm){return t==="外帶"?`<span class="ty to${sm?" sm":""}">外帶</span>`:`<span class="ty${sm?" sm":""}">${t}</span>`;}
 function itemRow(o,it){
   const set=it.set&&S.cfg.showSet?`<span class="set">套</span>`:"";
   const body=`<span class="qty">${it.qty}</span><span class="nm">${esc(it.name)}${set}</span>`;
@@ -338,7 +363,7 @@ function aggregate(){
 const rank=lv=>lv==="r"?2:lv==="o"?1:0;
 function subRow(r,showMods){
   const open=S.notes["s"+r.it.id];
-  return `<div class="sub ${r.it.state==="done"?"done":""}" data-a="subtick:${r.o.id}:${r.it.id}"><div class="sr"><span class="q">${r.it.qty}</span>${tyTag(r.o.type,1)}<span>${r.o.no}</span>${r.it.set&&S.cfg.showSet?`<span class="set">套</span>`:""}${showMods&&r.it.mods.length?`<span style="font-size:22px;color:#eee">- ${r.it.mods.join("、")}</span>`:""}</div>
+  return `<div class="sub"><div class="sr"><span class="q">${r.it.qty}</span>${tyTag(r.o.type,1)}<span>${r.o.no}</span>${r.it.set&&S.cfg.showSet?`<span class="set">套</span>`:""}${showMods&&r.it.mods.length?`<span style="font-size:22px;color:#eee">- ${r.it.mods.join("、")}</span>`:""}</div>
     ${r.o.note?`<button class="sn" data-a="snote:${r.it.id}" style="width:100%">備註${I.chev}</button>${open?`<div class="snt">${esc(r.o.note)}</div>`:""}`:""}</div>`;
 }
 function group(rows,title,key){
