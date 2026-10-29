@@ -1858,3 +1858,30 @@ html body #app .case-article .story-section .schedule-highlight-intro+.hl-row{ma
 html body.scheduling-case .schedule-live-frame iframe{height:844px!important}
 html body.scheduling-case .schedule-live-frame{height:var(--pil-h,720px)}
 html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:390/844}
+
+/* KIOSK evidence-to-decision editorial summary */
+.kiosk-decision-intro{margin:clamp(2rem,4vw,4rem) 0 1.5rem;max-width:850px}
+.kiosk-decision-intro>span,.kiosk-foundation-note>span,.kiosk-decision-card>span,.kiosk-reflection-evidence span{display:block;color:#a35e44;font-size:.73rem;font-weight:700;letter-spacing:.13em;line-height:1.5}
+.kiosk-decision-intro h3{font-size:clamp(1.55rem,2.4vw,2.2rem);line-height:1.2;margin:.55rem 0 1rem}
+.kiosk-decision-intro p,.kiosk-foundation-note p{line-height:1.8;margin:0}
+.kiosk-decision-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.85rem,1.6vw,1.6rem);margin:1.6rem 0}
+.kiosk-decision-card{min-width:0;background:#f3f0eb;padding:clamp(1.25rem,2.2vw,2rem);display:flex;flex-direction:column;gap:1rem;border-radius:5px}
+.kiosk-decision-card h4{font-size:clamp(1.2rem,1.7vw,1.55rem);line-height:1.35;margin:0}
+.kiosk-decision-card dl{margin:0;display:grid;gap:1rem}
+.kiosk-decision-card dl>div{display:grid;gap:.35rem}
+.kiosk-decision-card dt{font-size:.76rem;font-weight:750;color:#a35e44}
+.kiosk-decision-card dd{margin:0;font-size:.94rem;line-height:1.75;color:#4d4c49}
+.kiosk-decision-card small{margin-top:auto;border-top:1px solid #d8d2cb;padding-top:.8rem;font-size:.77rem;line-height:1.5;color:#77736d}
+.kiosk-foundation-note{border-left:2px solid #a35e44;padding:1rem 1.2rem;margin:1.4rem 0 3rem;background:#faf8f5}
+.kiosk-reflection-evidence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1rem,2vw,2rem);margin:2rem 0}
+.kiosk-reflection-evidence>div{min-width:0;border-top:1px solid #aaa39c;padding-top:1.15rem}
+.kiosk-reflection-evidence h3{font-size:1.12rem;line-height:1.4;margin:.6rem 0}
+.kiosk-reflection-evidence p{font-size:.94rem;line-height:1.8;margin:0}
+.kiosk-reflection-close{max-width:850px;padding:1.5rem 0;border-top:1px solid #d9d3cc}
+@media(max-width:760px){
+ .kiosk-decision-grid,.kiosk-reflection-evidence{grid-template-columns:minmax(0,1fr);gap:1rem}
+ .kiosk-decision-card{padding:1.3rem}
+ .kiosk-decision-card dl{gap:.85rem}
+ .kiosk-reflection-evidence{gap:1.6rem}
+ .kiosk-foundation-note{margin-bottom:2rem}
+}
