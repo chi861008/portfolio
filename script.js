@@ -605,3 +605,66 @@ document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest
 /* KIOSK decision chips: all as wide as the longest label */
 (function(){function fit(){const ls=[...document.querySelectorAll('a.rq-link')];if(!ls.length)return;ls.forEach(a=>a.style.width='max-content');const w=Math.max(...ls.map(a=>a.getBoundingClientRect().width));ls.forEach(a=>a.style.width=Math.min(w,a.parentElement.clientWidth)+'px');}
 addEventListener('resize',fit);addEventListener('hashchange',()=>setTimeout(fit,120));setInterval(()=>{const a=document.querySelector('a.rq-link');if(a&&!a.style.width)fit();},500);document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('.lang-toggle,[data-lang],button'))setTimeout(fit,300);});})();
+
+
+// In-page image viewer: keep visitors on the same case-study route.
+(function setupPortfolioImageViewer(){
+  let overlay=null;
+  let previousFocus=null;
+  let priorOverflow='';
+  let viewerHistoryActive=false;
+  function closeViewer(fromHistory=false){
+    if(!overlay)return;
+    overlay.remove();
+    overlay=null;
+    document.body.style.overflow=priorOverflow;
+    previousFocus?.focus?.({preventScroll:true});
+    if(!fromHistory&&viewerHistoryActive&&history.state?.portfolioImageViewer){
+      history.back();
+    }
+    viewerHistoryActive=false;
+  }
+  function openViewer(link){
+    const image=link.querySelector('img');
+    if(!image)return;
+    if(overlay)closeViewer(true);
+    previousFocus=document.activeElement;
+    priorOverflow=document.body.style.overflow;
+    overlay=document.createElement('div');
+    overlay.className='portfolio-image-viewer';
+    overlay.setAttribute('role','dialog');
+    overlay.setAttribute('aria-modal','true');
+    overlay.setAttribute('aria-label','放大圖片');
+    const close=document.createElement('button');
+    close.className='portfolio-image-viewer-close';
+    close.type='button';
+    close.setAttribute('aria-label','關閉圖片並返回作品集');
+    close.textContent='×';
+    const enlarged=document.createElement('img');
+    enlarged.src=link.href;
+    enlarged.alt=image.alt||'作品集圖片';
+    overlay.append(close,enlarged);
+    overlay.addEventListener('click',e=>{if(e.target===overlay||e.target===close)closeViewer();});
+    document.body.appendChild(overlay);
+    document.body.style.overflow='hidden';
+    close.focus({preventScroll:true});
+    history.pushState({...history.state,portfolioImageViewer:true},'',location.href);
+    viewerHistoryActive=true;
+  }
+  document.addEventListener('click',event=>{
+    const link=event.target.closest?.('.case-article a[href]');
+    if(!link)return;
+    const url=new URL(link.href,location.href);
+    if(!/\.(?:png|jpe?g|webp|gif|svg|avif)$/i.test(url.pathname))return;
+    if(!link.querySelector('img'))return;
+    event.preventDefault();
+    openViewer(link);
+  });
+  document.addEventListener('keydown',event=>{
+    if(!overlay)return;
+    if(event.key==='Escape'){event.preventDefault();closeViewer();}
+    if(event.key==='Tab'){event.preventDefault();overlay.querySelector('button')?.focus();}
+  });
+  window.addEventListener('popstate',()=>{if(overlay)closeViewer(true);});
+  window.addEventListener('hashchange',()=>{if(overlay)closeViewer(true);});
+})();
