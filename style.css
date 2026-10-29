@@ -2396,3 +2396,15 @@ html body.kiosk-case .market-chart{border-top:0!important}
 
 /* Match the smaller annotation placement in Group 919 reference. */
 .home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{transform:translate(-21%,-14%) scale(.65)!important}
+
+
+/* Portrait alignment: retain the same zoom while optically centering the face on phones. */
+@media(max-width:650px){
+  .home-opening-photo{object-position:43% 26%}
+  .home-mode .identity-photo .hero-flip-inner>.flip-face--front,
+  .home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-back-photo{object-position:43% 24%!important}
+}
+/* Small coral mark nudge: let the tail just kiss the left contour of the portrait. */
+.home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{
+  transform:translate(-19%,-14%) scale(.65)!important;
+}
