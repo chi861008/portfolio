@@ -2334,3 +2334,14 @@ html body #app .ba--pay .ba-still{aspect-ratio:9/16}
 .kds-case .ba--kds .ba-list li>b,.kds-case .kds-map-list li>b{background:#1d1b19!important}
 .kds-case .ba--kds .ba-list li.on{background:#efebe6!important}
 .kiosk-case .kiosk-market-final-chart.is-open{border-top:0;border-bottom:0;padding-bottom:0}
+/* ===== remove doubled / empty hairlines ===== */
+/* a list's last row doesn't need a bottom rule when the next block (or section) starts with its own line */
+html body.kiosk-case .research-question-grid>div:last-child{border-bottom:0!important}
+html body.kiosk-case .kiosk-market-final{border-top:0!important}
+html body.scheduling-case .schedule-flow article:last-child{border-bottom:0!important}
+html body.scheduling-case .schedule-next-check{border-bottom:0!important}
+html body #app .limits-box{border-bottom:0!important}
+html body #app .limits-box li:first-child{border-top:0!important}
+html body.kds-case .kds-design-phase-two{border-top:0!important;padding-top:0!important}
+html body.scheduling-case .schedule-repo+*,html body #app .story-section:last-child .schedule-repo{border-bottom:0!important}
+html body.scheduling-case .schedule-repo{border-bottom:0!important}
