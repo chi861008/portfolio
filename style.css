@@ -2225,3 +2225,7 @@ html body #app .jump-flash::after{content:"";position:absolute;inset:-12px -28px
 @keyframes jumpPanel{0%{opacity:0}12%,60%{opacity:1}100%{opacity:0}}
 @media(max-width:650px){html body #app .jump-flash::after{inset:-10px -12px;border-radius:16px}}
 html body.kiosk-case .rq-link{max-width:none;gap:18px}
+/* mobile: round "try it" button, raised off the bottom edge so it is easy to reach */
+@media(max-width:650px){html body .demo-fab{width:72px;height:72px;min-width:0;padding:0;border-radius:50%;flex-direction:column;gap:2px;right:14px;bottom:calc(96px + env(safe-area-inset-bottom,0px))}html body .demo-fab span,html body .demo-fab.on span{font-size:13px;line-height:1.15;letter-spacing:.02em;text-align:center}html body .demo-fab>span:first-child{max-width:2.6em;word-break:keep-all;line-break:anywhere}html body .demo-fab>span:last-child{font-size:15px}}
+@media(max-width:650px){html:lang(zh-Hant) body .demo-fab>span:first-child,html body .demo-fab>span:first-child{font-size:14px}}
+@media(max-width:650px){html body .demo-fab,html body .demo-fab>span:first-child{white-space:normal!important}}
