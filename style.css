@@ -2315,3 +2315,13 @@ body:is(.kiosk-case,.kds-case,.scheduling-case) .footer a{border-bottom-color:#8
 .ba--pay .ba-still img{width:100%;height:auto;display:block}
 html body #app .ba--pay .ba-still{aspect-ratio:9/16}
 .kds-case .ba--kds .ba-list{grid-area:auto!important;grid-column:2}.kds-case .ba--kds .ba-main{grid-column:1;min-width:0}@media(max-width:900px){.kds-case .ba--kds .ba-list{grid-column:1}}
+/* KDS switch: number tags sit inside their box so nothing spills over the BEFORE/AFTER buttons */
+.kds-case .ba--kds .ba-stage{margin-top:34px}
+.kds-case .ba--kds .ba-seg{margin-bottom:0}
+/* peek window pops out of the screenshot's corner so it reads as a separate window */
+.ba--kds .ba-peek{right:-26px;bottom:-26px;width:min(38%,200px);border:3px solid #fff;border-radius:10px;box-shadow:0 14px 34px rgba(30,20,10,.35),0 0 0 1px rgba(0,0,0,.08);animation:peekNudge 3.2s ease-in-out infinite}
+.ba--kds .ba-peek:hover{animation:none;transform:translateY(-3px)}
+.ba--kds .ba-peek span{font-size:12px;padding:8px 6px}
+@keyframes peekNudge{0%,70%,100%{transform:translate(0,0)}80%{transform:translate(-4px,-4px)}90%{transform:translate(0,0)}}
+@media(max-width:900px){.ba--kds .ba-peek{right:-6px;bottom:-14px;width:44%}}
+@media (prefers-reduced-motion:reduce){.ba--kds .ba-peek{animation:none}}
