@@ -78,7 +78,6 @@ const schedulingInsight=(num,label,title,copy,kind,caption,en=false)=>'<article 
 function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
  return sec('overview','01 / PROJECT OVERVIEW','我做出了能運作的排課產品，然後學會重新判斷什麼值得先做',
-  '<div class="story-arc"><div><span>01 / PROBLEM</span><strong>老師每月花 2–3 小時排課</strong><p>取消、改期後還要一再重排。</p></div><div><span>02 / BUILD</span><strong>我做出可運作的系統</strong><p>學生交時段、系統出草案、老師定案。</p></div><div><span>03 / TURN</span><strong>Demo 後發現真正的阻力</strong><p>老師擔心的是導入與維護成本，不是排課速度。</p></div><div><span>04 / LEARNING</span><strong>先驗證共通需求，再擴功能</strong><p>這篇也是我如何重新界定 MVP 的紀錄。</p></div></div>'+
   paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。這些條件讓排課不只是找空檔，更是持續協調與取捨的工作。')+
   '<div class="schedule-feature-quote"><span>INITIAL DESIGN QUESTION / 最初的設計提問</span><p>因此，我在第一版開發前，將問題整理成這個設計提問：</p><strong>如何尊重每位學生的時間偏好，兼顧分配公平與教學連續性，並讓老師高效率地完成每月排課？</strong></div>'+
   '<figure class="scenario-figure pilates-case-scenario"><img loading="eager" decoding="async" fetchpriority="high" width="2048" height="1536" src="./assets/pilates-scenario.webp" alt="皮拉提斯老師在教室內查看手機上的排課系統；合成使用情境示意，非訪談現場照片"><figcaption>使用情境示意（合成畫面）。</figcaption></figure>')+
