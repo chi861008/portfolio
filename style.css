@@ -2024,7 +2024,6 @@ html body .demo-fab:focus-visible{outline:3px solid #24211f;outline-offset:3px}
 @media(max-width:650px){.kds-case .kds-box b{width:20px;height:20px;font-size:11px;left:-8px;top:-8px}.kds-case .kds-box{border-width:1.5px}}
 .kds-case .kds-map-img{overflow:visible}
 .kds-case .kds-map-img img{border-radius:6px}
-@media(min-width:901px){.kds-case .kds-map-row>.kds-map-fig{position:sticky;top:112px}}
 @media(max-width:900px){.kds-case .kds-map-list{gap:14px}}
 /* numbered markers as rounded-square tags instead of circles */
 .kds-case .kds-box b{border-radius:5px;width:auto;min-width:24px;height:22px;padding:0 6px;left:-2px;top:-24px;font-size:12px;letter-spacing:.02em;box-shadow:0 2px 6px rgba(0,0,0,.2)}
@@ -2037,3 +2036,16 @@ html body .demo-fab:focus-visible{outline:3px solid #24211f;outline-offset:3px}
 html body #app .hl-clip-frame,html body #app .hl-row--pil .hl-clip-frame{aspect-ratio:auto;height:auto}
 html body #app .hl-clip-frame video{height:auto;object-fit:contain;aspect-ratio:9/16}
 html body #app .hl-row--pil .hl-clip-frame video{aspect-ratio:390/844}
+/* KDS before/after: the BEFORE screen stays in place next to its five points (no sticky) */
+.kds-case .kds-map-list{gap:14px}
+.kds-case .kds-map-list strong{font-size:17px}
+.kds-case .kds-map-list p{font-size:13.5px;line-height:1.65}
+/* KDS highlights: landscape tablet clips (text left, recording right) */
+.hl-row--kds{grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr)}
+html body #app .hl-row--kds .hl-clip-frame{border-width:8px;border-radius:18px;background:#4A4A4A}
+html body #app .hl-row--kds .hl-clip-frame video{aspect-ratio:4/3}
+html body #app .case-article .story-section p+.hl-row--kds{margin-top:36px}
+html body #app .case-article .story-section .hl-row--kds+.hl-row--kds{margin-top:24px}
+html body #app .case-article .story-section .hl-row--kds+.kiosk-live-demo{margin-top:56px}
+html body #app .case-article .story-section .kds-live-demo+.kds-design-phase-two{margin-top:72px}
+@media(max-width:850px){.hl-row--kds{grid-template-columns:1fr}.hl-row--kds .hl-clip{max-width:none}}
