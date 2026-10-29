@@ -2135,3 +2135,75 @@ html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
 .scheduling-case .schedule-hypo-check tbody tr:last-child{background:#fbf3ef}
 .scheduling-case .schedule-hypo-check>p{margin:16px 0 0;font-size:15px;line-height:1.85;color:#55514d}
 @media(max-width:650px){.scheduling-case .schedule-hypo-check thead{display:none}.scheduling-case .schedule-hypo-check tr{display:grid;grid-template-columns:1fr auto;padding:14px 0;border-bottom:1px solid #d8d2cb}.scheduling-case .schedule-hypo-check th,.scheduling-case .schedule-hypo-check td{border:0;padding:0;width:auto!important}.scheduling-case .schedule-hypo-check td:last-child{grid-column:1/-1;margin-top:6px}.scheduling-case .schedule-hypo-check tbody tr:last-child{padding:14px 10px}}
+/* Pilates 03: three roles in order — student → system → instructor */
+.scheduling-case .schedule-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin:34px 0 18px;counter-reset:none}
+.scheduling-case .schedule-flow article{position:relative;padding:26px 24px 28px;background:#f1ece6;border-radius:16px;min-width:0}
+.scheduling-case .schedule-flow article+article::before{content:'→';position:absolute;left:-30px;top:50%;transform:translateY(-50%);font-size:22px;color:#d0704f}
+.scheduling-case .schedule-flow article:nth-child(3){background:#e2e8e0}
+.scheduling-case .schedule-flow article>span{font-size:11px;letter-spacing:.1em;font-weight:800;color:#ac7055}
+.scheduling-case .schedule-flow h3{font-size:clamp(19px,1.8vw,22px);line-height:1.4;margin:10px 0 14px}
+.scheduling-case .schedule-flow dl{margin:0;display:grid;gap:12px}
+.scheduling-case .schedule-flow dt{font-size:12px;font-weight:800;color:#8a8178;margin-bottom:2px}
+.scheduling-case .schedule-flow dd{margin:0;font-size:14.5px;line-height:1.8;color:#4f4a45}
+.scheduling-case .schedule-days--mini{margin:16px 0 0;gap:3px}
+.scheduling-case .schedule-days--mini i{height:30px;font-size:12px}
+.scheduling-case .schedule-flow-note{font-size:14px;color:#7a736c;line-height:1.8;margin:6px 0 0}
+@media(max-width:850px){.scheduling-case .schedule-flow{grid-template-columns:1fr;gap:30px}.scheduling-case .schedule-flow article+article::before{content:'↓';left:50%;top:-27px;transform:translateX(-50%)}}
+/* Pilates 03 flow as left-to-right rows (same reading pattern as the KIOSK research rows): step+title → what → why */
+.scheduling-case .schedule-flow{grid-template-columns:1fr;gap:12px}
+.scheduling-case .schedule-flow article{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.15fr);column-gap:56px;align-items:start;padding:26px 30px}
+.scheduling-case .schedule-flow article+article::before{content:none}
+.scheduling-case .schedule-flow article>span{grid-column:1;grid-row:1}
+.scheduling-case .schedule-flow h3{grid-column:1;grid-row:2;margin:8px 0 0}
+.scheduling-case .schedule-flow .schedule-days--mini{grid-column:1;grid-row:3;margin-top:14px;max-width:260px}
+.scheduling-case .schedule-flow dl{display:contents}
+.scheduling-case .schedule-flow dl>div{grid-row:1/span 3;position:relative}
+.scheduling-case .schedule-flow dl>div:first-child{grid-column:2}
+.scheduling-case .schedule-flow dl>div:last-child{grid-column:3}
+.scheduling-case .schedule-flow dl>div::before{content:'→';position:absolute;left:-36px;top:20px;color:#d0704f;font-size:18px}
+.scheduling-case .schedule-flow dt{color:#ac7055;font-size:11px;letter-spacing:.06em;margin-bottom:8px}
+.scheduling-case .schedule-flow dd{font-size:15px;font-weight:600;color:#2c2925;line-height:1.7}
+@media(max-width:850px){.scheduling-case .schedule-flow article{grid-template-columns:1fr;row-gap:0;padding:24px 22px}.scheduling-case .schedule-flow dl>div{grid-row:auto!important;grid-column:1!important;margin-top:16px}.scheduling-case .schedule-flow .schedule-days--mini{grid-row:auto}.scheduling-case .schedule-flow dl>div::before{content:none}}
+/* Pilates 03: no tinted blocks — oversized step numbers + hairlines */
+.scheduling-case .schedule-flow{gap:0;border-top:2px solid #24211f}
+.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){background:none;border-radius:0;padding:30px 0 32px;border-bottom:1px solid #d5cfc8;grid-template-columns:96px minmax(0,1fr) minmax(0,1.15fr) minmax(0,1.15fr)}
+.scheduling-case .schedule-flow .sf-num{grid-column:1;grid-row:1/span 3;font-size:64px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#d0704f;font-variant-numeric:tabular-nums}
+.scheduling-case .schedule-flow article>span,.scheduling-case .schedule-flow h3,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2}
+.scheduling-case .schedule-flow dl>div:first-child{grid-column:3}
+.scheduling-case .schedule-flow dl>div:last-child{grid-column:4}
+.scheduling-case .schedule-flow article>span{color:#8a8178}
+@media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:64px minmax(0,1fr);padding:24px 0}.scheduling-case .schedule-flow .sf-num{font-size:44px;grid-row:1/span 6}.scheduling-case .schedule-flow dl>div,.scheduling-case .schedule-flow article>span,.scheduling-case .schedule-flow h3,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important}}
+@media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){column-gap:14px;grid-template-columns:58px minmax(0,1fr)}}
+/* Pilates 03 refinement: num | title + what | why — no in-row arrows, only titles bold */
+.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:96px minmax(0,1.25fr) minmax(0,1fr);column-gap:48px}
+.scheduling-case .schedule-flow article>span{grid-column:2;grid-row:1}
+.scheduling-case .schedule-flow h3{grid-column:2;grid-row:2}
+.scheduling-case .schedule-flow dl>div:first-child{grid-column:2!important;grid-row:3!important;margin-top:10px}
+.scheduling-case .schedule-flow dl>div:first-child dt{display:none}
+.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important;grid-row:4}
+.scheduling-case .schedule-flow dl>div:last-child{grid-column:3!important;grid-row:1/span 4!important;padding-top:2px}
+.scheduling-case .schedule-flow dl>div::before{content:none!important}
+.scheduling-case .schedule-flow dd{font-weight:400;color:#4f4a45;font-size:15px;line-height:1.85}
+.scheduling-case .schedule-flow .sf-num{grid-row:1/span 4}
+@media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:58px minmax(0,1fr);column-gap:14px}.scheduling-case .schedule-flow dl>div:first-child,.scheduling-case .schedule-flow dl>div:last-child,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important;grid-row:auto!important}.scheduling-case .schedule-flow .sf-num{grid-row:1/span 6}}
+
+/* ===== Fewer tinted blocks: parallel items become hairline rows; tint kept only for one emphasis per section ===== */
+/* KIOSK research questions + design decisions (parallel, not sequential) */
+html body.kiosk-case .research-question-grid{border-top:2px solid #24211f!important}
+html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{background:none!important;border-radius:0!important;margin:0!important;border-bottom:1px solid #d5cfc8!important;padding-left:0!important;padding-right:0!important}
+html body.kiosk-case .research-question-grid>div:target,html body.kiosk-case .research-question-grid>div.jump-flash{background:#fbf3ef!important}
+/* design highlight rows (all cases) */
+html body #app .hl-row{background:none;border-radius:0;padding:40px 0;border-top:1px solid #d5cfc8}
+html body #app .case-article .story-section .hl-row+.hl-row{margin-top:0}
+/* KDS role split + competitor findings + user metrics */
+html body.kds-case .role-split>div{background:none!important;border-radius:0!important;border-top:2px solid #24211f;padding-left:0!important;padding-right:0!important}
+html body.kds-case .role-split>div:nth-child(2){border-top-color:#d0704f}
+html body.kds-case .kds-competitor-findings article{background:none!important;border-top:1px solid #d5cfc8;padding-left:0!important;padding-right:24px!important}
+html body.kds-case .kds-user-metrics>div{background:none!important;border-radius:0!important;border-left:1px solid #d5cfc8;padding-left:18px!important}
+html body.kds-case .kds-user-metrics>div:first-child{border-left:0;padding-left:0!important}
+html body.kds-case .kds-design-phase-two{background:none;padding:36px 0 0;border-top:2px solid #24211f}
+html body.kds-case .kds-proactive-story{background:none;border-radius:0;padding:4px 0 4px 24px;border-left:3px solid #d0704f}
+/* Pilates reframe: the dark turning-point block + quote already carry the emphasis */
+html body.scheduling-case .schedule-reframe{background:none;padding:30px 0 0;border-top:2px solid #24211f}
+/* limits list (case end) */
+html body #app .limits-box li{background:none!important;border-radius:0!important;border-top:1px solid #d5cfc8;padding-left:0!important;padding-right:0!important}
