@@ -2191,7 +2191,6 @@ html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
 /* KIOSK research questions + design decisions (parallel, not sequential) */
 html body.kiosk-case .research-question-grid{border-top:2px solid #24211f!important}
 html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{background:none!important;border-radius:0!important;margin:0!important;border-bottom:1px solid #d5cfc8!important;padding-left:0!important;padding-right:0!important}
-html body.kiosk-case .research-question-grid>div:target,html body.kiosk-case .research-question-grid>div.jump-flash{background:#fbf3ef!important}
 /* design highlight rows (all cases) */
 html body #app .hl-row{background:none;border-radius:0;padding:40px 0;border-top:1px solid #d5cfc8}
 html body #app .case-article .story-section .hl-row+.hl-row{margin-top:0}
@@ -2216,3 +2215,7 @@ html body.kiosk-case .rq-back{display:table;margin-top:10px;font-size:12px;font-
 html body.kiosk-case .rq-back:hover{color:#c05f3f!important;border-color:#c05f3f}
 html body.kiosk-case .research-question-grid>div[id^="rq-"]{scroll-margin-top:110px}
 html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decision{font-weight:400!important;color:#4f4a45!important}
+
+/* jump highlight fades out instead of leaving the row tinted */
+html body.kiosk-case .research-question-grid>div.jump-flash{animation:rowFlash 1.8s ease}
+@keyframes rowFlash{0%,50%{background:#fbe7dd}100%{background:transparent}}
