@@ -307,7 +307,9 @@ window.addEventListener('scroll',scheduleTocUpdate,{passive:true});
 window.addEventListener('resize',scheduleTocUpdate,{passive:true});
 function playHomeOpening(){
   const target=document.querySelector('.home-mode .identity-photo .flip-face--front');
-  if(!target||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // A user who has already begun scrolling should see the real scroll-driven
+  // flip, never a late entrance copy of the portrait.
+  if(!target||window.scrollY>2||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const destination=target.getBoundingClientRect();
   if(!destination.width||!destination.height)return;
   const opening=document.createElement('div');opening.className='home-opening';opening.setAttribute('aria-hidden','true');
@@ -330,7 +332,18 @@ function playHomeOpening(){
   ],{duration:1450,easing:'cubic-bezier(.22,.78,.15,1)',fill:'forwards'});
   backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:.36},{opacity:0,offset:1}],{duration:1080,easing:'ease-out',fill:'forwards'});
   caption.animate([{opacity:1,offset:0},{opacity:1,offset:.32},{opacity:0,offset:1}],{duration:850,fill:'forwards'});
-  const finish=()=>{target.style.visibility='';if(portrait)portrait.classList.remove('opening-in-progress');opening.remove();};
+  const cancelOnScroll=()=>{if(window.scrollY>2)finish();};
+  const finish=()=>{
+    if(!opening.isConnected)return;
+    window.removeEventListener('scroll',cancelOnScroll);
+    target.style.visibility='';
+    if(portrait)portrait.classList.remove('opening-in-progress');
+    opening.remove();
+  };
+  // The entrance overlay and the scroll-driven flip are mutually exclusive.
+  // Cancel the overlay as soon as the first intentional scroll starts.
+  window.addEventListener('scroll',cancelOnScroll,{passive:true});
+  if(window.scrollY>2)finish();
   window.setTimeout(finish,1500);
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&opening.isConnected)finish();},{once:true});
 }
