@@ -2049,3 +2049,6 @@ html body #app .case-article .story-section .hl-row--kds+.hl-row--kds{margin-top
 html body #app .case-article .story-section .hl-row--kds+.kiosk-live-demo{margin-top:56px}
 html body #app .case-article .story-section .kds-live-demo+.kds-design-phase-two{margin-top:72px}
 @media(max-width:850px){.hl-row--kds{grid-template-columns:1fr}.hl-row--kds .hl-clip{max-width:none}}
+/* KIOSK design decisions: same left-to-right row format as the research questions */
+html body.kiosk-case .kiosk-decision-rows{margin-top:28px}
+html body.kiosk-case .kiosk-decision-status{margin:14px 0 0;font-size:13px;color:#8a8178}
