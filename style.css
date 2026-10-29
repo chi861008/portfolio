@@ -2174,3 +2174,15 @@ html body.kiosk-case #kiosk-market{scroll-margin-top:100px}
 .scheduling-case .schedule-flow article>span{color:#8a8178}
 @media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:64px minmax(0,1fr);padding:24px 0}.scheduling-case .schedule-flow .sf-num{font-size:44px;grid-row:1/span 6}.scheduling-case .schedule-flow dl>div,.scheduling-case .schedule-flow article>span,.scheduling-case .schedule-flow h3,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important}}
 @media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){column-gap:14px;grid-template-columns:58px minmax(0,1fr)}}
+/* Pilates 03 refinement: num | title + what | why — no in-row arrows, only titles bold */
+.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:96px minmax(0,1.25fr) minmax(0,1fr);column-gap:48px}
+.scheduling-case .schedule-flow article>span{grid-column:2;grid-row:1}
+.scheduling-case .schedule-flow h3{grid-column:2;grid-row:2}
+.scheduling-case .schedule-flow dl>div:first-child{grid-column:2!important;grid-row:3!important;margin-top:10px}
+.scheduling-case .schedule-flow dl>div:first-child dt{display:none}
+.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important;grid-row:4}
+.scheduling-case .schedule-flow dl>div:last-child{grid-column:3!important;grid-row:1/span 4!important;padding-top:2px}
+.scheduling-case .schedule-flow dl>div::before{content:none!important}
+.scheduling-case .schedule-flow dd{font-weight:400;color:#4f4a45;font-size:15px;line-height:1.85}
+.scheduling-case .schedule-flow .sf-num{grid-row:1/span 4}
+@media(max-width:850px){.scheduling-case .schedule-flow article,.scheduling-case .schedule-flow article:nth-child(3){grid-template-columns:58px minmax(0,1fr);column-gap:14px}.scheduling-case .schedule-flow dl>div:first-child,.scheduling-case .schedule-flow dl>div:last-child,.scheduling-case .schedule-flow .schedule-days--mini{grid-column:2!important;grid-row:auto!important}.scheduling-case .schedule-flow .sf-num{grid-row:1/span 6}}
