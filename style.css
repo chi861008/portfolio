@@ -2436,3 +2436,43 @@ html body.kiosk-case .market-chart{border-top:0!important}
   margin:0!important;
   border-radius:inherit;
 }
+
+/* Mobile typography audit: avoid orphaned title fragments and mid-word English wraps. */
+@media (max-width:700px){
+  html body #app .case-article h1,
+  html body #app .case-article h2,
+  html body #app .case-article h3,
+  html body #app .case-article h4,
+  html body #app .story-section h2,
+  html body #app .story-section h3,
+  html body #app .case-top h1,
+  html body #app .kiosk-market-final-head h3,
+  html body #app .kiosk-market-screening h4{
+    text-wrap:balance;
+    word-break:normal;
+    overflow-wrap:break-word;
+    line-break:strict;
+  }
+  html body #app .case-article p,
+  html body #app .case-article li,
+  html body #app .story-section p,
+  html body #app .story-section li,
+  html body #app .case-deck{
+    text-wrap:pretty;
+    word-break:normal;
+    overflow-wrap:break-word;
+    line-break:strict;
+  }
+  /* Give TAM its own ring: the SAM circle must not touch the TAM label. */
+  .kiosk-case .kiosk-market-final-main .market-sizing-sam{
+    width:68%;
+    bottom:12px;
+    padding-top:9%;
+  }
+  .kiosk-case .kiosk-market-final-main .market-sizing-sam>strong,
+  .kiosk-case .kiosk-market-final-main .market-sizing-tam>strong{
+    text-wrap:balance;
+    word-break:normal;
+    overflow-wrap:break-word;
+  }
+}
