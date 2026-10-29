@@ -2408,3 +2408,24 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{
   transform:translate(-19%,-14%) scale(.65)!important;
 }
+
+
+/* Mobile Safari: clip video compositor surfaces before the first frame is painted. */
+html body.kiosk-case #app .hl-clip-frame,
+html body.kiosk-case #app .kiosk-live-frame{
+  isolation:isolate;
+  -webkit-mask-image:-webkit-radial-gradient(white,black);
+  clip-path:inset(0 round 26px);
+}
+html body.kiosk-case #app .hl-clip-frame video{
+  border-radius:17px;
+  clip-path:inset(0 round 17px);
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+}
+html body.kiosk-case #app .kiosk-live-frame iframe{
+  border-radius:18px;
+  clip-path:inset(0 round 18px);
+  transform:translateZ(0);
+}
