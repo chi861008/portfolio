@@ -2476,3 +2476,12 @@ html body.kiosk-case .market-chart{border-top:0!important}
     overflow-wrap:break-word;
   }
 }
+
+/* Desktop KIOSK TAM/SAM spacing: keep the second ring below the TAM heading. */
+@media (min-width:701px){
+  .kiosk-case .kiosk-market-final-main .market-sizing-sam{
+    width:68%;
+    bottom:12px;
+    padding-top:9%;
+  }
+}
