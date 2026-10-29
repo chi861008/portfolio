@@ -2262,3 +2262,17 @@ body:is(.kiosk-case,.kds-case,.scheduling-case) .footer a{border-bottom-color:#8
 .portfolio-image-viewer-close{position:absolute;right:clamp(18px,3vw,48px);top:16px;width:48px;height:48px;display:grid;place-items:center;background:transparent;border:1px solid rgba(255,255,255,.6);border-radius:50%;font-size:32px;line-height:1;color:#fff;cursor:pointer}
 .portfolio-image-viewer-close:hover,.portfolio-image-viewer-close:focus-visible{background:#fff;color:#171717}
 @media(max-width:650px){.portfolio-image-viewer{padding:74px 12px 24px}.portfolio-image-viewer-close{top:14px;right:14px}}
+/* KDS before/after: the two screens side by side with clear BEFORE / AFTER tags, the five points below */
+.kds-case .kds-map{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);grid-template-areas:'before arrow after' 'list list list';align-items:start;row-gap:44px}
+.kds-case .kds-map-row{display:contents}
+.kds-case .kds-map-row>.kds-map-fig{grid-area:before;position:static!important}
+.kds-case .kds-map-after{grid-area:after;margin-top:0!important;position:relative}
+.kds-case .kds-map-after::before{content:'→';position:absolute;left:-44px;top:50%;font-size:30px;color:#d0704f;transform:translateY(-50%)}
+.kds-case .kds-map .kds-compare-label{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:14px;letter-spacing:.02em;color:#4f4a45;font-weight:700}
+.kds-case .kds-map .kds-compare-label b{display:inline-block;padding:5px 12px;border-radius:999px;font-size:12px;letter-spacing:.12em;background:#e7e2dc;color:#5c554f}
+.kds-case .kds-map-after .kds-compare-label b{background:#d0704f;color:#fff}
+.kds-case .kds-map-list{grid-area:list;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px!important;margin:0!important;padding-top:26px;border-top:2px solid #24211f}
+.kds-case .kds-map-list li{grid-template-columns:1fr;gap:10px;padding:0}
+.kds-case .kds-map-list strong{font-size:16px}
+.kds-case .kds-map-list p{font-size:13.5px}
+@media(max-width:900px){.kds-case .kds-map{grid-template-columns:1fr;grid-template-areas:'before' 'after' 'list';row-gap:28px}.kds-case .kds-map-after::before{content:'↓';left:50%;top:-28px;transform:translateX(-50%);font-size:24px}.kds-case .kds-map-list{grid-template-columns:1fr}.kds-case .kds-map-list li{grid-template-columns:28px minmax(0,1fr)}}
