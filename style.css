@@ -2393,3 +2393,6 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .home-mode .identity-photo .hero-flip-inner>.flip-face--front,
 .home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-back-photo{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 24%!important;filter:grayscale(1)!important;scale:1!important}
 .home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{filter:none!important;transform:translate(-11%,-8%) scale(.82)!important;transform-origin:center!important}
+
+/* Match the smaller annotation placement in Group 919 reference. */
+.home-mode .identity-photo .hero-flip-inner>.flip-face--back .flip-orange-doodle{transform:translate(-21%,-14%) scale(.65)!important}
