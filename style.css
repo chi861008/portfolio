@@ -2212,3 +2212,7 @@ html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-
 html body.kiosk-case .rq-num{grid-area:num;font-size:60px;line-height:.9;font-weight:800;letter-spacing:-.04em;color:#d0704f;font-variant-numeric:tabular-nums}
 html body.kiosk-case .rq-link{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:250px;box-sizing:border-box}
 @media(max-width:800px){html body.kiosk-case .research-question-grid>div,html body.kiosk-case .research-question-grid>div+div{grid-template-columns:52px minmax(0,1fr);grid-template-areas:'num tag' 'num question' 'num source' '. decision' '. value';column-gap:14px}html body.kiosk-case .rq-num{font-size:40px}}
+html body.kiosk-case .rq-back{display:table;margin-top:10px;font-size:12px;font-weight:800;letter-spacing:.04em;color:#8a8178!important;text-decoration:none;border-bottom:1px solid #c9c1b8}
+html body.kiosk-case .rq-back:hover{color:#c05f3f!important;border-color:#c05f3f}
+html body.kiosk-case .research-question-grid>div[id^="rq-"]{scroll-margin-top:110px}
+html body.kiosk-case .research-question-grid:not(.kiosk-decision-rows) .rq-decision{font-weight:400!important;color:#4f4a45!important}
