@@ -2090,3 +2090,10 @@ html body.kiosk-case .kiosk-decision-status{margin:14px 0 0;font-size:13px;color
 .scheduling-case .schedule-adoption-frictions h4{grid-column:2;grid-row:1;font-size:clamp(24px,2.7vw,32px);line-height:1.35;letter-spacing:-.025em;margin:0;color:#292623}
 .scheduling-case .schedule-adoption-frictions p{grid-column:2;grid-row:2;max-width:700px;font-size:16px;line-height:1.85;color:#67615b;margin:0}
 @media(max-width:700px){.scheduling-case .schedule-adoption-frictions{margin:8px 0 48px}.scheduling-case .schedule-adoption-frictions>div{grid-template-columns:1fr;gap:12px;padding:28px 0 32px}.scheduling-case .schedule-adoption-frictions span,.scheduling-case .schedule-adoption-frictions h4,.scheduling-case .schedule-adoption-frictions p{grid-column:1;grid-row:auto}.scheduling-case .schedule-adoption-frictions span{padding-top:0}.scheduling-case .schedule-adoption-frictions h4{font-size:25px}.scheduling-case .schedule-adoption-frictions p{font-size:15px}}
+
+/* Pilates overview: clarify the original design question as a narrative transition */
+.scheduling-case .schedule-feature-quote{display:block;max-width:790px;margin:32px 0 52px;padding:4px 0 5px 28px;background:transparent;border-left:2px solid #be866e}
+.scheduling-case .schedule-feature-quote span{display:block;font-size:10px;letter-spacing:.12em;color:#a56b53;margin-bottom:15px}
+.scheduling-case .schedule-feature-quote p{font-size:15px;line-height:1.75;color:#79716b;margin:0 0 11px}
+.scheduling-case .schedule-feature-quote strong{display:block;font-size:clamp(22px,2.35vw,29px);line-height:1.48;font-weight:650;letter-spacing:-.028em;color:#302b28}
+@media(max-width:650px){.scheduling-case .schedule-feature-quote{margin:28px 0 43px;padding:2px 0 3px 19px}.scheduling-case .schedule-feature-quote p{font-size:14px}.scheduling-case .schedule-feature-quote strong{font-size:22px}}
