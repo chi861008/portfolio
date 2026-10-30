@@ -332,8 +332,8 @@ async function playHomeOpening(){
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
   const words=[...document.querySelectorAll('.home-mode .identity-title>span')];
-  words.forEach(w=>{if(!w.querySelector('.tw-l')){w.innerHTML=[...w.textContent].map(c=>'<i class="tw-l"><b>'+c+'</b></i>').join('');}w.classList.add('tw-wait');});
-  const growTitle=()=>{words.forEach((w,wi)=>{w.classList.remove('tw-wait');w.classList.add('tw-grow');w.querySelectorAll('.tw-l b').forEach((l,li)=>{l.style.animationDelay=(wi*140+li*55)+'ms';});});};
+  words.forEach(w=>w.classList.add('tw-wait'));
+  const growTitle=()=>{words.forEach((w,wi)=>{w.style.animationDelay=(wi*160)+'ms';w.classList.remove('tw-wait');w.classList.add('tw-grow');});};
   // Move the already-visible first-paint photo directly into the animation layer.
   // This prevents a blank or orange intermediary frame on iOS Safari.
   clearBoot();
