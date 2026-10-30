@@ -2684,3 +2684,23 @@ html body.kiosk-case .research-question-grid.kiosk-decision-rows>div,
 html body.kiosk-case .research-question-grid.kiosk-decision-rows>div+div{
  border-top:0!important;border-bottom:0!important;
 }
+
+/* Kiosk decision rows have no horizontal separators. ID selectors take priority
+   over the legacy important border rules that still style research-question rows. */
+html body.kiosk-case #kdec-1,
+html body.kiosk-case #kdec-2,
+html body.kiosk-case #kdec-3{
+  border:0!important;
+  border-top:0!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+  background-image:none!important;
+}
+html body.kiosk-case #kdec-1::before,
+html body.kiosk-case #kdec-1::after,
+html body.kiosk-case #kdec-2::before,
+html body.kiosk-case #kdec-2::after,
+html body.kiosk-case #kdec-3::before,
+html body.kiosk-case #kdec-3::after{
+  border:0!important;box-shadow:none!important;
+}
