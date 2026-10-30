@@ -638,6 +638,27 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
 
 /* Highlight clips: make Safari autoplay robust, with a usable tap-to-play fallback. */
 (function(){
+  const showFallback=(v,blocked)=>{
+    const frame=v.closest('.hl-clip-frame');
+    if(!frame)return;
+    let b=frame.querySelector('.hl-play-fallback');
+    if(!b&&frame.closest('.hl-row--kds')){
+      b=document.createElement('button');
+      b.type='button';
+      b.className='hl-play-fallback';
+      b.textContent='▶  點擊播放 / Play';
+      b.setAttribute('aria-label','播放 KDS 設計特點影片');
+      b.addEventListener('click',()=>{
+        v.controls=true;
+        v.play().then(()=>showFallback(v,false)).catch(()=>{
+          b.textContent='請使用影片控制列播放';
+          b.classList.add('is-visible');
+        });
+      });
+      frame.appendChild(b);
+    }
+    if(b)b.classList.toggle('is-visible',blocked);
+  };
   const start=v=>{
     if(!v.isConnected||document.hidden)return;
     v.muted=true;
@@ -646,11 +667,15 @@ f.hidden=!on;if(on)f.addEventListener('load',function(){f.dataset.loaded='1'},{o
     v.setAttribute('playsinline','');
     v.setAttribute('webkit-playsinline','');
     const p=v.play();
-    if(p&&p.then)p.then(()=>{v.controls=false;v.removeAttribute('data-play-blocked');}).catch(()=>{
-      // Low Power Mode and user autoplay policies can reject even muted videos.
-      // Show native playback controls instead of silently leaving a frozen poster.
+    if(p&&p.then)p.then(()=>{
+      v.controls=false;
+      v.removeAttribute('data-play-blocked');
+      showFallback(v,false);
+    }).catch(()=>{
+      // If autoplay is blocked, show a visible, accessible play action.
       v.controls=true;
       v.setAttribute('data-play-blocked','');
+      showFallback(v,true);
     });
   };
   const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{
