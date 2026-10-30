@@ -2485,8 +2485,9 @@ html body.kiosk-case .market-chart{border-top:0!important}
     padding-top:9%;
   }
 }
-/* hero title grows in (whole words, original typography untouched) after the opening photo lands */
-.home-mode .identity-title>span.tw-wait{opacity:0;transform:translateY(28%)}
-.home-mode .identity-title>span.tw-grow{animation:twGrow .9s cubic-bezier(.22,1,.36,1) both}
-@keyframes twGrow{from{opacity:0;transform:translateY(28%)}to{opacity:1;transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.home-mode .identity-title>span.tw-wait,.home-mode .identity-title>span.tw-grow{animation:none!important;opacity:1!important;transform:none!important}}
+/* hero title + detail lines rise from behind a baseline (masked, no fade), like a print reveal; typography untouched */
+.home-mode .identity-title>span.tw-wait,.home-mode .identity-details>p.tw-wait{transform:translateY(100%);clip-path:inset(-30% -30% 100% -30%)}
+.home-mode .identity-title>span.tw-grow{animation:twRise .7s cubic-bezier(.2,.8,.2,1) both}
+.home-mode .identity-details>p.tw-grow{animation:twRise .55s cubic-bezier(.2,.8,.2,1) both}
+@keyframes twRise{from{transform:translateY(100%);clip-path:inset(-30% -30% 100% -30%)}to{transform:translateY(0);clip-path:inset(-30% -30% -30% -30%)}}
+@media (prefers-reduced-motion:reduce){.home-mode .identity-title>span.tw-wait,.home-mode .identity-title>span.tw-grow,.home-mode .identity-details>p.tw-wait,.home-mode .identity-details>p.tw-grow{animation:none!important;transform:none!important;clip-path:none!important}}

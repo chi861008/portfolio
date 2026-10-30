@@ -332,8 +332,12 @@ async function playHomeOpening(){
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
   const words=[...document.querySelectorAll('.home-mode .identity-title>span')];
-  words.forEach(w=>w.classList.add('tw-wait'));
-  const growTitle=()=>{words.forEach((w,wi)=>{w.style.animationDelay=(wi*160)+'ms';w.classList.remove('tw-wait');w.classList.add('tw-grow');});};
+  const lines=[...document.querySelectorAll('.home-mode .identity-details>p')];
+  words.forEach(w=>w.classList.add('tw-wait'));lines.forEach(l=>l.classList.add('tw-wait'));
+  let grown=false;
+  const growTitle=()=>{if(grown)return;grown=true;
+    words.forEach((w,wi)=>{w.style.animationDelay=(wi*120)+'ms';w.classList.remove('tw-wait');w.classList.add('tw-grow');});
+    lines.forEach((l,li)=>{l.style.animationDelay=(420+li*70)+'ms';l.classList.remove('tw-wait');l.classList.add('tw-grow');});};
   // Move the already-visible first-paint photo directly into the animation layer.
   // This prevents a blank or orange intermediary frame on iOS Safari.
   clearBoot();
@@ -356,13 +360,14 @@ async function playHomeOpening(){
     const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
     const endLeft=d.left+(d.width-endWidth)/2,endTop=d.top+(d.height-endHeight)/2;
     // a soft ease-out (fast start, long gentle landing) reads smoother than a symmetric curve
-    const ease='cubic-bezier(.22,1,.36,1)';
+    const ease='cubic-bezier(.65,0,.2,1)';
     const anim=image.animate([
       {...full,transform:'rotate(0deg) scale(1.10)'},
       {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg) scale(1)',borderRadius:'8px'}
     ],{duration:shrinkMs,easing:ease,fill:'forwards'});
     phase1.cancel();
-    backdrop.animate([{opacity:1},{opacity:0}],{duration:shrinkMs,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+    backdrop.animate([{opacity:1},{opacity:0}],{duration:180,easing:'linear',fill:'forwards'});
+    setTimeout(growTitle,Math.round(shrinkMs*.55));
     anim.onfinish=()=>requestAnimationFrame(finish);
   };
   phase1.onfinish=()=>{(document.fonts&&document.fonts.status!=='loaded'?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(shrink));};
