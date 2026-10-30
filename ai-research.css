@@ -107,3 +107,8 @@
 .ai-process-compare p{margin:0;font-size:15px;line-height:1.75;color:#ddd}
 .ai-process-after p{color:#fff}
 @media(max-width:580px){.ai-process-content{min-height:0}.ai-process-compare p{font-size:16px}}
+
+/* Three-stage workflow */
+.ai-process-flow{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:960px){.ai-process-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:580px){.ai-process-flow{grid-template-columns:1fr}}
