@@ -2485,10 +2485,8 @@ html body.kiosk-case .market-chart{border-top:0!important}
     padding-top:9%;
   }
 }
-/* hero title grows in letter by letter only after the opening photo has landed */
-.home-mode .identity-title>span .tw-l{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-.home-mode .identity-title>span .tw-l b{display:inline-block;font-weight:inherit}
-.home-mode .identity-title>span.tw-wait .tw-l b{transform:translateY(105%)}
-.home-mode .identity-title>span.tw-grow .tw-l b{animation:twGrow .8s cubic-bezier(.22,1,.36,1) both}
-@keyframes twGrow{from{transform:translateY(105%)}to{transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){.home-mode .identity-title>span .tw-l b{animation:none!important;transform:none!important}}
+/* hero title grows in (whole words, original typography untouched) after the opening photo lands */
+.home-mode .identity-title>span.tw-wait{opacity:0;transform:translateY(28%)}
+.home-mode .identity-title>span.tw-grow{animation:twGrow .9s cubic-bezier(.22,1,.36,1) both}
+@keyframes twGrow{from{opacity:0;transform:translateY(28%)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.home-mode .identity-title>span.tw-wait,.home-mode .identity-title>span.tw-grow{animation:none!important;opacity:1!important;transform:none!important}}
