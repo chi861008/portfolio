@@ -248,11 +248,33 @@ function updateScrollSignature(){
   if(portraitFrame){
     portraitFrame.style.setProperty('--portrait-rise',`${(82-eased*107).toFixed(1)}px`);
   }
-  // Begin writing as the About section enters the viewport, while keeping the original writing distance/rate.
+  // Trigger only when the signature itself enters view. Complete the handwriting
+  // on its own clock: sticky sections must not freeze the drawing at mid-stroke.
   const signatureRect=signature.getBoundingClientRect();
-  const signatureProgress=reduced?1:Math.min(1,Math.max(0,(window.innerHeight*.88-signatureRect.top)/Math.max(window.innerHeight*.58,signatureRect.height*2.4)));
-  const drawn=signatureProgress*Number(signature.dataset.totalLength||0);
-  for(const path of paths){const length=Number(path.dataset.length);const start=Number(path.dataset.start);path.style.strokeDashoffset=Math.max(0,Math.min(length,length-(drawn-start)));}
+  const isVisible=signatureRect.top<window.innerHeight*.88&&signatureRect.bottom>0;
+  const paint=(fraction)=>{
+    const drawn=fraction*Number(signature.dataset.totalLength||0);
+    for(const path of paths){
+      const length=Number(path.dataset.length);
+      const pathStart=Number(path.dataset.start);
+      path.style.strokeDashoffset=Math.max(0,Math.min(length,length-(drawn-pathStart)));
+    }
+  };
+  if(reduced){paint(1);signature.dataset.drawn='true';return;}
+  if(signature.dataset.drawn==='true')return;
+  if(!isVisible||signature.dataset.drawing==='true')return;
+  signature.dataset.drawing='true';
+  const duration=2600;
+  let began=null;
+  const animate=(timestamp)=>{
+    if(!signature.isConnected)return;
+    if(began===null)began=timestamp;
+    const fraction=Math.min(1,(timestamp-began)/duration);
+    paint(fraction*fraction*(3-2*fraction));
+    if(fraction<1)requestAnimationFrame(animate);
+    else{paint(1);signature.dataset.drawn='true';signature.dataset.drawing='false';}
+  };
+  requestAnimationFrame(animate);
 }
 function updateHomeMotion(){
   const hold=document.querySelector('.home-mode .hero-hold');
