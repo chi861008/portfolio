@@ -96,3 +96,14 @@
 .ai-process-outcome--metric strong{font-size:21px;color:#ff8055}
 @media(max-width:960px){.ai-process-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.ai-process-flow:before{display:none}.ai-process-step{border-top:2px solid #d2cdc5}.ai-process-content{min-height:280px}.ai-process-heading{display:block}.ai-process-heading p{margin-top:18px;max-width:none}}
 @media(max-width:580px){.ai-process-section{padding-top:68px;padding-bottom:74px}.ai-process-heading h2{font-size:clamp(36px,10vw,50px)}.ai-process-flow{grid-template-columns:1fr;gap:20px}.ai-process-index{height:48px}.ai-process-index>span:first-child{font-size:28px}.ai-process-content{min-height:0;padding:23px 24px}.ai-process-content h3{font-size:23px;margin-bottom:18px}.ai-process-content li{font-size:16px;margin-bottom:10px}.ai-process-outcome{margin-top:16px}}
+
+/* Concrete before/after methods rather than generic tool descriptions. */
+.ai-process-content{min-height:410px}
+.ai-process-compare{display:flex;flex-direction:column;gap:0;margin-bottom:22px}
+.ai-process-compare>div{padding:0 0 17px}
+.ai-process-compare>div+div{border-top:1px solid #565656;padding-top:17px}
+.ai-process-compare span{display:block;font-size:10px;font-weight:800;letter-spacing:.13em;color:#989898;margin-bottom:8px}
+.ai-process-after span{color:#ff8055}
+.ai-process-compare p{margin:0;font-size:15px;line-height:1.75;color:#ddd}
+.ai-process-after p{color:#fff}
+@media(max-width:580px){.ai-process-content{min-height:0}.ai-process-compare p{font-size:16px}}
