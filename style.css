@@ -2603,3 +2603,18 @@ html body.kiosk-case .market-chart{border-top:0!important}
 
 /* Mobile About: no sticky hold after the handwritten signature. */
 @media(max-width:650px){.home-mode .intro-hold{min-height:0!important;height:auto!important}.home-mode .intro-hold .intro-portrait{position:relative!important;top:auto!important;min-height:0!important;transform:none!important}}
+
+/* Consistent case-study jumps: same pill treatment for both decision and result links. */
+html body.kiosk-case a.dec-look,html body.kiosk-case a.rq-link{display:inline-flex!important;align-items:center;justify-content:space-between;gap:16px;width:max-content;max-width:100%;min-height:43px;margin:12px 0 0!important;padding:9px 18px!important;border:1px solid #d9b8a6!important;border-radius:999px!important;background:transparent!important;box-shadow:none!important;color:#aa6145!important;font-size:14px!important;font-weight:750!important;line-height:1.4!important;text-decoration:none!important;white-space:normal}
+html body.kiosk-case a.dec-look span,html body.kiosk-case a.rq-link span{font-size:17px}
+html body.kiosk-case a.dec-look:hover,html body.kiosk-case a.rq-link:hover{background:#f6e7df!important;color:#91492e!important;border-color:#cc997d!important}
+@media(max-width:650px){
+ .home-mode .intro-hold{height:auto!important;min-height:0!important}
+ .home-mode .intro-hold .intro-portrait{position:relative!important;top:auto!important;min-height:0!important}
+}
+@media(min-width:651px){
+ .home-mode .intro-hold{min-height:150svh!important}
+}
+@media(min-width:901px){
+ .home-mode .work-hold{height:150svh!important}
+}
