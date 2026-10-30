@@ -810,3 +810,28 @@ addEventListener('resize',fit);addEventListener('hashchange',()=>setTimeout(fit,
     const li=e.target.closest('.ba-list li');if(li){stop(ba);show(ba,'before');ba.querySelectorAll('.ba-list li').forEach(x=>x.classList.toggle('on',x===li));ba.querySelectorAll('.kds-box').forEach(b=>b.classList.toggle('hot',b.dataset.n===li.dataset.n));}
   });
 })();
+
+/* Scroll-responsive AI workflow: progress follows viewport instead of a timed entrance. */
+(function setupResearchWorkflowScroll(){
+  let raf=0;
+  const clamp=(v)=>Math.max(0,Math.min(1,v));
+  function update(){
+    raf=0;
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.ai-corner-step').forEach((card,i)=>{
+      card.classList.add('ai-scroll-ready');
+      if(reduced){card.style.setProperty('--ai-reveal','1');return;}
+      const bounds=card.getBoundingClientRect();
+      const vh=window.innerHeight||1;
+      const progress=clamp((vh*.96-bounds.top)/(vh*.48));
+      const stagger=clamp((progress-i*.055)/(1-i*.055));
+      card.style.setProperty('--ai-reveal',stagger.toFixed(3));
+    });
+  }
+  const request=()=>{if(!raf)raf=requestAnimationFrame(update);};
+  window.addEventListener('scroll',request,{passive:true});
+  window.addEventListener('resize',request,{passive:true});
+  window.addEventListener('hashchange',request);
+  new MutationObserver(request).observe(document.querySelector('#app'),{childList:true});
+  request();
+})();
