@@ -326,6 +326,9 @@ async function playHomeOpening(){
   const backdrop=document.createElement('div');backdrop.className='home-opening-backdrop';
   const caption=document.createElement('span');caption.className='home-opening-caption';caption.textContent='YUAN CHI  /  PORTFOLIO';
   opening.append(backdrop,caption,image);document.body.appendChild(opening);
+  // Match the card's crop so the hand-off at the end doesn't jump.
+  image.style.objectPosition=getComputedStyle(target).objectPosition;
+  image.style.willChange='left,top,width,height,transform';
   target.style.visibility='hidden';
   const portrait=document.querySelector('.identity-photo');if(portrait)portrait.classList.add('opening-in-progress');
   // Move the already-visible first-paint photo directly into the animation layer.
@@ -333,20 +336,33 @@ async function playHomeOpening(){
   clearBoot();
   const startWidth=window.innerWidth;
   const startHeight=window.innerHeight;
-  const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
-  const endLeft=destination.left+(destination.width-endWidth)/2;
-  const endTop=destination.top+(destination.height-endHeight)/2;
-  // A visible 1.2s push-in, 0.67s hold, then a 0.6s return to the hero card.
-  // Segment-specific easing keeps the push-in from being compressed by the final shrink.
-  const openingDuration=2467;
-  image.animate([
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1)',borderRadius:'0px',offset:0,easing:'ease-in-out'},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:1200/openingDuration,easing:'linear'},
-    {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:1867/openingDuration,easing:'cubic-bezier(.72,0,.28,1)'},
-    {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg) scale(1)',borderRadius:'8px',offset:1}
-  ],{duration:openingDuration,easing:'linear',fill:'forwards'});
-  backdrop.animate([{opacity:1,offset:0},{opacity:1,offset:1867/openingDuration},{opacity:0,offset:1}],{duration:openingDuration,easing:'linear',fill:'forwards'});
+  // Phase 1 (1.2s push-in + 0.67s hold) and phase 2 (0.6s return) run as separate
+  // animations so the card position is measured *right before* the return —
+  // fonts or layout that settle during phase 1 can no longer cause a jump at the hand-off.
+  const pushMs=1200,holdMs=667,shrinkMs=600,openingDuration=pushMs+holdMs+shrinkMs;
+  const full={left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',borderRadius:'0px'};
+  const phase1=image.animate([
+    {...full,transform:'rotate(0deg) scale(1)',offset:0,easing:'cubic-bezier(.33,0,.2,1)'},
+    {...full,transform:'rotate(0deg) scale(1.10)',offset:pushMs/(pushMs+holdMs)},
+    {...full,transform:'rotate(0deg) scale(1.10)',offset:1}
+  ],{duration:pushMs+holdMs,fill:'forwards'});
   caption.animate([{opacity:1,offset:0},{opacity:1,offset:.6},{opacity:0,offset:1}],{duration:1800,fill:'forwards'});
+  const shrink=()=>{
+    if(!opening.isConnected)return;
+    const d=target.getBoundingClientRect();
+    const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
+    const endLeft=d.left+(d.width-endWidth)/2,endTop=d.top+(d.height-endHeight)/2;
+    // a soft ease-out (fast start, long gentle landing) reads smoother than a symmetric curve
+    const ease='cubic-bezier(.22,1,.36,1)';
+    const anim=image.animate([
+      {...full,transform:'rotate(0deg) scale(1.10)'},
+      {left:endLeft+'px',top:endTop+'px',width:endWidth+'px',height:endHeight+'px',transform:'rotate(8deg) scale(1)',borderRadius:'8px'}
+    ],{duration:shrinkMs,easing:ease,fill:'forwards'});
+    phase1.cancel();
+    backdrop.animate([{opacity:1},{opacity:0}],{duration:shrinkMs,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+    anim.onfinish=()=>requestAnimationFrame(finish);
+  };
+  phase1.onfinish=()=>{(document.fonts&&document.fonts.status!=='loaded'?document.fonts.ready:Promise.resolve()).then(()=>requestAnimationFrame(shrink));};
   const cancelOnScroll=()=>{if(window.scrollY>2)finish();};
   const finish=()=>{
     if(!opening.isConnected)return;
@@ -357,7 +373,7 @@ async function playHomeOpening(){
   };
   window.addEventListener('scroll',cancelOnScroll,{passive:true});
   if(window.scrollY>2)finish();
-  window.setTimeout(finish,openingDuration+50);
+  window.setTimeout(finish,openingDuration+1500);
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&opening.isConnected)finish();},{once:true});
 }
 function setupThinkingBand(){
