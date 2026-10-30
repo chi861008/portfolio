@@ -181,3 +181,8 @@
 .ai-corner-step .ai-process-outcome strong{transition:color .2s ease}
 @media(max-width:960px){.ai-corner-step .ai-process-content{min-height:0;padding:22px 24px}.ai-corner-step .ai-process-index{margin-bottom:14px}}
 @media(prefers-reduced-motion:reduce){.ai-corner-step.ai-scroll-ready{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* Visual hierarchy: step indices recede; efficiency outcomes own the brand orange. */
+.ai-corner-step .ai-step-number{color:#8c8882!important}
+.ai-corner-step .ai-process-cat{color:#8c8882}
+.ai-corner-frame .ai-process-outcome--metric strong{color:#ff633e!important}
