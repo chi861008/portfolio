@@ -209,3 +209,13 @@
 .ai-corner-step.ai-scroll-ready{opacity:calc(.35 + var(--ai-reveal)*.65);transform:translate3d(0,calc((1 - var(--ai-reveal))*38px),0);transition:opacity .08s linear,transform .08s linear}
 @media(max-width:580px){.ai-process-section .ai-process-heading{gap:10px;margin-bottom:25px}.ai-process-section .ai-process-heading p{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.ai-corner-step.ai-scroll-ready{opacity:1!important;transform:none!important}}
+
+/* Outcome-first information hierarchy for three dark workflow cards. */
+.ai-corner-step .ai-process-content{justify-content:flex-start}
+.ai-corner-step .ai-process-content h3{margin-bottom:19px}
+.ai-corner-step .ai-process-outcome--top{order:0;display:flex;align-items:baseline;flex-wrap:wrap;gap:9px;border-top:0;border-bottom:1px solid #4a4846;margin:0 0 20px;padding:0 0 19px}
+.ai-corner-step .ai-process-outcome--top .ai-result-before{font-size:16px;color:#bbb7b2;letter-spacing:0}
+.ai-corner-step .ai-process-outcome--top .ai-result-arrow{font-size:18px;color:#a49e98}
+.ai-corner-step .ai-process-outcome--top strong{font-size:27px;color:#ff633e!important;white-space:nowrap;line-height:1.25}
+.ai-corner-step .ai-process-story{margin:0}
+@media(max-width:580px){.ai-corner-step .ai-process-outcome--top strong{font-size:25px}.ai-corner-step .ai-process-outcome--top{margin-bottom:17px;padding-bottom:16px}}
