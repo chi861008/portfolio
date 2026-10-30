@@ -2600,3 +2600,6 @@ html body.kiosk-case .market-chart{border-top:0!important}
 @media(min-width:901px){
   .home-mode .work-hold{height:175svh}
 }
+
+/* Mobile About: no sticky hold after the handwritten signature. */
+@media(max-width:650px){.home-mode .intro-hold{min-height:0!important;height:auto!important}.home-mode .intro-hold .intro-portrait{position:relative!important;top:auto!important;min-height:0!important;transform:none!important}}
