@@ -2661,3 +2661,16 @@ body.kiosk-case :is(a.rq-link,a.dec-look){
 }
 body.kiosk-case :is(a.rq-link,a.dec-look) span{flex:none;font-size:18px;line-height:1}
 body.kiosk-case :is(a.rq-link,a.dec-look):hover{background:#f8ebe4!important}
+
+/* Kiosk: remove the legacy underline beneath “看實際畫面”.
+   Keep only the uniform pill border on all four sides. */
+html body.kiosk-case a.dec-look,
+html body.kiosk-case a.rq-link{
+  text-decoration:none!important;
+  border-bottom-color:#d5a88e!important;
+  border-bottom-width:1.5px!important;
+  box-shadow:none!important;
+  background-image:none!important;
+}
+html body.kiosk-case a.dec-look::after,
+html body.kiosk-case a.rq-link::after{border:0!important;box-shadow:none!important}
