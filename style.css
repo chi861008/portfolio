@@ -2618,3 +2618,33 @@ html body.kiosk-case a.dec-look:hover,html body.kiosk-case a.rq-link:hover{backg
 @media(min-width:901px){
  .home-mode .work-hold{height:150svh!important}
 }
+
+/* Kiosk navigation buttons: definitive shared style for both link families. */
+body.kiosk-case .case-article a.rq-link,
+body.kiosk-case .case-article a.dec-look,
+body.kiosk-case a.rq-link,
+body.kiosk-case a.dec-look {
+  display:inline-flex!important;
+  width:fit-content!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:17px!important;
+  min-height:44px!important;
+  padding:9px 17px!important;
+  margin:12px 7px 0 0!important;
+  border:1.5px solid #d9b8a6!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:#a85f42!important;
+  font-size:14px!important;
+  font-weight:750!important;
+  line-height:1.35!important;
+  text-decoration:none!important;
+  box-shadow:none!important;
+}
+body.kiosk-case a.rq-link >span,
+body.kiosk-case a.dec-look >span {font-size:18px!important;line-height:1!important;flex:none!important}
+body.kiosk-case a.rq-link:hover,
+body.kiosk-case a.dec-look:hover {background:#f7ebe5!important;border-color:#c99177!important}
