@@ -2719,3 +2719,19 @@ html body.kiosk-case #kdec-3::after{
 .portfolio-contact-actions .portfolio-resume-primary>span:last-child{font-size:23px;font-weight:400}
 .portfolio-contact-actions .portfolio-contact-email{display:inline-flex;align-items:center;justify-content:space-between;border-bottom:1px solid #bcb8b4;margin-top:15px;padding-bottom:10px;font-size:16px;word-break:break-word}
 @media(max-width:760px){.portfolio-contact-section{padding:65px 0 80px}.portfolio-contact-inner{grid-template-columns:1fr;gap:32px}.portfolio-contact-title h2{font-size:clamp(39px,10vw,56px)}.portfolio-contact-actions .portfolio-resume-primary{min-height:58px}}
+
+/* Editorial Resume / Contact — typography and fine rules instead of heavy cards. */
+.portfolio-contact-section{background:#f9f9f7;padding:110px 0 125px;border-top:1px solid #ddd9d2}
+.portfolio-contact-inner{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:start;gap:clamp(35px,7vw,110px)}
+.portfolio-contact-title .eyebrow{font-size:11px;font-weight:750;letter-spacing:.14em;color:#9d8b81}
+.portfolio-contact-title h2{font-size:clamp(55px,7.3vw,105px);letter-spacing:-.075em;line-height:.98;margin:25px 0 25px;font-weight:700}
+.portfolio-contact-title p{font-size:16px;color:#6e6964}
+.portfolio-contact-actions{gap:36px;padding-top:16px}
+.portfolio-contact-group{min-width:0}
+.portfolio-contact-label{font-size:11px;font-weight:800;letter-spacing:.14em;color:#a19b94;padding-bottom:13px}
+.portfolio-contact-actions .portfolio-resume-primary,.portfolio-contact-actions .portfolio-contact-email{display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%;min-height:60px;border:0;border-top:1px solid #cbc7c1;border-radius:0;background:transparent;color:#1c1c1c;padding:11px 0;margin:0;text-decoration:none;font-size:clamp(17px,1.8vw,22px);font-weight:650;transition:color .2s ease,padding-left .2s ease}
+.portfolio-contact-actions .portfolio-resume-primary:last-child{border-bottom:1px solid #cbc7c1}
+.portfolio-contact-actions .portfolio-contact-email{border-bottom:1px solid #cbc7c1;font-size:clamp(16px,1.6vw,20px);word-break:break-word}
+.portfolio-contact-actions .portfolio-resume-primary:hover,.portfolio-contact-actions .portfolio-contact-email:hover{background:transparent;border-color:#cbc7c1;color:#e36f4b;padding-left:7px}
+.portfolio-contact-actions .portfolio-resume-primary>span:last-child,.portfolio-contact-actions .portfolio-contact-email>span:last-child{font-weight:400;font-size:23px;color:#e36f4b;flex:none}
+@media(max-width:760px){.portfolio-contact-section{padding:75px 0 90px}.portfolio-contact-inner{grid-template-columns:1fr;gap:25px}.portfolio-contact-title h2{font-size:clamp(56px,13vw,85px)}.portfolio-contact-actions{padding-top:0;gap:28px}}
