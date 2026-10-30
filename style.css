@@ -2498,3 +2498,25 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .hl-row--kds .hl-play-fallback.is-visible{display:block}
 .hl-row--kds .hl-play-fallback:focus-visible{outline:3px solid #df754b;outline-offset:3px}
 @media(max-width:650px){.hl-row--kds .hl-play-fallback{font-size:12px;padding:11px 13px}}
+
+/* Reusable qualitative-research AI toolkit, aligned with the existing editorial identity. */
+.ai-tools-section{padding-top:100px;padding-bottom:112px}
+.ai-tools-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:5%;align-items:end;margin-bottom:34px}
+.ai-tools-heading .eyebrow{grid-column:1/-1;color:var(--accent);margin-bottom:18px}
+.ai-tools-heading h2{font-size:clamp(40px,5.3vw,70px);line-height:1.03;letter-spacing:-.055em;font-weight:700;margin:0}
+.ai-tools-heading>p{font-size:15px;line-height:1.85;color:#5c5854;max-width:440px;margin:0 0 4px}
+.ai-tool-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ai-tool-card{min-width:0;background:#efede8;padding:24px 22px 30px;border-top:3px solid #202020;position:relative}
+.ai-tool-card:nth-child(2){background:#e8e6e1}
+.ai-tool-card:nth-child(3){background:#f3e5dc}
+.ai-tool-card:nth-child(4){background:#eae5df;border-top-color:var(--accent)}
+.ai-tool-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:48px}
+.ai-tool-top>span{font-size:23px;letter-spacing:-.055em;font-weight:700;color:var(--accent)}
+.ai-tool-top>em{font-size:10px;font-style:normal;font-weight:700;letter-spacing:.1em;color:#756e67}
+.ai-tool-card h3{font-size:clamp(17px,1.55vw,23px);line-height:1.35;margin:0 0 14px;letter-spacing:-.035em}
+.ai-tool-card p{font-size:13px;line-height:1.8;color:#595652;margin:0}
+.ai-tools-note{margin:20px 0 0;text-align:right;color:#8a817b;font-size:12px}
+.ai-tools-section--compact{padding-top:65px;padding-bottom:90px}
+.ai-tools-section--compact .ai-tools-heading h2{font-size:clamp(32px,4.4vw,54px)}
+@media(max-width:850px){.ai-tools-heading{grid-template-columns:1fr;gap:16px}.ai-tool-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.ai-tool-top{margin-bottom:27px}}
+@media(max-width:520px){.ai-tools-section{padding-top:70px;padding-bottom:82px}.ai-tool-flow{grid-template-columns:1fr;gap:8px}.ai-tool-card{padding:22px 23px 24px}.ai-tool-top{margin-bottom:20px}.ai-tool-card h3{font-size:20px}.ai-tools-note{text-align:left}.ai-tools-heading h2{font-size:42px}}
