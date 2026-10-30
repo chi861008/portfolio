@@ -152,8 +152,9 @@ function applyOrbitLettering(){
   ring.innerHTML='<svg viewBox="0 0 280 280" role="img" aria-label="Product · Design · YuanChi"><defs><path id="orbit-type-path" d="M 140,140 m -113,0 a 113,113 0 1,1 226,0 a 113,113 0 1,1 -226,0"/></defs><text textLength="695" lengthAdjust="spacing"><textPath href="#orbit-type-path" startOffset="1%">Product · Design · YuanChi ·</textPath></text></svg>';
 }
 function addScrollSignature(){
-  const link=document.querySelector('.intro-copy .intro-link');
-  if(!link)return;
+  const copy=document.querySelector('.intro-copy');
+  if(!copy||copy.querySelector('.scroll-signature'))return;
+  const link=copy.querySelector('.intro-link');
   const signature=document.createElement('div');
   signature.className='scroll-signature';
   signature.setAttribute('role','img');
@@ -169,12 +170,13 @@ function addScrollSignature(){
     '<path d="M351 52 L352 50"/>'+
     '<path d="M66 99 C124 111 213 112 288 110 C327 108 353 107 378 108"/>'+
     '</svg>';
-  // Place the smaller signature and About Me action together under the bio.
+  // Keep the signature under the bio independently of an optional action link.
   const actionRow=document.createElement('div');
   actionRow.className='signature-action-row';
-  link.before(actionRow);
-  link.classList.remove('intro-bottom-link');
-  actionRow.append(signature,link);
+  if(link)link.before(actionRow);
+  else copy.append(actionRow);
+  actionRow.append(signature);
+  if(link){link.classList.remove('intro-bottom-link');actionRow.append(link);}
   const paths=[...signature.querySelectorAll('path')];
   let total=0;
   for(const path of paths){const length=path.getTotalLength();path.dataset.length=length;path.dataset.start=total;total+=length;path.style.strokeDasharray=length;path.style.strokeDashoffset=length;}
