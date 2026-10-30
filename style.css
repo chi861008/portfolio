@@ -2491,3 +2491,10 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .home-mode .identity-details>p.tw-grow{animation:twRise .55s cubic-bezier(.2,.8,.2,1) both}
 @keyframes twRise{from{transform:translateY(100%);clip-path:inset(-30% -30% 100% -30%)}to{transform:translateY(0);clip-path:inset(-30% -30% -30% -30%)}}
 @media (prefers-reduced-motion:reduce){.home-mode .identity-title>span.tw-wait,.home-mode .identity-title>span.tw-grow,.home-mode .identity-details>p.tw-wait,.home-mode .identity-details>p.tw-grow{animation:none!important;transform:none!important;clip-path:none!important}}
+
+/* KDS highlight clips: clear manual-play fallback when autoplay is denied. */
+.hl-row--kds .hl-clip-frame{position:relative}
+.hl-row--kds .hl-play-fallback{display:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;padding:12px 18px;border:1px solid #fff;border-radius:999px;background:rgba(22,22,22,.92);color:#fff;font-size:14px;font-weight:750;white-space:nowrap;box-shadow:0 5px 24px #0006;cursor:pointer}
+.hl-row--kds .hl-play-fallback.is-visible{display:block}
+.hl-row--kds .hl-play-fallback:focus-visible{outline:3px solid #df754b;outline-offset:3px}
+@media(max-width:650px){.hl-row--kds .hl-play-fallback{font-size:12px;padding:11px 13px}}
