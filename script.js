@@ -248,7 +248,9 @@ function updateScrollSignature(){
   if(portraitFrame){
     portraitFrame.style.setProperty('--portrait-rise',`${(82-eased*107).toFixed(1)}px`);
   }
-  const drawn=progress*Number(signature.dataset.totalLength||0);
+  // Begin writing as the About section enters the viewport, while keeping the original writing distance/rate.
+  const signatureProgress=reduced?1:Math.min(1,Math.max(0,(window.scrollY-(start-window.innerHeight*.82))/travel));
+  const drawn=signatureProgress*Number(signature.dataset.totalLength||0);
   for(const path of paths){const length=Number(path.dataset.length);const start=Number(path.dataset.start);path.style.strokeDashoffset=Math.max(0,Math.min(length,length-(drawn-start)));}
 }
 function updateHomeMotion(){
