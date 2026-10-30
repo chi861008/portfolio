@@ -2595,3 +2595,8 @@ html body.kiosk-case .market-chart{border-top:0!important}
 @media(max-width:620px){.ai-tools-section{padding-top:74px;padding-bottom:88px}.ai-tools-heading{grid-template-columns:1fr;gap:14px;margin-bottom:30px}.ai-tools-heading-main h2{font-size:clamp(45px,11vw,67px)}.ai-tools-intro{margin-top:4px}.ai-editorial-flow{gap:10px}.ai-editorial-card{min-height:365px}.ai-card-top{padding:14px 12px 0;height:42px}.ai-card-top span,.ai-card-top b{font-size:8px}.ai-graphic{height:130px}.ai-card-black{padding:14px 13px 16px;min-height:190px}.ai-card-black-top{margin-bottom:13px}.ai-card-black h3{font-size:18px}.ai-card-black p{font-size:11px}.ai-card-black small{font-size:8px}.ai-graphic:after{width:calc(100% - 24px)}.ai-workflow-footer{align-items:flex-start;flex-direction:column;gap:22px;margin-top:36px}.ai-workflow-footer p{text-align:left}.ai-tools-section--compact{padding-top:55px;padding-bottom:70px}}
 @media(max-width:395px){.ai-editorial-flow{grid-template-columns:1fr;gap:16px}.ai-editorial-card{min-height:320px}.ai-graphic{height:150px}.ai-card-black{min-height:150px}.ai-card-black h3{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.ai-editorial-card{transition:none}.ai-editorial-card:hover{transform:none}}
+
+/* Reduce pinned Works Record dwell time: the following AI section appears sooner. */
+@media(min-width:901px){
+  .home-mode .work-hold{height:175svh}
+}
