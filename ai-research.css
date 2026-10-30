@@ -115,3 +115,5 @@
 
 .ai-process-story{font-size:16px;line-height:1.85;color:#e4e4e4;margin:0 0 24px;letter-spacing:.01em}
 @media(max-width:580px){.ai-process-story{font-size:16px}}
+
+.about-resume-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.about-resume-actions a{display:inline-flex;align-items:center;min-height:44px;padding:11px 18px;border:1px solid #171717;color:#171717;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s,color .2s}.about-resume-actions a:hover{background:#171717;color:#fff}
