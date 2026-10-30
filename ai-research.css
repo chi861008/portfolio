@@ -186,3 +186,17 @@
 .ai-corner-step .ai-step-number{color:#8c8882!important}
 .ai-corner-step .ai-process-cat{color:#8c8882}
 .ai-corner-frame .ai-process-outcome--metric strong{color:#ff633e!important}
+
+/* Final option C: light canvas, restrained outside indices, compact dark cards. */
+.ai-process-flow{gap:23px}
+.ai-corner-step .ai-process-index{width:100%;height:53px;padding:0 0 10px;display:flex;align-items:center;gap:10px;background:transparent;margin:0}
+.ai-corner-step .ai-process-index:before,.ai-corner-step .ai-process-index:after{display:none!important;content:none!important}
+.ai-corner-step:not(:last-child) .ai-process-index:before{display:none!important;content:none!important}
+.ai-corner-step .ai-step-number{font-size:40px!important;color:#88817a!important;font-weight:600!important}
+.ai-corner-step .ai-process-cat{color:#97918a;font-size:10px;letter-spacing:.12em}
+.ai-corner-step .ai-process-content{background:#202020!important;background-image:none!important;border:0!important;border-radius:5px;min-height:300px;padding:27px 27px 23px;box-shadow:none;color:#fff}
+.ai-corner-step .ai-process-content h3{color:#fff;font-size:clamp(22px,2vw,27px);margin:0 0 17px}
+.ai-corner-step .ai-process-story{color:#ccc8c3;font-size:16px;line-height:1.75;margin:0 0 24px}
+.ai-corner-step .ai-process-outcome{border-top:1px solid #4a4846;padding-top:17px;margin-top:auto}
+.ai-corner-step .ai-process-outcome strong{color:#ff633e!important;font-size:22px}
+@media(max-width:960px){.ai-process-flow{gap:17px}.ai-corner-step .ai-process-index{height:49px;margin:0}.ai-corner-step .ai-process-content{min-height:0;padding:25px 24px 24px}.ai-corner-step .ai-step-number{font-size:36px!important}}
