@@ -255,7 +255,10 @@ function updateScrollSignature(){
   const finishAt=sectionTop+Math.min(45,window.innerHeight*.05);
   const visibleAt=sectionTop+signatureOffset-window.innerHeight*.90;
   const startAt=Math.min(visibleAt,finishAt-Math.max(160,window.innerHeight*.22));
-  const signatureProgress=reduced?1:Math.max(0,Math.min(1,(window.scrollY-startAt)/Math.max(1,finishAt-startAt)));
+  const mobileIntro=window.matchMedia('(max-width:650px)').matches;
+  const mobileRect=signature.getBoundingClientRect();
+  const mobileProgress=Math.max(0,Math.min(1,(window.innerHeight*.87-mobileRect.top)/Math.max(1,window.innerHeight*.42)));
+  const signatureProgress=reduced?1:(mobileIntro?mobileProgress:Math.max(0,Math.min(1,(window.scrollY-startAt)/Math.max(1,finishAt-startAt))));
   const drawn=signatureProgress*Number(signature.dataset.totalLength||0);
   for(const path of paths){
     const length=Number(path.dataset.length);
