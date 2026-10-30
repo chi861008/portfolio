@@ -511,7 +511,7 @@ function updateThinkingParallax(){
   band.style.setProperty('--thinking-horizontal-reverse',(-shift).toFixed(1)+'px');
 }
 let typographyObserver;
-const typographyTitleSelector='.intro-copy h2,.selected-head h2,.about-mini h2,.case-top h1,.story-section>h2,.story-section>h3,.research-track>h3,.design-phase h3,.next-case h2';
+const typographyTitleSelector='.intro-copy h2,.selected-head h2,.ai-process-heading h2,.dark-band .wrap>h2,.about-mini h2,.case-top h1,.story-section>h2,.story-section>h3,.research-track>h3,.design-phase h3,.next-case h2';
 const typographyCopySelector='.intro-copy>p,.selected-head>p,.about-mini p,.case-top>.case-deck,.story-section>p,.story-section .insight-feature-copy>p,.story-section .solution>p,.dark-band .wrap>p';
 function splitTitleIntoLines(heading){
   const original=heading.innerHTML;
