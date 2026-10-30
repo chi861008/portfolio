@@ -200,3 +200,12 @@
 .ai-corner-step .ai-process-outcome{border-top:1px solid #4a4846;padding-top:17px;margin-top:auto}
 .ai-corner-step .ai-process-outcome strong{color:#ff633e!important;font-size:22px}
 @media(max-width:960px){.ai-process-flow{gap:17px}.ai-corner-step .ai-process-index{height:49px;margin:0}.ai-corner-step .ai-process-content{min-height:0;padding:25px 24px 24px}.ai-corner-step .ai-step-number{font-size:36px!important}}
+
+/* My AI Workflow: editorial heading and subtitle on the same left axis. */
+.ai-process-section .ai-process-heading{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:13px;margin-bottom:38px}
+.ai-process-section .ai-process-heading h2{margin:0}
+.ai-process-section .ai-process-heading p{margin:0;max-width:720px;width:100%;font-size:clamp(16px,1.55vw,19px);line-height:1.7;color:#6d6965;text-align:left}
+/* Three dark cards scrub smoothly into view, without pinning the page. */
+.ai-corner-step.ai-scroll-ready{opacity:calc(.35 + var(--ai-reveal)*.65);transform:translate3d(0,calc((1 - var(--ai-reveal))*38px),0);transition:opacity .08s linear,transform .08s linear}
+@media(max-width:580px){.ai-process-section .ai-process-heading{gap:10px;margin-bottom:25px}.ai-process-section .ai-process-heading p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.ai-corner-step.ai-scroll-ready{opacity:1!important;transform:none!important}}
