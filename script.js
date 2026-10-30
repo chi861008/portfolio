@@ -248,33 +248,20 @@ function updateScrollSignature(){
   if(portraitFrame){
     portraitFrame.style.setProperty('--portrait-rise',`${(82-eased*107).toFixed(1)}px`);
   }
-  // Trigger only when the signature itself enters view. Complete the handwriting
-  // on its own clock: sticky sections must not freeze the drawing at mid-stroke.
-  const signatureRect=signature.getBoundingClientRect();
-  const isVisible=signatureRect.top<window.innerHeight*.88&&signatureRect.bottom>0;
-  const paint=(fraction)=>{
-    const drawn=fraction*Number(signature.dataset.totalLength||0);
-    for(const path of paths){
-      const length=Number(path.dataset.length);
-      const pathStart=Number(path.dataset.start);
-      path.style.strokeDashoffset=Math.max(0,Math.min(length,length-(drawn-pathStart)));
-    }
-  };
-  if(reduced){paint(1);signature.dataset.drawn='true';return;}
-  if(signature.dataset.drawn==='true')return;
-  if(!isVisible||signature.dataset.drawing==='true')return;
-  signature.dataset.drawing='true';
-  const duration=2600;
-  let began=null;
-  const animate=(timestamp)=>{
-    if(!signature.isConnected)return;
-    if(began===null)began=timestamp;
-    const fraction=Math.min(1,(timestamp-began)/duration);
-    paint(fraction*fraction*(3-2*fraction));
-    if(fraction<1)requestAnimationFrame(animate);
-    else{paint(1);signature.dataset.drawn='true';signature.dataset.drawing='false';}
-  };
-  requestAnimationFrame(animate);
+  // Scroll-scrub the signature. It starts as the signature first comes into view
+  // and finishes when the About scene reaches its sticky resting position.
+  const sectionTop=hold?hold.getBoundingClientRect().top+window.scrollY:window.scrollY;
+  const signatureOffset=stage?signature.getBoundingClientRect().top-stage.getBoundingClientRect().top:window.innerHeight*.55;
+  const finishAt=sectionTop+Math.min(45,window.innerHeight*.05);
+  const visibleAt=sectionTop+signatureOffset-window.innerHeight*.90;
+  const startAt=Math.min(visibleAt,finishAt-Math.max(160,window.innerHeight*.22));
+  const signatureProgress=reduced?1:Math.max(0,Math.min(1,(window.scrollY-startAt)/Math.max(1,finishAt-startAt)));
+  const drawn=signatureProgress*Number(signature.dataset.totalLength||0);
+  for(const path of paths){
+    const length=Number(path.dataset.length);
+    const pathStart=Number(path.dataset.start);
+    path.style.strokeDashoffset=Math.max(0,Math.min(length,length-(drawn-pathStart)));
+  }
 }
 function updateHomeMotion(){
   const hold=document.querySelector('.home-mode .hero-hold');
