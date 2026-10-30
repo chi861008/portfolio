@@ -2674,3 +2674,13 @@ html body.kiosk-case a.rq-link{
 }
 html body.kiosk-case a.dec-look::after,
 html body.kiosk-case a.rq-link::after{border:0!important;box-shadow:none!important}
+
+/* Kiosk decision cards: remove full-width separator lines below each action.
+   The action pill keeps its own border; research question borders remain unchanged. */
+html body.kiosk-case .research-question-grid.kiosk-decision-rows{
+ border-top:0!important;border-bottom:0!important;
+}
+html body.kiosk-case .research-question-grid.kiosk-decision-rows>div,
+html body.kiosk-case .research-question-grid.kiosk-decision-rows>div+div{
+ border-top:0!important;border-bottom:0!important;
+}
