@@ -155,3 +155,12 @@
 /* Scroll reveal also applies on mobile in browsers supporting view timelines. */
 @supports (animation-timeline:view()){.ai-corner-step{animation:ai-corner-reveal .7s both;animation-timeline:view();animation-range:entry 5% cover 38%}}
 @media(prefers-reduced-motion:reduce){.ai-corner-step{animation:none!important;opacity:1!important;transform:none!important}}
+
+/* Step labels inside corner frames; no external lines or arrows. */
+.ai-corner-step .ai-process-index{width:auto;height:auto;display:flex;align-items:center;gap:12px;margin:0 0 25px;padding:0;background:transparent}
+.ai-corner-step .ai-process-index:before,.ai-corner-step .ai-process-index:after{display:none!important;content:none!important}
+.ai-corner-step:not(:last-child) .ai-process-index:before{display:none!important;content:none!important}
+.ai-corner-step .ai-step-number{font-size:45px!important;line-height:1;letter-spacing:-.06em;font-weight:600!important}
+.ai-corner-step .ai-process-cat{font-size:10px;letter-spacing:.16em;color:#73706b}
+.ai-corner-step .ai-process-content{padding-top:31px}
+@media(max-width:960px){.ai-corner-step .ai-process-index{height:auto;margin-bottom:23px}.ai-corner-step:not(:last-child) .ai-process-index:before{display:none!important;content:none!important}}
