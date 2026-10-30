@@ -119,3 +119,13 @@
 .about-resume-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.about-resume-actions a{display:inline-flex;align-items:center;min-height:44px;padding:11px 18px;border:1px solid #171717;color:#171717;font-size:13px;font-weight:700;text-decoration:none;transition:background .2s,color .2s}.about-resume-actions a:hover{background:#171717;color:#fff}
 
 .home-resume-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px}.home-resume-links a{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border:1px solid currentColor;font-size:14px;font-weight:650}.home-resume-links a:hover{background:#fff;color:#171717}
+
+/* Light editorial treatment for My AI Workflow: stronger content, less visual weight. */
+.ai-process-content{background:#f0efeb;color:#1c1c1c;border:1px solid #e1dfda;min-height:315px;padding:28px 24px}
+.ai-process-content h3{color:#1b1b1b}
+.ai-process-story{color:#484641;font-size:17px;line-height:1.8}
+.ai-process-outcome{border-top:1px solid #d3d0ca}
+.ai-process-outcome span{color:#77736e}
+.ai-process-outcome strong{color:#242424}
+.ai-process-outcome--metric strong{color:#d66e46;font-size:24px;letter-spacing:-.025em}
+@media(max-width:580px){.ai-process-content{min-height:0;padding:24px 22px}.ai-process-story{font-size:16px}}
