@@ -336,9 +336,9 @@ async function playHomeOpening(){
   const endWidth=target.offsetWidth,endHeight=target.offsetHeight;
   const endLeft=destination.left+(destination.width-endWidth)/2;
   const endTop=destination.top+(destination.height-endHeight)/2;
-  // A visible 1.2s push-in, 0.67s hold, then a brisk 0.4s return to the hero card.
+  // A visible 1.2s push-in, 0.67s hold, then a 0.6s return to the hero card.
   // Segment-specific easing keeps the push-in from being compressed by the final shrink.
-  const openingDuration=2267;
+  const openingDuration=2467;
   image.animate([
     {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1)',borderRadius:'0px',offset:0,easing:'ease-in-out'},
     {left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',transform:'rotate(0deg) scale(1.10)',borderRadius:'0px',offset:1200/openingDuration,easing:'linear'},
