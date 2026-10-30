@@ -219,3 +219,9 @@
 .ai-corner-step .ai-process-outcome--top strong{font-size:27px;color:#ff633e!important;white-space:nowrap;line-height:1.25}
 .ai-corner-step .ai-process-story{margin:0}
 @media(max-width:580px){.ai-corner-step .ai-process-outcome--top strong{font-size:25px}.ai-corner-step .ai-process-outcome--top{margin-bottom:17px;padding-bottom:16px}}
+
+/* Keep before time, arrow and improved time on a single centered axis. */
+.ai-corner-step .ai-process-outcome--top{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:clamp(6px,1.3vw,12px)}
+.ai-corner-step .ai-process-outcome--top .ai-result-before,.ai-corner-step .ai-process-outcome--top .ai-result-arrow,.ai-corner-step .ai-process-outcome--top strong{display:inline-block;flex:0 0 auto;line-height:1.25;margin:0;vertical-align:middle}
+.ai-corner-step .ai-process-outcome--top .ai-result-arrow{line-height:1;font-size:19px}
+@media(max-width:580px){.ai-corner-step .ai-process-outcome--top{gap:8px}.ai-corner-step .ai-process-outcome--top .ai-result-before{font-size:15px}.ai-corner-step .ai-process-outcome--top strong{font-size:clamp(21px,6vw,25px)}}
