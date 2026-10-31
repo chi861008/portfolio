@@ -62,3 +62,8 @@
 .home-mode .portfolio-contact-actions{top:24px}
 @media(max-width:1000px) and (min-width:761px){.home-mode .portfolio-contact-title h2{font-size:12vw}}
 @media(max-width:760px){.home-mode .portfolio-contact-title h2{font-size:28vw;line-height:.88;letter-spacing:-.085em;margin:0}.home-mode .portfolio-contact-title .contact-title-line--second{font-size:.68em;margin:14px 0 0 8px}.home-mode .portfolio-contact-inner{gap:38px}.home-mode .portfolio-contact-actions{top:0}.home-mode .portfolio-contact-section{padding-top:65px}}
+
+/* One oversized invitation in the former LET’S TALK position. */
+.home-mode .portfolio-contact-actions{grid-column:2}
+.home-mode .contact-background-word{margin:0;font-size:14vw;font-weight:700;font-style:normal;letter-spacing:-.075em;line-height:1;left:3%;bottom:-.08em}
+@media(max-width:760px){.home-mode .portfolio-contact-actions{grid-column:1}.home-mode .portfolio-contact-section{padding-bottom:110px}.home-mode .contact-background-word{font-size:14vw;bottom:.1em}}
