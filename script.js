@@ -857,13 +857,13 @@ function setupContactMotion(){
  if(!section)return;
  const ornament=document.createElement('div');ornament.className='contact-orbit';ornament.setAttribute('aria-hidden','true');
  ornament.innerHTML='<span class="contact-orbit-ring"></span>';
- const word=document.createElement('div');word.className='contact-background-word';word.textContent='LET’S TALK';word.setAttribute('aria-hidden','true');
+ const word=document.createElement('h2');word.className='contact-background-word';word.textContent='Work with me !';
  section.prepend(ornament,word);
  const title=section.querySelector('h2');
  section.querySelector('.portfolio-contact-title .eyebrow')?.remove();
  section.querySelector('.portfolio-contact-title>p')?.remove();
  section.querySelector('.portfolio-contact-group:has(.portfolio-resume-primary) .portfolio-contact-label')?.remove();
- title.innerHTML='<span class="contact-title-line">Work</span><span class="contact-title-line contact-title-line--second"><em>with me</em><span class="orange"> !</span></span>';
+ section.querySelector('.portfolio-contact-title')?.remove();
  section.querySelectorAll('.portfolio-contact-actions a').forEach((link,i)=>{link.querySelector('[aria-hidden="true"]')?.remove();link.querySelector('span')?.classList.add('contact-link-label');const number=document.createElement('span');number.className='contact-link-index';number.textContent=String(i+1).padStart(2,'0');number.setAttribute('aria-hidden','true');link.prepend(number);});
  updateContactMotion();
 }
