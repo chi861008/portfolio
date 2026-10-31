@@ -40,3 +40,7 @@
 .home-mode .portfolio-contact-section::before,.contact-orbit{display:none}
 .home-mode .portfolio-contact-actions a.portfolio-contact-email,.home-mode .portfolio-contact-actions a.portfolio-contact-email:last-child{border:0}
 .home-mode .portfolio-contact-actions a.portfolio-contact-email::before{display:none}
+
+/* Lower the actions relative to the title and the fixed orange navigation. */
+.home-mode .portfolio-contact-actions{position:relative;top:32px}
+@media(max-width:760px){.home-mode .portfolio-contact-actions{top:16px}}
