@@ -53,3 +53,12 @@
 /* Match both resume widths to the longer label plus padding. */
 .home-mode .portfolio-contact-group:has(.portfolio-resume-primary){width:max-content;max-width:100%;align-self:flex-start}
 .home-mode .portfolio-contact-actions a.portfolio-resume-primary{box-sizing:border-box;width:100%;max-width:none;white-space:nowrap}
+
+/* A compact invitation with a strong typographic voice. */
+.home-mode .portfolio-contact-title h2{font-size:clamp(110px,12vw,176px);font-weight:800;line-height:.88;letter-spacing:-.085em;margin:0}
+.home-mode .portfolio-contact-title .contact-title-line--second{font-size:.66em;letter-spacing:-.075em;margin:14px 0 0 18px}
+.contact-title-line--second em{display:inline-block;font-style:italic;font-weight:600;transform:rotate(-3deg)}
+.home-mode .portfolio-contact-inner{align-items:center}
+.home-mode .portfolio-contact-actions{top:24px}
+@media(max-width:1000px) and (min-width:761px){.home-mode .portfolio-contact-title h2{font-size:12vw}}
+@media(max-width:760px){.home-mode .portfolio-contact-title h2{font-size:28vw;line-height:.88;letter-spacing:-.085em;margin:0}.home-mode .portfolio-contact-title .contact-title-line--second{font-size:.68em;margin:14px 0 0 8px}.home-mode .portfolio-contact-inner{gap:38px}.home-mode .portfolio-contact-actions{top:0}.home-mode .portfolio-contact-section{padding-top:65px}}
