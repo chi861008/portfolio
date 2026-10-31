@@ -49,3 +49,7 @@
 .home-mode .portfolio-contact-actions a.portfolio-resume-primary{max-width:360px;min-height:52px;padding:12px 16px;font-size:17px;gap:12px}
 .home-mode .portfolio-contact-actions a.portfolio-resume-primary:hover,.home-mode .portfolio-contact-actions a.portfolio-resume-primary:focus-visible{padding-left:16px}
 @media(max-width:760px){.home-mode .portfolio-contact-actions a.portfolio-resume-primary{max-width:320px;min-height:48px;font-size:16px;padding:11px 14px}.home-mode .portfolio-contact-actions a.portfolio-resume-primary:hover,.home-mode .portfolio-contact-actions a.portfolio-resume-primary:focus-visible{padding-left:14px}}
+
+/* Match both resume widths to the longer label plus padding. */
+.home-mode .portfolio-contact-group:has(.portfolio-resume-primary){width:max-content;max-width:100%;align-self:flex-start}
+.home-mode .portfolio-contact-actions a.portfolio-resume-primary{box-sizing:border-box;width:100%;max-width:none;white-space:nowrap}
