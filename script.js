@@ -332,7 +332,7 @@ function updateCaseToc(){
  });
 }
 let tocFrame=0;
-function scheduleTocUpdate(){if(tocFrame)return;tocFrame=requestAnimationFrame(()=>{tocFrame=0;updateCaseToc();updateHomeMotion();updateWorkHold();updateThinkingParallax();updateScrollSignature();});}
+function scheduleTocUpdate(){if(tocFrame)return;tocFrame=requestAnimationFrame(()=>{tocFrame=0;updateCaseToc();updateHomeMotion();updateWorkHold();updateThinkingParallax();updateContactMotion();updateScrollSignature();});}
 window.addEventListener('scroll',scheduleTocUpdate,{passive:true});
 window.addEventListener('resize',scheduleTocUpdate,{passive:true});
 let homeOpeningAttempt=0;
@@ -568,7 +568,7 @@ function refreshTypographyLineBreaks(){
   },160);
 }
 window.addEventListener('resize',refreshTypographyLineBreaks,{passive:true});
-function renderPage(){const route=(location.hash||'#/').replace(/^#\/?/,'').split('/')[0];const isAnchorRoute=route==='work'||route==='resume';if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});document.querySelector('.photo-journey')?.remove();document.querySelector('.home-opening')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();addContactFlip();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});});setupTypographyMotion();scheduleTocUpdate();if(isAnchorRoute){requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(route==='work'?'#work':'#resume')?.scrollIntoView({behavior:'smooth',block:'start'})));}if(document.body.classList.contains('home-mode')&&(!location.hash||location.hash==='#/'||location.hash==='#')){if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(0,0);playHomeOpening();}));}}
+function renderPage(){const route=(location.hash||'#/').replace(/^#\/?/,'').split('/')[0];const isAnchorRoute=route==='work'||route==='resume';if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});document.querySelector('.photo-journey')?.remove();document.querySelector('.home-opening')?.remove();render();setupHeroFlip();setupThinkingBand();applyOrbitLettering();addScrollSignature();addContactFlip();setupContactMotion();frameIntroPhoto();setupIntroHold();setupSceneHolds();document.querySelectorAll('.identity-works .work-visual').forEach((visual,index)=>{const frame=document.createElement('span');frame.className='work-hover-frame';frame.setAttribute('aria-hidden','true');visual.appendChild(frame);const name=document.createElement('span');name.className='work-hover-name';name.setAttribute('aria-hidden','true');const label=document.createElement('span');label.textContent=projects[index]?.title||'';const arrow=document.createElement('span');arrow.className='work-hover-arrow';arrow.textContent='↗';name.append(label,arrow);visual.appendChild(name);});if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>{if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});});setupTypographyMotion();scheduleTocUpdate();if(isAnchorRoute){requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelector(route==='work'?'#work':'#resume')?.scrollIntoView({behavior:'smooth',block:'start'})));}if(document.body.classList.contains('home-mode')&&(!location.hash||location.hash==='#/'||location.hash==='#')){if(!isAnchorRoute)window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>requestAnimationFrame(()=>{window.scrollTo(0,0);playHomeOpening();}));}}
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 window.addEventListener('pageshow',()=>{window.scrollTo({top:0,left:0,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));});
 window.addEventListener('hashchange',renderPage);renderPage();
@@ -850,3 +850,37 @@ addEventListener('resize',fit);addEventListener('hashchange',()=>setTimeout(fit,
   new MutationObserver(request).observe(document.querySelector('#app'),{childList:true});
   request();
 })();
+
+// Scroll-linked contact scene; links remain stationary once they reach reading position.
+function setupContactMotion(){
+ const section=document.querySelector('.home-mode .portfolio-contact-section');
+ if(!section)return;
+ const ornament=document.createElement('div');ornament.className='contact-orbit';ornament.setAttribute('aria-hidden','true');
+ ornament.innerHTML='<span class="contact-orbit-ring"></span><span class="contact-orbit-cross">↗</span>';
+ const word=document.createElement('div');word.className='contact-background-word';word.textContent='LET’S TALK';word.setAttribute('aria-hidden','true');
+ section.prepend(ornament,word);
+ const title=section.querySelector('h2');
+ title.innerHTML='<span class="contact-title-line">Resume<span class="orange"> /</span></span><span class="contact-title-line contact-title-line--second">Contact me<span class="orange">.</span></span>';
+ section.querySelectorAll('.portfolio-contact-actions a').forEach((link,i)=>{const number=document.createElement('span');number.className='contact-link-index';number.textContent=String(i+1).padStart(2,'0');number.setAttribute('aria-hidden','true');link.prepend(number);});
+ updateContactMotion();
+}
+function updateContactMotion(){
+ const section=document.querySelector('.home-mode .portfolio-contact-section');if(!section)return;
+ const rect=section.getBoundingClientRect(),vh=window.innerHeight;
+ if(rect.bottom<0||rect.top>vh*1.2)return;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const mobile=window.matchMedia('(max-width:760px)').matches;
+ const clamp=v=>Math.max(0,Math.min(1,v));
+ const p=clamp((vh-rect.top)/(vh+rect.height));
+ const reveal=clamp((vh*.94-rect.top)/(vh*.48));
+ const strength=mobile?.4:1;
+ section.style.setProperty('--contact-word-x',((p-.5)*-180*strength).toFixed(1)+'px');
+ section.style.setProperty('--contact-orbit-y',((p-.5)*-190*strength).toFixed(1)+'px');
+ section.style.setProperty('--contact-orbit-rotation',((p-.5)*70).toFixed(1)+'deg');
+ section.querySelectorAll('.contact-title-line,.portfolio-contact-title>p,.portfolio-contact-group').forEach((el,i)=>{
+  const progress=reduced?1:clamp((reveal-i*.065)/(1-i*.065));const ease=1-Math.pow(1-progress,3);
+  el.style.transform='translate3d(0,'+((1-ease)*(i<2?95:55)*strength).toFixed(1)+'px,0)';
+  el.style.opacity=String(.25+.75*ease);
+ });
+ section.style.setProperty('--contact-rule',reduced?'1':String(reveal));
+}
