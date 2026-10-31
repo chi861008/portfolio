@@ -16,9 +16,7 @@
 .home-mode .portfolio-contact-actions a:hover::before,.home-mode .portfolio-contact-actions a:focus-visible::before{transform:scaleX(1)}
 .home-mode .portfolio-contact-actions a>span:nth-child(2){flex:1;min-width:0;overflow-wrap:anywhere}
 .home-mode .portfolio-contact-actions a .contact-link-index{font-size:10px;font-weight:500;letter-spacing:.08em;color:#928c82;flex:none}
-.home-mode .portfolio-contact-actions a>span:last-child{color:#ff603c;font-weight:400;font-size:28px;flex:none;transition:transform .25s ease}
 .home-mode .portfolio-contact-actions a:hover,.home-mode .portfolio-contact-actions a:focus-visible{color:#d64b2b;padding-left:0;background:transparent}
-.home-mode .portfolio-contact-actions a:hover>span:last-child{transform:translate(4px,-4px)}
 .contact-background-word{position:absolute;bottom:-.22em;left:0;white-space:nowrap;pointer-events:none;z-index:-1;font-family:'DM Sans',sans-serif;font-size:clamp(110px,22vw,350px);font-weight:700;letter-spacing:-.075em;line-height:1;color:#e9e5dd;transform:translate3d(var(--contact-word-x,0px),0,0);will-change:transform}
 .contact-orbit{position:absolute;top:-80px;right:9%;width:280px;height:280px;pointer-events:none;z-index:-1;transform:translate3d(0,var(--contact-orbit-y,0px),0) rotate(var(--contact-orbit-rotation,0deg));will-change:transform}
 .contact-orbit-ring{position:absolute;inset:0;border:1px solid #ff603c;border-radius:50%;transform:rotate(-30deg) scaleY(.47);opacity:.5}
@@ -26,3 +24,19 @@
 @media(max-width:1000px){.home-mode .portfolio-contact-inner{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:30px}.home-mode .portfolio-contact-title h2{font-size:clamp(53px,7.2vw,76px)}}
 @media(max-width:760px){.home-mode .portfolio-contact-section{padding:78px 0 100px}.home-mode .portfolio-contact-inner{grid-template-columns:minmax(0,1fr);gap:38px}.home-mode .portfolio-contact-title h2{font-size:clamp(48px,11.6vw,82px);margin:28px 0 23px}.home-mode .portfolio-contact-title p{max-width:290px}.home-mode .portfolio-contact-actions{gap:28px;padding:0}.home-mode .portfolio-contact-actions a{min-height:62px;font-size:17px}.contact-orbit{width:190px;height:190px;top:-55px;right:-15px;opacity:.65}.contact-orbit-cross{font-size:52px;top:45px}.contact-background-word{font-size:29vw;bottom:-.15em}}
 @media(prefers-reduced-motion:reduce){.contact-title-line,.home-mode .portfolio-contact-title>p,.home-mode .portfolio-contact-group{transform:none!important;opacity:1!important;will-change:auto}.contact-background-word,.contact-orbit{transform:none;will-change:auto}.home-mode .portfolio-contact-section::before{transform:none}.home-mode .portfolio-contact-actions a,.home-mode .portfolio-contact-actions a::before,.home-mode .portfolio-contact-actions a>span:last-child{transition:none}}
+
+/* Resume links as square outlined directory choices. */
+.home-mode .portfolio-contact-group:has(.portfolio-resume-primary){gap:12px}
+.home-mode .portfolio-contact-group:has(.portfolio-resume-primary) .portfolio-contact-label{padding-bottom:2px}
+.home-mode .portfolio-contact-actions a.portfolio-resume-primary{border:1px solid #171717;border-radius:0;padding:17px 20px;min-height:70px;transition:background .22s,color .22s}
+.home-mode .portfolio-contact-actions a.portfolio-resume-primary:last-child{border:1px solid #171717}
+.home-mode .portfolio-contact-actions a.portfolio-resume-primary::before{display:none}
+.home-mode .portfolio-contact-actions a.portfolio-resume-primary:hover,.home-mode .portfolio-contact-actions a.portfolio-resume-primary:focus-visible{background:#171717;color:#f4f2ed;padding-left:20px;border-color:#171717}
+.home-mode .portfolio-contact-actions a.portfolio-resume-primary:hover .contact-link-index,.home-mode .portfolio-contact-actions a.portfolio-resume-primary:focus-visible .contact-link-index{color:#f4f2ed}
+.home-mode .portfolio-contact-actions a .contact-link-label{flex:1;min-width:0;font-size:inherit;font-weight:inherit;color:inherit;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.home-mode .portfolio-contact-actions a.portfolio-resume-primary{transition:none}}
+
+/* Keep only the two resume outlines; remove decorative and email rules. */
+.home-mode .portfolio-contact-section::before,.contact-orbit{display:none}
+.home-mode .portfolio-contact-actions a.portfolio-contact-email,.home-mode .portfolio-contact-actions a.portfolio-contact-email:last-child{border:0}
+.home-mode .portfolio-contact-actions a.portfolio-contact-email::before{display:none}
