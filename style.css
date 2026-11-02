@@ -2764,3 +2764,6 @@ html body.scheduling-case #app .case-close>article{border-bottom:0!important;pad
 html body.scheduling-case #app .cc-limits>div{border-top:0!important}
 html body.scheduling-case #app .schedule-repo{border-top:0!important}
 html body.scheduling-case #app .schedule-hypo-check thead th{border-bottom:1px solid #24211f!important}
+/* next-case: no shrink on press (shrinking showed the light page as a white frame) */
+html body a.next-case:is(:active,.tap-feedback){scale:1!important;filter:none!important;opacity:1!important}
+html body a.next-case:is(:active,.tap-feedback) h2{color:#ff603c}
