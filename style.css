@@ -2840,3 +2840,24 @@ html body.scheduling-case #app .jm-pain,html body.scheduling-case #app .journey-
 html body.scheduling-case #app .jm-feelrow{height:150px!important}
 html body.scheduling-case #app #research .schedule-insight-disclaimer{margin-bottom:72px!important}
 html body #app .case-article .story-section{border-top:0!important}
+/* Pilates insight illustrations: priority / exchange / mutual */
+.pil-sc-order{display:grid;gap:10px;max-width:340px;margin:0 auto}
+.pil-sc-order>div{display:grid;grid-template-columns:28px 48px 1fr;align-items:center;gap:10px;background:#fff;border:1px solid #d8d2c9;border-radius:9px;padding:12px 14px;text-align:left}
+.pil-sc-order>div:first-child{border-color:#c9643f;box-shadow:inset 3px 0 0 #c9643f}
+.pil-sc-order b{color:#c9643f;font-size:12px;font-weight:800}
+.pil-sc-order span{font-size:12px;color:#8a8178;font-weight:700}
+.pil-sc-order strong{font-size:14px;color:#24211f}
+.pil-sc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
+.pil-sc-tags span{padding:6px 12px;border-radius:999px;border:1px solid #d8d2c9;background:#fff;font-size:12px;font-weight:700;color:#5b554f}
+.pil-sc-swap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;max-width:380px;margin:0 auto}
+.pil-sc-swap>div{background:#fff;border:1px solid #d8d2c9;border-radius:9px;padding:14px 12px;display:grid;gap:8px}
+.pil-sc-swap>div.give{background:#e6d4c8;border-color:#e6d4c8}
+.pil-sc-swap span{font-size:12px;font-weight:800;color:#8a8178}
+.pil-sc-swap .give span{color:#82492f}
+.pil-sc-swap strong{font-size:13.5px;line-height:1.45;color:#24211f}
+.pil-sc-swap i,.pil-sc-flow i{font-style:normal;color:#c9643f;font-size:20px;font-weight:700}
+.pil-sc-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:8px;max-width:420px;margin:0 auto}
+.pil-sc-flow>div{background:#fff;border:1px solid #d8d2c9;border-radius:9px;padding:12px 6px;display:grid;gap:6px}
+.pil-sc-flow>div.hub{border-style:dashed;border-color:#c9643f}
+.pil-sc-flow span{font-size:12px;font-weight:800;color:#8a8178}
+.pil-sc-flow strong{font-size:13px;line-height:1.4;color:#24211f}
