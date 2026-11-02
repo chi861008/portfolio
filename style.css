@@ -2882,3 +2882,4 @@ html body.scheduling-case #app .kds-scope-legend p{font-size:14px;line-height:1.
 .pil-pyr-labels b{font-size:12px;font-weight:800;color:#c9643f}
 .pil-pyr-labels strong{font-size:14px;line-height:1.4;color:#24211f}
 @media(max-width:420px){.pil-pyr{grid-template-columns:118px 1fr;gap:12px}}
+html body.scheduling-case #app .pil-scope{margin-top:12px!important}
