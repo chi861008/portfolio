@@ -35,7 +35,7 @@ const schedulingInsight=(num,label,title,copy,kind,caption,en=false)=>'<article 
  const nav={scheduling:['Overview','Problem Discovery','Product Strategy','Design & Build','Reflection'],kiosk:['Overview','Research Approach','Product Decisions','Design & Validation','Outcome'],kds:['Context','Discovery','User Analysis','Product Decisions','Independent Design','Reflection']};
  const content={
  scheduling:()=>
- section('overview','01','PROJECT OVERVIEW','I built a working scheduling product—then learned to rethink what was worth building first',
+ section('overview','01','PROJECT OVERVIEW','When an instructor spends 2–3 hours a month scheduling—and keeps coordinating after—how could I help?',
   p('This independent project began with a Pilates instructor’s real challenge: building the monthly timetable takes approximately 2–3 hours, followed by frequent cancellations and changes. She collects availability in LINE, arranges classes on paper, and coordinates substitute teachers in a group chat. The challenge involves not only finding open slots but making trade-offs and managing ongoing coordination.')+
   
   '<figure class="scenario-figure pilates-case-scenario"><img loading="eager" decoding="async" fetchpriority="high" width="2048" height="1536" src="./assets/pilates-scenario.webp" alt="Composite lifestyle scene of a Pilates instructor viewing the scheduling system on her phone"><figcaption>Use scenario (composite image).</figcaption></figure>')+

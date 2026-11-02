@@ -85,7 +85,7 @@ const schedulingInsight=(num,label,title,copy,kind,caption,en=false)=>'<article 
 
 function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
- return sec('overview','01 / PROJECT OVERVIEW','我做出了能運作的排課產品，然後學會重新判斷什麼值得先做',
+ return sec('overview','01 / PROJECT OVERVIEW','當老師每月花 2–3 小時排課、排完還要一直協調，我能怎麼幫她？',
   paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。這些條件讓排課不只是找空檔，更是持續協調與取捨的工作。')+
   
   '<figure class="scenario-figure pilates-case-scenario"><img loading="eager" decoding="async" fetchpriority="high" width="2048" height="1536" src="./assets/pilates-scenario.webp" alt="皮拉提斯老師在教室內查看手機上的排課系統；合成使用情境示意，非訪談現場照片"><figcaption>使用情境示意（合成畫面）。</figcaption></figure>')+
