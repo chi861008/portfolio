@@ -2835,3 +2835,4 @@ html body.scheduling-case #app .journey-mobile .jm-m-opp{color:#b0583a;font-weig
 html body.scheduling-case #app .journey-mobile .jm-m-feel i{display:none}
 }
 html body.scheduling-case #app .jm-feelrow{height:130px!important}
+html body.scheduling-case #app .pil-methods{grid-template-columns:repeat(2,minmax(0,1fr))}@media(max-width:760px){html body.scheduling-case #app .pil-methods{grid-template-columns:1fr}}
