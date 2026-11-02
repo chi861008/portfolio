@@ -92,7 +92,7 @@ function schedulingBody(){
  sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
   '<h3>研究方式</h3><div class="pil-methods"><div><b>01</b><strong>訪談 Joanna 老師</strong><p>了解她怎麼收學生時間、排課，以及課表排好之後怎麼處理異動。</p></div><div><b>02</b><strong>檢視現有資料</strong><p>看她目前用來排課的 LINE 訊息、紙本課表與老師群組的代課訊息。</p></div><div><b>03</b><strong>訪談另一位老師</strong><p>對照不同老師的排課方式，確認哪些困擾不是個案。</p></div></div><h3>三個洞察與開工前的假設｜來源：2 位老師</h3>'+
   schedulingInsight('01','TEACHING CONTINUITY / 教學連續性','排課條件很多，其中最不能犧牲的是學生與原老師的連續性。','老師會先排穩定上課、感情好的學生來提高留存，再排能上時間少的學生；每位學生每月至少要有 2 堂由原老師上課，有些學生還要求每月上 5–8 堂。<strong>我的假設：</strong>排課規則要先守住原老師的堂數，而不是盡量把課排滿。','continuity','教學安排示意｜主要老師與代課老師交錯授課。')+
-  schedulingInsight('02','DECISION AUTHORITY / 排課決策','排課負擔和取消率只能擇一；系統能分擔計算，取捨仍要留給老師。','為了降低取消率，老師以月為單位幫每位學生規劃好時間，排課負擔因此很重。<strong>我的假設：</strong>系統先產生整月草案並標出衝突，再由老師完成取捨與調整。','authority','多條件排課示意｜草案仍需老師審核。')+
+  schedulingInsight('02','DECISION AUTHORITY / 排課決策','排課負擔和取消率只能擇一；系統能分擔計算，取捨仍要留給老師。','為了降低取消率，老師以月為單位幫每位學生規劃好時間；排好後還要手打訊息，個別通知 30–60 位學生各自的時間，排課負擔因此很重。<strong>我的假設：</strong>系統先產生整月草案並標出衝突，再由老師完成取捨與調整。','authority','多條件排課示意｜草案仍需老師審核。')+
   schedulingInsight('03','CONTINUOUS COORDINATION / 持續協調','排課不是一次性的分配；在業績壓力下，補位和代課是常態。','每位老師每月要上滿 120 堂，會透過代課湊滿時數；一有空堂，也希望馬上補進學生。<strong>我的假設：</strong>系統要支援排完之後的補位與代課，而不只處理初次排課。','changing','課表異動流程示意｜請假與補課會形成後續協調。')+
   '<p class="schedule-insight-disclaimer">這三點假設在第 05 段會回頭檢驗。</p>'+
   '<div class="schedule-feature-quote"><p>所以我把問題整理成：</p><strong>如何在不增加取消率的前提下，減輕老師每月排課與補位的負擔，同時保留她以留存為優先的排課判斷？</strong></div>')+
