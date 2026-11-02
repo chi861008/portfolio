@@ -67,3 +67,23 @@
 .home-mode .portfolio-contact-actions{grid-column:2}
 .home-mode .contact-background-word{margin:0;font-size:14vw;font-weight:700;font-style:normal;letter-spacing:-.075em;line-height:1;left:3%;bottom:-.08em}
 @media(max-width:760px){.home-mode .portfolio-contact-actions{grid-column:1}.home-mode .portfolio-contact-section{padding-bottom:110px}.home-mode .contact-background-word{font-size:14vw;bottom:.1em}}
+
+/* Light section = the oversized invitation only. */
+.home-mode .portfolio-contact-section.contact-word-only{padding:0!important;height:calc(14vw * .98);min-height:150px;overflow:hidden}
+.home-mode .portfolio-contact-section.contact-word-only .portfolio-contact-inner{display:none}
+.home-mode .portfolio-contact-section.contact-word-only .contact-background-word{bottom:-.12em}
+
+/* Resume + email inside the closing dark band: quiet text links on hairlines, no boxes. */
+.home-mode .dark-band{padding:110px 0 64px}
+.home-mode .dark-band .band-contact{position:static;top:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;max-width:880px;margin:84px auto 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.16);transform:none!important;opacity:1!important}
+.home-mode .dark-band .band-contact .portfolio-contact-group{width:auto!important;display:flex;flex-direction:column;transform:none!important;opacity:1!important}
+.home-mode .dark-band .band-contact .portfolio-contact-label{display:block;font-size:11px;font-weight:800;letter-spacing:.16em;color:#8f8a84;padding:0 0 10px}
+.home-mode .dark-band .band-contact a.portfolio-resume-primary,.home-mode .dark-band .band-contact a.portfolio-contact-email{display:flex;align-items:center;gap:14px;width:100%;max-width:none;min-height:56px;padding:0!important;margin:0;background:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.14)!important;border-radius:0;color:#f4f2ed!important;font-size:18px;font-weight:500;text-decoration:none;white-space:normal;transition:color .2s,padding .2s}
+.home-mode .dark-band .band-contact a .contact-link-index{font-size:11px;color:#77726c;min-width:20px}
+.home-mode .dark-band .band-contact a::after{content:'↗';margin-left:auto;font-size:18px;color:#ff6a3d;transition:transform .2s}
+.home-mode .dark-band .band-contact a:hover,.home-mode .dark-band .band-contact a:focus-visible{color:#ff6a3d!important;padding-left:6px!important}
+.home-mode .dark-band .band-contact a:hover::after{transform:translate(3px,-3px)}
+.home-mode .dark-band .band-contact a:hover .contact-link-index{color:#ff6a3d}
+@media(max-width:760px){.home-mode .portfolio-contact-section.contact-word-only{height:calc(14vw * 1.05);min-height:80px}.home-mode .dark-band{padding:80px 0 48px}.home-mode .dark-band .band-contact{grid-template-columns:1fr;gap:28px;margin-top:56px}.home-mode .dark-band .band-contact a{font-size:16px!important;min-height:52px}}
+.home-mode .dark-band .band-contact .portfolio-contact-group:has(.portfolio-resume-primary) .portfolio-contact-label{padding-bottom:10px}
+.home-mode .dark-band .band-contact .portfolio-contact-group{gap:0!important;padding:0!important;margin:0!important}.home-mode .dark-band .band-contact .portfolio-contact-label{margin:0!important;padding:0 0 10px!important;line-height:1.2}.home-mode .dark-band .band-contact a{margin:0!important}
