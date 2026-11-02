@@ -101,3 +101,9 @@
 .home-mode .dark-band .band-contact .portfolio-contact-group{flex:none!important;align-self:center!important;width:auto!important}
 @media(max-width:760px){.home-mode .dark-band .band-contact,.home-mode .dark-band .band-contact .portfolio-contact-group{align-items:center!important}}
 @media(min-width:761px){.home-mode .dark-band .band-contact{flex-direction:row!important}}
+/* mobile: left-aligned; both résumés on one line, email below */
+@media(max-width:760px){
+.home-mode .dark-band .band-contact{align-items:flex-start!important;justify-content:flex-start!important}
+.home-mode .dark-band .band-contact .portfolio-contact-group{align-items:flex-start!important;align-self:flex-start!important}
+.home-mode .dark-band .band-contact .portfolio-contact-group:has(.portfolio-resume-primary){flex-direction:row!important;flex-wrap:wrap;gap:12px 28px!important}
+}
