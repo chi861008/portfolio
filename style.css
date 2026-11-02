@@ -2755,3 +2755,12 @@ html body #app .hl-copy h3 .h-num{display:inline-block;margin-right:.45em;color:
 /* role line under KIOSK highlight titles */
 html body.kiosk-case #app .hl-copy p.hl-role{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:10px 0 22px!important;font-size:15px!important;line-height:1.6!important;color:#24211f!important;font-weight:600}
 html body.kiosk-case #app .hl-copy p.hl-role b{font-size:11px;font-weight:800;letter-spacing:.12em;color:#ac7055}
+/* Pilates: fewer horizontal rules — rely on spacing */
+html body.scheduling-case #app .schedule-point{border-top:0!important}
+html body.scheduling-case #app .schedule-flow,html body.scheduling-case #app .schedule-flow>article{border-top:0!important;border-bottom:0!important}
+html body.scheduling-case #app .hl-row--pil{border-top:0!important}
+html body.scheduling-case #app .case-close{border-top:0!important}
+html body.scheduling-case #app .case-close>article{border-bottom:0!important;padding:26px 0 34px!important}
+html body.scheduling-case #app .cc-limits>div{border-top:0!important}
+html body.scheduling-case #app .schedule-repo{border-top:0!important}
+html body.scheduling-case #app .schedule-hypo-check thead th{border-bottom:1px solid #24211f!important}
