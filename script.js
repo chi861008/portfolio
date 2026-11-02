@@ -865,6 +865,9 @@ function setupContactMotion(){
  section.querySelector('.portfolio-contact-group:has(.portfolio-resume-primary) .portfolio-contact-label')?.remove();
  section.querySelector('.portfolio-contact-title')?.remove();
  section.querySelectorAll('.portfolio-contact-actions a').forEach((link,i)=>{link.querySelector('[aria-hidden="true"]')?.remove();link.querySelector('span')?.classList.add('contact-link-label');const number=document.createElement('span');number.className='contact-link-index';number.textContent=String(i+1).padStart(2,'0');number.setAttribute('aria-hidden','true');link.prepend(number);});
+ // Resume + email live in the closing dark band; the light section keeps only the big invitation.
+ const band=document.querySelector('.home-mode .dark-band .wrap');const actions=section.querySelector('.portfolio-contact-actions');
+ if(band&&actions){actions.classList.add('band-contact');const rg=actions.querySelector('.portfolio-contact-group:has(.portfolio-resume-primary)');if(rg&&!rg.querySelector('.portfolio-contact-label')){const l=document.createElement('div');l.className='portfolio-contact-label';l.textContent='RESUME';rg.prepend(l);}band.appendChild(actions);section.classList.add('contact-word-only');}
  updateContactMotion();
 }
 function updateContactMotion(){
