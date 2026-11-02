@@ -2899,3 +2899,6 @@ html body.kds-case #app .hl-row--kds{align-items:start!important}
 html body.kds-case #app .hl-row--kds .hl-copy{align-self:start!important;position:static!important;margin-top:0!important;padding-top:0!important}
 html body.kds-case #app .hl-row--kds .hl-copy>h3{margin-top:0!important}
 html body.kds-case #app .hl-row--kds .hl-clip-frame>img{display:block;width:100%;height:auto}
+/* Pilates closing headings match the other section headings */
+html body #app .case-close--plain .cc-body>h3{font-size:clamp(26px,2.8vw,34px)!important;line-height:1.35!important;letter-spacing:-.035em;font-weight:800!important;color:#1f1d1b;padding-left:14px!important;border-left:4px solid #d0704f!important;margin:0 0 22px!important}
+html body #app .case-close--plain>article{padding-top:56px!important}
