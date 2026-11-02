@@ -2861,3 +2861,24 @@ html body #app .case-article .story-section{border-top:0!important}
 .pil-sc-flow>div.hub{border-style:dashed;border-color:#c9643f}
 .pil-sc-flow span{font-size:12px;font-weight:800;color:#8a8178}
 .pil-sc-flow strong{font-size:13px;line-height:1.4;color:#24211f}
+/* Pilates MVP rings (reuses KDS ring styles) */
+html body.scheduling-case #app .pil-scope{margin-top:72px}
+html body.scheduling-case #app .pil-scope-intro{margin:6px 0 0;font-size:15px;line-height:1.8;color:#5b554f}
+html body.scheduling-case #app .pil-rings>div{top:auto;bottom:0}
+html body.scheduling-case #app .pil-rings .kds-scope-outer{padding-top:7%}
+html body.scheduling-case #app .pil-rings .kds-scope-middle{background:#f2b394;color:#5a2f1c;padding-top:8%}
+html body.scheduling-case #app .pil-rings .kds-scope-center{justify-content:center;gap:8px}
+html body.scheduling-case #app .pil-dot-mvp2{background:#f2b394}
+html body.scheduling-case #app .kds-scope-legend>div{border-bottom:0}
+html body.scheduling-case #app .kds-scope-legend p{font-size:14px;line-height:1.75;color:#5b554f;margin:0}
+.pil-pyr{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:stretch;max-width:380px;margin:0 auto}
+.pil-pyr-shape{display:grid;grid-template-rows:repeat(3,58px);gap:4px}
+.pil-pyr-shape i{display:block}
+.pil-pyr-shape .t0{background:#c9643f;clip-path:polygon(50% 0,66.67% 100%,33.33% 100%)}
+.pil-pyr-shape .t1{background:#f2b394;clip-path:polygon(33.33% 0,66.67% 0,83.33% 100%,16.67% 100%)}
+.pil-pyr-shape .t2{background:#e3d9cf;clip-path:polygon(16.67% 0,83.33% 0,100% 100%,0 100%)}
+.pil-pyr-labels{display:grid;grid-template-rows:repeat(3,58px);gap:4px;text-align:left}
+.pil-pyr-labels>div{display:flex;flex-direction:column;justify-content:center;gap:3px}
+.pil-pyr-labels b{font-size:12px;font-weight:800;color:#c9643f}
+.pil-pyr-labels strong{font-size:14px;line-height:1.4;color:#24211f}
+@media(max-width:420px){.pil-pyr{grid-template-columns:118px 1fr;gap:12px}}
