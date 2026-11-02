@@ -2749,3 +2749,6 @@ html body.scheduling-case #app .schedule-turn p{margin:0!important}
 html body.scheduling-case #app .case-close .schedule-quote{margin:22px 0 16px!important}
 html body.scheduling-case #app .case-close .schedule-hypo-check{margin:4px 0 0!important}
 html body #app .kds-scope-legend p strong{display:inline;font-size:inherit;line-height:inherit;margin:0;color:#24211f}
+/* number merged into highlight titles */
+html body #app .hl-copy h3 .h-num{display:inline-block;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
+@media(min-width:701px){html body.kiosk-case #app .research-question-grid.kiosk-decision-rows>div{grid-template-areas:"num question decision value"!important;grid-template-rows:auto!important}}
