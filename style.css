@@ -2519,7 +2519,7 @@ html body.kiosk-case .market-chart{border-top:0!important}
 .ai-tools-section--compact{padding-top:65px;padding-bottom:90px}
 .ai-tools-section--compact .ai-tools-heading h2{font-size:clamp(32px,4.4vw,54px)}
 @media(max-width:850px){.ai-tools-heading{grid-template-columns:1fr;gap:16px}.ai-tool-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.ai-tool-top{margin-bottom:27px}}
-@media(max-width:520px){.ai-tools-section{padding-top:116px;padding-bottom:124px}
+@media(max-width:520px){.ai-tools-section{padding-top:116px;padding-bottom:124px}}
 .ai-tools-heading{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px 8%;align-items:end;margin-bottom:75px}
 .ai-tools-heading .eyebrow{grid-column:1/-1;color:var(--accent);margin-bottom:8px}
 .ai-tools-heading h2{font-size:clamp(40px,5vw,68px);line-height:1.06;letter-spacing:-.052em;font-weight:700;margin:0;max-width:650px}
@@ -2735,3 +2735,11 @@ html body.kiosk-case #kdec-3::after{
 .portfolio-contact-actions .portfolio-resume-primary:hover,.portfolio-contact-actions .portfolio-contact-email:hover{background:transparent;border-color:#cbc7c1;color:#e36f4b;padding-left:7px}
 .portfolio-contact-actions .portfolio-resume-primary>span:last-child,.portfolio-contact-actions .portfolio-contact-email>span:last-child{font-weight:400;font-size:23px;color:#e36f4b;flex:none}
 @media(max-width:760px){.portfolio-contact-section{padding:75px 0 90px}.portfolio-contact-inner{grid-template-columns:1fr;gap:25px}.portfolio-contact-title h2{font-size:clamp(56px,13vw,85px)}.portfolio-contact-actions{padding-top:0;gap:28px}}
+/* KIOSK decision rows: no divider line under each row's button — spacing separates them */
+html body.kiosk-case .kiosk-decision-rows>div,html body.kiosk-case .kiosk-decision-rows>div+div{border-bottom:0!important;border-top:0!important}
+html body.kiosk-case .kiosk-decision-rows>div+div{margin-top:12px!important}
+html body.kiosk-case a.dec-look{border-bottom-width:1px!important;text-decoration:none!important}
+html body.kiosk-case .kiosk-decision-rows a.dec-look{display:flex!important;width:max-content!important;margin-top:16px!important}
+html body.kiosk-case #app .research-question-grid.kiosk-decision-rows>div{border-top:0!important;border-bottom:0!important;box-shadow:none!important}
+html body.kiosk-case #app .kiosk-decision-rows a.dec-look{border:1px solid #d9b8a6!important;box-shadow:none!important;text-decoration:none!important}
+html body.kiosk-case #app .kiosk-decision-rows a.dec-look::after,html body.kiosk-case #app .kiosk-decision-rows a.dec-look::before{border:0!important;box-shadow:none!important}
