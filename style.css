@@ -2861,3 +2861,13 @@ html body #app .case-article .story-section{border-top:0!important}
 .pil-sc-flow>div.hub{border-style:dashed;border-color:#c9643f}
 .pil-sc-flow span{font-size:12px;font-weight:800;color:#8a8178}
 .pil-sc-flow strong{font-size:13px;line-height:1.4;color:#24211f}
+/* Pilates MVP rings (reuses KDS ring styles) */
+html body.scheduling-case #app .pil-scope{margin-top:72px}
+html body.scheduling-case #app .pil-scope-intro{margin:6px 0 0;font-size:15px;line-height:1.8;color:#5b554f}
+html body.scheduling-case #app .pil-rings>div{top:auto;bottom:0}
+html body.scheduling-case #app .pil-rings .kds-scope-outer{padding-top:7%}
+html body.scheduling-case #app .pil-rings .kds-scope-middle{background:#f2b394;color:#5a2f1c;padding-top:8%}
+html body.scheduling-case #app .pil-rings .kds-scope-center{justify-content:center;gap:8px}
+html body.scheduling-case #app .pil-dot-mvp2{background:#f2b394}
+html body.scheduling-case #app .kds-scope-legend>div{border-bottom:0}
+html body.scheduling-case #app .kds-scope-legend p{font-size:14px;line-height:1.75;color:#5b554f;margin:0}
