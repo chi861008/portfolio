@@ -2743,3 +2743,9 @@ html body.kiosk-case .kiosk-decision-rows a.dec-look{display:flex!important;widt
 html body.kiosk-case #app .research-question-grid.kiosk-decision-rows>div{border-top:0!important;border-bottom:0!important;box-shadow:none!important}
 html body.kiosk-case #app .kiosk-decision-rows a.dec-look{border:1px solid #d9b8a6!important;box-shadow:none!important;text-decoration:none!important}
 html body.kiosk-case #app .kiosk-decision-rows a.dec-look::after,html body.kiosk-case #app .kiosk-decision-rows a.dec-look::before{border:0!important;box-shadow:none!important}
+/* Pilates 05 merged closing */
+html body.scheduling-case #app .schedule-turn{background:none!important;padding:0!important;margin:40px 0 0!important}
+html body.scheduling-case #app .schedule-turn p{margin:0!important}
+html body.scheduling-case #app .case-close .schedule-quote{margin:22px 0 16px!important}
+html body.scheduling-case #app .case-close .schedule-hypo-check{margin:4px 0 0!important}
+html body #app .kds-scope-legend p strong{display:inline;font-size:inherit;line-height:inherit;margin:0;color:#24211f}
