@@ -2751,7 +2751,7 @@ html body.scheduling-case #app .case-close .schedule-hypo-check{margin:4px 0 0!i
 html body #app .kds-scope-legend p strong{display:inline;font-size:inherit;line-height:inherit;margin:0;color:#24211f}
 /* number merged into highlight titles */
 html body #app .hl-copy h3 .h-num{display:inline-block;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
-@media(min-width:701px){html body.kiosk-case #app .research-question-grid.kiosk-decision-rows>div{grid-template-areas:"num question decision value"!important;grid-template-rows:auto!important}}
+@media(min-width:701px){html body.kiosk-case #app .research-question-grid>div{grid-template-areas:"num question decision value"!important;grid-template-rows:auto!important}}
 /* role line under KIOSK highlight titles */
 html body.kiosk-case #app .hl-copy p.hl-role{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:10px 0 22px!important;font-size:15px!important;line-height:1.6!important;color:#24211f!important;font-weight:600}
 html body.kiosk-case #app .hl-copy p.hl-role b{font-size:11px;font-weight:800;letter-spacing:.12em;color:#ac7055}
@@ -2770,3 +2770,8 @@ html body a.next-case:is(:active,.tap-feedback) h2{color:#ff603c}
 /* Chinese titles: break between words (<wbr> added by addPhraseBreaks), never mid-word */
 html body #app .phrase-wrap{word-break:keep-all!important;overflow-wrap:anywhere!important;text-wrap:pretty}
 html body.kiosk-case #app a.rq-link:not(.dec-look){white-space:nowrap}
+/* RQ rows: method text matches the question text */
+html body.kiosk-case #app .research-question-grid:not(.kiosk-decision-rows) .rq-decision{font-weight:600!important;color:#2c2925!important;font-size:16px!important;line-height:1.65!important}
+/* KIOSK RQ/decision rows: column labels in grey, not orange */
+html body.kiosk-case #app .research-question-grid .rq-decision b,html body.kiosk-case #app .research-question-grid .rq-value b{color:#8a8178!important}
+@media(min-width:701px){html body.kiosk-case #app .research-question-grid>div>strong{margin-top:24px!important}}
