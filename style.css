@@ -2767,3 +2767,6 @@ html body.scheduling-case #app .schedule-hypo-check thead th{border-bottom:1px s
 /* next-case: no shrink on press (shrinking showed the light page as a white frame) */
 html body a.next-case:is(:active,.tap-feedback){scale:1!important;filter:none!important;opacity:1!important}
 html body a.next-case:is(:active,.tap-feedback) h2{color:#ff603c}
+/* Chinese titles: break between words (<wbr> added by addPhraseBreaks), never mid-word */
+html body #app .phrase-wrap{word-break:keep-all!important;overflow-wrap:anywhere!important;text-wrap:pretty}
+html body.kiosk-case #app a.rq-link:not(.dec-look){white-space:nowrap}
