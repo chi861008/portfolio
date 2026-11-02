@@ -87,11 +87,11 @@ function schedulingBody(){
  const point=(label,title,body)=>'<div class="schedule-point"><span>'+label+'</span><h3>'+title+'</h3><p>'+body+'</p></div>';
  return sec('overview','01 / PROJECT OVERVIEW','我做出了能運作的排課產品，然後學會重新判斷什麼值得先做',
   paragraph('這個個人專案源自一位皮拉提斯老師的真實困擾：每月約花 2–3 小時安排課表，學生再因臨時取消或改期而讓老師持續調整。她以 LINE 蒐集時間、用紙本安排課程，也需要在老師群組協調代課。這些條件讓排課不只是找空檔，更是持續協調與取捨的工作。')+
-  '<div class="schedule-feature-quote"><span>INITIAL DESIGN QUESTION / 最初的設計提問</span><p>因此，我在第一版開發前，將問題整理成這個設計提問：</p><strong>如何尊重每位學生的時間偏好，兼顧分配公平與教學連續性，並讓老師高效率地完成每月排課？</strong></div>'+
+  
   '<figure class="scenario-figure pilates-case-scenario"><img loading="eager" decoding="async" fetchpriority="high" width="2048" height="1536" src="./assets/pilates-scenario.webp" alt="皮拉提斯老師在教室內查看手機上的排課系統；合成使用情境示意，非訪談現場照片"><figcaption>使用情境示意（合成畫面）。</figcaption></figure>')+
  sec('research','02 / PROBLEM DISCOVERY','問題不只是排課耗時，而是如何兼顧不同人的限制',
   '<h3>研究方式</h3><div class="pil-methods"><div><b>01</b><strong>訪談 Joanna 老師</strong><p>了解她怎麼收學生時間、排課，以及課表排好之後怎麼處理異動。</p></div><div><b>02</b><strong>檢視現有資料</strong><p>看她目前用來排課的 LINE 訊息、紙本課表與老師群組的代課訊息。</p></div><div><b>03</b><strong>訪談另一位老師</strong><p>對照不同老師的排課方式，確認哪些困擾不是個案。</p></div></div><h3>三個洞察</h3><div class="pil-insights"><div><b>01</b><h4>業績壓力下，補位和代課是常態</h4><p>每位老師每月要上滿 120 堂，所以會透過代課湊滿時數；一有空堂，也希望馬上補進學生。</p></div><div><b>02</b><h4>排課有先後：先顧留存，再顧時間少的學生</h4><p>老師會先排穩定上課、感情好的學生，提高留存；接著才排能上時間比較少的學生。</p></div><div><b>03</b><h4>排課負擔和取消率，只能擇一</h4><p>為了降低取消率，老師以月為單位幫每位學生規劃好時間，但這也讓排課負擔變得很重。</p></div></div>'+
-  '<h3>開工前的初始假設｜來源：2 位老師</h3>'+
+  '<div class="schedule-feature-quote"><p>從這三個洞察，我把問題整理成：</p><strong>如何在不增加取消率的前提下，減輕老師每月排課與補位的負擔，同時保留她以留存為優先的排課判斷？</strong></div><h3>開工前的初始假設｜來源：2 位老師</h3>'+
   schedulingInsight('01','TEACHING CONTINUITY / 教學連續性','排課品質不只取決於完成堂數，更在於維持學生與主要老師的教學連續性。','老師重視學生持續由主要老師授課，因此排課規則需要兼顧授課連續性，而不只是盡可能排入最多堂數。','continuity','教學安排示意｜主要老師與代課老師交錯授課。')+
   schedulingInsight('02','DECISION AUTHORITY / 排課決策','排課涉及多重條件與例外取捨，無法完全自動化，仍需保留老師的最終決策權。','學生時段、課程間隔與授課老師可能互相衝突。系統提供草案及衝突資訊，再由老師完成取捨與調整。','authority','多條件排課示意｜草案仍需老師審核。')+
   schedulingInsight('03','CONTINUOUS COORDINATION / 持續協調','排課不是一次性的時間分配，而是伴隨請假、補課與代課需求持續變動的協調過程。','初次排出課表只是起點；後續異動需要重新安排老師與學生時間，並同步最新課程資訊。','changing','課表異動流程示意｜請假與補課會形成後續協調。')+
