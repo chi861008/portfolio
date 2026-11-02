@@ -2752,3 +2752,6 @@ html body #app .kds-scope-legend p strong{display:inline;font-size:inherit;line-
 /* number merged into highlight titles */
 html body #app .hl-copy h3 .h-num{display:inline-block;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
 @media(min-width:701px){html body.kiosk-case #app .research-question-grid.kiosk-decision-rows>div{grid-template-areas:"num question decision value"!important;grid-template-rows:auto!important}}
+/* role line under KIOSK highlight titles */
+html body.kiosk-case #app .hl-copy p.hl-role{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:10px 0 22px!important;font-size:15px!important;line-height:1.6!important;color:#24211f!important;font-weight:600}
+html body.kiosk-case #app .hl-copy p.hl-role b{font-size:11px;font-weight:800;letter-spacing:.12em;color:#ac7055}
