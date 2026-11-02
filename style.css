@@ -2889,3 +2889,4 @@ html body.scheduling-case #app .pil-assume li{display:grid;grid-template-columns
 html body.scheduling-case #app .pil-assume b{color:#c9643f;font-weight:800;font-size:15px}
 html body.scheduling-case #app .pil-outcome-lead{font-size:17px;line-height:1.85;color:#3d3833;margin:0 0 8px}
 html body #app .case-close--plain>article{grid-template-columns:1fr!important}
+html body.scheduling-case #app #reflection{padding-bottom:140px!important}html body #app .case-close--plain>article:first-of-type{padding-top:12px!important}
