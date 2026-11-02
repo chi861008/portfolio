@@ -2800,3 +2800,37 @@ html body.scheduling-case #app .pil-insights b{font-size:clamp(34px,3.4vw,46px);
 html body.scheduling-case #app .pil-insights h4{margin:0 0 10px;font-size:19px;line-height:1.45;color:#24211f}
 @media(max-width:760px){html body.scheduling-case #app .pil-methods,html body.scheduling-case #app .pil-insights{grid-template-columns:1fr;gap:26px;margin-bottom:48px}}
 html body.scheduling-case #app #research .schedule-feature-quote{margin-bottom:72px!important}
+/* Pilates journey map */
+html body.scheduling-case #app .jm-intro{margin:0 0 26px;font-size:15px;line-height:1.75;color:#5b554f}
+html body.scheduling-case #app .journey-map{display:grid;grid-template-columns:88px repeat(5,minmax(0,1fr));column-gap:18px;row-gap:0;margin:0 0 72px}
+html body.scheduling-case #app .journey-map>*{padding:14px 0}
+html body.scheduling-case #app .jm-stage{padding-top:0;border-bottom:2px solid #24211f}
+html body.scheduling-case #app .jm-stage b{display:block;color:#c9643f;font-size:13px;font-weight:800;letter-spacing:.06em;margin-bottom:4px}
+html body.scheduling-case #app .jm-stage strong{display:block;font-size:18px;line-height:1.4;color:#24211f}
+html body.scheduling-case #app .jm-label{font-size:12px;font-weight:800;letter-spacing:.06em;color:#8a8178;padding-top:16px}
+html body.scheduling-case #app .jm-cell{font-size:14px;line-height:1.65;color:#4d4842;padding-top:16px}
+html body.scheduling-case #app .jm-pain{color:#24211f;font-weight:600}
+html body.scheduling-case #app .jm-opp{color:#b0583a;font-weight:700}
+html body.scheduling-case #app .jm-feelrow{grid-column:span 5;position:relative;height:150px;padding:0}
+html body.scheduling-case #app .jm-curve{position:absolute;inset:0 0 auto 0;width:100%;height:120px;overflow:visible}
+html body.scheduling-case #app .jm-curve polyline{fill:none;stroke:#e2b8a5;stroke-width:2;vector-effect:non-scaling-stroke}
+html body.scheduling-case #app .jm-curve circle{display:none}
+html body.scheduling-case #app .jm-feels{position:absolute;inset:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:18px}
+html body.scheduling-case #app .jm-feel{position:relative}
+html body.scheduling-case #app .jm-feel i{position:absolute;left:50%;top:calc(20px + (5 - var(--lv))*22px);width:14px;height:14px;border-radius:50%;background:#c9643f;transform:translate(-50%,-50%);box-shadow:0 0 0 4px #f9f9f7}
+html body.scheduling-case #app .jm-feel small{position:absolute!important;left:0;right:0;text-align:center;top:calc(20px + (5 - var(--lv))*22px + 14px)!important;font-size:13px;font-weight:700;color:#24211f;display:block}
+html body.scheduling-case #app .journey-mobile{display:none}
+@media(max-width:860px){
+html body.scheduling-case #app .journey-map{display:none}
+html body.scheduling-case #app .journey-mobile{display:block;list-style:none;margin:0 0 56px;padding:0}
+html body.scheduling-case #app .journey-mobile li{position:relative;padding:0 0 26px 40px}
+html body.scheduling-case #app .journey-mobile li:before{content:'';position:absolute;left:11px;top:26px;bottom:4px;width:2px;background:#e2b8a5}
+html body.scheduling-case #app .journey-mobile li:last-child:before{display:none}
+html body.scheduling-case #app .journey-mobile li>b{position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:#c9643f;color:#fff;font-size:11px;display:grid;place-items:center}
+html body.scheduling-case #app .journey-mobile strong{display:block;font-size:18px;line-height:1.4;margin-bottom:6px;color:#24211f}
+html body.scheduling-case #app .journey-mobile p{margin:0 0 6px;font-size:15px;line-height:1.7;color:#4d4842}
+html body.scheduling-case #app .journey-mobile em{font-style:normal;display:inline-block;min-width:3.6em;margin-right:8px;font-size:12px;font-weight:800;color:#8a8178}
+html body.scheduling-case #app .journey-mobile .jm-m-pain{color:#24211f;font-weight:600}
+html body.scheduling-case #app .journey-mobile .jm-m-opp{color:#b0583a;font-weight:700}
+html body.scheduling-case #app .journey-mobile .jm-m-feel i{display:none}
+}
