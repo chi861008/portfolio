@@ -2887,3 +2887,4 @@ html body.scheduling-case #app .schedule-hypo-check tbody tr,html body.schedulin
 html body.scheduling-case #app .pil-assume{list-style:none;margin:18px 0 40px;padding:0;display:grid;gap:14px}
 html body.scheduling-case #app .pil-assume li{display:grid;grid-template-columns:44px 1fr;align-items:baseline;font-size:17px;line-height:1.65;color:#24211f;font-weight:600}
 html body.scheduling-case #app .pil-assume b{color:#c9643f;font-weight:800;font-size:15px}
+html body.scheduling-case #app .pil-outcome-lead{font-size:17px;line-height:1.85;color:#3d3833;margin:0 0 8px}
