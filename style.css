@@ -2775,3 +2775,11 @@ html body.kiosk-case #app .research-question-grid:not(.kiosk-decision-rows) .rq-
 /* KIOSK RQ/decision rows: column labels in grey, not orange */
 html body.kiosk-case #app .research-question-grid .rq-decision b,html body.kiosk-case #app .research-question-grid .rq-value b{color:#8a8178!important}
 @media(min-width:701px){html body.kiosk-case #app .research-question-grid>div>strong{margin-top:24px!important}}
+/* KIOSK decision rows: the first column becomes the row title */
+@media(min-width:701px){
+html body.kiosk-case #app .research-question-grid.kiosk-decision-rows>div{grid-template-columns:96px minmax(0,1fr) minmax(0,1fr)!important;grid-template-areas:"num question question" "num decision value"!important;grid-template-rows:auto auto!important;column-gap:56px!important;row-gap:22px!important}
+html body.kiosk-case #app .kiosk-decision-rows>div>strong{margin-top:10px!important;font-size:24px!important;line-height:1.4!important;font-weight:800!important;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
+html body.kiosk-case #app .kiosk-decision-rows .rq-decision:before{display:none!important}
+html body.kiosk-case #app .kiosk-decision-rows .rq-value:before{left:-40px!important}
+}
+@media(max-width:700px){html body.kiosk-case #app .kiosk-decision-rows>div>strong{font-size:19px!important;line-height:1.45!important;font-weight:800!important}}
