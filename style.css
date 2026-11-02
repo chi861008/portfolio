@@ -2839,3 +2839,4 @@ html body.scheduling-case #app .pil-methods{grid-template-columns:repeat(2,minma
 html body.scheduling-case #app .jm-pain,html body.scheduling-case #app .journey-mobile .jm-m-pain{color:#c0603f!important;font-weight:700!important}
 html body.scheduling-case #app .jm-feelrow{height:150px!important}
 html body.scheduling-case #app #research .schedule-insight-disclaimer{margin-bottom:72px!important}
+html body #app .case-article .story-section{border-top:0!important}
