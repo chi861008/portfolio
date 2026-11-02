@@ -2898,3 +2898,4 @@ html body.scheduling-case #app .hl-row--pil .hl-copy>h3{margin-top:0!important}
 html body.kds-case #app .hl-row--kds{align-items:start!important}
 html body.kds-case #app .hl-row--kds .hl-copy{align-self:start!important;position:static!important;margin-top:0!important;padding-top:0!important}
 html body.kds-case #app .hl-row--kds .hl-copy>h3{margin-top:0!important}
+html body.kds-case #app .hl-row--kds .hl-clip-frame>img{display:block;width:100%;height:auto}
