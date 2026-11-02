@@ -378,7 +378,7 @@ async function playHomeOpening(){
   // Phase 1 (1.2s push-in + 0.67s hold) and phase 2 (0.6s return) run as separate
   // animations so the card position is measured *right before* the return —
   // fonts or layout that settle during phase 1 can no longer cause a jump at the hand-off.
-  const pushMs=1200,holdMs=667,shrinkMs=600,openingDuration=pushMs+holdMs+shrinkMs;
+  const pushMs=1200,holdMs=450,shrinkMs=600,openingDuration=pushMs+holdMs+shrinkMs;
   const full={left:'0px',top:'0px',width:startWidth+'px',height:startHeight+'px',borderRadius:'0px'};
   const phase1=image.animate([
     {...full,transform:'rotate(0deg) scale(1)',offset:0,easing:'cubic-bezier(.33,0,.2,1)'},
