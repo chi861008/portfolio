@@ -2783,3 +2783,8 @@ html body.kiosk-case #app .kiosk-decision-rows .rq-decision:before{display:none!
 html body.kiosk-case #app .kiosk-decision-rows .rq-value:before{left:-40px!important}
 }
 @media(max-width:700px){html body.kiosk-case #app .kiosk-decision-rows>div>strong{font-size:19px!important;line-height:1.45!important;font-weight:800!important}}
+/* KIOSK highlights: no divider lines, text top-aligned with the mockup */
+html body.kiosk-case #app .hl-row{border-top:0!important;border-bottom:0!important;align-items:start!important}
+html body.kiosk-case #app .hl-row .hl-copy{position:static!important;align-self:start!important;margin-top:0!important;padding-top:0!important}
+html body.kiosk-case #app .hl-row .hl-copy>h3{margin-top:0!important}
+@media(min-width:851px){html body.kiosk-case #app #hl-pay .hl-copy{padding-top:56px!important}}
