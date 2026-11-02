@@ -2902,3 +2902,5 @@ html body.kds-case #app .hl-row--kds .hl-clip-frame>img{display:block;width:100%
 /* Pilates closing headings match the other section headings */
 html body #app .case-close--plain .cc-body>h3{font-size:clamp(26px,2.8vw,34px)!important;line-height:1.35!important;letter-spacing:-.035em;font-weight:800!important;color:#1f1d1b;padding-left:14px!important;border-left:4px solid #d0704f!important;margin:0 0 22px!important}
 html body #app .case-close--plain>article{padding-top:56px!important}
+/* Mobile: titles simply fill the line width */
+@media(max-width:760px){html body #app .phrase-wrap,html body #app h1,html body #app h2,html body #app h3,html body #app h4{word-break:normal!important;overflow-wrap:break-word!important;text-wrap:wrap!important}}
