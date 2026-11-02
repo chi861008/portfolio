@@ -2788,3 +2788,4 @@ html body.kiosk-case #app .hl-row{border-top:0!important;border-bottom:0!importa
 html body.kiosk-case #app .hl-row .hl-copy{position:static!important;align-self:start!important;margin-top:0!important;padding-top:0!important}
 html body.kiosk-case #app .hl-row .hl-copy>h3{margin-top:0!important}
 @media(min-width:851px){html body.kiosk-case #app #hl-pay .hl-copy{padding-top:56px!important}}
+html body.kiosk-case #app .kiosk-screening-item h5 .h-num{display:inline-block;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
