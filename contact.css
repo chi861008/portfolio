@@ -87,3 +87,17 @@
 @media(max-width:760px){.home-mode .portfolio-contact-section.contact-word-only{height:calc(14vw * 1.05);min-height:80px}.home-mode .dark-band{padding:80px 0 48px}.home-mode .dark-band .band-contact{grid-template-columns:1fr;gap:28px;margin-top:56px}.home-mode .dark-band .band-contact a{font-size:16px!important;min-height:52px}}
 .home-mode .dark-band .band-contact .portfolio-contact-group:has(.portfolio-resume-primary) .portfolio-contact-label{padding-bottom:10px}
 .home-mode .dark-band .band-contact .portfolio-contact-group{gap:0!important;padding:0!important;margin:0!important}.home-mode .dark-band .band-contact .portfolio-contact-label{margin:0!important;padding:0 0 10px!important;line-height:1.2}.home-mode .dark-band .band-contact a{margin:0!important}
+
+/* Compact, line-free contact row under the tagline */
+.home-mode .dark-band{padding:110px 0 80px}
+.home-mode .dark-band .band-contact{display:flex!important;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 40px!important;max-width:none;margin:56px auto 0!important;padding:0!important;border:0!important}
+.home-mode .dark-band .band-contact .portfolio-contact-group{flex-direction:row!important;align-items:center;gap:40px!important}
+.home-mode .dark-band .band-contact .portfolio-contact-label,.home-mode .dark-band .band-contact a .contact-link-index{display:none!important}
+.home-mode .dark-band .band-contact a.portfolio-resume-primary,.home-mode .dark-band .band-contact a.portfolio-contact-email{width:auto!important;min-height:0!important;border:0!important;gap:8px!important;font-size:17px!important;color:#d9d5cf!important}
+.home-mode .dark-band .band-contact a::after{margin-left:6px!important;font-size:16px}
+.home-mode .dark-band .band-contact a:hover,.home-mode .dark-band .band-contact a:focus-visible{padding-left:0!important}
+@media(max-width:760px){.home-mode .dark-band{padding:80px 0 60px}.home-mode .dark-band .band-contact{flex-direction:column;gap:14px!important;margin-top:40px!important}.home-mode .dark-band .band-contact .portfolio-contact-group{flex-direction:column!important;gap:14px!important}}
+.home-mode .dark-band .band-contact{width:100%!important;flex-wrap:nowrap!important;grid-column:auto!important;top:auto!important}
+.home-mode .dark-band .band-contact .portfolio-contact-group{flex:none!important;align-self:center!important;width:auto!important}
+@media(max-width:760px){.home-mode .dark-band .band-contact,.home-mode .dark-band .band-contact .portfolio-contact-group{align-items:center!important}}
+@media(min-width:761px){.home-mode .dark-band .band-contact{flex-direction:row!important}}
