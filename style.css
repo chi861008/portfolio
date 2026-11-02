@@ -2790,3 +2790,12 @@ html body.kiosk-case #app .hl-row .hl-copy>h3{margin-top:0!important}
 @media(min-width:851px){html body.kiosk-case #app #hl-pay .hl-copy{padding-top:56px!important}}
 html body.kiosk-case #app .kiosk-screening-item h5 .h-num{display:inline-block;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
 html body.kiosk-case #app .rq-decision .rq-back{margin-top:16px!important;font-weight:700!important}
+/* Pilates 02: research methods + three insights */
+html body.scheduling-case #app .pil-methods,html body.scheduling-case #app .pil-insights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;margin:22px 0 64px}
+html body.scheduling-case #app .pil-methods b,html body.scheduling-case #app .pil-insights b{display:block;color:#c9643f;font-weight:800;font-variant-numeric:tabular-nums}
+html body.scheduling-case #app .pil-methods b{font-size:13px;letter-spacing:.08em;margin-bottom:8px}
+html body.scheduling-case #app .pil-methods strong{display:block;font-size:18px;line-height:1.45;color:#24211f;margin-bottom:8px}
+html body.scheduling-case #app .pil-methods p,html body.scheduling-case #app .pil-insights p{margin:0;font-size:15px;line-height:1.75;color:#5b554f}
+html body.scheduling-case #app .pil-insights b{font-size:clamp(34px,3.4vw,46px);line-height:1;margin-bottom:14px}
+html body.scheduling-case #app .pil-insights h4{margin:0 0 10px;font-size:19px;line-height:1.45;color:#24211f}
+@media(max-width:760px){html body.scheduling-case #app .pil-methods,html body.scheduling-case #app .pil-insights{grid-template-columns:1fr;gap:26px;margin-bottom:48px}}
