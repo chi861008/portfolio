@@ -2945,3 +2945,5 @@ html body.kds-case #app .kds-competitor-analysis .kds-research-turn{margin-top:3
 /* KDS insights: no divider lines between cards */
 html body.kds-case #app .kds-insight-feature{border-top:0!important;border-bottom:0!important}
 html body.kds-case #app .kds-user-insights{border:0!important}
+html body.kds-case #app .kca-table tbody th{width:28%}
+@media(max-width:700px){html body.kds-case #app .kca-table tr{grid-template-columns:1fr 1fr!important}}
