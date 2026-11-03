@@ -2918,3 +2918,13 @@ html body.kiosk-case #app .kiosk-comp td:last-child{color:#5b554f}
 html body.kiosk-case #app .kc-int{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:999px;background:#f3e3da;color:#9b5236;font-style:normal;font-size:11px;font-weight:800;vertical-align:2px;white-space:nowrap}
 @media(max-width:700px){html body.kiosk-case #app .kiosk-comp th,html body.kiosk-case #app .kiosk-comp td{padding:11px 6px;font-size:14px}html body.kiosk-case #app .kiosk-comp tbody th{width:auto}}
 html body.kiosk-case #app .kiosk-comp>h3{font-size:clamp(26px,2.8vw,34px);line-height:1.35;letter-spacing:-.035em;font-weight:800;color:#1f1d1b;padding-left:14px;border-left:4px solid #d0704f;margin:0}
+/* KDS first-generation baseline */
+html body.kds-case #app .kds-baseline{margin:56px 0 72px}
+html body.kds-case #app .kds-baseline>h3{font-size:clamp(26px,2.8vw,34px);line-height:1.35;letter-spacing:-.035em;font-weight:800;color:#1f1d1b;padding-left:14px;border-left:4px solid #d0704f;margin:0}
+html body.kds-case #app .kds-baseline>p{margin:12px 0 26px;font-size:16px;line-height:1.8;color:#4d4842}
+html body.kds-case #app .kds-baseline-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+html body.kds-case #app .kds-baseline-grid b{display:block;color:#c9643f;font-size:clamp(30px,3vw,40px);font-weight:800;line-height:1;margin-bottom:12px}
+html body.kds-case #app .kds-baseline-grid strong{display:block;font-size:17px;line-height:1.45;color:#24211f;margin-bottom:8px}
+html body.kds-case #app .kds-baseline-grid p{margin:0;font-size:14.5px;line-height:1.75;color:#5b554f}
+@media(max-width:900px){html body.kds-case #app .kds-baseline-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){html body.kds-case #app .kds-baseline-grid{grid-template-columns:1fr;gap:22px}}
