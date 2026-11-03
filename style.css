@@ -2904,3 +2904,5 @@ html body #app .case-close--plain .cc-body>h3{font-size:clamp(26px,2.8vw,34px)!i
 html body #app .case-close--plain>article{padding-top:56px!important}
 /* Mobile: titles simply fill the line width */
 @media(max-width:760px){html body #app .phrase-wrap,html body #app h1,html body #app h2,html body #app h3,html body #app h4{word-break:normal!important;overflow-wrap:break-word!important;text-wrap:wrap!important}}
+html body.kds-case #app .kds-competitor-findings h4 .h-num{display:inline-block;font-size:inherit!important;letter-spacing:0!important;font-weight:800!important;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
+html body.kds-case #app .kds-competitor-findings p strong{color:#24211f;font-weight:700}
