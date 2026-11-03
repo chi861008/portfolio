@@ -2922,10 +2922,23 @@ html body.kiosk-case #app .kiosk-comp>h3{font-size:clamp(26px,2.8vw,34px);line-h
 html body.kds-case #app .kds-baseline{margin:56px 0 72px}
 html body.kds-case #app .kds-baseline>h3{font-size:clamp(26px,2.8vw,34px);line-height:1.35;letter-spacing:-.035em;font-weight:800;color:#1f1d1b;padding-left:14px;border-left:4px solid #d0704f;margin:0}
 html body.kds-case #app .kds-baseline>p{margin:12px 0 26px;font-size:16px;line-height:1.8;color:#4d4842}
-html body.kds-case #app .kds-baseline-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+html body.kds-case #app .kds-baseline-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
 html body.kds-case #app .kds-baseline-grid b{display:block;color:#c9643f;font-size:clamp(30px,3vw,40px);font-weight:800;line-height:1;margin-bottom:12px}
 html body.kds-case #app .kds-baseline-grid strong{display:block;font-size:17px;line-height:1.45;color:#24211f;margin-bottom:8px}
 html body.kds-case #app .kds-baseline-grid p{margin:0;font-size:14.5px;line-height:1.75;color:#5b554f}
 @media(max-width:900px){html body.kds-case #app .kds-baseline-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){html body.kds-case #app .kds-baseline-grid{grid-template-columns:1fr;gap:22px}}
 html body.kiosk-case #app .insight-feature .insight-feature-copy p strong{color:#24211f;font-weight:700}
+/* KDS competitor table mapped to first-gen problems */
+html body.kds-case #app .kca-wrap{margin:26px 0 0;overflow-x:auto}
+html body.kds-case #app .kca-table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.6;min-width:640px}
+html body.kds-case #app .kca-table th,html body.kds-case #app .kca-table td{text-align:left;vertical-align:top;padding:14px 12px;border-bottom:1px solid #e2dcd5}
+html body.kds-case #app .kca-table thead th{font-size:12px;font-weight:800;color:#8a8178;border-bottom:1px solid #24211f}
+html body.kds-case #app .kca-table tbody th{font-weight:700;color:#24211f;width:24%}
+html body.kds-case #app .kca-table tbody th b{display:block;color:#c9643f;font-size:13px;font-weight:800;margin-bottom:2px}
+html body.kds-case #app .kca-table td{color:#5b554f}
+html body.kds-case #app .kca-table td.kca-out{color:#b0583a;font-weight:700}
+html body.kds-case #app .kca-table tr.kca-extra th,html body.kds-case #app .kca-table tr.kca-extra td{color:#8a8178}
+html body.kds-case #app .kca-table tr.kca-extra td.kca-out{color:#b0583a}
+html body.kds-case #app .kds-competitor-analysis .kds-research-turn{margin-top:32px!important}
+@media(max-width:700px){html body.kds-case #app .kca-table{min-width:0;font-size:14px}html body.kds-case #app .kca-table thead{display:none}html body.kds-case #app .kca-table tr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 10px;padding:14px 0;border-bottom:1px solid #e2dcd5}html body.kds-case #app .kca-table th,html body.kds-case #app .kca-table td{border:0;padding:0}html body.kds-case #app .kca-table tbody th{grid-column:1/-1;width:auto;margin-bottom:4px}html body.kds-case #app .kca-table td.kca-out{grid-column:1/-1;margin-top:4px}html body.kds-case #app .kca-table td[data-l]:before{content:attr(data-l);display:block;font-size:11px;font-weight:800;color:#8a8178}}
