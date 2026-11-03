@@ -2906,3 +2906,15 @@ html body #app .case-close--plain>article{padding-top:56px!important}
 @media(max-width:760px){html body #app .phrase-wrap,html body #app h1,html body #app h2,html body #app h3,html body #app h4{word-break:normal!important;overflow-wrap:break-word!important;text-wrap:wrap!important}}
 html body.kds-case #app .kds-competitor-findings h4 .h-num{display:inline-block;font-size:inherit!important;letter-spacing:0!important;font-weight:800!important;margin-right:.45em;color:#c9643f;font-variant-numeric:tabular-nums}
 html body.kds-case #app .kds-competitor-findings p strong{color:#24211f;font-weight:700}
+/* KIOSK competitor table */
+html body.kiosk-case #app .kiosk-comp{margin:72px 0 0}
+html body.kiosk-case #app .kiosk-comp>p{margin:10px 0 22px;font-size:15px;line-height:1.75;color:#5b554f}
+html body.kiosk-case #app .kiosk-comp table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.6}
+html body.kiosk-case #app .kiosk-comp th,html body.kiosk-case #app .kiosk-comp td{text-align:left;vertical-align:top;padding:13px 12px;border-bottom:1px solid #e2dcd5}
+html body.kiosk-case #app .kiosk-comp thead th{font-size:12px;font-weight:800;color:#8a8178;border-bottom:1px solid #24211f}
+html body.kiosk-case #app .kiosk-comp tbody th{font-weight:700;color:#24211f;width:38%}
+html body.kiosk-case #app .kiosk-comp .kc-pct{font-weight:800;color:#c9643f;white-space:nowrap;width:14%}
+html body.kiosk-case #app .kiosk-comp td:last-child{color:#5b554f}
+html body.kiosk-case #app .kc-int{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:999px;background:#f3e3da;color:#9b5236;font-style:normal;font-size:11px;font-weight:800;vertical-align:2px;white-space:nowrap}
+@media(max-width:700px){html body.kiosk-case #app .kiosk-comp th,html body.kiosk-case #app .kiosk-comp td{padding:11px 6px;font-size:14px}html body.kiosk-case #app .kiosk-comp tbody th{width:auto}}
+html body.kiosk-case #app .kiosk-comp>h3{font-size:clamp(26px,2.8vw,34px);line-height:1.35;letter-spacing:-.035em;font-weight:800;color:#1f1d1b;padding-left:14px;border-left:4px solid #d0704f;margin:0}
