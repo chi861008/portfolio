@@ -107,3 +107,4 @@
 .home-mode .dark-band .band-contact .portfolio-contact-group{align-items:flex-start!important;align-self:flex-start!important}
 .home-mode .dark-band .band-contact .portfolio-contact-group:has(.portfolio-resume-primary){flex-direction:row!important;flex-wrap:wrap;gap:12px 28px!important}
 }
+html body.home-mode .portfolio-contact-section{background:#f9f9f7!important}
