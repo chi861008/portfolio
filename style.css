@@ -2982,3 +2982,11 @@ html body.kiosk-case #app #research .insight-feature--decision{grid-template-col
 /* Insight illustrations: no card, line art sits directly on the page */
 html body #app :is(.kiosk-illus,.pil-illus,.kds-insight-figure.kds-illus img){border-radius:0!important;background:transparent!important;box-shadow:none!important}
 html body #app :is(figure:has(.kiosk-illus),figure:has(.pil-illus),.kds-insight-figure.kds-illus){background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+
+/* Separate MVP scoping from the later interface-review contribution. */
+html body.kds-case .kds-review-transition{margin-top:clamp(80px,9vw,120px);margin-bottom:28px;max-width:850px}
+html body.kds-case .kds-review-transition>span{display:block;color:var(--accent,#d0704f);font-size:11px;font-weight:700;letter-spacing:.13em;margin-bottom:14px}
+html body.kds-case .kds-review-transition h3{font-size:clamp(28px,3.4vw,40px);line-height:1.25;letter-spacing:-.035em;margin:0}
+html body.kds-case .kds-review-transition+.kds-proactive-story{margin-top:0;margin-bottom:32px}
+html body.kds-case .kds-proactive-story h4{font-size:clamp(22px,2.6vw,30px);line-height:1.35;margin:0 0 14px}
+@media(max-width:640px){html body.kds-case .kds-review-transition{margin-top:72px;margin-bottom:24px}}
