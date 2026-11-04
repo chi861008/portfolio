@@ -2968,3 +2968,5 @@ html body.kds-case #app .kds-insight-figure.kds-illus{display:flex;align-items:c
 html body.kds-case #app .kds-insight-figure.kds-illus img{display:block;width:100%;max-width:440px;height:auto;border-radius:16px}
 html body.kds-case #app .kds-insight-figure.kds-illus{padding:0;background:none!important}
 html body.kds-case #app .kds-insight-figure.kds-illus img{max-width:none;border-radius:16px;aspect-ratio:auto}
+html body.scheduling-case #app .schedule-insight-figure:has(.pil-illus){padding:0!important;background:none!important;border:0!important}
+html body.scheduling-case #app .pil-illus{display:block;width:100%;height:auto;border-radius:16px}
