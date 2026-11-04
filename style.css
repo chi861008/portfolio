@@ -2950,3 +2950,16 @@ html body.kds-case #app .kca-table tbody th{width:28%}
 html body.kds-case #app .kca-table tr.kca-group th{padding:26px 12px 8px;font-size:13px;font-weight:800;color:#24211f;letter-spacing:.02em;border-bottom:1px solid #24211f;background:none}
 html body.kds-case #app .kca-table tbody tr.kca-group:first-child th{padding-top:14px}
 @media(max-width:700px){html body.kds-case #app .kca-table tr.kca-group{display:block;padding:20px 0 6px;border-bottom:1px solid #24211f}html body.kds-case #app .kca-table tr.kca-group th{padding:0;border:0}}
+/* KDS competitor: table for first-gen problems, cards for other practices */
+html body.kds-case #app .kca-sub{font-size:19px;line-height:1.45;font-weight:800;color:#24211f;margin:34px 0 4px}
+html body.kds-case #app .kca-sub+.kca-cards{margin-top:16px}
+html body.kds-case #app .kca-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0}
+html body.kds-case #app .kca-cards article{background:#f1ede8;border-radius:14px;padding:22px 22px 20px}
+html body.kds-case #app .kca-cards h5{margin:0 0 10px;font-size:17px;line-height:1.4;color:#24211f}
+html body.kds-case #app .kca-cards p{margin:0;font-size:14.5px;line-height:1.75;color:#5b554f}
+html body.kds-case #app .kca-cards p.kca-take{margin-top:12px;color:#b0583a;font-weight:700}
+html body.kds-case #app .kca-cards p.kca-take b{color:#b0583a}
+@media(max-width:860px){html body.kds-case #app .kca-cards{grid-template-columns:1fr}}
+html body.kds-case #app .kca-table{table-layout:fixed}
+html body.kds-case #app .kca-table thead th:nth-child(1){width:26%}html body.kds-case #app .kca-table thead th:nth-child(2){width:26%}html body.kds-case #app .kca-table thead th:nth-child(3){width:20%}html body.kds-case #app .kca-table thead th:nth-child(4){width:28%}
+@media(max-width:700px){html body.kds-case #app .kca-table{table-layout:auto}}
