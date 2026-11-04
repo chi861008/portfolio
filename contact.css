@@ -108,3 +108,13 @@
 .home-mode .dark-band .band-contact .portfolio-contact-group:has(.portfolio-resume-primary){flex-direction:row!important;flex-wrap:wrap;gap:12px 28px!important}
 }
 html body.home-mode .portfolio-contact-section{background:#f9f9f7!important}
+
+/* Touch devices keep a stable hand face; tapping opens the native mail link. */
+@media(hover:none),(pointer:coarse){
+ .contact-flip{touch-action:manipulation;-webkit-touch-callout:none;filter:none}
+ .contact-flip .contact-flip-inner,.contact-flip:is(:hover,:active,:focus-visible) .contact-flip-inner{transform:none;transform-style:flat;transition:none}
+ .contact-flip .contact-flip-back{display:none}
+ .contact-flip .contact-flip-front{transform:none;backface-visibility:visible;-webkit-backface-visibility:visible}
+ .contact-flip-section.is-visible .contact-flip-front img{animation-play-state:running}
+ .contact-flip:is(:active,.tap-feedback){filter:none;scale:.97}
+}
