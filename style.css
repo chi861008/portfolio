@@ -2976,3 +2976,5 @@ html body.kiosk-case #app .insight-feature{border-top:0!important;border-bottom:
 html body.kiosk-case #app .insight-feature figure:has(.kiosk-illus){width:100%!important;max-width:none!important;margin:0!important;align-self:start}
 html body.kiosk-case #app .insight-feature .kiosk-illus{max-width:none!important;max-height:none!important;object-fit:contain}
 html body.kiosk-case #app #research .insight-feature--decision{grid-template-columns:minmax(0,.465fr) minmax(0,.535fr)!important}@media(max-width:760px){html body.kiosk-case #app #research .insight-feature--decision{grid-template-columns:1fr!important}}
+/* Mobile: insight illustrations a little smaller */
+@media(max-width:760px){html body #app :is(.kiosk-illus,.pil-illus,.kds-insight-figure.kds-illus img){width:86%!important;margin:0 auto!important}}
