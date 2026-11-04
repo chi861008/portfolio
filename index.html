@@ -19,6 +19,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap"></noscript>
 
+<style id="mobile-resume-navigation">
+.nav-resume-mobile{display:none}
+@media(max-width:650px){
+ html body .nav-links [data-nav="work"]{display:none!important}
+ html body .nav-links [data-nav="resume"]{display:inline-flex!important;align-items:center;justify-content:center;min-height:38px;padding:8px 11px;border:1px solid currentColor;border-radius:0;font-size:12px;font-weight:600;line-height:1.2;white-space:nowrap;text-decoration:none}
+ .nav-resume-desktop{display:none}.nav-resume-mobile{display:inline}
+ html body .nav-links{gap:10px}
+ html body .nav-links [data-nav="resume"]:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+}
+</style>
 </head>
 <body>
   <div id="opening-shell" aria-hidden="true"><img src="./hero-enhanced-1920x1080.jpg?v=20261029-hq" alt="" fetchpriority="high" decoding="async"></div>
@@ -26,7 +36,7 @@
     <a class="brand" href="#/" aria-label="Yuan Chi Chang — 回到首頁"><img class="brand-mark" src="./yuan-chi-mark.svg?v=3" alt="" width="38" height="44" /><span class="brand-portfolio">PORTFOLIO / 2026</span></a>
     <nav class="nav-links" aria-label="主選單">
       <a href="#/work" data-nav="work">Selected Work</a>
-      <a href="./resume-zh.html?v=bio-restored-20261104" target="_blank" rel="noopener" data-nav="resume">Resume ↓</a>
+      <a href="./resume-zh.html?v=20261104-toolbar" target="_blank" rel="noopener" data-nav="resume" title="開啟履歷，可列印或儲存 PDF"><span class="nav-resume-desktop">Resume ↓</span><span class="nav-resume-mobile">履歷下載</span></a>
       <button class="language-toggle" type="button" id="language-toggle" aria-label="Switch website language to English" title="Switch to English"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21M12 3c-2.5 2.6-3.8 5.6-3.8 9S9.5 18.4 12 21"/></svg><span class="language-destination" aria-hidden="true">EN</span></button>
     </nav>
   </header>
@@ -39,6 +49,6 @@
   <script src="./hero-image-data.js?v=20261029-hq"></script>
   <script src="./hero-back-data.js?v=20261029toast2"></script>
   <script>window.HERO_BACK_IMAGE = './yuan-chi-hero-flip-back.png?v=20261029-coral-fix';</script>
-  <script src="./script.js?v=20261104-bio-restored"></script>
+  <script src="./script.js?v=20261104-mobile-resume"></script>
 </body>
 </html>
