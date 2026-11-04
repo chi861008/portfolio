@@ -188,7 +188,10 @@ function addScrollSignature(){
   for(const path of paths){const length=path.getTotalLength();path.dataset.length=length;path.dataset.start=total;total+=length;path.style.strokeDasharray=length;path.style.strokeDashoffset=length;}
   signature.dataset.totalLength=total;
 }
+let contactBadgeObserver=null;
 function addContactFlip(){
+  contactBadgeObserver?.disconnect();
+  contactBadgeObserver=null;
   if(!document.body.classList.contains('home-mode'))return;
   const section=document.createElement('section');
   section.className='contact-flip-section';
@@ -198,17 +201,14 @@ function addContactFlip(){
   const badge=section.querySelector('.contact-flip');
   const hand=section.querySelector('.contact-flip-front img');
   if(badge&&hand&&'IntersectionObserver' in window){
-    const observer=new IntersectionObserver(entries=>{
+    contactBadgeObserver=new IntersectionObserver(entries=>{
       if(entries[0].isIntersecting){
-        hand.style.animation='none';
-        void hand.offsetWidth;
-        hand.style.animation='';
         section.classList.add('is-visible');
       }else{
         section.classList.remove('is-visible');
       }
     },{threshold:.3});
-    observer.observe(badge);
+    contactBadgeObserver.observe(badge);
   }else{
     section.classList.add('is-visible');
   }
