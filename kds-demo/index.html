@@ -287,6 +287,8 @@ function order(type,table,ageMin,items,o){
   o=o||{}; ono+=o.skip||1;
   return Object.assign({id:seq++,no:String(ono).padStart(4,"0"),table,ref:"#"+(1230+seq),type,t0:now()-ageMin*MIN-Math.floor(Math.random()*40000),items,note:"",status:"active"},o);
 }
+const highlightMode=new URLSearchParams(location.search).get("highlight");
+const cleanHighlight=highlightMode==="views"||highlightMode==="recover";
 const S={
   tab:"active", view:"order", station:"all", paused:false, settings:null, panel:false, dd:false, notes:{}, toast:null, newIds:new Set(),
   cfg:{schedLead:30,autoClose:false,autoMin:30,showSet:true,font:"normal",cols:3,sound:"default",refresh:5,warnO:5,warnR:10,colO:"orange",colR:"red"},
@@ -306,6 +308,7 @@ S.orders.push(order("外帶","—",0,[mk("海鮮披薩",2),mk("綠茶",2,["無�
 S.orders.push(order("內用","2F-3",0,[mk("提拉米蘇",3),mk("美式咖啡",3,["熱"])],{status:"sched",pickup:now()+120*MIN}));
 /* fix seq numbers to read 01.. in each list */
 
+if(cleanHighlight){S.orders.forEach(o=>{o.items=o.items.filter(i=>i.state!=="void");});}
 /* ---------- helpers ---------- */
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const pad2=n=>String(n).padStart(2,"0");
@@ -544,6 +547,47 @@ render();
   addEventListener("message",function(e){var k=e.data&&e.data.demoGo;if(P[k]){try{P[k]();}catch(err){console.error(err);}}});
   window.__demoReady=true;
 })();
+
+/* Isolated portfolio scenarios: no cancelled items in views or recovery. */
+if(cleanHighlight){
+ clearInterval(tick);
+ S.paused=true;
+ const initialOrders=JSON.stringify(S.orders);
+ function resetHighlight(){
+  clearTimeout(toastT);
+  S.orders=JSON.parse(initialOrders);S.restored.clear();S.newIds.clear();
+  S.toast=null;S.tab="active";S.view="order";S.panel=false;S.dd=false;render();
+ }
+ function restoreHighlight(){
+  const o=S.orders.find(o=>o.status==="done");
+  if(!o)return;
+  o.status="active";o.t0=now();
+  o.items.forEach(i=>{i.state="todo";i.gone=false;S.restored.add(o.id+":"+i.id);});
+  S.tab="active";S.view="order";S.toast=null;render();
+ }
+ const scenes=highlightMode==="views"?[
+  resetHighlight,
+  ()=>{S.view="cat";render();},
+  ()=>{S.view="prod";render();},
+  ()=>{S.view="order";render();}
+ ]:[
+  resetHighlight,
+  ()=>{const o=S.orders.find(o=>o.status==="active");if(o){bump(o);S.toast=null;render();}},
+  ()=>{S.tab="done";S.view="order";render();},
+  restoreHighlight
+ ];
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches){
+  resetHighlight();
+  if(highlightMode==="views"){S.view="prod";render();}else restoreHighlight();
+ }else{
+  let frame=0;
+  function advance(){
+   if(!document.hidden){scenes[frame]();frame=(frame+1)%scenes.length;}
+   setTimeout(advance,2400);
+  }
+  advance();
+ }
+}
 
 })();
 </script>
