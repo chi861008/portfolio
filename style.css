@@ -2947,3 +2947,6 @@ html body.kds-case #app .kds-insight-feature{border-top:0!important;border-botto
 html body.kds-case #app .kds-user-insights{border:0!important}
 html body.kds-case #app .kca-table tbody th{width:28%}
 @media(max-width:700px){html body.kds-case #app .kca-table tr{grid-template-columns:1fr 1fr!important}}
+html body.kds-case #app .kca-table tr.kca-group th{padding:26px 12px 8px;font-size:13px;font-weight:800;color:#24211f;letter-spacing:.02em;border-bottom:1px solid #24211f;background:none}
+html body.kds-case #app .kca-table tbody tr.kca-group:first-child th{padding-top:14px}
+@media(max-width:700px){html body.kds-case #app .kca-table tr.kca-group{display:block;padding:20px 0 6px;border-bottom:1px solid #24211f}html body.kds-case #app .kca-table tr.kca-group th{padding:0;border:0}}
