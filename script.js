@@ -58,7 +58,7 @@ sec('reflection','05 / OUTCOME & REFLECTION','研究成果、關鍵反思與下�
 }
 
 const schedulingIllustration=(kind,en=false)=>{
- const pilImg={priority:1,exchange:2,mutual:3}[kind];if(pilImg){const alt=[["老師在平板上排課，先安排熟悉的固定學生", "老師深夜逐一傳訊息通知學生，學生隔天準時到教室", "老師把空出的課丟到群組，另一位老師接手"], ["The instructor schedules on a tablet, placing familiar regulars first", "She messages each student late at night; students arrive on time", "An open slot shared to the group is picked up by another instructor"]][en?1:0][pilImg-1];return '<img class="pil-illus" loading="lazy" src="./assets/pilates-insight-'+pilImg+'.webp?v=1" alt="'+alt+'">';}
+ const pilImg={priority:1,exchange:2,mutual:3}[kind];if(pilImg){const alt=[["老師在平板上排課，先安排熟悉的固定學生", "老師深夜逐一傳訊息通知學生，學生隔天準時到教室", "老師把空出的課丟到群組，另一位老師接手"], ["The instructor schedules on a tablet, placing familiar regulars first", "She messages each student late at night; students arrive on time", "An open slot shared to the group is picked up by another instructor"]][en?1:0][pilImg-1];return '<img class="pil-illus" loading="lazy" src="./assets/pilates-insight-'+pilImg+'.webp?v=2" alt="'+alt+'">';}
  const zh={
   priority:['先排','穩定、感情好的學生','再排','能上時間少的學生','最後','其他學生','每人至少 2 堂原老師','有人要上 5–8 堂'],
   exchange:['老師付出','整月排好每位學生','手打通知 30–60 人','學生回報','照著上課','取消變少'],
