@@ -2966,3 +2966,5 @@ html body.kds-case #app .kca-table thead th:nth-child(1){width:26%}html body.kds
 /* KDS insight illustrations */
 html body.kds-case #app .kds-insight-figure.kds-illus{display:flex;align-items:center;justify-content:center;padding:28px}
 html body.kds-case #app .kds-insight-figure.kds-illus img{display:block;width:100%;max-width:440px;height:auto;border-radius:16px}
+html body.kds-case #app .kds-insight-figure.kds-illus{padding:0;background:none!important}
+html body.kds-case #app .kds-insight-figure.kds-illus img{max-width:none;border-radius:16px;aspect-ratio:auto}
