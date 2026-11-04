@@ -2978,3 +2978,7 @@ html body.kiosk-case #app .insight-feature .kiosk-illus{max-width:none!important
 html body.kiosk-case #app #research .insight-feature--decision{grid-template-columns:minmax(0,.465fr) minmax(0,.535fr)!important}@media(max-width:760px){html body.kiosk-case #app #research .insight-feature--decision{grid-template-columns:1fr!important}}
 /* Mobile: insight illustrations a little smaller */
 @media(max-width:760px){html body #app :is(.kiosk-illus,.pil-illus,.kds-insight-figure.kds-illus img){width:86%!important;margin:0 auto!important}}
+
+/* Insight illustrations: no card, line art sits directly on the page */
+html body #app :is(.kiosk-illus,.pil-illus,.kds-insight-figure.kds-illus img){border-radius:0!important;background:transparent!important;box-shadow:none!important}
+html body #app :is(figure:has(.kiosk-illus),figure:has(.pil-illus),.kds-insight-figure.kds-illus){background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}
