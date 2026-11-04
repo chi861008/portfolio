@@ -2963,3 +2963,6 @@ html body.kds-case #app .kca-cards p.kca-take b{color:#b0583a}
 html body.kds-case #app .kca-table{table-layout:fixed}
 html body.kds-case #app .kca-table thead th:nth-child(1){width:26%}html body.kds-case #app .kca-table thead th:nth-child(2){width:26%}html body.kds-case #app .kca-table thead th:nth-child(3){width:20%}html body.kds-case #app .kca-table thead th:nth-child(4){width:28%}
 @media(max-width:700px){html body.kds-case #app .kca-table{table-layout:auto}}
+/* KDS insight illustrations */
+html body.kds-case #app .kds-insight-figure.kds-illus{display:flex;align-items:center;justify-content:center;padding:28px}
+html body.kds-case #app .kds-insight-figure.kds-illus img{display:block;width:100%;max-width:440px;height:auto;border-radius:16px}
