@@ -2970,3 +2970,9 @@ html body.kds-case #app .kds-insight-figure.kds-illus{padding:0;background:none!
 html body.kds-case #app .kds-insight-figure.kds-illus img{max-width:none;border-radius:16px;aspect-ratio:auto}
 html body.scheduling-case #app .schedule-insight-figure:has(.pil-illus){padding:0!important;background:none!important;border:0!important}
 html body.scheduling-case #app .pil-illus{display:block;width:100%;height:auto;border-radius:16px}
+html body.kiosk-case #app .insight-feature figure:has(.kiosk-illus){padding:0!important;background:none!important;border:0!important}
+html body.kiosk-case #app .insight-feature .kiosk-illus{display:block;width:100%;height:auto;border-radius:16px}
+html body.kiosk-case #app .insight-feature{border-top:0!important;border-bottom:0!important}
+html body.kiosk-case #app .insight-feature figure:has(.kiosk-illus){width:100%!important;max-width:none!important;margin:0!important;align-self:start}
+html body.kiosk-case #app .insight-feature .kiosk-illus{max-width:none!important;max-height:none!important;object-fit:contain}
+html body.kiosk-case #app #research .insight-feature--decision{grid-template-columns:minmax(0,.465fr) minmax(0,.535fr)!important}@media(max-width:760px){html body.kiosk-case #app #research .insight-feature--decision{grid-template-columns:1fr!important}}
